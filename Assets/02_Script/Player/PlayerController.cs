@@ -34,9 +34,11 @@ public class PlayerController : FSM_Controller<EnumPlayerState>
 
         var move = new PlayerMoveState(this);
         var jump = new PlayerJumpState(this);
+        var flip = new PlayerFlipState(this);
 
         AddState(move, EnumPlayerState.Move);
         AddState(jump, EnumPlayerState.Move);
+        AddState(flip, EnumPlayerState.Move);
 
         ChangeState(startState);
 
