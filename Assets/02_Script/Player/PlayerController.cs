@@ -35,10 +35,14 @@ public class PlayerController : FSM_Controller<EnumPlayerState>
         var move = new PlayerMoveState(this);
         var jump = new PlayerJumpState(this);
         var flip = new PlayerFlipState(this);
+        var cam = new PlayerCameraPivotMovementState(this);
+        var feedback = new PlayerMoveFeedbackState(this);
 
         AddState(move, EnumPlayerState.Move);
         AddState(jump, EnumPlayerState.Move);
         AddState(flip, EnumPlayerState.Move);
+        AddState(cam, EnumPlayerState.Move);
+        AddState(feedback, EnumPlayerState.Move);
 
         ChangeState(startState);
 

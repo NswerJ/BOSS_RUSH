@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DefaultValue
   m_EditorClassIdentifier: 
   <MoveSpeed>k__BackingField:
-    value: 3
+    value: 6
   <JumpPower>k__BackingField:
     value: 10

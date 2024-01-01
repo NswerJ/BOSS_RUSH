@@ -8,7 +8,7 @@ public class PlayerInputController : IDisposable
 
     public event Action JumpKeyPressdEvent;
 
-    public Vector2 LastInputVector { get; private set; }
+    public Vector2 LastInputVector { get; private set; } = Vector2.left;
     public Vector2 InputVector { get; private set; }
 
     public void Update()
