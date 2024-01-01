@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7296375911985684849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2683911ef9566a45a51596db210e9a8, type: 3}
+  m_Name: FAED_RootNode
+  m_EditorClassIdentifier: 
+  guid: 8c50204550037c34791b2f298f5df1df
+  editorPos:
+    serializedVersion: 2
+    x: 569.6
+    y: 343.2
+    width: 156
+    height: 83.19998
+  children: {fileID: -1523177205880986104}
+--- !u!114 &-1523177205880986104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d46c54971e5f24d99b14c091af8f12, type: 3}
+  m_Name: FAED_SelectorNode
+  m_EditorClassIdentifier: 
+  guid: ccbbcfd0afdd5e24eb5937eae8c3ff83
+  editorPos:
+    serializedVersion: 2
+    x: 486.4
+    y: 551.19995
+    width: 247.19998
+    height: 108.80005
+  childrens:
+  - {fileID: 4881578480928206324}
+  - {fileID: 1375588155193454650}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2168c5020484e24385bf6d1738d82d0, type: 3}
+  m_Name: NewBehaviorTree
+  m_EditorClassIdentifier: 
+  behaviorTree: {fileID: 2419744583562068380}
+  connectData:
+  - inputGuid: ccbbcfd0afdd5e24eb5937eae8c3ff83
+    outputGuid: 8c50204550037c34791b2f298f5df1df
+  - inputGuid: 30dadccd5f7fa634bac30aa4660bebb9
+    outputGuid: ccbbcfd0afdd5e24eb5937eae8c3ff83
+  - inputGuid: 2d09fe80379380741bad1bd1ee0fa10d
+    outputGuid: ccbbcfd0afdd5e24eb5937eae8c3ff83
+--- !u!114 &1375588155193454650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863ce1675c1a268409ca1c238fe6c283, type: 3}
+  m_Name: FAED_DebugNode
+  m_EditorClassIdentifier: 
+  guid: 2d09fe80379380741bad1bd1ee0fa10d
+  editorPos:
+    serializedVersion: 2
+    x: 805.6
+    y: 752.8
+    width: 228
+    height: 83.20001
+  debugText: 123
+--- !u!114 &2419744583562068380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5912eec2f50f2458054b931bb9ea2e, type: 3}
+  m_Name: AI
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -7296375911985684849}
+  - {fileID: -1523177205880986104}
+  - {fileID: 4881578480928206324}
+  - {fileID: 1375588155193454650}
+  rootNode: {fileID: -7296375911985684849}
+--- !u!114 &4881578480928206324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863ce1675c1a268409ca1c238fe6c283, type: 3}
+  m_Name: FAED_DebugNode
+  m_EditorClassIdentifier: 
+  guid: 30dadccd5f7fa634bac30aa4660bebb9
+  editorPos:
+    serializedVersion: 2
+    x: 484
+    y: 743.19995
+    width: 228
+    height: 84
+  debugText: 33
