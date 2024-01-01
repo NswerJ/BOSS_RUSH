@@ -39,6 +39,8 @@ public class HitFeedbackPlayer : MonoBehaviour
     public void Play(float damage)
     {
 
+        FAED.TakePool<DamageText>("DamageText", transform.position + (Vector3)Random.insideUnitCircle).Set(damage);
+
         MaterialFeedback();
 
     }
