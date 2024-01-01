@@ -17,7 +17,7 @@ public class PlayerEventSystem : IDisposable
 
     }
 
-    public void DashEventExecute()
+    public void JumpEventExecute()
     {
 
         JumpEvent?.Invoke();

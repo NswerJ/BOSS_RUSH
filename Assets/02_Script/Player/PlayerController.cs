@@ -30,9 +30,25 @@ public class PlayerController : FSM_Controller<EnumPlayerState>
         playerInputController = new();
         playerEventSystem = new();
 
+        AddState<PlayerState>(new PlayerIdleState(this), EnumPlayerState.Idle);
+
+        var move = new PlayerMoveState(this);
+        var jump = new PlayerJumpState(this);
+
+        AddState(move, EnumPlayerState.Move);
+        AddState(jump, EnumPlayerState.Move);
+
         ChangeState(startState);
 
     }
 
+    protected override void Update()
+    {
+        
+        base.Update();
+
+        playerInputController.Update();
+
+    }
 
 }

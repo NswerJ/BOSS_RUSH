@@ -8,7 +8,7 @@ public class Stats
 
     [SerializeField] private float value;
 
-    private List<float> modify;
+    private List<float> modify = new();
 
     public void AddMod(float value)
     {
