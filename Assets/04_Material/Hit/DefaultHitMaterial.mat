@@ -427,8 +427,8 @@ Material:
     - _UVRotateSpeed: 1
     - _VertexTintFirst: 0
     - _VibrateFade: 0
-    - _VibrateFrequency: 100
-    - _VibrateOffset: 0.04
+    - _VibrateFrequency: 104.8
+    - _VibrateOffset: 0.1
     - _VibrateRotation: 4
     - _WiggleFade: 1
     - _WiggleFixedGroundToggle: 0
