@@ -5,9 +5,12 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StageDoor : MonoBehaviour
 {
+    [SerializeField] Image _blackImage;
+
     TextMeshProUGUI _doorTxt;
     Canvas _canvas;
 
@@ -24,7 +27,7 @@ public class StageDoor : MonoBehaviour
     {
         if(isCollision && Input.GetKeyDown(KeyCode.F))
         {
-            SceneManager.LoadScene(transform.name);
+            StartCoroutine(DoFadeAndChangeScene());
         }
     }
 
@@ -45,5 +48,12 @@ public class StageDoor : MonoBehaviour
             _doorTxt.text = "";
             isCollision = false;
         }
+    }
+
+    IEnumerator DoFadeAndChangeScene()
+    {
+        _blackImage.DOFade(1, 2f);
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(transform.name);
     }
 }

@@ -17,6 +17,7 @@ public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
     private TMP_Text text;
     private float per;
     private bool isHover;
+    public bool IsHover => isHover;
 
     private void Awake()
     {
