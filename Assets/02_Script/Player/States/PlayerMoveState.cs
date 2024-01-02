@@ -8,10 +8,26 @@ using UnityEngine;
 public class PlayerMoveState : PlayerState
 {
 
+    private bool dashAble = true;
     private bool isDashCool;
 
     public PlayerMoveState(PlayerController controller) : base(controller)
     {
+
+        groundSencer.OnTriggerd += HandleDashAble;
+
+    }
+
+    private void HandleDashAble(bool obj)
+    {
+
+        if (obj)
+        {
+
+            dashAble = true;
+
+        }
+
     }
 
     protected override void EnterState()
@@ -31,8 +47,9 @@ public class PlayerMoveState : PlayerState
     private void HandleDashKeyPressed()
     {
 
-        if (isDashCool) return;
+        if (isDashCool || !dashAble) return;
         isDashCool = true;
+        dashAble = false;
 
         controller.ChangeState(EnumPlayerState.Dash);
 
@@ -49,6 +66,13 @@ public class PlayerMoveState : PlayerState
     {
 
         Move();
+
+        if(isGround && !dashAble && rigid.velocity.y <= 0)
+        {
+
+            dashAble = true;
+
+        }
 
     }
 
