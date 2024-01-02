@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void HitFeedback(float old, float changed)
+
 [RequireComponent(typeof(HitFeedbackPlayer))]
 public class HitObject : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class HitObject : MonoBehaviour
 
     private HitFeedbackPlayer hitPlayer;
 
-    public float hp { get; protected set; }
+    public float hp { get; set; }
 
     public event Action DieEvent;
     public event Action HitEvent;
