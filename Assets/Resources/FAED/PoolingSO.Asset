@@ -19,4 +19,7 @@ MonoBehaviour:
   - poolingKey: DamageText
     poolingObject: {fileID: 2035879966458775288, guid: 9d4d95624d547f94994cff053c282094, type: 3}
     poolCount: 100
+  - poolingKey: HitEffect
+    poolingObject: {fileID: 511481575815213148, guid: a0cd4c872f2255f4790304fbecac4e0b, type: 3}
+    poolCount: 50
   scenePoolingObjects: []
