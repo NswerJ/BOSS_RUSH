@@ -26,7 +26,14 @@ public class PlayerDashState : PlayerState
         rigid.gravityScale = 0;
         animator.Dash();
 
-        rigid.velocity = playerInputController.LastInputVector * 50;
+        var mpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        var dir = (mpos - transform.position).normalized;
+        dir.z = 0;
+
+        var dashDir = dir.x < 0 ? Vector2.left : Vector2.right;
+
+        rigid.velocity = dashDir * 50;
 
         dashParticle.transform.localScale = spriteRenderer.flipX ? new Vector2(-1, 1) : new Vector2(1, 1);
         dashParticle.Play();

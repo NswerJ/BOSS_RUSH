@@ -20,6 +20,18 @@ public class PlayerJumpState : PlayerState
 
     }
 
+    protected override void UpdateState()
+    {
+
+        if (isGround && rigid.velocity.y <= 0)
+        {
+
+            jumpCnt = 2;
+
+        }
+
+    }
+
     private void HandleTrigger(bool obj)
     {
 
