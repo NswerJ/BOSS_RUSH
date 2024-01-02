@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerJumpState : PlayerState
 {
 
-    private int jumpCnt;
+    private int jumpCnt = 2;
 
     public PlayerJumpState(PlayerController controller) : base(controller)
     {
