@@ -2,7 +2,6 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Water2D;
 
 public class SwordBossController : MonoBehaviour
 {
@@ -10,9 +9,11 @@ public class SwordBossController : MonoBehaviour
     [SerializeField] SpriteRenderer visual;
     [SerializeField] ParticleSystem particle;
 
+    [SerializeField] GameObject warningObj;
     [SerializeField] GameObject portal;
     [SerializeField] GameObject bullet;
 
+    private WarningImg warningImg;
     private GameObject player;
     private Rigidbody2D rigid;
     private Collider2D col;
@@ -21,7 +22,7 @@ public class SwordBossController : MonoBehaviour
 
     private void Awake()
     {
-
+        warningImg = warningObj.GetComponent<WarningImg>();
         rigid = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
 
@@ -64,7 +65,16 @@ public class SwordBossController : MonoBehaviour
 
             }
 
-            ChangeIdle();
+            Vector3 pos = new Vector3(Random.Range(-15f, 15f), Random.Range(-4f, 6f));
+            Debug.Log(warningImg);
+            warningImg.gameObject.transform.position = pos;
+            warningImg.ResetLifeTime();
+
+            yield return new WaitForSeconds(0.3f);
+
+            transform.rotation = Quaternion.identity;
+            transform.position = pos;
+            SetVisible(true);
 
             yield return new WaitForSeconds(3f);
 
@@ -113,12 +123,22 @@ public class SwordBossController : MonoBehaviour
 
             yield return new WaitForSeconds(delay);
             particle.Stop();
-
-
             SetVisible(false);
+
+
             yield return new WaitForSeconds(1f);
 
-            ChangeIdle();
+            Vector3 nextPos = new Vector3(Random.Range(-15f, 15f), Random.Range(-4f, 6f));
+            Debug.Log(warningImg);
+            warningImg.gameObject.transform.position = nextPos;
+            warningImg.ResetLifeTime();
+
+            yield return new WaitForSeconds(0.3f);
+
+            transform.position = nextPos;
+            transform.rotation = Quaternion.identity;
+
+            SetVisible(true);
 
         }
 
@@ -209,23 +229,23 @@ public class SwordBossController : MonoBehaviour
 
     }
 
-    private void ChangeIdle()
-    {
+    //private void ChangeIdle()
+    //{
 
-        Vector3 pos = new Vector3(Random.Range(-15f, 15f), Random.Range(-4f, 6f));
-        transform.position = pos;
-        transform.rotation = Quaternion.identity;
-        SetVisible(true);
+    //    Vector3 pos = new Vector3(Random.Range(-15f, 15f), Random.Range(-4f, 6f));
+    //    transform.position = pos;
+    //    Debug.Log(warningImg);
+    //    warningImg.gameObject.transform.position = pos;
+    //    warningImg.ResetLifeTime();
+    //    transform.rotation = Quaternion.identity;
+    //    SetVisible(true);
 
-    }
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
         if (collision.CompareTag("Player"))
         {
-
-            Debug.Log("2");
             if (collision.TryGetComponent<HitObject>(out HitObject ho))
             {
                 Debug.Log("µû½Ã");
