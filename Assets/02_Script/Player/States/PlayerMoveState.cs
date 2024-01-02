@@ -1,4 +1,5 @@
 using FSM_System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,27 @@ public class PlayerMoveState : PlayerState
 {
     public PlayerMoveState(PlayerController controller) : base(controller)
     {
+    }
+
+    protected override void EnterState()
+    {
+
+        playerInputController.DashKeyPressdEvent += HandleDashKeyPressed;
+
+    }
+
+    protected override void ExitState()
+    {
+
+        playerInputController.DashKeyPressdEvent -= HandleDashKeyPressed;
+
+    }
+
+    private void HandleDashKeyPressed()
+    {
+
+        controller.ChangeState(EnumPlayerState.Dash);
+
     }
 
     protected override void UpdateState()
