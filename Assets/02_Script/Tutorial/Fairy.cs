@@ -21,9 +21,15 @@ public class Fairy : MonoBehaviour
     public void Show()
     {
 
-        transform.position = fairyPos.position;
-        
         StartCoroutine(ShowCo(true));
+
+    }
+
+
+    private void Update()
+    {
+
+        transform.position = fairyPos.position;
 
     }
 

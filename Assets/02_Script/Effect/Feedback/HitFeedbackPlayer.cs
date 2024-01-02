@@ -16,7 +16,7 @@ public class HitFeedbackPlayer : MonoBehaviour
     private void Awake()
     {
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
     }
 
