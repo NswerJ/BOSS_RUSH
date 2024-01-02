@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 421602349}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 430168181}
   - component: {fileID: 430168182}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,8 +102,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1918658749
+  m_SortingLayer: 2
   m_SortingOrder: -10
   m_Sprite: {fileID: 716410589, guid: 8f75ba058c031ec4696652aebb84bcd2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -125,7 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1422636122}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FlipPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1707853890}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FairyPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2021598112}
   - component: {fileID: 2021598113}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 2947384580775052803}
   - component: {fileID: 2947384580775052802}
   - component: {fileID: 2947384580775052813}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundSencer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2947384581141145030}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2947384581816589050}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: JumpParticlePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 781910122}
   - component: {fileID: 8226217954213877171}
   - component: {fileID: 5364009097482739441}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -451,8 +451,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1918658749
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -893439800, guid: ce332e8066d635c4fb0c2d7524c71de7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -636,9 +636,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 4721441463187334683, guid: 66725c09af3c1df4884507ed424bbd78, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4721441463303411296, guid: 66725c09af3c1df4884507ed424bbd78, type: 3}
       propertyPath: m_Name
       value: TextBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721441463303411296, guid: 66725c09af3c1df4884507ed424bbd78, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4721441463303411296, guid: 66725c09af3c1df4884507ed424bbd78, type: 3}
       propertyPath: m_IsActive
@@ -762,6 +770,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerWalkParicle
       objectReference: {fileID: 0}
+    - target: {fileID: 4788451372852981063, guid: 863ea10f74060434dad84c5e73e647eb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301238124978660772, guid: 863ea10f74060434dad84c5e73e647eb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5301238124978660772, guid: 863ea10f74060434dad84c5e73e647eb, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -785,6 +801,10 @@ PrefabInstance:
     - target: {fileID: 5451986282718045495, guid: 863ea10f74060434dad84c5e73e647eb, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899566839804234503, guid: 863ea10f74060434dad84c5e73e647eb, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7513183837847548504, guid: 863ea10f74060434dad84c5e73e647eb, type: 3}
       propertyPath: ShapeModule.m_Scale.x
