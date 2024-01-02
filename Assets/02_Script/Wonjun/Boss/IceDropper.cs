@@ -6,6 +6,7 @@ public class IceDropper : MonoBehaviour
 {
     Rigidbody2D rb;
     public float DropSpeed;
+    public float Damage = 10f;
 
 
     private void Start()
@@ -22,8 +23,8 @@ public class IceDropper : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            //플레이어 닿으면 피 닳게 
-            Destroy(gameObject);
+            HitObject pHit = collision.GetComponent<HitObject>();
+            pHit.TakeDamage(Damage);
         }
     }
 }

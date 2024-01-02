@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponImage: {fileID: -985064250, guid: 8f75ba058c031ec4696652aebb84bcd2, type: 3}
   attackPrefab: {fileID: 0}
-  AttackPower: 4000
+  AttackPower: 100
   AttackCool: 0.5
   isAttackCoolDown: 0

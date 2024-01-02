@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class IceSpear : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float Damage = 100f;
+
+
+    private void Start()
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            HitObject pHit = collision.GetComponent<HitObject>();
+            pHit.TakeDamage(Damage);
+        }
     }
 }

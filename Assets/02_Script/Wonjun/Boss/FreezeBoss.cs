@@ -20,6 +20,7 @@ public class FreezeBoss : MonoBehaviour
     IceAttack iceAttack;
     HitObject BossHit;
     CapsuleCollider2D BossCol;
+    public GameObject HillEffect;
 
     Animator anim;
 
@@ -112,9 +113,11 @@ public class FreezeBoss : MonoBehaviour
             FreezeTime = 0;
             if (!iceAttackTarget)
             {
+                GameObject hillEffect = Instantiate(HillEffect, transform.position, Quaternion.identity);
                 iceAttack.IceObjectTarget(true);
                 iceAttackTarget = true;
                 iceAttack.IceBlockHp = 1;
+                Destroy(hillEffect, 0.5f);
             }
             if (BossHp <= 10000)
             {
@@ -162,9 +165,11 @@ public class FreezeBoss : MonoBehaviour
             BossCol.enabled = false;
             if (!iceAttackTarget)
             {
+                GameObject hillEffect = Instantiate(HillEffect, transform.position, Quaternion.identity);
                 iceAttack.IceObjectTarget(true);
                 iceAttackTarget = true;
                 iceAttack.IceBlockHp = 1;
+                Destroy(hillEffect, 0.5f);
             }
             if (BossHp <= 10000)
             {

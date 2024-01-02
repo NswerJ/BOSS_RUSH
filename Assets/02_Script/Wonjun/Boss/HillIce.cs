@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class HillIce : MonoBehaviour
 {
+    public GameObject IceBlockEffect;
     IceAttack iceAttack;
     public float iceHp;
     HitObject hitObject;
@@ -24,11 +25,13 @@ public class HillIce : MonoBehaviour
 
     private void HillStop()
     {
+        GameObject iceEffect = Instantiate(IceBlockEffect, transform.position, Quaternion.identity);
         Debug.Log("dsd");
         iceAttack.HillExit();
         iceAttack.IceObjectTarget(false);
         iceHp = 0;
         Hill = false;
+        Destroy(iceEffect, 1.4f);
     }
 
     // Update is called once per frame

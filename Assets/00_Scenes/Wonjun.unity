@@ -296,6 +296,7 @@ MonoBehaviour:
   HillCool: 2
   Phase2Hill: 500
   Phase3Hill: 200
+  HillEffect: {fileID: 5089912075557022076, guid: 25c0145fd9293fa4bab2507e71b0a86e, type: 3}
 --- !u!95 &87697786
 Animator:
   serializedVersion: 5
@@ -378,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2956a9b6e443ca0458507d2976d602ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHP>k__BackingField: 10000
+  <maxHP>k__BackingField: 2000
   defecnces:
     value: 0
 --- !u!1 &98055781
@@ -748,6 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d40dc77c6a84514a83382dd42d0b954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IceBlockEffect: {fileID: 7057786419782648457, guid: 5c647d8c2f6af8f48a9ec167ef174d9c, type: 3}
   iceHp: 1
   Hill: 0
 --- !u!114 &582275982
@@ -1297,7 +1299,7 @@ MonoBehaviour:
   - {fileID: 1699341727}
   - {fileID: 582275977}
   IceBlock: {fileID: 4467303556542426601, guid: 2de951e99f9d90348953f56dafc9967c, type: 3}
-  BulletSpeed: 10
+  BulletSpeed: 15
   BulletPos: {x: 0, y: 0, z: 0}
   Target: {fileID: 899595703}
   IceDropPos:
@@ -1314,7 +1316,7 @@ MonoBehaviour:
   - {fileID: 1583165634}
   WarnigRazer: {fileID: 3580564148276737240, guid: 661084bcfb9cd53409393960680e881e, type: 3}
   icedrop: {fileID: 8762872035223243118, guid: 7ef7d3096b820554d8a98f0be4168f8a, type: 3}
-  IceSpear: {fileID: 7379454749512126864, guid: 2d3dfe43507e02a42870648e96c579a9, type: 3}
+  IceSpear: {fileID: 3487456337288530055, guid: 2d3dfe43507e02a42870648e96c579a9, type: 3}
   WarnigIceSpear: {fileID: 7755369039012096015, guid: 8add2ef3eb35ca4448b3f19c8be6634f, type: 3}
   IceBlockHp: 1
   list: []
@@ -1392,6 +1394,7 @@ GameObject:
   - component: {fileID: 1642939647}
   - component: {fileID: 1642939646}
   - component: {fileID: 1642939645}
+  - component: {fileID: 1642939648}
   m_Layer: 0
   m_Name: IceSpike
   m_TagString: Untagged
@@ -1885,6 +1888,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1642939648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642939643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afb4121078365c4d92e1cfbc2389f24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 100000
 --- !u!1 &1643205065
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,6 +2055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d40dc77c6a84514a83382dd42d0b954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IceBlockEffect: {fileID: 7057786419782648457, guid: 5c647d8c2f6af8f48a9ec167ef174d9c, type: 3}
   iceHp: 1
   Hill: 0
 --- !u!114 &1699341732
@@ -3697,6 +3714,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5364009097482739441, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
+      propertyPath: <maxHP>k__BackingField
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
 --- !u!1 &2073991733
@@ -3822,6 +3843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d40dc77c6a84514a83382dd42d0b954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IceBlockEffect: {fileID: 7057786419782648457, guid: 5c647d8c2f6af8f48a9ec167ef174d9c, type: 3}
   iceHp: 1
   Hill: 0
 --- !u!114 &2073991738
@@ -4021,6 +4043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d40dc77c6a84514a83382dd42d0b954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IceBlockEffect: {fileID: 7057786419782648457, guid: 5c647d8c2f6af8f48a9ec167ef174d9c, type: 3}
   iceHp: 1
   Hill: 0
 --- !u!114 &2122475022
