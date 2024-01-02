@@ -14,7 +14,7 @@ public class IceAttack : MonoBehaviour
 
     [SerializeField] private Transform[] IceDropPos;
     [SerializeField] private GameObject WarnigRazer;
-    [SerializeField] private GameObject iceSpear;
+    [SerializeField] private GameObject icedrop;
     private GameObject[] Razer;
 
     private int BulletPosCount = 1;
@@ -215,19 +215,19 @@ public class IceAttack : MonoBehaviour
             Destroy(razer);
         }
 
-        List<GameObject> iceSpears = new List<GameObject>();
+        List<GameObject> iceDrops = new List<GameObject>();
         for (int i = 0; i < IceDropPos.Length; i++)
         {
-            GameObject iceSpearInstance = Instantiate(iceSpear, IceDropPos[i].position, Quaternion.identity);
-            iceSpears.Add(iceSpearInstance);
+            GameObject iceDropInstance = Instantiate(icedrop, IceDropPos[i].position, Quaternion.identity);
+            iceDrops.Add(iceDropInstance);
             yield return new WaitForSeconds(0.1f);
         }
 
         yield return new WaitForSeconds(0.5f);
 
-        for (int i = 0; i < iceSpears.Count; i++)
+        for (int i = 0; i < iceDrops.Count; i++)
         {
-            Destroy(iceSpears[i]);
+            Destroy(iceDrops[i]);
         }
     }
 
@@ -238,5 +238,30 @@ public class IceAttack : MonoBehaviour
     public void Paze3Pattern()
     {
         StartCoroutine(AttackPattern());
+        StartCoroutine(SecondAttackPattern());
+        StartCoroutine(ThirdAttackPattern());
     }
+
+    private IEnumerator ThirdAttackPattern()
+    {
+        while (true)
+        {
+            if (!isSecondAttacking)
+            {
+                isSecondAttacking = true;
+
+                //yield return StartCoroutine(ThirdAttackSequence());
+
+                yield return new WaitForSeconds(5f);
+
+                isSecondAttacking = false;
+            }
+            yield return null;
+        }
+    }
+
+    /*private IEnumerator ThirdAttackSequence()
+    {
+
+    }*/
 }

@@ -16,6 +16,7 @@ public class StartIceBoss : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             freezeBoss.phase1 = true;
+            Destroy(gameObject);
         }
     }
 }

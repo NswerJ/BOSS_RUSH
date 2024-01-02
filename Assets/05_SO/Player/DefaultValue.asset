@@ -15,4 +15,4 @@ MonoBehaviour:
   <MoveSpeed>k__BackingField:
     value: 6
   <JumpPower>k__BackingField:
-    value: 15
+    value: 20

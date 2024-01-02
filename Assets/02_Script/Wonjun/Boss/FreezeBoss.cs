@@ -11,6 +11,8 @@ public class FreezeBoss : MonoBehaviour
     public bool phase3 = false;
     public float FreezeTime = 20;
     public float HillCool = 2;
+    public float Phase2Hill = 50;
+    public float Phase3Hill = 200;
     bool iceAttackTarget = false;
     private float nextIncreaseTime = 0;
     IceAttack iceAttack;
@@ -91,7 +93,7 @@ public class FreezeBoss : MonoBehaviour
             }
             if (BossHp < 10000)
             {
-                float increaseRate = 20f;
+                float increaseRate = Phase2Hill;
                 float increaseInterval = 2f;
                 iceAttack.HillExit();
                 anim.SetBool("Hill", true);
@@ -139,7 +141,7 @@ public class FreezeBoss : MonoBehaviour
             }
             if (BossHp < 10000)
             {
-                float increaseRate = 100f;
+                float increaseRate = Phase3Hill;
                 float increaseInterval = 1f;
                 iceAttack.HillExit();
                 anim.SetBool("Hill", true);
