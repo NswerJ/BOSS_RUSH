@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDieCheck : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class PlayerDieCheck : MonoBehaviour
     {
         if(hitObject.hp <= 0 && !isdie)
         {
+            StartCoroutine(IsDie());
             isdie = true;
         }
 
@@ -24,5 +27,12 @@ public class PlayerDieCheck : MonoBehaviour
         {
             isdie = false;
         }
+    }
+
+    IEnumerator IsDie()
+    {
+        yield return new WaitForSeconds(1.5f);
+        DataManager.Instance.PlayerDie();
+        SceneManager.LoadScene("Main");
     }
 }
