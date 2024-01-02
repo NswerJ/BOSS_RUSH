@@ -11,6 +11,16 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private WeaponDataSO data;
 
+    public WeaponDataSO Data
+    {
+        get { return data; }
+        set
+        {
+            data = value;
+            spriteRenderer.sprite = data.weaponImage;
+        }
+    }
+
     private PlayerEventSystem playerEventSystem;
     private PlayerController playerController;
     private SpriteRenderer spriteRenderer;
@@ -41,6 +51,7 @@ public class WeaponController : MonoBehaviour
 
     }
 
+
     private void Rotate()
     {
 
@@ -51,7 +62,7 @@ public class WeaponController : MonoBehaviour
 
         spriteRenderer.flipY = dir.x > 0;
 
-        if(dir.x > 0)
+        if (dir.x > 0)
         {
 
             flipPoint.localScale = new Vector2(-1, 1);
@@ -71,7 +82,7 @@ public class WeaponController : MonoBehaviour
     private void Attack()
     {
 
-        if(Input.GetMouseButtonDown(0) && !isCool)
+        if (Input.GetMouseButtonDown(0) && !isCool)
         {
 
             isCool = true;
@@ -92,10 +103,10 @@ public class WeaponController : MonoBehaviour
 
             }, data.AttackCool);
 
-            if(hits.Length > 0)
+            if (hits.Length > 0)
             {
 
-                foreach( var hit in hits)
+                foreach (var hit in hits)
                 {
 
                     hit.GetComponent<HitObject>().TakeDamage(data.AttackPower);
