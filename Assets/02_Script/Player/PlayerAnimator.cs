@@ -57,4 +57,18 @@ public class PlayerAnimator : MonoBehaviour
 
     }
 
+    public void Dash()
+    {
+
+        animator.SetTrigger(HASH_DASH);
+
+    }
+
+    public void DashEnd()
+    {
+
+        animator.SetTrigger(HASH_DASH_END);
+
+    }
+
 }

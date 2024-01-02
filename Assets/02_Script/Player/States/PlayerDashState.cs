@@ -8,12 +8,13 @@ public class PlayerDashState : PlayerState
     private ParticleSystem dashParticle;
     private AddGravity addGravity;
     private Coroutine coroutine;
+    private PlayerAnimator animator;
 
     public PlayerDashState(PlayerController controller) : base(controller)
     {
 
         addGravity = GetComponent<AddGravity>();
-
+        animator = GetComponent<PlayerAnimator>();
         dashParticle = transform.Find("DashParticle").GetComponent<ParticleSystem>();
 
     }
@@ -23,6 +24,7 @@ public class PlayerDashState : PlayerState
 
         addGravity.enabled = false;
         rigid.gravityScale = 0;
+        animator.Dash();
 
         rigid.velocity = playerInputController.LastInputVector * 50;
 
@@ -39,6 +41,7 @@ public class PlayerDashState : PlayerState
         rigid.gravityScale = 1;
         addGravity.enabled = true;
         StopCoroutine(coroutine);
+        animator.DashEnd();
         dashParticle.Stop();
         coroutine = null;
 

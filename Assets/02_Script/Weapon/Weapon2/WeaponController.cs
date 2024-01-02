@@ -14,6 +14,7 @@ public class WeaponController : MonoBehaviour
     private Transform point;
     private Transform flipPoint;
     private SpriteRenderer spriteRenderer;
+    private PlayerController playerController;
     private bool isCool;
 
     private void Start()
@@ -22,11 +23,14 @@ public class WeaponController : MonoBehaviour
         point = transform.Find("Point");
         flipPoint = point.Find("FlipPoint");
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        playerController = FindObjectOfType<PlayerController>();
 
     }
 
     private void Update()
     {
+
+        if (playerController.CurrentState != EnumPlayerState.Move) return;
 
         Rotate();
         Attack();
