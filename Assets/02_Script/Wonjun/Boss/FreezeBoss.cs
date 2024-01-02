@@ -53,13 +53,12 @@ public class FreezeBoss : MonoBehaviour
 
     private void Phase1()
     {
+        iceAttack.Paze1Pattern();
         if (BossHp <= 6000)
         {
             phase1 = false;
             phase2 = true;
         }
-        iceAttack.Paze1Pattern();
-
     }
 
     private void Phase2()

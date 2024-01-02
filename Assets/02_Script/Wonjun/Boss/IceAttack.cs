@@ -7,9 +7,16 @@ public class IceAttack : MonoBehaviour
     public GameObject[] attacker;
     public GameObject IceBlock;
     public Transform Target;
+    public float BulletSpeed = 10f;
+    [SerializeField] private List<GameObject> list;
 
     private int currentAttackerIndex = 0;
     private bool isAttacking = false;
+
+    private void Awake()
+    {
+        list = new List<GameObject>();
+    }
 
     public void Paze1Pattern()
     {
@@ -23,10 +30,10 @@ public class IceAttack : MonoBehaviour
             if (!isAttacking)
             {
                 isAttacking = true;
-
+                
                 yield return StartCoroutine(AttackSequence());
 
-                yield return new WaitForSeconds(4f); 
+                yield return new WaitForSeconds(1f); 
 
                 isAttacking = false;
             }
@@ -38,21 +45,31 @@ public class IceAttack : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            GameObject ice = Instantiate(IceBlock, attacker[currentAttackerIndex].transform.position, Quaternion.identity);
-            ice.transform.LookAt(Target);
 
-            /*Rigidbody2D iceRB = ice.GetComponent<Rigidbody2D>();
-            if (iceRB != null)
-            {
-                iceRB.velocity = ice.transform.forward * 10f;
-            }*/
+            list.Add(Instantiate(IceBlock, attacker[currentAttackerIndex].transform.position, Quaternion.identity));
 
-            yield return new WaitForSeconds(0.5f);
+            var dir = (Target.position - list[i].transform.position).normalized;
 
-            yield return new WaitForSeconds(1f); 
-
-            currentAttackerIndex = (currentAttackerIndex + 1) % attacker.Length; 
+            list[i].transform.up = dir;
+            
+            yield return new WaitForSeconds(.2f); 
         }
+
+        for (int i = 0; i < 4; i++)
+        {
+            Rigidbody2D iceRb = list[i].GetComponent<Rigidbody2D>(); 
+
+            if( iceRb != null )
+            {
+                iceRb.velocity = list[i].transform.forward * BulletSpeed;
+            }
+            else
+            {
+                Debug.Log("¾ø¾î");
+            }
+        }
+        currentAttackerIndex = (currentAttackerIndex + 1) % attacker.Length;
+        yield return new WaitForSeconds(.4f);
     }
 
     public void Paze2Pattern()

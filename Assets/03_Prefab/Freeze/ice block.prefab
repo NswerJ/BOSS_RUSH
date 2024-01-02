@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4467303556542426602}
   - component: {fileID: 2522044930375018173}
   - component: {fileID: 2472481019097583060}
+  - component: {fileID: 7272770972418703437}
   m_Layer: 0
   m_Name: ice block
   m_TagString: Untagged
@@ -133,3 +134,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7272770972418703437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4467303556542426601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df7a77329316d74a8edf3086fa2b4c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
