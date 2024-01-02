@@ -40,6 +40,7 @@ public class HitFeedbackPlayer : MonoBehaviour
     {
 
         FAED.TakePool<DamageText>("DamageText", transform.position + (Vector3)Random.insideUnitCircle).Set(damage);
+        FAED.TakePool<EffectParticle>("HitEffect", transform.position + (Vector3)Random.insideUnitCircle).PlayParticle();
 
         MaterialFeedback();
 
