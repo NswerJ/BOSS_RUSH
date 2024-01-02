@@ -6,6 +6,7 @@ using UnityEngine;
 public class IceHit : MonoBehaviour
 {
     BoxCollider2D boxCol;
+    public float Damange;
     private void Awake()
     {
         boxCol = GetComponent<BoxCollider2D>();
@@ -17,14 +18,14 @@ public class IceHit : MonoBehaviour
     {
         yield return new WaitForSeconds(.9f);
         boxCol.enabled = true;
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            HitObject pHit = collision.GetComponent<HitObject>();
+            pHit.TakeDamage(Damange);
         }
     }
 }
