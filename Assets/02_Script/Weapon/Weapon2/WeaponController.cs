@@ -26,12 +26,14 @@ public class WeaponController : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         playerController = FindObjectOfType<PlayerController>();
         playerEventSystem = playerController.playerEventSystem;
+        spriteRenderer.sprite = data.weaponImage;
 
     }
 
     private void Update()
     {
 
+        if (Time.timeScale == 0) return;
         if (playerController.CurrentState != EnumPlayerState.Move) return;
 
         Rotate();
