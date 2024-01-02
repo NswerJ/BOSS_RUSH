@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 1384159739}
   - component: {fileID: 1384159738}
   - component: {fileID: 1384159740}
+  - component: {fileID: 1384159741}
   m_Layer: 0
   m_Name: Scarecrow
   m_TagString: Untagged
@@ -220,6 +221,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee24674e8f84f8b49b7a3a17b6ff3fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1384159741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384159737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2956a9b6e443ca0458507d2976d602ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 10000
+  defecnces:
+    value: 0
 --- !u!1 &1714472895
 GameObject:
   m_ObjectHideFlags: 0

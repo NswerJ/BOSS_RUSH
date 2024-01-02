@@ -7,6 +7,7 @@ public class PlayerInputController : IDisposable
 {
 
     public event Action JumpKeyPressdEvent;
+    public event Action DashKeyPressdEvent;
 
     public Vector2 LastInputVector { get; private set; } = Vector2.left;
     public Vector2 InputVector { get; private set; }

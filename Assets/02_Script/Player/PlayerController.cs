@@ -8,6 +8,7 @@ public enum EnumPlayerState
 
     Idle, //움직임이 불가능 할때
     Move, //움직임이 가능할 때
+    Dash
 
 }
 
@@ -74,6 +75,18 @@ public class PlayerController : FSM_Controller<EnumPlayerState>
     {
 
         ChangeState(EnumPlayerState.Move);
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        foreach(var state in GetState(currentState))
+        {
+
+            (state as PlayerState).CollisonEnter();
+
+        }
 
     }
 
