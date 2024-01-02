@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DataManager : DontDestroyOnLoad
 {
@@ -23,5 +24,15 @@ public class DataManager : DontDestroyOnLoad
         {
             Destroy(gameObject);
         }
+    }
+
+    public void Main()
+    {
+        SceneManager.LoadScene("IntroScene");
+    }
+
+    public void InitAndMain()
+    {
+        Main();
     }
 }
