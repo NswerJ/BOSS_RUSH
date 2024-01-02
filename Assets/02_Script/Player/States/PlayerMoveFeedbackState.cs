@@ -21,7 +21,7 @@ public class PlayerMoveFeedbackState : PlayerState
     protected override void EnterState()
     {
 
-        groundSencer.OnTriggerd += HandleTriggerd;
+        playerEventSystem.JumpEvent += HandleOnJump;
 
     }
 
@@ -53,7 +53,7 @@ public class PlayerMoveFeedbackState : PlayerState
 
     }
 
-    private void HandleTriggerd(bool obj)
+    private void HandleOnJump()
     {
 
         FAED.TakePool("Player_JumpParticle", jumpParticlePivot.position);
@@ -63,7 +63,8 @@ public class PlayerMoveFeedbackState : PlayerState
     protected override void ExitState()
     {
 
-        groundSencer.OnTriggerd -= HandleTriggerd;
+        playerEventSystem.JumpEvent -= HandleOnJump;
+        walkParticle.Stop();
 
     }
 

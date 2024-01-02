@@ -29,6 +29,9 @@ public class PlayerAnimator : MonoBehaviour
     private void HandleTriggerd(bool ground)
     {
 
+        animator.ResetTrigger(HASH_GROUND);
+        animator.ResetTrigger(HASH_NOT_GROUNT);
+
         if (ground)
         {
 

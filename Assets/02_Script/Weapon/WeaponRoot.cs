@@ -13,7 +13,7 @@ public abstract class WeaponRoot : MonoBehaviour
     {
         target = transform.position;
         Data = Instantiate(Data);
-        Data.Init(this);
+        //Data.Init(this);
     }
 
     public abstract void DoAttack(Vector3 mousePoint);
@@ -28,7 +28,7 @@ public abstract class WeaponRoot : MonoBehaviour
         if (!Data.isAttackCoolDown && MousePoint != null && Input.GetMouseButton(0))
         {
 
-            Data.SetCoolDown();
+            //Data.SetCoolDown();
             DoAttack(MousePoint);
 
         }

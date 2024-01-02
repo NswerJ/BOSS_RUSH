@@ -28,4 +28,11 @@ public abstract class PlayerState : FSM_State<EnumPlayerState>
 
     }
 
+    public virtual void CollisonEnter()
+    {
+
+
+
+    }
+
 }
