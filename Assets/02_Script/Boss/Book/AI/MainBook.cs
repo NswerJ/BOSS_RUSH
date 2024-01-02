@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 using Random = UnityEngine.Random;
 
 public class MainBook : MonoBehaviour
@@ -118,7 +117,9 @@ public class MainBook : MonoBehaviour
             {
                 moveAngle -= 180;
                 dir *= -1;
-                yield return new WaitForSeconds(2f);
+                speed += 3;
+                yield return new WaitForSeconds(5f);
+                speed -= 3;
             }
 
             yield return new WaitForSeconds(0.1f);

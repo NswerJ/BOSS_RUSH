@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2956a9b6e443ca0458507d2976d602ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHP>k__BackingField: 0
+  <maxHP>k__BackingField: 500
   defecnces:
     value: 0
 --- !u!1 &9199161510780962272
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d374b30beaeddbf4cb097ccf5ee4cebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHP>k__BackingField: 0
+  <maxHP>k__BackingField: 99999
   defecnces:
     value: 99999
   _root: {fileID: 9199161511749082498}

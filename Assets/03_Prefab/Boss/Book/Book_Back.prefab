@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5338441647881526448}
   - component: {fileID: 1945048579213355792}
   - component: {fileID: 2718838470045492951}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Book_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d374b30beaeddbf4cb097ccf5ee4cebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 99999
+  <maxHP>k__BackingField: 99999
   defecnces:
     value: 99999
   _root: {fileID: 0}

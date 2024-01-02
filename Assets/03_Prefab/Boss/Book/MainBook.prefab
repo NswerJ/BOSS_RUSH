@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48defc91a4235ad40a83705c474f82b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHP>k__BackingField: 0
+  <maxHP>k__BackingField: 5000
   defecnces:
     value: 0
 --- !u!61 &1193204968411395168
@@ -334,6 +334,10 @@ PrefabInstance:
       propertyPath: _root
       value: 
       objectReference: {fileID: 7418793852758295767}
+    - target: {fileID: 1945048579213355792, guid: f0b0979c9706b2c4ab892d9a90b600a0, type: 3}
+      propertyPath: <maxHP>k__BackingField
+      value: 99999
+      objectReference: {fileID: 0}
     - target: {fileID: 3764682302002103020, guid: f0b0979c9706b2c4ab892d9a90b600a0, type: 3}
       propertyPath: m_RootOrder
       value: 1

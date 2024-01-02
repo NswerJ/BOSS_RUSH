@@ -118,7 +118,7 @@ MonoBehaviour:
   _hitObjectTagNameList:
   - Ground
   - Player
-  _damage: 5
+  _damage: 1
   _hitAndDelete: 1
   _offsetZ: -180
   _moveSpeed: 10
