@@ -16,17 +16,20 @@ public class FreezeBoss : MonoBehaviour
     bool iceAttackTarget = false;
     private float nextIncreaseTime = 0;
     IceAttack iceAttack;
+    HitObject BossHit;
 
     Animator anim;
 
     private void Awake()
     {
+        BossHit = GetComponent<HitObject>();
         anim = GetComponent<Animator>();    
         iceAttack = GameObject.Find("IceAttack").GetComponent<IceAttack>();
         if(iceAttack != null )
         {
             Debug.Log("µé¾î¿È");
         }
+        BossHp = BossHit.maxHP;
     }
 
     private void Update()
