@@ -12,6 +12,8 @@ public class PlayerFlipState : PlayerState
     {
 
 
+        if (Time.timeScale == 0) return;
+
         var mpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         var dir = (mpos - transform.position).normalized;

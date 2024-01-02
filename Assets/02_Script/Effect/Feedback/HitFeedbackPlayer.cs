@@ -28,7 +28,7 @@ public class HitFeedbackPlayer : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
 
-            Play(Random.value);
+            GetComponent<HitObject>().TakeDamage(Random.value * 100);
 
         }
 

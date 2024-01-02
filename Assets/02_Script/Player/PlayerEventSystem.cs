@@ -7,7 +7,7 @@ public class PlayerEventSystem : IDisposable
 {
 
     public event Action<Vector2> MoveEvent;
-    public event Action AttackEvent;
+    public event Action<float> AttackEvent;
     public event Action JumpEvent;
 
     public void MoveEventExecute(Vector2 move)
@@ -24,10 +24,10 @@ public class PlayerEventSystem : IDisposable
 
     }
 
-    public void AttackEventExecute()
+    public void AttackEventExecute(float damage)
     {
 
-        AttackEvent?.Invoke();
+        AttackEvent?.Invoke(damage);
 
     }
 
