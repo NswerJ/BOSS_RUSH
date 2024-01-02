@@ -32,7 +32,7 @@ public class BookBossController : MonoBehaviour
 
     private void HandleDemonBookDie()
     {
-        _shuffle.ShuffleBook(_index);
+        _shuffle.ShuffleBook(_index - 1);
     }
 
     private void HandleHPTrigger(float hp)
@@ -40,9 +40,8 @@ public class BookBossController : MonoBehaviour
         if(hp <= _triggerHP[_index])
         {
             StopBossAI();
-            _shuffle.ShuffleBook(_index);
-
             _index++;
+            _shuffle.ShuffleBook(_index - 1);
         }
     }
 
