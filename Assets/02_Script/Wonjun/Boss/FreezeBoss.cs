@@ -6,7 +6,7 @@ using UnityEngine;
 public class FreezeBoss : MonoBehaviour
 {
     public float BossHp = 10000;
-    public bool phase1 = true;
+    public bool phase1 = false;
     public bool phase2 = false;
     public bool phase3 = false;
     public float FreezeTime = 20;
@@ -15,8 +15,11 @@ public class FreezeBoss : MonoBehaviour
     private float nextIncreaseTime = 0;
     IceAttack iceAttack;
 
+    Animator anim;
+
     private void Awake()
     {
+        anim = GetComponent<Animator>();    
         iceAttack = GameObject.Find("IceAttack").GetComponent<IceAttack>();
         if(iceAttack != null )
         {
@@ -26,6 +29,7 @@ public class FreezeBoss : MonoBehaviour
 
     private void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             BossHp -= 200;
@@ -73,6 +77,8 @@ public class FreezeBoss : MonoBehaviour
         {
             FreezeTime -= Time.deltaTime;
             iceAttackTarget = false;
+            anim.SetBool("Hill", false);
+
         }
         else
         {
@@ -87,8 +93,8 @@ public class FreezeBoss : MonoBehaviour
             {
                 float increaseRate = 20f;
                 float increaseInterval = 2f;
-               iceAttack.HillExit();
-
+                iceAttack.HillExit();
+                anim.SetBool("Hill", true);
 
                 if (Time.time > nextIncreaseTime)
                 {
@@ -119,6 +125,8 @@ public class FreezeBoss : MonoBehaviour
         {
             FreezeTime -= Time.deltaTime;
             iceAttackTarget = false;
+            anim.SetBool("Hill", false);
+
         }
         else
         {
@@ -134,6 +142,8 @@ public class FreezeBoss : MonoBehaviour
                 float increaseRate = 100f;
                 float increaseInterval = 1f;
                 iceAttack.HillExit();
+                anim.SetBool("Hill", true);
+
 
 
                 if (Time.time > nextIncreaseTime)

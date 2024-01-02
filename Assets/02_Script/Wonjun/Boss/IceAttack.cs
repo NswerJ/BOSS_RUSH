@@ -15,18 +15,21 @@ public class IceAttack : MonoBehaviour
     [SerializeField] private Transform[] IceDropPos;
     [SerializeField] private GameObject WarnigRazer;
     [SerializeField] private GameObject iceSpear;
-    
+    private GameObject[] Razer;
+
     private int BulletPosCount = 1;
     public float IceBlockHp = 1;
-    
+
     [SerializeField] private List<GameObject> list;
 
     private int currentAttackerIndex = 0;
     private bool isAttacking = false;
+    private bool isSecondAttacking = false;
 
     private void Awake()
     {
         list = new List<GameObject>();
+        Razer = new GameObject[IceDropPos.Length];
     }
 
     #region ∆‰¿Ã¡Ó 1
@@ -46,6 +49,7 @@ public class IceAttack : MonoBehaviour
                 yield return StartCoroutine(AttackSequence());
 
                 yield return new WaitForSeconds(1f);
+
 
                 isAttacking = false;
             }
@@ -179,15 +183,15 @@ public class IceAttack : MonoBehaviour
     {
         while (true)
         {
-            if (!isAttacking)
+            if (!isSecondAttacking)
             {
-                isAttacking = true;
+                isSecondAttacking = true;
 
                 yield return StartCoroutine(SecondAttackSequence());
 
                 yield return new WaitForSeconds(3f);
 
-                isAttacking = false;
+                isSecondAttacking = false;
             }
             yield return null;
         }
@@ -195,18 +199,40 @@ public class IceAttack : MonoBehaviour
 
     private IEnumerator SecondAttackSequence()
     {
-        for(int i=0; i<IceDropPos.Length; i++)
-        {
-            Instantiate(WarnigRazer, IceDropPos[i].position, Quaternion.identity);
-        }
-
-        yield return new WaitForSeconds(.8f);
+        List<GameObject> spawnedRazers = new List<GameObject>();
 
         for (int i = 0; i < IceDropPos.Length; i++)
         {
-            Instantiate(iceSpear, IceDropPos[i].position, Quaternion.identity);
+            GameObject currentRazer = Instantiate(WarnigRazer, IceDropPos[i].position, Quaternion.identity);
+            spawnedRazers.Add(currentRazer); 
+            yield return new WaitForSeconds(0.1f); 
+        }
+
+        yield return new WaitForSeconds(0.4f);
+
+        foreach (GameObject razer in spawnedRazers)
+        {
+            Destroy(razer);
+        }
+
+        List<GameObject> iceSpears = new List<GameObject>();
+        for (int i = 0; i < IceDropPos.Length; i++)
+        {
+            GameObject iceSpearInstance = Instantiate(iceSpear, IceDropPos[i].position, Quaternion.identity);
+            iceSpears.Add(iceSpearInstance);
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        for (int i = 0; i < iceSpears.Count; i++)
+        {
+            Destroy(iceSpears[i]);
         }
     }
+
+
+
     #endregion
 
     public void Paze3Pattern()
