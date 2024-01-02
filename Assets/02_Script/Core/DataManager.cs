@@ -42,21 +42,25 @@ public class DataManager : DontDestroyOnLoad
         Time.timeScale = 1f;
         _settingPanel.SetActive(false);
     }
-
     public void Main()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("IntroScene");
     }
-
     public void InitAndMain()
     {
         InitData();
         Main();
     }
 
+    public void PlayerDie()
+    {
+        PlayerPrefs.SetInt("File" + _dataIndex, PlayerPrefs.GetInt("File" + _dataIndex) + 1);
+    }
+
     private void InitData()
     {
         PlayerPrefs.SetInt("File" + _dataIndex, -1);
     }
+
 }
