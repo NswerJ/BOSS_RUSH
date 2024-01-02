@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7418793851771040828}
   - component: {fileID: 7418793851771040803}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 1193204968411395168}
   - component: {fileID: 603266525}
   - component: {fileID: 7358577765400775445}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Main_Book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48defc91a4235ad40a83705c474f82b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 200
+  <maxHP>k__BackingField: 0
   defecnces:
     value: 0
 --- !u!61 &1193204968411395168
@@ -282,7 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7418793852758295766}
   - component: {fileID: 7418793852758295767}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: MainBook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3764682302002103022, guid: f0b0979c9706b2c4ab892d9a90b600a0, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3764682302002103022, guid: f0b0979c9706b2c4ab892d9a90b600a0, type: 3}
       propertyPath: m_IsActive
