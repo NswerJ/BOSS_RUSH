@@ -52,17 +52,21 @@ public class FreezeBoss : MonoBehaviour
     }
     #region 페이즈
 
+    #region 페이즈 1
     private void Phase1()
     {
         iceAttack.Paze1Pattern();
-        
+
         if (BossHp <= 6000)
         {
+            FreezeTime = 0;
             phase1 = false;
             phase2 = true;
         }
     }
+    #endregion
 
+    #region 페이즈 2
     private void Phase2()
     {
         if (FreezeTime > 0)
@@ -101,39 +105,51 @@ public class FreezeBoss : MonoBehaviour
 
         if (BossHp <= 3000)
         {
+            FreezeTime = 0;
             phase2 = false;
             phase3 = true;
         }
         iceAttack.Paze2Pattern();
     }
-
+    #endregion
+    #region 페이즈 3
     private void Phase3()
     {
         if (FreezeTime > 0)
         {
             FreezeTime -= Time.deltaTime;
+            iceAttackTarget = false;
         }
         else
         {
             FreezeTime = 0;
-
+            if (!iceAttackTarget)
+            {
+                iceAttack.IceObjectTarget(true);
+                iceAttackTarget = true;
+                iceAttack.IceBlockHp = 1;
+            }
             if (BossHp < 10000)
             {
-                float increaseRate = 50f;
+                float increaseRate = 100f;
                 float increaseInterval = 1f;
+                iceAttack.HillExit();
+
 
                 if (Time.time > nextIncreaseTime)
                 {
                     nextIncreaseTime = Time.time + increaseInterval;
                     BossHp += increaseRate;
                 }
-            }
-            else
-            {
-                FreezeTime = 10;
+                if (iceAttack.IceBlockHp == 0)
+                {
+                    FreezeTime = 10;
+                    iceAttack.IceObjectTarget(false);
+                }
             }
         }
         iceAttack.Paze3Pattern();
     }
+    #endregion
     #endregion
 }

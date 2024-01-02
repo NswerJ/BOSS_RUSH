@@ -7,12 +7,18 @@ public class IceAttack : MonoBehaviour
 {
     public GameObject[] attacker;
     public GameObject IceBlock;
-    public Transform Target;
     public float BulletSpeed = 10f;
     public Vector3 BulletPos;
+    GameObject TargeticeBlock;
+    public Transform Target;
+
+    [SerializeField] private Transform[] IceDropPos;
+    [SerializeField] private GameObject WarnigRazer;
+    [SerializeField] private GameObject iceSpear;
+    
     private int BulletPosCount = 1;
     public float IceBlockHp = 1;
-    GameObject TargeticeBlock;
+    
     [SerializeField] private List<GameObject> list;
 
     private int currentAttackerIndex = 0;
@@ -120,12 +126,6 @@ public class IceAttack : MonoBehaviour
             Debug.Log("널");
         }
     }
-    #endregion
-
-    public void Paze2Pattern()
-    {
-        StartCoroutine(AttackPattern());
-    }
 
     public void IceObjectTarget(bool v)
     {
@@ -166,6 +166,48 @@ public class IceAttack : MonoBehaviour
             Debug.Log("sd");
         }
     }
+    #endregion
+
+    #region 페이즈 2
+    public void Paze2Pattern()
+    {
+        StartCoroutine(AttackPattern());
+        StartCoroutine(SecondAttackPattern());
+    }
+
+    private IEnumerator SecondAttackPattern()
+    {
+        while (true)
+        {
+            if (!isAttacking)
+            {
+                isAttacking = true;
+
+                yield return StartCoroutine(SecondAttackSequence());
+
+                yield return new WaitForSeconds(3f);
+
+                isAttacking = false;
+            }
+            yield return null;
+        }
+    }
+
+    private IEnumerator SecondAttackSequence()
+    {
+        for(int i=0; i<IceDropPos.Length; i++)
+        {
+            Instantiate(WarnigRazer, IceDropPos[i].position, Quaternion.identity);
+        }
+
+        yield return new WaitForSeconds(.8f);
+
+        for (int i = 0; i < IceDropPos.Length; i++)
+        {
+            Instantiate(iceSpear, IceDropPos[i].position, Quaternion.identity);
+        }
+    }
+    #endregion
 
     public void Paze3Pattern()
     {
