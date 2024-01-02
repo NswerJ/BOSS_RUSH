@@ -26,7 +26,14 @@ public class PlayerDashState : PlayerState
         rigid.gravityScale = 0;
         animator.Dash();
 
-        rigid.velocity = playerInputController.LastInputVector * 50;
+        var mpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        var dir = mpos - transform.position;
+        dir.z = 0;
+
+        Debug.Log(dir.normalized);
+
+        rigid.velocity = dir.normalized * 40;
 
         dashParticle.transform.localScale = spriteRenderer.flipX ? new Vector2(-1, 1) : new Vector2(1, 1);
         dashParticle.Play();
@@ -43,6 +50,7 @@ public class PlayerDashState : PlayerState
         StopCoroutine(coroutine);
         animator.DashEnd();
         dashParticle.Stop();
+        rigid.velocity = Vector2.zero;
         coroutine = null;
 
     }

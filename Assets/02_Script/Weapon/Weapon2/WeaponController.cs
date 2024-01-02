@@ -11,10 +11,11 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private WeaponDataSO data;
 
-    private Transform point;
-    private Transform flipPoint;
-    private SpriteRenderer spriteRenderer;
+    private PlayerEventSystem playerEventSystem;
     private PlayerController playerController;
+    private SpriteRenderer spriteRenderer;
+    private Transform flipPoint;
+    private Transform point;
     private bool isCool;
 
     private void Start()
@@ -24,12 +25,15 @@ public class WeaponController : MonoBehaviour
         flipPoint = point.Find("FlipPoint");
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         playerController = FindObjectOfType<PlayerController>();
+        playerEventSystem = playerController.playerEventSystem;
+        spriteRenderer.sprite = data.weaponImage;
 
     }
 
     private void Update()
     {
 
+        if (Time.timeScale == 0) return;
         if (playerController.CurrentState != EnumPlayerState.Move) return;
 
         Rotate();
@@ -78,6 +82,8 @@ public class WeaponController : MonoBehaviour
             point.transform.localPosition = point.transform.localPosition.y == 0 ? new Vector3(0f, -0.5f, 0) : new Vector3(0, 0, 0);
 
             var hits = Physics2D.OverlapBoxAll(transform.position - point.right * 1.5f, Vector2.one * 2, point.transform.eulerAngles.z, enemyLayer);
+
+            playerEventSystem.AttackEventExecute(data.AttackPower);
 
             FAED.InvokeDelay(() =>
             {

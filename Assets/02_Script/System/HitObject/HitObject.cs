@@ -3,17 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void HitFeedback(float hp, float maxHP);
+
 [RequireComponent(typeof(HitFeedbackPlayer))]
 public class HitObject : MonoBehaviour
 {
 
-    [field:SerializeField] public float maxHP { get; protected set; }
+    [field: SerializeField] public float maxHP { get; protected set; }
     [SerializeField] private Stats defecnces;
 
     private HitFeedbackPlayer hitPlayer;
 
     public float hp { get; set; }
+    protected bool _isActivated = true;
 
+    public event HitFeedback HitEventHpChanged;
     public event Action DieEvent;
     public event Action HitEvent;
 
@@ -32,6 +36,7 @@ public class HitObject : MonoBehaviour
 
         HitEvent?.Invoke();
 
+
         var value = damage - defecnces.GetValue();
 
         value = Mathf.Clamp(value, 0, float.MaxValue);
@@ -39,20 +44,32 @@ public class HitObject : MonoBehaviour
         hp -= value;
         hitPlayer.Play(value);
 
-        if(hp <= 0)
+        HitEventHpChanged?.Invoke(hp, maxHP);
+
+        if (hp <= 0)
         {
 
             DieEvent?.Invoke();
 
-            if(DieEvent == null)
+            if (DieEvent == null)
             {
 
                 Destroy(gameObject);
 
             }
-
+            ///
         }
 
+    }
+
+    public void SetHP(float value)
+    {
+        hp = value;
+    }
+
+    public void SetActivate(bool value)
+    {
+        _isActivated = value;
     }
 
 }
