@@ -51,20 +51,25 @@ public class IntroEventManager : MonoBehaviour
         Application.Quit();
     }
 
-    //IEnumerator FadeOutAndStart()
-    //{
+    public void StartGame(int num)
+    {
+        StartCoroutine(FadeOutAndStart());
+    }
 
-    //    blackImage.gameObject.SetActive(true);
-    //    blackImage.DOFade(1, 1f);
+    IEnumerator FadeOutAndStart()
+    {
 
-    //    yield return new WaitForSeconds(1.5f);
-    //    if (PlayerPrefs.GetInt("Tuto") == 0)
-    //    {
-    //        SceneManager.LoadScene("TutorialScene");
-    //    }
-    //    else
-    //    {
-    //        SceneManager.LoadScene("Main");
-    //    }
-    //}
+        blackImage.gameObject.SetActive(true);
+        blackImage.DOFade(1, 1f);
+
+        yield return new WaitForSeconds(1.5f);
+        if (PlayerPrefs.GetInt("Tuto") == 0)
+        {
+            SceneManager.LoadScene("TutorialScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("Main");
+        }
+    }
 }
