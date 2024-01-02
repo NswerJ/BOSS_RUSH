@@ -1,3 +1,4 @@
+using FD.Dev;
 using FSM_System;
 using System;
 using System.Collections;
@@ -6,6 +7,9 @@ using UnityEngine;
 
 public class PlayerMoveState : PlayerState
 {
+
+    private bool isDashCool;
+
     public PlayerMoveState(PlayerController controller) : base(controller)
     {
     }
@@ -27,7 +31,17 @@ public class PlayerMoveState : PlayerState
     private void HandleDashKeyPressed()
     {
 
+        if (isDashCool) return;
+        isDashCool = true;
+
         controller.ChangeState(EnumPlayerState.Dash);
+
+        FAED.InvokeDelay(() =>
+        {
+
+            isDashCool = false;
+
+        }, 0.7f);
 
     }
 
