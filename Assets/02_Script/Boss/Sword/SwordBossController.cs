@@ -10,7 +10,6 @@ public class SwordBossController : MonoBehaviour
     [SerializeField] SpriteRenderer visual;
     [SerializeField] ParticleSystem particle;
 
-    [SerializeField] GameObject pivot;
     [SerializeField] GameObject portal;
     [SerializeField] GameObject bullet;
 
@@ -149,7 +148,7 @@ public class SwordBossController : MonoBehaviour
     private IEnumerator RotateAttack()
     {
 
-        Debug.Log("rot");
+        //Debug.Log("rot");
 
         float originAngle = transform.rotation.eulerAngles.z;
         particle.Play();
@@ -175,7 +174,7 @@ public class SwordBossController : MonoBehaviour
     private void Shoot(float angle, Vector3 pos)
     {
 
-        Debug.Log(angle);
+        //Debug.Log(angle);
         GameObject obj = Instantiate(bullet, pos, Quaternion.identity);
         obj.transform.rotation = Quaternion.AngleAxis(angle, transform.forward);
 
@@ -218,5 +217,20 @@ public class SwordBossController : MonoBehaviour
         transform.rotation = Quaternion.identity;
         SetVisible(true);
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.name);
+        if (collision.CompareTag("Player"))
+        {
+
+            Debug.Log("2");
+            if (collision.TryGetComponent<HitObject>(out HitObject ho))
+            {
+                Debug.Log("µû½Ã");
+                ho.TakeDamage(20);
+            }
+        }
     }
 }

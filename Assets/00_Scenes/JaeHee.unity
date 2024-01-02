@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 304916857}
   - component: {fileID: 304916856}
   - component: {fileID: 304916859}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FollowEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5096,37 +5096,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &370691299
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 370691300}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &370691300
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 370691299}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1183525324}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &645239116
 GameObject:
   m_ObjectHideFlags: 0
@@ -5138,7 +5107,7 @@ GameObject:
   - component: {fileID: 645239118}
   - component: {fileID: 645239117}
   - component: {fileID: 645239119}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SwordBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5241,9 +5210,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 781910122, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2947384582077937981, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947384582077937982, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947384582077937982, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2947384582077937983, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
       propertyPath: m_RootOrder
@@ -5303,7 +5284,9 @@ GameObject:
   - component: {fileID: 1183525325}
   - component: {fileID: 1183525326}
   - component: {fileID: 1183525327}
-  m_Layer: 0
+  - component: {fileID: 1183525329}
+  - component: {fileID: 1183525328}
+  m_Layer: 3
   m_Name: SwordBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5323,7 +5306,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 645239118}
-  - {fileID: 370691300}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5342,7 +5324,6 @@ MonoBehaviour:
   center: {fileID: 338007469}
   visual: {fileID: 645239117}
   particle: {fileID: 304916857}
-  pivot: {fileID: 0}
   portal: {fileID: 571540740663012413, guid: e8c829ed976da4b40a6557f603ff2fdc, type: 3}
   bullet: {fileID: 4585616004759968657, guid: 1171a595cc63a5e4fb20aac2bc8ae2ad, type: 3}
 --- !u!50 &1183525326
@@ -5392,6 +5373,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &1183525328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183525323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2956a9b6e443ca0458507d2976d602ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 500
+  defecnces:
+    value: 0
+--- !u!114 &1183525329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183525323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee24674e8f84f8b49b7a3a17b6ff3fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1238907969
 GameObject:
   m_ObjectHideFlags: 0
@@ -5614,7 +5622,7 @@ GameObject:
   - component: {fileID: 2146272069}
   m_Layer: 0
   m_Name: Map
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

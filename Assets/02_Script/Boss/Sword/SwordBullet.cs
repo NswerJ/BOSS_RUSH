@@ -13,8 +13,13 @@ public class SwordBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // 플레이어 피 까줘야함
-        //Destroy(gameObject);
+        //Debug.Log("뚜시");
+        if (collision.CompareTag("Player"))
+            if (collision.TryGetComponent<HitObject>(out HitObject ho))
+            {
+                ho.TakeDamage(20);
+                Destroy(gameObject);
+            }
     }
 
 }
