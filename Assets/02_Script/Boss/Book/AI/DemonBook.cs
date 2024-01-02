@@ -100,7 +100,7 @@ public class DemonBook : MonoBehaviour
 
         if (_rageCount == 0)
         {
-            hit.SetHP(hit.MaxHP + 50);
+            hit.SetHP(hit.maxHP + 50);
             
             _mainSprite.material = _rageMat;
             _speed = 5f;
@@ -111,7 +111,7 @@ public class DemonBook : MonoBehaviour
         }
         else if (_rageCount == 1)
         {
-            hit.SetHP(hit.MaxHP + 80);
+            hit.SetHP(hit.maxHP + 80);
             
             _mainSprite.material = _superRageMat;
             _speed = 8f;
