@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum Talker
 {
@@ -40,6 +42,7 @@ public class TutorialController : MonoBehaviour
 
     [SerializeField] private TextBox fairyTextBox, playerTextBox;
     [SerializeField] private List<Cut> cuts;
+    [SerializeField] private Image fadingImage;
 
     private CinemachineVirtualCamera cvcam;
     private bool textSettingEnd;
@@ -55,7 +58,7 @@ public class TutorialController : MonoBehaviour
     private void Start()
     {
 
-        StartTalk(0);
+        StartFading();
 
     }
 
@@ -137,6 +140,36 @@ public class TutorialController : MonoBehaviour
         }
 
         cuts[currentTalk].endEvent?.Invoke();
+
+    }
+
+    public void StartFading()
+    {
+
+        fadingImage.DOFade(1, 0);
+        fadingImage.DOFade(0, 1.5f).OnComplete(() =>
+        {
+
+            StartTalk(0);
+
+        });
+
+    }
+
+    public void FadingAndSceneChange(string sceneName)
+    {
+
+        if (sceneName == "") return;
+
+
+        fadingImage.DOFade(1, 1.5f).OnComplete(() =>
+        {
+
+            SceneManager.LoadScene(sceneName);
+
+        });
+
+
 
     }
 

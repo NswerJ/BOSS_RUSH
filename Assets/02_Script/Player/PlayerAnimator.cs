@@ -10,6 +10,8 @@ public class PlayerAnimator : MonoBehaviour
     private readonly int HASH_NOT_GROUNT = Animator.StringToHash("NotGround");
     private readonly int HASH_XVAL = Animator.StringToHash("XVal");
     private readonly int HASH_YVAL = Animator.StringToHash("YVal");
+    private readonly int HASH_DASH = Animator.StringToHash("Dash");
+    private readonly int HASH_DASH_END = Animator.StringToHash("DashEnd");
 
     private Animator animator;
     private GroundSencer groundSencer;
@@ -52,6 +54,20 @@ public class PlayerAnimator : MonoBehaviour
         
         animator.SetFloat(HASH_XVAL, Mathf.Abs(rigid.velocity.x));
         animator.SetFloat(HASH_YVAL, rigid.velocity.y);
+
+    }
+
+    public void Dash()
+    {
+
+        animator.SetTrigger(HASH_DASH);
+
+    }
+
+    public void DashEnd()
+    {
+
+        animator.SetTrigger(HASH_DASH_END);
 
     }
 

@@ -47,6 +47,10 @@ public class PlayerController : FSM_Controller<EnumPlayerState>
         AddState(cam, EnumPlayerState.Move);
         AddState(feedback, EnumPlayerState.Move);
 
+        var dash = new PlayerDashState(this);
+
+        AddState(dash, EnumPlayerState.Dash);
+
         rigid = GetComponent<Rigidbody2D>();
 
         ChangeState(startState);

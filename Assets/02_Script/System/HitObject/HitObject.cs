@@ -7,14 +7,15 @@ using UnityEngine;
 public class HitObject : MonoBehaviour
 {
 
-    [SerializeField] private float maxHP;
+    [field:SerializeField] public float maxHP { get; protected set; }
     [SerializeField] private Stats defecnces;
 
     private HitFeedbackPlayer hitPlayer;
 
-    protected float hp;
+    public float hp { get; protected set; }
 
     public event Action DieEvent;
+    public event Action HitEvent;
 
     private void Awake()
     {
@@ -29,6 +30,8 @@ public class HitObject : MonoBehaviour
 
         if (hp <= 0) return;
 
+        HitEvent?.Invoke();
+
         var value = damage - defecnces.GetValue();
 
         value = Mathf.Clamp(value, 0, float.MaxValue);
@@ -40,6 +43,13 @@ public class HitObject : MonoBehaviour
         {
 
             DieEvent?.Invoke();
+
+            if(DieEvent == null)
+            {
+
+                Destroy(gameObject);
+
+            }
 
         }
 

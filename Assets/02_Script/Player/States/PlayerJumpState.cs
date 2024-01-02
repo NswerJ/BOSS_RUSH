@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerJumpState : PlayerState
 {
 
-    private int jumpCnt;
+    private int jumpCnt = 2;
 
     public PlayerJumpState(PlayerController controller) : base(controller)
     {
@@ -17,6 +17,18 @@ public class PlayerJumpState : PlayerState
 
         groundSencer.OnTriggerd += HandleTrigger;
         playerInputController.JumpKeyPressdEvent += HandleJumpKeyPressd;
+
+    }
+
+    protected override void UpdateState()
+    {
+
+        if (isGround && rigid.velocity.y <= 0)
+        {
+
+            jumpCnt = 2;
+
+        }
 
     }
 
