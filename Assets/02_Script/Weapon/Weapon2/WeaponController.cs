@@ -71,6 +71,7 @@ public class WeaponController : MonoBehaviour
             point.transform.localScale = new Vector3(1, point.transform.localScale.y * -1, 1);
             Instantiate(perfab, transform.position - point.right, Quaternion.identity).transform.right = point.right;
             spriteRenderer.sortingOrder *= -1;
+            point.transform.localPosition = point.transform.localPosition.y == 0 ? new Vector3(0f, -0.5f, 0) : new Vector3(0, 0, 0);
 
             var hits = Physics2D.OverlapBoxAll(transform.position - point.right * 1.5f, Vector2.one * 2, point.transform.eulerAngles.z, enemyLayer);
 

@@ -17,6 +17,19 @@ public class PlayerInputController : IDisposable
 
         SettingMove();
         JumpKeyPress();
+        DashKeyPress();
+
+    }
+
+    private void DashKeyPress()
+    {
+
+        if(Input.GetMouseButtonDown(1)) 
+        { 
+            
+            DashKeyPressdEvent?.Invoke();
+
+        }
 
     }
 
