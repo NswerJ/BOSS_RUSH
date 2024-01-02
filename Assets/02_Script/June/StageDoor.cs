@@ -9,18 +9,13 @@ using UnityEngine.UI;
 
 public class StageDoor : MonoBehaviour
 {
-    [SerializeField] Image _blackImage;
-
     TextMeshPro _doorTxt;
-    Canvas _canvas;
 
     bool isCollision = false;
 
     private void Awake()
     {
         _doorTxt = transform.GetComponentInChildren<TextMeshPro>();
-        _canvas = transform.GetComponentInChildren<Canvas>();
-        _canvas.worldCamera = Camera.main;
     }
 
     private void Update()
@@ -52,7 +47,7 @@ public class StageDoor : MonoBehaviour
 
     IEnumerator DoFadeAndChangeScene()
     {
-        _blackImage.DOFade(1, 2f);
+        MainFadeImage.Instance.FadeIn();
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(transform.name);
     }
