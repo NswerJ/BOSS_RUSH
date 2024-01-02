@@ -8,6 +8,9 @@ public class WeaponStand : MonoBehaviour
 
     private void Update()
     {
-        Physics2D.OverlapCircle(transform.position, 1, 1 << 7);
+        if (Physics2D.OverlapCircle(transform.position, 1, 1 << 7))
+        {
+            
+        }
     }
 }

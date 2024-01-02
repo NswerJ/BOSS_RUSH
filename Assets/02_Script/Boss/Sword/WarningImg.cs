@@ -10,7 +10,7 @@ public class WarningImg : MonoBehaviour
 
     public void ResetLifeTime()
     {
-        lifeTime = 0.3f;
+        lifeTime = 0.8f;
     }
 
     private void Awake()
