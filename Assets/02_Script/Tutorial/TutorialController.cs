@@ -8,8 +8,8 @@ using UnityEngine.Events;
 public enum Talker
 {
 
-    °¡µð¾ð,
-    ¿äÁ¤
+    ê°€ë””ì–¸,
+    ìš”ì •
 
 }
 
@@ -74,8 +74,8 @@ public class TutorialController : MonoBehaviour
         return talker switch
         {
 
-            Talker.°¡µð¾ð => playerTextBox,
-            Talker.¿äÁ¤ => fairyTextBox,
+            Talker.ê°€ë””ì–¸ => playerTextBox,
+            Talker.ìš”ì • => fairyTextBox,
             _ => null
 
         };
