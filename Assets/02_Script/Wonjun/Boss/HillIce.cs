@@ -25,7 +25,6 @@ public class HillIce : MonoBehaviour
     private void HillStop()
     {
         GameObject iceEffect = Instantiate(IceBlockEffect, transform.position, Quaternion.identity);
-        Debug.Log("dsd");
         iceAttack.HillExit();
         iceAttack.IceObjectTarget(false);
         iceHp = 0;
@@ -36,6 +35,7 @@ public class HillIce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.Rotate(0,0,Time.deltaTime * UnityEngine.Random.Range(10f, 25f));
         hitObject.hp = iceHp;
     }
 
