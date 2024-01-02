@@ -56,7 +56,7 @@ public class HitObject : MonoBehaviour
                 Destroy(gameObject);
 
             }
-
+            ///
         }
 
     }

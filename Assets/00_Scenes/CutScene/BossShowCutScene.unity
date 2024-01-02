@@ -172,9 +172,16 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: -8693092089308718780, guid: 3783e32b86680e5489ede2fb5ff875f3, type: 2}
+    value: {fileID: 571133338}
+  - key: {fileID: -2739869147193948372, guid: 3783e32b86680e5489ede2fb5ff875f3, type: 2}
+    value: {fileID: 660297370}
+  - key: {fileID: -8531004014153929529, guid: 3783e32b86680e5489ede2fb5ff875f3, type: 2}
+    value: {fileID: 992912709}
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - 7e83a0fd6e04649498c0d77db0dabc18: {fileID: 660297369}
 --- !u!1 &19521006
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 599.9597, y: -233.07556}
+  m_AnchoredPosition: {x: 619, y: -250}
   m_SizeDelta: {x: 10000, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &437242744
@@ -679,7 +686,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -709,7 +716,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 201200}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.5}
 --- !u!114 &571133338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,6 +914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 660297368}
   - component: {fileID: 660297369}
+  - component: {fileID: 660297370}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -921,7 +929,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660297367}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -952,7 +960,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 7
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -968,6 +976,27 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 610932268}
+--- !u!95 &660297370
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660297367}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &992912709
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,7 +1015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &992912710
 RectTransform:
   m_ObjectHideFlags: 0
