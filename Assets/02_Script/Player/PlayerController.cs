@@ -77,4 +77,16 @@ public class PlayerController : FSM_Controller<EnumPlayerState>
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        foreach(var state in GetState(currentState))
+        {
+
+            (state as PlayerState).CollisonEnter();
+
+        }
+
+    }
+
 }

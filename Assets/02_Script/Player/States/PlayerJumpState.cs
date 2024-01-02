@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerJumpState : PlayerState
 {
+
+    private int jumpCnt;
+
     public PlayerJumpState(PlayerController controller) : base(controller)
     {
     }
@@ -12,13 +15,27 @@ public class PlayerJumpState : PlayerState
     protected override void EnterState()
     {
 
+        groundSencer.OnTriggerd += HandleTrigger;
         playerInputController.JumpKeyPressdEvent += HandleJumpKeyPressd;
+
+    }
+
+    private void HandleTrigger(bool obj)
+    {
+
+        if (obj)
+        {
+
+            jumpCnt = 2;
+
+        }
 
     }
 
     protected override void ExitState()
     {
 
+        groundSencer.OnTriggerd -= HandleTrigger;
         playerInputController.JumpKeyPressdEvent -= HandleJumpKeyPressd;
 
     }
@@ -26,12 +43,13 @@ public class PlayerJumpState : PlayerState
     private void HandleJumpKeyPressd()
     {
 
-        if (isGround)
+        if (jumpCnt > 0)
         {
 
+            jumpCnt--;
             playerEventSystem.JumpEventExecute();
 
-            rigid.velocity += new Vector2(0, playerValues.JumpPower.GetValue());
+            rigid.velocity = new Vector2(rigid.velocity.x, playerValues.JumpPower.GetValue());
 
         }
 
