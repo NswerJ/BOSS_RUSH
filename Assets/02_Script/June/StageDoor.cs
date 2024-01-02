@@ -11,14 +11,14 @@ public class StageDoor : MonoBehaviour
 {
     [SerializeField] Image _blackImage;
 
-    TextMeshProUGUI _doorTxt;
+    TextMeshPro _doorTxt;
     Canvas _canvas;
 
     bool isCollision = false;
 
     private void Awake()
     {
-        _doorTxt = transform.GetComponentInChildren<TextMeshProUGUI>();
+        _doorTxt = transform.GetComponentInChildren<TextMeshPro>();
         _canvas = transform.GetComponentInChildren<Canvas>();
         _canvas.worldCamera = Camera.main;
     }
