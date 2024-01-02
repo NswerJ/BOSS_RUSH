@@ -5035,10 +5035,10 @@ MonoBehaviour:
   _mainHitObject: {fileID: 603266520}
   _mainObject: {fileID: 603266525}
   _triggerHP:
+  - 200
   - 150
   - 100
   - 50
-  - 25
   - -100
   - -500
   _demonBookList:
@@ -5306,6 +5306,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1757297986}
     m_Modifications:
+    - target: {fileID: 603266520, guid: 85ab2fbbf3b29244cab54b89ca2df18d, type: 3}
+      propertyPath: maxHP
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 7418793852758295760, guid: 85ab2fbbf3b29244cab54b89ca2df18d, type: 3}
       propertyPath: m_Name
       value: MainBook
