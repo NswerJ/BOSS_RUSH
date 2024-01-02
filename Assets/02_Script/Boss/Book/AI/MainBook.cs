@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 using Random = UnityEngine.Random;
 
 public class MainBook : MonoBehaviour
@@ -17,6 +16,14 @@ public class MainBook : MonoBehaviour
     [Header("Attack Value")]
     [SerializeField]
     private Bullet _bullet;
+
+    [SerializeField]
+    private GameObject _danger;
+
+    [SerializeField]
+    private Transform _vDG;
+    [SerializeField]
+    private Transform _hDG;
 
     [SerializeField]
     private Transform _shotPos;
@@ -102,7 +109,19 @@ public class MainBook : MonoBehaviour
         float angle = 0;
         int dir = 1;
 
-        while(true)
+        _danger.SetActive(true);
+        Sequence seq = DOTween.Sequence();
+
+        _vDG.localScale = new Vector3(0, 50, 1);
+        _hDG.localScale = new Vector3(50, 0, 1);
+        seq.Append(_vDG.DOScaleX(0.5f, 0.25f))
+            .Join(_hDG.DOScaleY(0.5f, 0.25f));
+
+        yield return new WaitForSeconds(0.26f);
+
+        _danger.SetActive(false);
+
+        while (true)
         {
             for (int i = 0; i <= 360; i += 90)
             {
@@ -118,7 +137,22 @@ public class MainBook : MonoBehaviour
             {
                 moveAngle -= 180;
                 dir *= -1;
-                yield return new WaitForSeconds(2f);
+                speed += 3;
+                yield return new WaitForSeconds(4.75f);
+                speed -= 3;
+
+                _danger.SetActive(true);
+                seq.Kill();
+                seq = DOTween.Sequence();
+
+                _vDG.localScale = new Vector3(0, 50, 1);
+                _hDG.localScale = new Vector3(50, 0, 1);
+                seq.Append(_vDG.DOScaleX(0.5f, 0.25f))
+                    .Join(_hDG.DOScaleY(0.5f, 0.25f));
+
+                yield return new WaitForSeconds(0.26f);
+
+                _danger.SetActive(false);
             }
 
             yield return new WaitForSeconds(0.1f);

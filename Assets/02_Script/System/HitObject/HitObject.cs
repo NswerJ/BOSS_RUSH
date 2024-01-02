@@ -31,7 +31,7 @@ public class HitObject : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
-
+        if (_isActivated == false) return;
         if (hp <= 0) return;
 
         HitEvent?.Invoke();
