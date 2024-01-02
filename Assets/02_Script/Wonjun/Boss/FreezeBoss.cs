@@ -32,12 +32,12 @@ public class FreezeBoss : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             BossHp -= 200;
             
             Debug.Log(BossHp);
-        }
+        }*/
 
         if (phase1)
         {
@@ -123,6 +123,7 @@ public class FreezeBoss : MonoBehaviour
     #region ÆäÀÌÁî 3
     private void Phase3()
     {
+        iceAttack.Paze3Pattern();
         if (FreezeTime > 0)
         {
             FreezeTime -= Time.deltaTime;
@@ -160,7 +161,6 @@ public class FreezeBoss : MonoBehaviour
                 }
             }
         }
-        iceAttack.Paze3Pattern();
     }
     #endregion
     #endregion

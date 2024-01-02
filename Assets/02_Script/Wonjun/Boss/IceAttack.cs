@@ -17,6 +17,9 @@ public class IceAttack : MonoBehaviour
     [SerializeField] private GameObject icedrop;
     private GameObject[] Razer;
 
+    [SerializeField] private GameObject IceSpear;
+    [SerializeField] private GameObject WarnigIceSpear;
+
     private int BulletPosCount = 1;
     public float IceBlockHp = 1;
 
@@ -25,6 +28,7 @@ public class IceAttack : MonoBehaviour
     private int currentAttackerIndex = 0;
     private bool isAttacking = false;
     private bool isSecondAttacking = false;
+    private bool isThirdAttacking = false;
 
     private void Awake()
     {
@@ -246,22 +250,35 @@ public class IceAttack : MonoBehaviour
     {
         while (true)
         {
-            if (!isSecondAttacking)
+            if (!isThirdAttacking)
             {
-                isSecondAttacking = true;
+                isThirdAttacking = true;
 
-                //yield return StartCoroutine(ThirdAttackSequence());
+                yield return StartCoroutine(ThirdAttackSequence());
 
                 yield return new WaitForSeconds(5f);
 
-                isSecondAttacking = false;
+                isThirdAttacking = false;
             }
             yield return null;
         }
     }
 
-    /*private IEnumerator ThirdAttackSequence()
+    private IEnumerator ThirdAttackSequence()
     {
+        Vector3 Targetpos = new Vector3(-20f, Target.position.y, 0);
 
-    }*/
+        GameObject WarningIceSpears = Instantiate(WarnigIceSpear, Targetpos, Quaternion.Euler(0 ,0, 90));
+        yield return new WaitForSeconds(0.7f);
+        Destroy(WarningIceSpears);
+
+        GameObject IceSpears = Instantiate(IceSpear, Targetpos, Quaternion.identity);
+        Rigidbody2D IceSpearRb = IceSpears.GetComponent<Rigidbody2D>();
+
+        if(IceSpearRb != null)
+        {
+            IceSpearRb.velocity = IceSpears.transform.right * 80f;
+            Debug.Log("sdsddsdsd");
+        }
+    }
 }
