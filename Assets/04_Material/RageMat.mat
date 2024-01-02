@@ -11,6 +11,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: da8efd605fdd20949a21be6242000625, type: 3}
   m_ValidKeywords:
   - _ENABLEOUTEROUTLINE_ON
+  - _ENABLESTRONGTINT_ON
+  - _ENABLEVIBRATE_ON
   - _SHADERFADING_NONE
   - _SHADERSPACE_UV
   m_InvalidKeywords: []
@@ -234,12 +236,12 @@ Material:
     - _EnableSplitToning: 0
     - _EnableSqueeze: 0
     - _EnableSquish: 0
-    - _EnableStrongTint: 0
+    - _EnableStrongTint: 1
     - _EnableUVDistort: 0
     - _EnableUVRotate: 0
     - _EnableUVScale: 0
     - _EnableUVScroll: 0
-    - _EnableVibrate: 0
+    - _EnableVibrate: 1
     - _EnableWiggle: 0
     - _EnableWind: 0
     - _EnableWorldTiling: 0
@@ -408,7 +410,7 @@ Material:
     - _SquishStretch: 0.1
     - _StrongTintContrast: 0
     - _StrongTintContrastToggle: 0
-    - _StrongTintFade: 1
+    - _StrongTintFade: 0
     - _StrongTintMaskToggle: 0
     - _TilingFix: 0
     - _TimeFPS: 5
@@ -425,9 +427,9 @@ Material:
     - _UVDistortMaskToggle: 0
     - _UVRotateSpeed: 1
     - _VertexTintFirst: 0
-    - _VibrateFade: 1
-    - _VibrateFrequency: 100
-    - _VibrateOffset: 0.04
+    - _VibrateFade: 0
+    - _VibrateFrequency: 104.8
+    - _VibrateOffset: 0.1
     - _VibrateRotation: 4
     - _WiggleFade: 1
     - _WiggleFixedGroundToggle: 0
@@ -572,7 +574,7 @@ Material:
     - _SpriteSheetRect: {r: 0, g: 0, b: 1, a: 1}
     - _SqueezeCenter: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _SqueezeScale: {r: 2, g: 0, b: 0, a: 0}
-    - _StrongTintTint: {r: 1, g: 1, b: 1, a: 1}
+    - _StrongTintTint: {r: 1, g: 0, b: 0, a: 1}
     - _UVDistortFrom: {r: -0.02, g: -0.02, b: 0, a: 0}
     - _UVDistortNoiseScale: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _UVDistortSpeed: {r: 2, g: 2, b: 0, a: 0}
