@@ -297,6 +297,7 @@ MonoBehaviour:
   Phase2Hill: 500
   Phase3Hill: 200
   HillEffect: {fileID: 5089912075557022076, guid: 25c0145fd9293fa4bab2507e71b0a86e, type: 3}
+  DieEffect: {fileID: 229682870354262612, guid: 9283a1f3fcecb1c4cb45e2de9fcd6c7a, type: 3}
 --- !u!95 &87697786
 Animator:
   serializedVersion: 5
@@ -379,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2956a9b6e443ca0458507d2976d602ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHP>k__BackingField: 9000
+  <maxHP>k__BackingField: 1000
   defecnces:
     value: 0
 --- !u!1 &98055781
