@@ -17,6 +17,8 @@ public class PlayerController : FSM_Controller<EnumPlayerState>
     [field:SerializeField] public PlayerValues playerValues { get; private set; }
     [SerializeField] private EnumPlayerState startState = EnumPlayerState.Move;
 
+    private Rigidbody2D rigid;
+
     public PlayerInputController playerInputController { get; private set; }
     public PlayerEventSystem playerEventSystem { get; private set; }
 
@@ -44,6 +46,8 @@ public class PlayerController : FSM_Controller<EnumPlayerState>
         AddState(cam, EnumPlayerState.Move);
         AddState(feedback, EnumPlayerState.Move);
 
+        rigid = GetComponent<Rigidbody2D>();
+
         ChangeState(startState);
 
     }
@@ -54,6 +58,22 @@ public class PlayerController : FSM_Controller<EnumPlayerState>
         base.Update();
 
         playerInputController.Update();
+
+    }
+
+    public void ChangeIdle()
+    {
+
+        rigid.velocity = Vector2.zero;
+
+        ChangeState(EnumPlayerState.Idle);
+
+    }
+
+    public void ChangeMove()
+    {
+
+        ChangeState(EnumPlayerState.Move);
 
     }
 

@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286501aa150fb23489fdc8fa1c8837c7, type: 3}
   m_Name: testSword
   m_EditorClassIdentifier: 
+  weaponImage: {fileID: -985064250, guid: 8f75ba058c031ec4696652aebb84bcd2, type: 3}
+  attackPrefab: {fileID: 0}
   AttackPower: 10
   AttackCool: 0.5
+  isAttackCoolDown: 0
