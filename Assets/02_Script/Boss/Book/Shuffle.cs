@@ -17,6 +17,9 @@ public class Shuffle : MonoBehaviour
     [SerializeField]
     private List<float> _cardChangeTimeList = new List<float>();
 
+    [SerializeField]
+    private List<Vector2> _5cardShufflePos = new List<Vector2>();
+
 
     private void Awake()
     {
@@ -29,11 +32,21 @@ public class Shuffle : MonoBehaviour
 
     public void ShuffleBook(int idx)
     {
+        for (int i = 0; i < _bookList.Count; ++i)
+        {
+            _bookList[i].DamageOff();
+            _bookList[i].ResetChildPos();
+            _bookList[i].transform.position = (Vector3)_5cardShufflePos[i];
+            _bookList[i].Open();
+        }
+
         StartCoroutine(ShuffleCo(3, idx));
     }
 
     IEnumerator ShuffleCo(int repeat, int index)
     {
+        yield return new WaitForSeconds(1f);
+
         _shuffleList.Clear();
         for (int i = 0; i < _bookList.Count; i++)
         {
@@ -67,6 +80,11 @@ public class Shuffle : MonoBehaviour
 
                 yield return wait;
             }
+
+        for (int i = 0; i < _bookList.Count; ++i)
+        {
+            _bookList[i].DamageOn();
+        }
     }
 
     private void OpenBook(Book book)

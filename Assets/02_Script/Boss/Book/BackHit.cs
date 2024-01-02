@@ -13,6 +13,7 @@ public class BackHit : HitObject
 
     public override void TakeDamage(float damage)
     {
+        if (_isActivated == false) return;
         base.TakeDamage(damage);
         _root.Flip(false);
 

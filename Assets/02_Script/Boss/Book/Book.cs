@@ -11,12 +11,18 @@ public class Book : MonoBehaviour
     [SerializeField] private GameObject _mainObject;
     [SerializeField] private GameObject _backObject;
 
-    [Header("BackHit")]
+    [Header("Hit")]
+    [SerializeField] private HitObject _mainHit;
     [SerializeField] private BackHit _backHit;
     public BackHit Back => _backHit;
 
     private bool _isBack = false;
     private bool _isPlayAnim = false;
+
+    public void ResetChildPos()
+    {
+        _mainObject.transform.localPosition = Vector3.zero;
+    }
 
     public void Flip(bool isBack)
     {
@@ -72,5 +78,17 @@ public class Book : MonoBehaviour
         _backObject.SetActive(true);
 
         Flip(false);
+    }
+
+    public void DamageOff()
+    {
+        _mainHit.SetActivate(false);
+        _backHit.SetActivate(false);
+    }
+
+    public void DamageOn()
+    {
+        _mainHit.SetActivate(true);
+        _backHit.SetActivate(true);
     }
 }

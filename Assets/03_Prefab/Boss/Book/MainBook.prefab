@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7418793851771040828}
   - component: {fileID: 7418793851771040803}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,8 @@ GameObject:
   - component: {fileID: 7418793852572433447}
   - component: {fileID: 603266519}
   - component: {fileID: 603266520}
-  m_Layer: 0
+  - component: {fileID: 1193204968411395168}
+  m_Layer: 3
   m_Name: Main_Book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,9 +196,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48defc91a4235ad40a83705c474f82b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 200
   defecnces:
     value: 0
+--- !u!61 &1193204968411395168
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7418793852572433440}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 3}
+    newSize: {x: 3, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2.5}
+  m_EdgeRadius: 0
 --- !u!1 &7418793852758295760
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7418793852758295766}
   - component: {fileID: 7418793852758295767}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MainBook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,6 +274,7 @@ MonoBehaviour:
   _root: {fileID: 7418793852758295766}
   _mainObject: {fileID: 7418793852572433440}
   _backObject: {fileID: 213189520941876549}
+  _mainHit: {fileID: 603266520}
   _backHit: {fileID: 3185596649254251707}
 --- !u!1001 &3948443179444504491
 PrefabInstance:
@@ -255,6 +283,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7418793852758295766}
     m_Modifications:
+    - target: {fileID: 1945048579213355792, guid: f0b0979c9706b2c4ab892d9a90b600a0, type: 3}
+      propertyPath: _root
+      value: 
+      objectReference: {fileID: 7418793852758295767}
     - target: {fileID: 3764682302002103020, guid: f0b0979c9706b2c4ab892d9a90b600a0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -302,6 +334,10 @@ PrefabInstance:
     - target: {fileID: 3764682302002103022, guid: f0b0979c9706b2c4ab892d9a90b600a0, type: 3}
       propertyPath: m_Name
       value: Book_Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764682302002103022, guid: f0b0979c9706b2c4ab892d9a90b600a0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3764682302002103022, guid: f0b0979c9706b2c4ab892d9a90b600a0, type: 3}
       propertyPath: m_IsActive

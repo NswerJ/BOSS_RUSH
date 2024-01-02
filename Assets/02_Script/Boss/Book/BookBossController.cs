@@ -15,11 +15,22 @@ public class BookBossController : MonoBehaviour
     private int _index = 0;
 
     [SerializeField]
+    private List<DemonBook> _demonBookList = new List<DemonBook>();
+
+    [SerializeField]
     private Shuffle _shuffle;
 
     private void Awake()
     {
         _mainHitObject.hitEvent += HandleHPTrigger;
+
+        for (int i = 0; i < _demonBookList.Count; ++i)
+            _demonBookList[i].hit.DieEvent += HandleDemonBookDie;
+    }
+
+    private void HandleDemonBookDie()
+    {
+        _shuffle.ShuffleBook(_index);
     }
 
     private void HandleHPTrigger(float hp)

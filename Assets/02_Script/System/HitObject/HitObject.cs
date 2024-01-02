@@ -10,9 +10,11 @@ public class HitObject : MonoBehaviour
     [SerializeField] private float maxHP;
     [SerializeField] private Stats defecnces;
 
+    public float MaxHP => maxHP;
     private HitFeedbackPlayer hitPlayer;
 
     protected float hp;
+    protected bool _isActivated = true;
 
     public event Action DieEvent;
 
@@ -26,7 +28,7 @@ public class HitObject : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
-
+        if (_isActivated == false) return;
         if (hp <= 0) return;
 
         var value = damage - defecnces.GetValue();
@@ -44,5 +46,12 @@ public class HitObject : MonoBehaviour
         }
 
     }
-
+    public void SetHP(float value)
+    {
+        hp = value;
+    }
+    public void SetActivate(bool value)
+    {
+        _isActivated = value;
+    }
 }
