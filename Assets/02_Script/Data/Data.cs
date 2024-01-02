@@ -7,7 +7,7 @@ public class Data : DontDestroyOnLoad
     Data[] datas;
     private void Start()
     {
-        datas = transform.parent.GetComponentsInChildren<Data>();
+        datas = FindObjectsOfType<Data>();
         if (datas.Length > 1)
             Destroy(this);
     }

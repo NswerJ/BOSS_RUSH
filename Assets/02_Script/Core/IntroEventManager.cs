@@ -54,11 +54,11 @@ public class IntroEventManager : MonoBehaviour
     public void StartGame(int num)
     {
         StartCoroutine(FadeOutAndStart());
+        FindObjectOfType<Data>().name = num.ToString();
     }
 
     IEnumerator FadeOutAndStart()
     {
-
         blackImage.gameObject.SetActive(true);
         blackImage.DOFade(1, 1f);
 
