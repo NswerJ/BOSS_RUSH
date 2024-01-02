@@ -5,6 +5,13 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
+public enum SoundType
+{
+    Master,
+    BGM,
+    SFX
+}
+
 public class SoundManager : MonoBehaviour
 {
     public AudioMixer _mixer;
@@ -37,14 +44,22 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void MasterSoundVolume(float val)
+    {
+        _mixer.SetFloat("Master", Mathf.Log10(val) * 20);
+        PlayerPrefs.SetFloat("MasterSound",val);
+    }
+
     public void BGSoundVolume(float val)
     {
         _mixer.SetFloat("BGSound", Mathf.Log10(val) * 20);
+        PlayerPrefs.SetFloat("BGSound",val);
     }
 
     public void SFXVolume(float val)
     {
         _mixer.SetFloat("SFXvolume", Mathf.Log10(val) * 20);
+        PlayerPrefs.SetFloat("SFXSound",val);
     }
 
     public void SFXPlay(string sfxName, AudioClip clip)

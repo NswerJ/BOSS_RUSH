@@ -10,8 +10,8 @@ using UnityEngine.UI;
 public enum Talker
 {
 
-    °¡µð¾ð,
-    ¿äÁ¤
+    ê°€ë””ì–¸,
+    ìš”ì •
 
 }
 
@@ -77,8 +77,8 @@ public class TutorialController : MonoBehaviour
         return talker switch
         {
 
-            Talker.°¡µð¾ð => playerTextBox,
-            Talker.¿äÁ¤ => fairyTextBox,
+            Talker.ê°€ë””ì–¸ => playerTextBox,
+            Talker.ìš”ì • => fairyTextBox,
             _ => null
 
         };
@@ -164,7 +164,7 @@ public class TutorialController : MonoBehaviour
 
         fadingImage.DOFade(1, 1.5f).OnComplete(() =>
         {
-
+            PlayerPrefs.SetInt("Tuto", 1);
             SceneManager.LoadScene(sceneName);
 
         });

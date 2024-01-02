@@ -12,11 +12,13 @@ public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
     [SerializeField] private UnityEvent clickEvent;
     [SerializeField] private Color originColor = Color.white;
     [SerializeField] private Color hoverColor = Color.white;
+    public Color HoverColor => hoverColor;
     [SerializeField] private float hoverFadingSpeed = 2f;
 
     private TMP_Text text;
     private float per;
     private bool isHover;
+    public bool IsHover => isHover;
 
     private void Awake()
     {
