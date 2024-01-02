@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class IceAttack : MonoBehaviour
 {
+
     public GameObject[] attacker;
     public GameObject IceBlock;
     public float BulletSpeed = 10f;
@@ -39,7 +40,7 @@ public class IceAttack : MonoBehaviour
     #region 페이즈 1
     public void Paze1Pattern()
     {
-        StartCoroutine(AttackPattern());
+            StartCoroutine(AttackPattern());
     }
 
     IEnumerator AttackPattern()
@@ -153,6 +154,8 @@ public class IceAttack : MonoBehaviour
             int attackice = UnityEngine.Random.Range(0, attacker.Length);
             TargeticeBlock = attacker[attackice];
             Animator TargetAnim = TargeticeBlock.GetComponent<Animator>();
+            HillIce Targethit = TargeticeBlock.GetComponent<HillIce>();
+            Targethit.iceHp = 1;
             if (TargetAnim != null)
             {
                 TargetAnim.SetBool("Target", v);
@@ -166,21 +169,18 @@ public class IceAttack : MonoBehaviour
 
     public void HillExit()
     {
-        //피격시를 넣기
-        if (Input.GetMouseButtonDown(1))
-        {
             Debug.Log(TargeticeBlock.name);
             IceBlockHp = 0;
-            Debug.Log("sd");
-        }
+            Debug.Log("hillExit");
     }
     #endregion
 
     #region 페이즈 2
     public void Paze2Pattern()
     {
-        StartCoroutine(AttackPattern());
-        StartCoroutine(SecondAttackPattern());
+            StartCoroutine(AttackPattern());
+            StartCoroutine(SecondAttackPattern());
+       
     }
 
     private IEnumerator SecondAttackPattern()
@@ -239,11 +239,12 @@ public class IceAttack : MonoBehaviour
 
     #endregion
 
+    #region 페이즈 3
     public void Paze3Pattern()
     {
-        StartCoroutine(AttackPattern());
-        StartCoroutine(SecondAttackPattern());
-        StartCoroutine(ThirdAttackPattern());
+            StartCoroutine(AttackPattern());
+            StartCoroutine(SecondAttackPattern());
+            StartCoroutine(ThirdAttackPattern());
     }
 
     private IEnumerator ThirdAttackPattern()
@@ -281,4 +282,5 @@ public class IceAttack : MonoBehaviour
             Debug.Log("sdsddsdsd");
         }
     }
+    #endregion
 }

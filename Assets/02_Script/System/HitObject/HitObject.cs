@@ -12,7 +12,7 @@ public class HitObject : MonoBehaviour
 
     private HitFeedbackPlayer hitPlayer;
 
-    public float hp { get; protected set; }
+    public float hp { get; set; }
 
     public event Action DieEvent;
     public event Action HitEvent;

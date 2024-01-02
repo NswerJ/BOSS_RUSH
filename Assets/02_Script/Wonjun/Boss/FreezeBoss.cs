@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class FreezeBoss : MonoBehaviour
 {
+    public bool isAttack = true;
+
     public float BossHp = 10000;
     public bool phase1 = false;
     public bool phase2 = false;
@@ -17,11 +19,13 @@ public class FreezeBoss : MonoBehaviour
     private float nextIncreaseTime = 0;
     IceAttack iceAttack;
     HitObject BossHit;
+    CapsuleCollider2D BossCol;
 
     Animator anim;
 
     private void Awake()
     {
+        BossCol = GetComponent<CapsuleCollider2D>();    
         BossHit = GetComponent<HitObject>();
         anim = GetComponent<Animator>();    
         iceAttack = GameObject.Find("IceAttack").GetComponent<IceAttack>();
@@ -29,12 +33,29 @@ public class FreezeBoss : MonoBehaviour
         {
             Debug.Log("들어옴");
         }
+        BossHit.DieEvent += DieBoss;
         BossHp = BossHit.maxHP;
+    }
+
+    private void DieBoss()
+    {
+        isAttack = false;
+        StopAllCoroutines();
+        Destroy(iceAttack.gameObject);
+
     }
 
     private void Update()
     {
 
+        if(BossHit.hp > BossHit.maxHP) {
+            BossHit.hp = BossHit.maxHP;
+        }
+        else
+        {
+            BossHp = BossHit.hp;
+
+        }
         /*if (Input.GetMouseButtonDown(0))
         {
             BossHp -= 200;
@@ -42,22 +63,22 @@ public class FreezeBoss : MonoBehaviour
             Debug.Log(BossHp);
         }*/
 
-        if (phase1)
+        if (phase1 && isAttack)
         {
             Debug.Log("페이즈 1");
             Phase1();
         }
-        else if (phase2)
+        else if (phase2 && isAttack)
         {
             Debug.Log("페이즈 2");
-
             Phase2();
         }
-        else if (phase3)
+        else if (phase3 && isAttack)
         {
             Debug.Log("페이즈 3");
             Phase3();
         }
+        
     }
     #region 페이즈
 
@@ -82,11 +103,12 @@ public class FreezeBoss : MonoBehaviour
         {
             FreezeTime -= Time.deltaTime;
             iceAttackTarget = false;
+            BossCol.enabled = true;
             anim.SetBool("Hill", false);
-
         }
         else
         {
+            BossCol.enabled = false;
             FreezeTime = 0;
             if (!iceAttackTarget)
             {
@@ -94,22 +116,20 @@ public class FreezeBoss : MonoBehaviour
                 iceAttackTarget = true;
                 iceAttack.IceBlockHp = 1;
             }
-            if (BossHp < 10000)
+            if (BossHp <= 10000)
             {
                 float increaseRate = Phase2Hill;
                 float increaseInterval = 2f;
-                iceAttack.HillExit();
                 anim.SetBool("Hill", true);
 
                 if (Time.time > nextIncreaseTime)
                 {
                     nextIncreaseTime = Time.time + increaseInterval;
-                    BossHp += increaseRate;
+                    BossHit.hp += increaseRate;
                 }
                 if (iceAttack.IceBlockHp == 0)
                 {
                     FreezeTime = 20;
-                    iceAttack.IceObjectTarget(false);
                 }
             }
         }
@@ -123,6 +143,7 @@ public class FreezeBoss : MonoBehaviour
         iceAttack.Paze2Pattern();
     }
     #endregion
+
     #region 페이즈 3
     private void Phase3()
     {
@@ -131,36 +152,35 @@ public class FreezeBoss : MonoBehaviour
         {
             FreezeTime -= Time.deltaTime;
             iceAttackTarget = false;
+            BossCol.enabled = true;
             anim.SetBool("Hill", false);
 
         }
         else
         {
             FreezeTime = 0;
+            BossCol.enabled = false;
             if (!iceAttackTarget)
             {
                 iceAttack.IceObjectTarget(true);
                 iceAttackTarget = true;
                 iceAttack.IceBlockHp = 1;
             }
-            if (BossHp < 10000)
+            if (BossHp <= 10000)
             {
                 float increaseRate = Phase3Hill;
                 float increaseInterval = 1f;
-                iceAttack.HillExit();
                 anim.SetBool("Hill", true);
-
 
 
                 if (Time.time > nextIncreaseTime)
                 {
                     nextIncreaseTime = Time.time + increaseInterval;
-                    BossHp += increaseRate;
+                    BossHit.hp += increaseRate;
                 }
                 if (iceAttack.IceBlockHp == 0)
                 {
                     FreezeTime = 10;
-                    iceAttack.IceObjectTarget(false);
                 }
             }
         }
