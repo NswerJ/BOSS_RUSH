@@ -8,6 +8,7 @@ public enum EnumPlayerState
 
     Idle, //움직임이 불가능 할때
     Move, //움직임이 가능할 때
+    Dash
 
 }
 

@@ -834,22 +834,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2021598113, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: 4cf974398528a8341b676f1c0ec9f002, type: 2}
-    - target: {fileID: 2021598113, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
-      propertyPath: enemyLayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2947384580775052813, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
-      propertyPath: jumpAbleTag.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2947384580775052813, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
-      propertyPath: jumpAbleTag.Array.data[0]
-      value: Ground
-      objectReference: {fileID: 0}
     - target: {fileID: 2947384582077937981, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
       propertyPath: m_Name
       value: Player

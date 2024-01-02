@@ -17,7 +17,7 @@ public class PlayerDashState : PlayerState
     public override void CollisonEnter()
     {
 
-
+        controller.ChangeState(EnumPlayerState.Move);
 
     }
 
