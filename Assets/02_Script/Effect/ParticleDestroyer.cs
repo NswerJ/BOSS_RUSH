@@ -8,6 +8,6 @@ public class ParticleDestroyer : MonoBehaviour
 
     private void Awake()
     {
-        Destroy(this, time);
+        Destroy(gameObject, time);
     }
 }
