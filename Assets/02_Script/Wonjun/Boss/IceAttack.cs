@@ -12,14 +12,21 @@ public class IceAttack : MonoBehaviour
     public Vector3 BulletPos;
     GameObject TargeticeBlock;
     public Transform Target;
+    public Transform Boss;
+
+    public LineRenderer HillLine;
+    LineRenderer hillLine;
 
     [SerializeField] private Transform[] IceDropPos;
+    public float IceDropCool;
     [SerializeField] private GameObject WarnigRazer;
     [SerializeField] private GameObject icedrop;
     private GameObject[] Razer;
 
     [SerializeField] private GameObject IceSpear;
     [SerializeField] private GameObject WarnigIceSpear;
+    public float IceSpearCool;
+
 
     private int BulletPosCount = 1;
     public float IceBlockHp = 1;
@@ -40,7 +47,7 @@ public class IceAttack : MonoBehaviour
     #region 페이즈 1
     public void Paze1Pattern()
     {
-            StartCoroutine(AttackPattern());
+        StartCoroutine(AttackPattern());
     }
 
     IEnumerator AttackPattern()
@@ -98,25 +105,21 @@ public class IceAttack : MonoBehaviour
         {
             BulletPos = new Vector3(-0.5f, 0.5f, 0);
             BulletPosCount++;
-            Debug.Log(bulletPosCount);
         }
         else if (bulletPosCount == 2)
         {
             BulletPos = new Vector3(0.5f, 0.5f, 0);
             BulletPosCount++;
-            Debug.Log(bulletPosCount);
         }
         else if (bulletPosCount == 3)
         {
             BulletPos = new Vector3(-0.5f, -0.5f, 0);
             BulletPosCount++;
-            Debug.Log(bulletPosCount);
         }
         else if (bulletPosCount == 4)
         {
             BulletPos = new Vector3(0.5f, -0.5f, 0);
             BulletPosCount = 1;
-            Debug.Log(bulletPosCount);
         }
         yield return null;
     }
@@ -140,6 +143,10 @@ public class IceAttack : MonoBehaviour
     {
         if (v == false)
         {
+            if (HillLine != null)
+            {
+                Destroy(hillLine);
+            }
             for (int i = 0; i < 4; i++)
             {
                 GameObject TargeticeBlock = attacker[i];
@@ -156,6 +163,9 @@ public class IceAttack : MonoBehaviour
             Animator TargetAnim = TargeticeBlock.GetComponent<Animator>();
             HillIce Targethit = TargeticeBlock.GetComponent<HillIce>();
             Targethit.iceHp = 1;
+            hillLine = Instantiate(HillLine, TargeticeBlock.transform.position, Quaternion.identity).GetComponent<LineRenderer>();
+            hillLine.SetPosition(0, TargeticeBlock.transform.position);
+            hillLine.SetPosition(1, Boss.position);
             if (TargetAnim != null)
             {
                 TargetAnim.SetBool("Target", v);
@@ -169,18 +179,16 @@ public class IceAttack : MonoBehaviour
 
     public void HillExit()
     {
-            Debug.Log(TargeticeBlock.name);
-            IceBlockHp = 0;
-            Debug.Log("hillExit");
+        IceBlockHp = 0;
     }
     #endregion
 
     #region 페이즈 2
     public void Paze2Pattern()
     {
-            StartCoroutine(AttackPattern());
-            StartCoroutine(SecondAttackPattern());
-       
+        StartCoroutine(AttackPattern());
+        StartCoroutine(SecondAttackPattern());
+
     }
 
     private IEnumerator SecondAttackPattern()
@@ -193,7 +201,7 @@ public class IceAttack : MonoBehaviour
 
                 yield return StartCoroutine(SecondAttackSequence());
 
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(IceDropCool);
 
                 isSecondAttacking = false;
             }
@@ -208,8 +216,8 @@ public class IceAttack : MonoBehaviour
         for (int i = 0; i < IceDropPos.Length; i++)
         {
             GameObject currentRazer = Instantiate(WarnigRazer, IceDropPos[i].position, Quaternion.identity);
-            spawnedRazers.Add(currentRazer); 
-            yield return new WaitForSeconds(0.1f); 
+            spawnedRazers.Add(currentRazer);
+            yield return new WaitForSeconds(0.1f);
         }
 
         yield return new WaitForSeconds(0.4f);
@@ -242,9 +250,11 @@ public class IceAttack : MonoBehaviour
     #region 페이즈 3
     public void Paze3Pattern()
     {
-            StartCoroutine(AttackPattern());
-            StartCoroutine(SecondAttackPattern());
-            StartCoroutine(ThirdAttackPattern());
+        IceDropCool = 1f;
+        BulletSpeed = 20f;
+        StartCoroutine(AttackPattern());
+        StartCoroutine(SecondAttackPattern());
+        StartCoroutine(ThirdAttackPattern());
     }
 
     private IEnumerator ThirdAttackPattern()
@@ -257,7 +267,7 @@ public class IceAttack : MonoBehaviour
 
                 yield return StartCoroutine(ThirdAttackSequence());
 
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(IceSpearCool);
 
                 isThirdAttacking = false;
             }
@@ -269,14 +279,14 @@ public class IceAttack : MonoBehaviour
     {
         Vector3 Targetpos = new Vector3(-20f, Target.position.y, 0);
 
-        GameObject WarningIceSpears = Instantiate(WarnigIceSpear, Targetpos, Quaternion.Euler(0 ,0, 90));
+        GameObject WarningIceSpears = Instantiate(WarnigIceSpear, Targetpos, Quaternion.Euler(0, 0, 90));
         yield return new WaitForSeconds(0.7f);
         Destroy(WarningIceSpears);
 
         GameObject IceSpears = Instantiate(IceSpear, Targetpos, Quaternion.identity);
         Rigidbody2D IceSpearRb = IceSpears.GetComponent<Rigidbody2D>();
 
-        if(IceSpearRb != null)
+        if (IceSpearRb != null)
         {
             IceSpearRb.velocity = IceSpears.transform.right * 80f;
             Debug.Log("sdsddsdsd");

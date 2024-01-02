@@ -8,17 +8,27 @@ public class FreezeBoss : MonoBehaviour
     public bool isAttack = true;
 
     public float BossHp = 10000;
+    public float Phase2Hp = 6000;
+    public float Phase3Hp = 3000;
+
     public bool phase1 = false;
     public bool phase2 = false;
     public bool phase3 = false;
-    public float FreezeTime = 20;
+
+    public float FreezeTime = 10;
+    public float SaveFreezeTime;
+   
     public float HillCool = 2;
     public float Phase2Hill = 50;
     public float Phase3Hill = 200;
+   
+
     bool iceAttackTarget = false;
     private float nextIncreaseTime = 0;
+
     IceAttack iceAttack;
     HitObject BossHit;
+
     CapsuleCollider2D BossCol;
     public GameObject HillEffect;
     public GameObject DieEffect;
@@ -27,14 +37,12 @@ public class FreezeBoss : MonoBehaviour
 
     private void Awake()
     {
+        SaveFreezeTime = FreezeTime;
         BossCol = GetComponent<CapsuleCollider2D>();    
         BossHit = GetComponent<HitObject>();
         anim = GetComponent<Animator>();    
         iceAttack = GameObject.Find("IceAttack").GetComponent<IceAttack>();
-        if(iceAttack != null )
-        {
-            Debug.Log("µé¾î¿È");
-        }
+        
         BossHp = BossHit.maxHP;
         anim.SetBool("Die", false);
         BossHit.DieEvent += DieBoss;
@@ -96,7 +104,7 @@ public class FreezeBoss : MonoBehaviour
     {
         iceAttack.Paze1Pattern();
 
-        if (BossHp <= 6000)
+        if (BossHp <= Phase2Hp)
         {
             FreezeTime = 0;
             phase1 = false;
@@ -117,6 +125,7 @@ public class FreezeBoss : MonoBehaviour
         }
         else
         {
+            
             BossCol.enabled = false;
             FreezeTime = 0;
             if (!iceAttackTarget)
@@ -140,12 +149,12 @@ public class FreezeBoss : MonoBehaviour
                 }
                 if (iceAttack.IceBlockHp == 0)
                 {
-                    FreezeTime = 20;
+                    FreezeTime = SaveFreezeTime;
                 }
             }
         }
 
-        if (BossHp <= 3000)
+        if (BossHp <= Phase3Hp)
         {
             FreezeTime = 0;
             phase2 = false;
@@ -193,7 +202,7 @@ public class FreezeBoss : MonoBehaviour
                 }
                 if (iceAttack.IceBlockHp == 0)
                 {
-                    FreezeTime = 10;
+                    FreezeTime = SaveFreezeTime /2;
                 }
             }
         }
