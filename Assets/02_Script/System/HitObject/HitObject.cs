@@ -10,13 +10,13 @@ public class HitObject : MonoBehaviour
 {
 
     [field: SerializeField] public float maxHP { get; protected set; }
-    [SerializeField] private Stats defecnces;
+    [SerializeField] public Stats defecnces;
 
     private HitFeedbackPlayer hitPlayer;
 
     public float hp { get; set; }
     protected bool _isActivated = true;
-
+    
     public event HitFeedback HitEventHpChanged;
     public event Action DieEvent;
     public event Action HitEvent;
