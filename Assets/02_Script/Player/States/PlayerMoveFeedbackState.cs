@@ -64,6 +64,7 @@ public class PlayerMoveFeedbackState : PlayerState
     {
 
         groundSencer.OnTriggerd -= HandleTriggerd;
+        walkParticle.Stop();
 
     }
 
