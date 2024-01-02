@@ -5039,7 +5039,7 @@ MonoBehaviour:
   perfab: {fileID: 3030261073359372769, guid: 8d43693ea375aff4db678d1d7b3a6197, type: 3}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   data: {fileID: 11400000, guid: 375535b5a209dc84391b6247b4b7a8c9, type: 2}
 --- !u!1 &2947384580775052800
 GameObject:
