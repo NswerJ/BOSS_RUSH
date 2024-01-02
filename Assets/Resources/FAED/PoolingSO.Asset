@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a87865d090e2b41a4425fdde434ffb, type: 3}
   m_Name: PoolingSO
   m_EditorClassIdentifier: 
-  alwaysPoolingObjects: []
+  alwaysPoolingObjects:
+  - poolingKey: Player_JumpParticle
+    poolingObject: {fileID: 1967835574231978638, guid: 3e196c9e632c76841a71cb6e2dc6d010, type: 3}
+    poolCount: 100
+  - poolingKey: DamageText
+    poolingObject: {fileID: 2035879966458775288, guid: 9d4d95624d547f94994cff053c282094, type: 3}
+    poolCount: 100
   scenePoolingObjects: []
