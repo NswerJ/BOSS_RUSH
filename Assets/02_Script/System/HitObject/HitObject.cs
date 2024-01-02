@@ -43,6 +43,13 @@ public class HitObject : MonoBehaviour
 
             DieEvent?.Invoke();
 
+            if(DieEvent == null)
+            {
+
+                Destroy(gameObject);
+
+            }
+            ///
         }
 
     }
