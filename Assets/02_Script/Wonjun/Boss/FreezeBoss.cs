@@ -21,6 +21,7 @@ public class FreezeBoss : MonoBehaviour
     HitObject BossHit;
     CapsuleCollider2D BossCol;
     public GameObject HillEffect;
+    public GameObject DieEffect;
 
     Animator anim;
 
@@ -34,16 +35,23 @@ public class FreezeBoss : MonoBehaviour
         {
             Debug.Log("µé¾î¿È");
         }
-        BossHit.DieEvent += DieBoss;
         BossHp = BossHit.maxHP;
+        anim.SetBool("Die", false);
+        BossHit.DieEvent += DieBoss;
     }
 
     private void DieBoss()
     {
+        anim.SetBool("Die", true);
         isAttack = false;
-        StopAllCoroutines();
         Destroy(iceAttack.gameObject);
+    }
 
+    private void DieBossEffect()
+    {
+        GameObject dieEffect = Instantiate(DieEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+        Destroy(dieEffect, 1f);
     }
 
     private void Update()
