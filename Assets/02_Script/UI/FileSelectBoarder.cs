@@ -9,6 +9,9 @@ public class FileSelectBoarder : MonoBehaviour
     Image image;
     CustomButton customButton;
 
+    [SerializeField] float x = 160f;
+    [SerializeField] float y = 160f;
+
     [SerializeField] Sprite fillImage;
     [SerializeField] Sprite emptyImage;
     [SerializeField] Image setImage;
@@ -34,12 +37,14 @@ public class FileSelectBoarder : MonoBehaviour
 
     public void SetFill(int num)
     {
+        setImage.rectTransform.sizeDelta = new Vector2(160f, 160f);
         setImage.sprite = fillImage;
         tmpro.text = "사망 횟수 : " + num;
     }
 
     public void SetEmpty()
     {
+        setImage.rectTransform.sizeDelta = new Vector2(x, y);
         setImage.sprite= emptyImage;
     }
 }
