@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2947384580775052803}
   - component: {fileID: 2947384580775052802}
   - component: {fileID: 2947384580775052813}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundSencer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 2947384582077937979}
   - component: {fileID: 2947384582077937978}
   - component: {fileID: 2947384582077937957}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

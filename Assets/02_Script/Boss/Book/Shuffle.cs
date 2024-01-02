@@ -6,76 +6,79 @@ using UnityEngine;
 
 public class Shuffle : MonoBehaviour
 {
+    [Header("List")]
     [SerializeField]
     private List<Book> _bookList = new List<Book>();
 
     private List<int> _shuffleList = new List<int>();
     Sequence seq;
 
+    [Header("Shuffle")]
+    [SerializeField]
+    private List<float> _cardChangeTimeList = new List<float>();
+
+
     private void Awake()
     {
         seq = DOTween.Sequence();
+        for(int i = 0; i < _bookList.Count; i++)
+        {
+            _bookList[i].Back.HitEvent += OpenBook;
+        }
     }
 
-    private void Update()
+    public void ShuffleBook(int idx)
     {
-        if(Input.GetKeyDown(KeyCode.E))
-            ShuffleBook();
+        StartCoroutine(ShuffleCo(3, idx));
     }
 
-    public void ShuffleBook()
+    IEnumerator ShuffleCo(int repeat, int index)
     {
         _shuffleList.Clear();
-        for(int i = 0; i < _bookList.Count; i++)
+        for (int i = 0; i < _bookList.Count; i++)
         {
             _bookList[i].FlipBack();
             _shuffleList.Add(i);
+
+            yield return new WaitForSeconds(0.1f);
         }
+        yield return new WaitForSeconds(0.2f);
 
-        ShuffleAToB(0, 3);
-    }
-
-    private void ShuffleAToB(int count, int repeat)
-    {
-        if (count >= _shuffleList.Count)
-        {
-            if(repeat <= 0)
-            {
-                OpenBook();
-            }
-            else
-            {
-                ShuffleAToB(0, repeat - 1);
-            }
-
-            return;
-        }
-
-        seq.Kill();
         seq = DOTween.Sequence();
+        float cardMoveTime = _cardChangeTimeList[index];
+        WaitForSeconds wait = new WaitForSeconds(cardMoveTime);
 
-        int randomIdx = Random.Range(count + 1, _shuffleList.Count);
-        Transform firstTrm = _bookList[_shuffleList[count]].transform;
-        Transform secondTrm = _bookList[_shuffleList[randomIdx]].transform;
-
-
-        seq.Append(firstTrm.DOMove(secondTrm.position, 0.5f))
-            .Join(secondTrm.DOMove(firstTrm.position, 0.5f))
-            .OnComplete(()=>
+        for (int i = 0; i < repeat; ++i)
+            for(int count = 0; count < _shuffleList.Count - 1; ++count)
             {
-                ShuffleAToB(count + 1, repeat);
-            });
+                int randomIdx = Random.Range(count + 1, _shuffleList.Count);
+                Transform firstTrm = _bookList[_shuffleList[count]].transform;
+                Transform secondTrm = _bookList[_shuffleList[randomIdx]].transform;
 
-        int temp = _shuffleList[count];
-        _shuffleList[count] = _shuffleList[randomIdx];
-        _shuffleList[randomIdx] = temp;
+                seq.Kill();
+                seq = DOTween.Sequence();
+
+                seq.Append(firstTrm.DOMove(secondTrm.position, cardMoveTime))
+                    .Join(secondTrm.DOMove(firstTrm.position, cardMoveTime));
+
+                int temp = _shuffleList[count];
+                _shuffleList[count] = _shuffleList[randomIdx];
+                _shuffleList[randomIdx] = temp;
+
+                yield return wait;
+            }
     }
 
-    private void OpenBook()
+    private void OpenBook(Book book)
     {
         for (int i = 0; i < _bookList.Count; i++)
         {
-            _bookList[i].Flip(false);
+            if (_bookList[i] == book) continue;
+
+            _bookList[i].Fold();
         }
+
+        book.Open();
+
     }
 }
