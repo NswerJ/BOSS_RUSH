@@ -124,7 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df97c7b1cb63674190b18f9990e3b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitObjectTagName: Player
+  _hitObjectTagNameList:
+  - Player
   _damage: 10
   _hitAndDelete: 1
   _offsetZ: -180

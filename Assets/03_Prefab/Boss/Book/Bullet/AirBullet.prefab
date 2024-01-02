@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3403472271169309391}
   - component: {fileID: 3403472271169309386}
   - component: {fileID: 3403472271169309389}
+  - component: {fileID: 7151021083427519595}
   m_Layer: 0
   m_Name: AirBullet
   m_TagString: Untagged
@@ -114,8 +115,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df97c7b1cb63674190b18f9990e3b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitObjectTagName: Player
+  _hitObjectTagNameList:
+  - Ground
+  - Player
   _damage: 5
   _hitAndDelete: 1
-  _offsetZ: -90
+  _offsetZ: -180
   _moveSpeed: 10
+--- !u!50 &7151021083427519595
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403472271169309390}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

@@ -8,6 +8,8 @@ public class BookBossController : MonoBehaviour
     [Header("Main Boss")]
     [SerializeField]
     private BookHit _mainHitObject;
+    [SerializeField]
+    private MainBook _mainObject;
 
     [Header("Shuffle Pattern")]
     [SerializeField]
@@ -46,6 +48,6 @@ public class BookBossController : MonoBehaviour
 
     private void StopBossAI()
     {
-
+        _mainObject.AIStop();
     }
 }

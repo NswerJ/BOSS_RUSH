@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [Header("Hit Value")]
     [SerializeField]
-    private string _hitObjectTagName;
+    private List<string> _hitObjectTagNameList = new List<string>();
     [SerializeField]
     private float _damage;
     [SerializeField]
@@ -33,15 +33,24 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag(_hitObjectTagName) == false)
+        bool check = false;
+        for(int i = 0; i < _hitObjectTagNameList.Count; ++i)
+        {
+            if (col.CompareTag(_hitObjectTagNameList[i]))
+            {
+                Debug.Log(_hitObjectTagNameList[i]);
+                check = true;
+                break;
+            }
+        }
+
+        if (check == false)
             return;
 
         if(col.transform.TryGetComponent<HitObject>(out HitObject hitObject))
-        {
             hitObject.TakeDamage(_damage);
 
-            if(_hitAndDelete)
-                Destroy(gameObject);
-        }
+        if (_hitAndDelete)
+            Destroy(gameObject);
     }
 }
