@@ -31,10 +31,10 @@ public class HitObject : MonoBehaviour
 
         var value = damage - defecnces.GetValue();
 
-        value = Mathf.Clamp(damage, 0, float.MaxValue);
+        value = Mathf.Clamp(value, 0, float.MaxValue);
 
         hp -= value;
-        hitPlayer.Play(hp);
+        hitPlayer.Play(value);
 
         if(hp <= 0)
         {

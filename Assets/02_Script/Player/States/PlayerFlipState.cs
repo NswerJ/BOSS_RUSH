@@ -11,11 +11,17 @@ public class PlayerFlipState : PlayerState
     protected override void UpdateState()
     {
 
-        spriteRenderer.flipX = playerInputController.InputVector.x switch
+
+        var mpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        var dir = (mpos - transform.position).normalized;
+        dir.z = 0;
+
+        spriteRenderer.flipX = dir.x switch
         {
 
-            -1 => false,
-            1 => true,
+            var x when x > 0 => true,
+            var x when x < 0 => false,
             _ => spriteRenderer.flipX
 
         };
