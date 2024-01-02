@@ -8,6 +8,8 @@ public class FileSelectBoarder : MonoBehaviour
     Image image;
     CustomButton customButton;
 
+    [SerializeField]Sprite fillImage;
+    [SerializeField] Sprite emptyImage;
     private void Awake()
     {
         image = GetComponent<Image>();
