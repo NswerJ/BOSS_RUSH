@@ -9,25 +9,38 @@ using UnityEngine;
 public class Ice_Pattern_10_State : IceAwakeState
 {
 
-    private CinemachineImpulseSource source;
+    private CinemachineBasicMultiChannelPerlin cbmcp;
     private Transform point;
 
     public Ice_Pattern_10_State(FSM_Controller<EnumIceAwakeState> controller) : base(controller)
     {
 
-        source = GetComponent<CinemachineImpulseSource>();
+        cvcam = Object.FindObjectOfType<CinemachineVirtualCamera>();
+        cbmcp = cvcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
     }
 
     protected override void EnterState()
     {
 
+        cbmcp.m_AmplitudeGain = 0.8f;
+        cbmcp.m_FrequencyGain = 0.8f;
+
         Sequence seq = DOTween.Sequence();
+
 
         point = Random.value > 0.5f ? bossPointsRoot.Find("Pattern_10_A") : bossPointsRoot.Find("Pattern_10_B");
 
         StartCoroutine(CameraSettingCo());
 
+        seq.AppendInterval(0.5f);
+        seq.AppendCallback(() =>
+        {
+
+            transform.position = point.position;
+            FAED.TakePool("ExpEffect", transform.position);
+
+        });
         seq.Append(transform.DOShakePosition(2));
         seq.AppendCallback(() =>
         {
@@ -35,22 +48,31 @@ public class Ice_Pattern_10_State : IceAwakeState
             StartCoroutine(SpearSpawn());
 
         });
-        source.GenerateImpulse(2);
-
+        
 
     }
 
     private IEnumerator SpearSpawn()
     {
 
+        var dir = target.position - transform.position;
+        dir.Normalize();
+
         for(int i = 0; i < 50; i++)
         {
 
-            FAED.TakePool<IceSpear_Awake>("IceSpear_A", transform.position + (Vector3)Random.insideUnitCircle * 2).Spawn(target, 0.5f);
+            FAED.TakePool<IceSpear_Awake>("IceSpear_A", transform.position + (Vector3)Random.insideUnitCircle * 2).Spawn(dir, 0.5f);
 
             yield return new WaitForSeconds(Random.Range(0.05f, 0.1f));
 
         }
+
+        cbmcp.m_AmplitudeGain = 0f;
+        cbmcp.m_FrequencyGain = 0f;
+
+        yield return new WaitForSeconds(2f);
+
+        ChangeState(EnumIceAwakeState.Pattern_10);
 
     }
     
@@ -58,7 +80,7 @@ public class Ice_Pattern_10_State : IceAwakeState
     {
 
         ChangeCamera(transform, 5);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         ChangeCamera(cameraPivot, 6.3f);
 
     }
