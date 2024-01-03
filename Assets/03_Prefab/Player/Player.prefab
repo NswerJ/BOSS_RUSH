@@ -5618,7 +5618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7145cd7367773438fe5052f241d92b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _on: 1
+  _on: 0
   _shotPos: {fileID: 4476698954335661475}
   _playerBullet: {fileID: 3403472271169309389, guid: 243aea6fd1512d6428401d2fa4e56ec4, type: 3}
   _weaponController: {fileID: 2021598113}

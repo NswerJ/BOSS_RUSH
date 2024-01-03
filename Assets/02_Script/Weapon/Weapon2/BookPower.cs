@@ -40,7 +40,6 @@ public class BookPower : MonoBehaviour
 
     private void HandleAttack(Vector3 dir)
     {
-        Debug.Log("ab");
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
         Bullet spawnBullet = Instantiate(_playerBullet, _shotPos.position, Quaternion.identity);

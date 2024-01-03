@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 1684219965
   m_SortingLayer: 3
   m_SortingOrder: -10
-  m_Sprite: {fileID: -190841312, guid: 02198eb7b8db5f54f917439b685b0a54, type: 3}
+  m_Sprite: {fileID: 714389045, guid: 02198eb7b8db5f54f917439b685b0a54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,11 +117,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitObjectTagNameList:
   - Ground
-  - Untagged
+  - Boss
   _damage: 5
   _hitAndDelete: 1
   _offsetZ: -180
-  _moveSpeed: 10
+  _moveSpeed: 20
 --- !u!50 &7151021083427519595
 Rigidbody2D:
   serializedVersion: 4
