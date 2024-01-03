@@ -6,9 +6,12 @@ public class IceSpear : MonoBehaviour
 {
     public float Damage = 100f;
 
+    public AudioClip SpearClip;
+
 
     private void Start()
     {
+        SoundManager.Instance.SFXPlay("SFX", SpearClip);
     }
 
     private void Update()

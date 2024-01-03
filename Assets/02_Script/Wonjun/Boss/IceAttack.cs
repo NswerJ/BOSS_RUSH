@@ -315,7 +315,7 @@ public class IceAttack : MonoBehaviour
 
     private IEnumerator ThirdAttackSequence()
     {
-        Vector3 Targetpos = new Vector3(-20f, Target.position.y, 0);
+        Vector3 Targetpos = new Vector3(-35f, Target.position.y, 0);
 
         GameObject WarningIceSpears = Instantiate(WarnigIceSpear, Targetpos, Quaternion.Euler(0, 0, 90));
         yield return new WaitForSeconds(0.7f);
