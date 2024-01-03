@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FSM_System;
+using System;
 
 public enum EnumPlayerState
 {
@@ -19,6 +20,7 @@ public class PlayerController : FSM_Controller<EnumPlayerState>
     [SerializeField] private EnumPlayerState startState = EnumPlayerState.Move;
 
     private Rigidbody2D rigid;
+    private GroundSencer groundSencer;
 
     public PlayerInputController playerInputController { get; private set; }
     public PlayerEventSystem playerEventSystem { get; private set; }
@@ -27,6 +29,9 @@ public class PlayerController : FSM_Controller<EnumPlayerState>
     {
 
         base.Awake();
+
+        groundSencer = GetComponentInChildren<GroundSencer>();
+
 
         playerValues = Instantiate(playerValues);
 
@@ -54,6 +59,33 @@ public class PlayerController : FSM_Controller<EnumPlayerState>
         rigid = GetComponent<Rigidbody2D>();
 
         ChangeState(startState);
+
+    }
+
+    private void Start()
+    {
+
+
+        if (startState == EnumPlayerState.Move && groundSencer.isGround)
+        {
+
+            ChangeIdle();
+            groundSencer.OnTriggerd += Triggerd;
+
+        }
+
+    }
+
+    private void Triggerd(bool obj)
+    {
+
+        if (obj)
+        {
+
+            ChangeMove();
+            groundSencer.OnTriggerd -= Triggerd;
+
+        }
 
     }
 
