@@ -11,6 +11,8 @@ public class Book : MonoBehaviour
     [SerializeField] private GameObject _mainObject;
     [SerializeField] private GameObject _backObject;
 
+    [SerializeField] private AudioClip _flipClip;
+
     [Header("Hit")]
     [SerializeField] private HitObject _mainHit;
     [SerializeField] private BackHit _backHit;
@@ -45,6 +47,8 @@ public class Book : MonoBehaviour
                 _isPlayAnim = false;
                 _isBack = isBack;
             });
+
+        SoundManager.Instance.SFXPlay("Flip", _flipClip);
     }
 
     public void FlipBack()

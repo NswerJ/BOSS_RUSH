@@ -12,6 +12,9 @@ public class Shuffle : MonoBehaviour
     private List<int> _shuffleList = new List<int>();
     Sequence seq;
 
+    [SerializeField]
+    private AudioClip _cardSettingClip;
+
     [Header("Shuffle")]
     [SerializeField]
     private List<float> _cardChangeTimeList = new List<float>();
@@ -25,7 +28,7 @@ public class Shuffle : MonoBehaviour
         seq = DOTween.Sequence();
         for(int i = 0; i < _bookList.Count; i++)
         {
-            _bookList[i].Back.HitEvent += OpenBook;
+            _bookList[i].Back.BackHitEvent += OpenBook;
         }
     }
 
@@ -36,6 +39,7 @@ public class Shuffle : MonoBehaviour
             _bookList[i].DamageOff();
             _bookList[i].ResetChildPos();
             _bookList[i].transform.position = (Vector3)_5cardShufflePos[i];
+            SoundManager.Instance.SFXPlay("CardSet", _cardSettingClip);
             _bookList[i].Open();
         }
 
@@ -78,6 +82,7 @@ public class Shuffle : MonoBehaviour
                 _shuffleList[randomIdx] = temp;
 
                 yield return wait;
+                SoundManager.Instance.SFXPlay("CardSet", _cardSettingClip);
             }
 
         for (int i = 0; i < _bookList.Count; ++i)
