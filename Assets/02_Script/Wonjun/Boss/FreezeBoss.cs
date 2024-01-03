@@ -130,6 +130,7 @@ public class FreezeBoss : MonoBehaviour
             FreezeTime = 0;
             if (!iceAttackTarget)
             {
+                BossHit.defecnces.AddMod(-50f);
                 GameObject hillEffect = Instantiate(HillEffect, transform.position, Quaternion.identity);
                 iceAttack.IceObjectTarget(true);
                 iceAttackTarget = true;
@@ -150,6 +151,7 @@ public class FreezeBoss : MonoBehaviour
                 if (iceAttack.IceBlockHp == 0)
                 {
                     FreezeTime = SaveFreezeTime;
+                    BossHit.defecnces.AddMod(20f);
                 }
             }
         }
@@ -182,6 +184,7 @@ public class FreezeBoss : MonoBehaviour
             BossCol.enabled = false;
             if (!iceAttackTarget)
             {
+                BossHit.defecnces.AddMod(-100f);
                 GameObject hillEffect = Instantiate(HillEffect, transform.position, Quaternion.identity);
                 iceAttack.IceObjectTarget(true);
                 iceAttackTarget = true;
@@ -203,6 +206,7 @@ public class FreezeBoss : MonoBehaviour
                 if (iceAttack.IceBlockHp == 0)
                 {
                     FreezeTime = SaveFreezeTime /2;
+                    BossHit.defecnces.AddMod(50f);
                 }
             }
         }
