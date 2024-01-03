@@ -149,16 +149,14 @@ public class IceAttack : MonoBehaviour
     {
         if (v == false)
         {
-            if (HillLine != null)
+            if (hillLine != null)
             {
-                Destroy(hillLine);
+                StartCoroutine(DecreaseLineSizeOverTime(hillLine, 0.25f, 0.0f, 2.5f)); 
             }
             for (int i = 0; i < 4; i++)
             {
                 GameObject TargeticeBlock = attacker[i];
-
                 Animator TargetAnim = TargeticeBlock.GetComponent<Animator>();
-
                 TargetAnim.SetBool("Target", v);
             }
         }
@@ -172,6 +170,7 @@ public class IceAttack : MonoBehaviour
             hillLine = Instantiate(HillLine, TargeticeBlock.transform.position, Quaternion.identity).GetComponent<LineRenderer>();
             hillLine.SetPosition(0, TargeticeBlock.transform.position);
             hillLine.SetPosition(1, Boss.position);
+            StartCoroutine(ChangeLineSizeOverTime(hillLine, 0.0f, 0.25f, 2.0f)); 
             if (TargetAnim != null)
             {
                 TargetAnim.SetBool("Target", v);
@@ -182,6 +181,42 @@ public class IceAttack : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator DecreaseLineSizeOverTime(LineRenderer line, float startSize, float endSize, float duration)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            float newSize = Mathf.Lerp(startSize, endSize, elapsedTime / duration);
+            line.startWidth = newSize;
+            line.endWidth = newSize;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        line.startWidth = endSize;
+        line.endWidth = endSize;
+
+        if (line.startWidth <= 0.1f)
+        {
+            Destroy(line.gameObject);
+        }
+    }
+
+    private IEnumerator ChangeLineSizeOverTime(LineRenderer line, float startSize, float endSize, float duration)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            float newSize = Mathf.Lerp(startSize, endSize, elapsedTime / duration);
+            line.startWidth = newSize;
+            line.endWidth = newSize;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        line.startWidth = endSize;
+        line.endWidth = endSize;
+    }
+
 
     public void HillExit()
     {
