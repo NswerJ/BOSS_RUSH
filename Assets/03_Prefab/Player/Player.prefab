@@ -5584,6 +5584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5835269611164564772}
   - component: {fileID: 1541172015718921083}
+  - component: {fileID: 488670351801422131}
   m_Layer: 7
   m_Name: Skill
   m_TagString: Untagged
@@ -5622,6 +5623,24 @@ MonoBehaviour:
   _shotPos: {fileID: 4476698954335661475}
   _playerBullet: {fileID: 3403472271169309389, guid: 243aea6fd1512d6428401d2fa4e56ec4, type: 3}
   _weaponController: {fileID: 2021598113}
+--- !u!114 &488670351801422131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5829845819686380429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9253b55f253abd4e81b0ff4a5e6bd3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillEnable: 0
+  iceSpear: {fileID: 3487456337288530055, guid: 23590fb8f3130544ea67cc61cfcb23f5, type: 3}
+  Player: {fileID: 2947384582077937983}
+  IceSpearCharge: 0
+  playerSpearSpeed: 40
+  playerSpearCool: 5
 --- !u!1001 &712741663
 PrefabInstance:
   m_ObjectHideFlags: 0

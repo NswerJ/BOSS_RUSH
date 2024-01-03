@@ -3022,7 +3022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _door: {fileID: 1662158767}
-  index: 2
+  index: 3
   PowerUpDoor: {fileID: 1813376351}
 --- !u!1 &98055781
 GameObject:
@@ -3347,7 +3347,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &344794322
 PolygonCollider2D:
@@ -3925,56 +3925,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &739223462
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 739223464}
-  - component: {fileID: 739223463}
-  m_Layer: 0
-  m_Name: iceSpearShootPlayer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &739223463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739223462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9253b55f253abd4e81b0ff4a5e6bd3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillEnable: 0
-  iceSpear: {fileID: 3487456337288530055, guid: 23590fb8f3130544ea67cc61cfcb23f5, type: 3}
-  Player: {fileID: 899595703}
-  IceSpearCharge: 0
-  playerSpearSpeed: 40
-  playerSpearCool: 5
---- !u!4 &739223464
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739223462}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.034607, y: -2.9645681, z: -0.0055173235}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &744763611
 GameObject:
@@ -7540,7 +7490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4696215155793315446, guid: 48c2c7299e7af2d4c81c8a316ea7c19a, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4696215155793315446, guid: 48c2c7299e7af2d4c81c8a316ea7c19a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8494,7 +8444,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8116765015594869608, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8116765015594869608, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20850,7 +20800,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8116765015594869608, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8116765015594869608, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_LocalPosition.x
