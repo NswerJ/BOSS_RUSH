@@ -40,6 +40,18 @@ public class DemonBook : MonoBehaviour
     private float _speed = 3f;
 
     [SerializeField]
+    private float _minX;
+    [SerializeField]
+    private float _maxX;
+    [SerializeField]
+    private float _minY;
+    [SerializeField]
+    private float _maxY;
+
+    [SerializeField]
+    private BoxCollider2D _boxCollider;
+
+    [SerializeField]
     private LineRenderer _dangerLine;
 
     private bool _randCheck = false;
@@ -65,6 +77,11 @@ public class DemonBook : MonoBehaviour
 
     void Start()
     {
+        _minY += _boxCollider.size.y;
+        _maxY -= _boxCollider.size.y;
+        _minX += _boxCollider.size.x;
+        _maxX -= _boxCollider.size.x;
+
         _player = GameObject.Find("Player").transform;
         _point = GameObject.Find("BookPoint").transform;
 
@@ -172,6 +189,13 @@ public class DemonBook : MonoBehaviour
         {
             _randPosition = transform.position + 
                 (new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized) * Random.Range(1f, 2f);
+
+            if (_randPosition.x < _minX || _randPosition.x > _maxX
+                || _randPosition.y < _minY || _randPosition.y > _maxY)
+            {
+                Vector3 dir = (_point.position - transform.position).normalized;
+                _randPosition = transform.position + dir * Random.Range(0.5f, 1f);
+            }
 
             _randCheck = true;
         }

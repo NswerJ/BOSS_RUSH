@@ -437,6 +437,11 @@ MonoBehaviour:
   _shotPos: {fileID: 1412512543}
   _mainBook: {fileID: 9199161510719830313}
   _speed: 3
+  _minX: -10
+  _maxX: 10
+  _minY: -3
+  _maxY: 12
+  _boxCollider: {fileID: 4367217294610466828}
   _dangerLine: {fileID: 4865550716921321333}
   _mainSprite: {fileID: 9199161510719830312}
   _rageMat: {fileID: 2100000, guid: 821d3670802d1c4499596df1e7ea8175, type: 2}

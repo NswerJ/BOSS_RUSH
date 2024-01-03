@@ -1,3 +1,4 @@
+using Cinemachine.Utility;
 using DG.Tweening;
 using System;
 using System.Collections;
@@ -31,7 +32,11 @@ public class MainBook : MonoBehaviour
     [SerializeField]
     private Bullet _bullet;
     [SerializeField]
-    private Bullet _sharpBullet;
+    private GameObject _laser;
+    [SerializeField]
+    private Transform _vLaser;
+    [SerializeField]
+    private Transform _hLaser;
 
     [SerializeField]
     private GameObject _danger;
@@ -42,8 +47,11 @@ public class MainBook : MonoBehaviour
 
     [SerializeField]
     private Transform _vDG;
+    private SpriteRenderer _vDGSprite;
+
     [SerializeField]
     private Transform _hDG;
+    private SpriteRenderer _hDGSprite;
 
     [SerializeField]
     private Transform _shotPos;
@@ -60,15 +68,40 @@ public class MainBook : MonoBehaviour
     private LayerMask _playerLayer;
 
     private bool _isPattern;
+    private Color _redDangerColor = new Color(1, 0, 0, 0.6f);
+    private Color _purpleDangerColor = new Color(1, 0, 1, 0.6f);
 
     [Header("Move Value")]
     [SerializeField]
     private Transform _mainTransform;
     private bool _move = true;
 
+    [SerializeField]
+    private float _minX;
+    [SerializeField]
+    private float _maxX;
+    [SerializeField]
+    private float _minY;
+    [SerializeField]
+    private float _maxY;
+
+    private BoxCollider2D _boxCollider;
+
+    [SerializeField]
+    private Vector2 _mainPoint;
+
+
 
     private void Start()
     {
+        _boxCollider = GetComponent<BoxCollider2D>();
+        _minY += _boxCollider.size.y;
+        _maxY -= _boxCollider.size.y;
+        _minX += _boxCollider.size.x;
+        _maxX -= _boxCollider.size.x;
+
+        _vDGSprite = _vDG.GetComponent<SpriteRenderer>();
+        _hDGSprite = _hDG.GetComponent<SpriteRenderer>();
         _player = GameObject.Find("Player").transform;
 
         Back.BackHitEvent += HandleHit;
@@ -104,7 +137,6 @@ public class MainBook : MonoBehaviour
             
         }
 
-        
         if (_move)
             RandomMove();
     }
@@ -120,6 +152,13 @@ public class MainBook : MonoBehaviour
         {
             _randPosition = transform.position +
                 (new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized) * Random.Range(1f, 2f);
+
+            if (_randPosition.x < _minX || _randPosition.x > _maxX
+                || _randPosition.y < _minY || _randPosition.y > _maxY)
+            {
+                Vector3 dir = ((Vector3)_mainPoint - transform.position).normalized;
+                _randPosition = transform.position + dir * Random.Range(0.5f, 1f);
+            }
 
             _randCheck = true;
             _timer = 0f;
@@ -148,6 +187,9 @@ public class MainBook : MonoBehaviour
     {
         _move = true;
         _isPattern = true;
+
+        _vDGSprite.color = _redDangerColor;
+        _hDGSprite.color = _redDangerColor;
 
         yield return new WaitForSeconds(0.5f);
         _mainTransform.DOMove(new Vector3(0, 5.5f), 0.5f);
@@ -284,6 +326,9 @@ public class MainBook : MonoBehaviour
         _move = false;
         _isPattern = true;
 
+        _vDGSprite.color = _purpleDangerColor;
+        _hDGSprite.color = _purpleDangerColor;
+
         yield return new WaitForSeconds(0.5f);
         _mainTransform.DOMove(new Vector3(0, 5.5f), 0.5f);
 
@@ -297,6 +342,8 @@ public class MainBook : MonoBehaviour
             dir = -1;
 
         _danger.SetActive(true);
+        _vLaser.localScale = new Vector3(0.25f, 50, 1);
+        _hLaser.localScale = new Vector3(50, 0.25f, 1);
         Sequence seq = DOTween.Sequence();
 
         _vDG.localScale = new Vector3(0, 50, 1);
@@ -307,32 +354,54 @@ public class MainBook : MonoBehaviour
         yield return new WaitForSeconds(0.26f);
 
         _danger.SetActive(false);
+        _laser.SetActive(true);
+
+        int cnt = 0;
 
         while (true)
         {
-            SoundManager.Instance.SFXPlay("BookBullet", _bulletClip);
+            _laser.transform.eulerAngles = new Vector3(0, 0, angle);
 
-            for (int i = 0; i <= 360; i += 90)
+            angle += speed * 0.005f * dir;
+            moveAngle += speed * 0.005f;
+
+            if (moveAngle >= 135)
             {
-                Vector2 shootDir = new Vector2(Mathf.Cos((angle + i) * Mathf.Deg2Rad), Mathf.Sin((angle + i) * Mathf.Deg2Rad));
-                Bullet bullet = Instantiate(_sharpBullet, _shotPos.position, Quaternion.identity);
-                bullet.BulletRotate(angle + i, shootDir);
+                seq.Append(_vLaser.DOScaleX(0f, 0.25f))
+                    .Join(_hLaser.DOScaleY(0f, 0.25f));
 
-                Destroy(bullet, 2f);
-            }
-
-            angle += speed * 0.05f * dir;
-            moveAngle += speed * 0.05f;
-
-            if (moveAngle >= 90)
-            {
-                yield return new WaitForSeconds(_waitTime[_index]);
+                yield return new WaitForSeconds(0.251f);
+                _laser.SetActive(false);
+                yield return new WaitForSeconds(_waitTime[_index] - 0.001f);
                 _isPattern = false;
                 break;
             }
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.01f);
+
+            cnt++;
+            if(cnt < 5)
+                continue;
+
+            SoundManager.Instance.SFXPlay("Laser", _laserClip);
+            cnt = 0;
+
+            for (int i = 0; i <= 360; i += 90)
+            {
+                Vector2 shootDir = new Vector2(Mathf.Cos((angle + i) * Mathf.Deg2Rad), Mathf.Sin((angle + i) * Mathf.Deg2Rad));
+                RaycastHit2D hit = Physics2D.Linecast(_shotPos.position, (Vector2)_shotPos.position + shootDir * 1000, _playerLayer);
+                if(hit.collider)
+                {
+                    if (hit.transform.TryGetComponent<HitObject>(out HitObject HitObj))
+                    {
+                        HitObj.TakeDamage(1f);
+                    }
+                }
+            }
         }
+
+
+
     }
 
     public void AIStop()
