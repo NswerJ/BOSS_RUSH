@@ -58,17 +58,29 @@ public class DataManager : DontDestroyOnLoad
 
     private void ChangeWeapon(Scene arg0, LoadSceneMode arg1)
     {
-        GameObject.Find("Player").GetComponentInChildren<WeaponController>()
-            .Data = weapons[weaponIndex];
+        if(GameObject.Find("Player") != null)
+            GameObject.Find("Player").GetComponentInChildren<WeaponController>()
+                .Data = weapons[weaponIndex];
+
+        if(SceneManager.GetActiveScene().name == "IntroScene")
+            Destroy(gameObject);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Time.timeScale = 0f;
-            PlayerPosSave.Instance.SavePos();
-            _settingPanel.SetActive(true);
+            if(_settingPanel == null)
+            {
+                _settingPanel = GameObject.Find("Option");
+            }
+
+            if(_settingPanel != null)
+            {
+                Time.timeScale = 0f;
+                PlayerPosSave.Instance.SavePos();
+                _settingPanel.SetActive(true);
+            }
         }
     }
 
