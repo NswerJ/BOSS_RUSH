@@ -9,6 +9,6 @@ public class SwordBossDie : BossDieCheck
     public override void DieEvent()
     {
         chest.SetActive(true);
-        Debug.Log("이벤트 실행");
+        EndFun();
     }
 }

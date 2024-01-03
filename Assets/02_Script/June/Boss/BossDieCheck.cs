@@ -26,7 +26,6 @@ public abstract class BossDieCheck : MonoBehaviour
         {
             isFirst = false;
             DieEvent();
-            EndFun();
         }
     }
 
