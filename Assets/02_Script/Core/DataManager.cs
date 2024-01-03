@@ -7,8 +7,12 @@ public class DataManager : DontDestroyOnLoad
 {
     public static DataManager Instance;
     private int _dataIndex;
+    public int DataIndex => _dataIndex;
+
+    int bossCnt;
 
     [SerializeField] private GameObject _settingPanel;
+
     private void Awake()
     {
         if (Instance == null)
@@ -26,6 +30,8 @@ public class DataManager : DontDestroyOnLoad
         {
             Destroy(gameObject);
         }
+
+        bossCnt = FindObjectsOfType<StageDoor>().Length;
     }
 
     private void Update()
@@ -61,6 +67,8 @@ public class DataManager : DontDestroyOnLoad
     private void InitData()
     {
         PlayerPrefs.SetInt("File" + _dataIndex, -1);
+        PlayerPrefs.SetFloat("File" + _dataIndex + "XPos", -5);
+        PlayerPrefs.SetFloat("File" + _dataIndex + "YPos", 0);
     }
 
 }
