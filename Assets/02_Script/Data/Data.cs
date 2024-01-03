@@ -5,7 +5,7 @@ using UnityEngine;
 public class Data : DontDestroyOnLoad
 {
     Data[] datas;
-    private void Start()
+    protected override void Awake()
     {
         datas = FindObjectsOfType<Data>();
         if (datas.Length > 1)

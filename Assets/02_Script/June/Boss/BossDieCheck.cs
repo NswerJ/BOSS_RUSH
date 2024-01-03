@@ -29,15 +29,6 @@ public abstract class BossDieCheck : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(Input.GetKey(KeyCode.A) && Input.GetKeyDown(KeyCode.C)
-            && Input.GetKey(KeyCode.G))
-        {
-            _hitObject.hp = 1;
-        }
-    }
-
     public abstract void DieEvent();
 
     protected void EndFun()

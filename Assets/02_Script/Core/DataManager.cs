@@ -23,20 +23,18 @@ public class DataManager : DontDestroyOnLoad
     protected override void Awake()
     {
         base.Awake();
-        if(Instance != null)
+        if (Instance != null)
         {
             Destroy(Instance);
         }
-        if (Instance == null)
-        {
-            Instance = this;
-            if (FindObjectOfType<Data>() != null)
-            {
-                _dataIndex = int.Parse(FindObjectOfType<Data>().name);
 
-                if (PlayerPrefs.GetInt("File" + _dataIndex, -1) == -1)
-                    PlayerPrefs.SetInt("File" + _dataIndex, 0);
-            }
+        Instance = this;
+        if (FindObjectOfType<Data>() != null)
+        {
+            _dataIndex = int.Parse(FindObjectOfType<Data>().name);
+
+            if (PlayerPrefs.GetInt("File" + _dataIndex, -1) == -1)
+                PlayerPrefs.SetInt("File" + _dataIndex, 0);
         }
 
         bossCnt = FindObjectsOfType<StageDoor>().Length;
@@ -58,7 +56,7 @@ public class DataManager : DontDestroyOnLoad
 
     private void ChangeWeapon(Scene arg0, LoadSceneMode arg1)
     {
-        if(GameObject.Find("Player") != null)
+        if (GameObject.Find("Player") != null)
             GameObject.Find("Player").GetComponentInChildren<WeaponController>()
                 .Data = weapons[weaponIndex];
     }
@@ -67,16 +65,16 @@ public class DataManager : DontDestroyOnLoad
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(_settingPanel == null)
+            if (_settingPanel == null)
             {
                 _settingPanel = GameObject.Find("Option");
             }
 
-            if(_settingPanel != null)
+            if (_settingPanel != null)
             {
                 Time.timeScale = 0f;
                 PlayerPosSave.Instance.SavePos();
-                _settingPanel.GetComponent<RectTransform>().localScale = new Vector2(1,1);
+                _settingPanel.GetComponent<RectTransform>().localScale = new Vector2(1, 1);
             }
         }
     }
@@ -84,7 +82,7 @@ public class DataManager : DontDestroyOnLoad
     public void Continue()
     {
         Time.timeScale = 1f;
-                _settingPanel.GetComponent<RectTransform>().localScale = new Vector2(0,0);
+        _settingPanel.GetComponent<RectTransform>().localScale = new Vector2(0, 0);
     }
 
     public void Main()
@@ -138,7 +136,7 @@ public class DataManager : DontDestroyOnLoad
 
     public void SaveWeapon(WeaponDataSO key)
     {
-        for(int i = 0; i < weapons.Count; i++)
+        for (int i = 0; i < weapons.Count; i++)
         {
             if (weapons[i] == key)
                 weaponIndex = i;
