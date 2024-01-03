@@ -22,6 +22,7 @@ public class PlayerDashState : PlayerState
     protected override void EnterState()
     {
 
+        playerEventSystem.DashEventExecute();
         addGravity.enabled = false;
         rigid.gravityScale = 0;
         animator.Dash();

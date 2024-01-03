@@ -1,5 +1,6 @@
 using Cinemachine;
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,7 @@ public class Talk
     public Talker talker;
     public UnityEvent talkStartEvent;
     public UnityEvent talkEndEvent;
+    public UnityEvent talkingEvent;
 
 }
 
@@ -115,7 +117,8 @@ public class TutorialController : MonoBehaviour
             box.SetText("");
             box.SetSize(talk.textBoxScale);
 
-            var co = StartCoroutine(SettingTextCo(talk.text, box));
+            talk.talkStartEvent?.Invoke();
+            var co = StartCoroutine(SettingTextCo(talk.text, box, talk.talkingEvent));
 
             yield return new WaitUntil(() => textSettingEnd || Input.GetMouseButtonDown(0));
 
@@ -128,6 +131,7 @@ public class TutorialController : MonoBehaviour
             }
 
             yield return null;
+            talk.talkEndEvent?.Invoke();
 
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
 
@@ -136,6 +140,7 @@ public class TutorialController : MonoBehaviour
             box.gameObject.SetActive(false);
 
             yield return null;
+
 
         }
 
@@ -173,7 +178,7 @@ public class TutorialController : MonoBehaviour
 
     }
 
-    private IEnumerator SettingTextCo(string text, TextBox textbox)
+    private IEnumerator SettingTextCo(string text, TextBox textbox, UnityEvent talkingAction = null)
     {
 
         string curText = "";
@@ -183,11 +188,19 @@ public class TutorialController : MonoBehaviour
 
             curText += ch;
             textbox.SetText(curText);
+            talkingAction?.Invoke();
             yield return new WaitForSeconds(0.1f);
 
         }
 
         textSettingEnd = true;
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+
+        SoundManager.Instance.SFXPlay(clip.name, clip);
+
     }
 
 }

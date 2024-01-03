@@ -59,7 +59,9 @@ public class PlayerController : FSM_Controller<EnumPlayerState>
 
     protected override void Update()
     {
-        
+
+        if (Time.timeScale == 0) return;
+
         base.Update();
 
         playerInputController.Update();
