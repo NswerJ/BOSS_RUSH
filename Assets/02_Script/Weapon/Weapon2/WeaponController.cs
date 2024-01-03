@@ -18,6 +18,7 @@ public class WeaponController : MonoBehaviour
         {
             data = value;
             spriteRenderer.sprite = data.weaponImage;
+            perfab = data.attackPrefab;
         }
     }
 
