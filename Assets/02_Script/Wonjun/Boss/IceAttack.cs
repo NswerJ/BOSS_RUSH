@@ -18,6 +18,7 @@ public class IceAttack : MonoBehaviour
     LineRenderer hillLine;
 
     [SerializeField] private Transform[] IceDropPos;
+    [SerializeField] private Transform[] IceDropPos2;
     public float IceDropCool;
     [SerializeField] private GameObject WarnigRazer;
     [SerializeField] private GameObject icedrop;
@@ -211,36 +212,73 @@ public class IceAttack : MonoBehaviour
 
     private IEnumerator SecondAttackSequence()
     {
+        float random = UnityEngine.Random.Range(1, 3);
+        Debug.Log(random);
         List<GameObject> spawnedRazers = new List<GameObject>();
-
-        for (int i = 0; i < IceDropPos.Length; i++)
+        if (random == 1)
         {
-            GameObject currentRazer = Instantiate(WarnigRazer, IceDropPos[i].position, Quaternion.identity);
-            spawnedRazers.Add(currentRazer);
-            yield return new WaitForSeconds(0.1f);
-        }
+            for (int i = 0; i < IceDropPos.Length; i++)
+            {
+                GameObject currentRazer = Instantiate(WarnigRazer, IceDropPos[i].position, Quaternion.identity);
+                spawnedRazers.Add(currentRazer);
+                yield return new WaitForSeconds(0.1f);
+            }
 
-        yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.4f);
 
-        foreach (GameObject razer in spawnedRazers)
+            foreach (GameObject razer in spawnedRazers)
+            {
+                Destroy(razer);
+            }
+
+            List<GameObject> iceDrops = new List<GameObject>();
+            for (int i = 0; i < IceDropPos.Length; i++)
+            {
+                GameObject iceDropInstance = Instantiate(icedrop, IceDropPos[i].position, Quaternion.identity);
+                iceDrops.Add(iceDropInstance);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            for (int i = 0; i < iceDrops.Count; i++)
+            {
+                Destroy(iceDrops[i]);
+            }
+        }else
         {
-            Destroy(razer);
-        }
+            for (int i = 0; i < IceDropPos2.Length; i++)
+            {
+                GameObject currentRazer = Instantiate(WarnigRazer, IceDropPos2[i].position, Quaternion.identity);
+                spawnedRazers.Add(currentRazer);
+                yield return new WaitForSeconds(0.1f);
+            }
 
-        List<GameObject> iceDrops = new List<GameObject>();
-        for (int i = 0; i < IceDropPos.Length; i++)
-        {
-            GameObject iceDropInstance = Instantiate(icedrop, IceDropPos[i].position, Quaternion.identity);
-            iceDrops.Add(iceDropInstance);
-            yield return new WaitForSeconds(0.1f);
-        }
+            yield return new WaitForSeconds(0.4f);
 
-        yield return new WaitForSeconds(0.5f);
+            foreach (GameObject razer in spawnedRazers)
+            {
+                Destroy(razer);
+            }
 
-        for (int i = 0; i < iceDrops.Count; i++)
-        {
-            Destroy(iceDrops[i]);
+            List<GameObject> iceDrops = new List<GameObject>();
+            for (int i = 0; i < IceDropPos2.Length; i++)
+            {
+                GameObject iceDropInstance = Instantiate(icedrop, IceDropPos2[i].position, Quaternion.identity);
+                iceDrops.Add(iceDropInstance);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            for (int i = 0; i < iceDrops.Count; i++)
+            {
+                Destroy(iceDrops[i]);
+            }
         }
+        
+
+        
     }
 
 
