@@ -273,7 +273,7 @@ public class SwordBossController : MonoBehaviour
             if (collision.TryGetComponent<HitObject>(out HitObject ho))
             {
                 Debug.Log("µû½Ã");
-                ho.TakeDamage(20);
+                ho.TakeDamage(15);
             }
         }
     }
