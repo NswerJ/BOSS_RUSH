@@ -7,10 +7,12 @@ public class IceDropper : MonoBehaviour
     Rigidbody2D rb;
     public float DropSpeed;
     public float Damage = 10f;
+    public AudioClip DropClip;
 
 
-    private void Start()
+    private void Awake()
     {
+        SoundManager.Instance.SFXPlay("SFX", DropClip);
         rb = GetComponent<Rigidbody2D>();   
     }
 

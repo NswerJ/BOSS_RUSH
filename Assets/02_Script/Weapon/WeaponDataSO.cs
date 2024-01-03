@@ -11,6 +11,9 @@ public class WeaponDataSO : ScriptableObject
     public float AttackPower;
     public float AttackCool;
 
+    public float AttackRange;
+    public float AttackSize;
 
     public bool isAttackCoolDown;
+
 }

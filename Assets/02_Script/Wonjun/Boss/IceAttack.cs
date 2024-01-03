@@ -18,6 +18,7 @@ public class IceAttack : MonoBehaviour
     LineRenderer hillLine;
 
     [SerializeField] private Transform[] IceDropPos;
+    [SerializeField] private Transform[] IceDropPos2;
     public float IceDropCool;
     [SerializeField] private GameObject WarnigRazer;
     [SerializeField] private GameObject icedrop;
@@ -30,13 +31,16 @@ public class IceAttack : MonoBehaviour
 
     private int BulletPosCount = 1;
     public float IceBlockHp = 1;
+    public AudioClip BulletClip;
 
-    [SerializeField] private List<GameObject> list;
+    [SerializeField] public List<GameObject> list;
 
     private int currentAttackerIndex = 0;
     private bool isAttacking = false;
     private bool isSecondAttacking = false;
     private bool isThirdAttacking = false;
+
+    public bool BulletSpawn = true;
 
     private void Awake()
     {
@@ -71,6 +75,7 @@ public class IceAttack : MonoBehaviour
 
     IEnumerator AttackSequence()
     {
+        
         for (int i = 0; i < 4; i++)
         {
             StartCoroutine(BulletPosSet(BulletPosCount));
@@ -84,6 +89,7 @@ public class IceAttack : MonoBehaviour
             Rigidbody2D iceRb = list[i].GetComponent<Rigidbody2D>();
             if (iceRb != null)
             {
+                SoundManager.Instance.SFXPlay("SFX", BulletClip);
                 list[i].transform.up = finalDirection;
                 iceRb.velocity = finalDirection * BulletSpeed;
                 StartCoroutine(RemoveIce(list[i], 2f));
@@ -124,7 +130,7 @@ public class IceAttack : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator RemoveIce(GameObject iceObject, float delay)
+    public IEnumerator RemoveIce(GameObject iceObject, float delay)
     {
         yield return new WaitForSeconds(delay);
 
@@ -143,16 +149,14 @@ public class IceAttack : MonoBehaviour
     {
         if (v == false)
         {
-            if (HillLine != null)
+            if (hillLine != null)
             {
-                Destroy(hillLine);
+                StartCoroutine(DecreaseLineSizeOverTime(hillLine, 0.25f, 0.0f, 2.5f)); 
             }
             for (int i = 0; i < 4; i++)
             {
                 GameObject TargeticeBlock = attacker[i];
-
                 Animator TargetAnim = TargeticeBlock.GetComponent<Animator>();
-
                 TargetAnim.SetBool("Target", v);
             }
         }
@@ -166,6 +170,7 @@ public class IceAttack : MonoBehaviour
             hillLine = Instantiate(HillLine, TargeticeBlock.transform.position, Quaternion.identity).GetComponent<LineRenderer>();
             hillLine.SetPosition(0, TargeticeBlock.transform.position);
             hillLine.SetPosition(1, Boss.position);
+            StartCoroutine(ChangeLineSizeOverTime(hillLine, 0.0f, 0.25f, 2.0f)); 
             if (TargetAnim != null)
             {
                 TargetAnim.SetBool("Target", v);
@@ -176,6 +181,42 @@ public class IceAttack : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator DecreaseLineSizeOverTime(LineRenderer line, float startSize, float endSize, float duration)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            float newSize = Mathf.Lerp(startSize, endSize, elapsedTime / duration);
+            line.startWidth = newSize;
+            line.endWidth = newSize;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        line.startWidth = endSize;
+        line.endWidth = endSize;
+
+        if (line.startWidth <= 0.1f)
+        {
+            Destroy(line.gameObject);
+        }
+    }
+
+    private IEnumerator ChangeLineSizeOverTime(LineRenderer line, float startSize, float endSize, float duration)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            float newSize = Mathf.Lerp(startSize, endSize, elapsedTime / duration);
+            line.startWidth = newSize;
+            line.endWidth = newSize;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        line.startWidth = endSize;
+        line.endWidth = endSize;
+    }
+
 
     public void HillExit()
     {
@@ -211,36 +252,73 @@ public class IceAttack : MonoBehaviour
 
     private IEnumerator SecondAttackSequence()
     {
+        float random = UnityEngine.Random.Range(1, 3);
+        Debug.Log(random);
         List<GameObject> spawnedRazers = new List<GameObject>();
-
-        for (int i = 0; i < IceDropPos.Length; i++)
+        if (random == 1)
         {
-            GameObject currentRazer = Instantiate(WarnigRazer, IceDropPos[i].position, Quaternion.identity);
-            spawnedRazers.Add(currentRazer);
-            yield return new WaitForSeconds(0.1f);
-        }
+            for (int i = 0; i < IceDropPos.Length; i++)
+            {
+                GameObject currentRazer = Instantiate(WarnigRazer, IceDropPos[i].position, Quaternion.identity);
+                spawnedRazers.Add(currentRazer);
+                yield return new WaitForSeconds(0.1f);
+            }
 
-        yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.4f);
 
-        foreach (GameObject razer in spawnedRazers)
+            foreach (GameObject razer in spawnedRazers)
+            {
+                Destroy(razer);
+            }
+
+            List<GameObject> iceDrops = new List<GameObject>();
+            for (int i = 0; i < IceDropPos.Length; i++)
+            {
+                GameObject iceDropInstance = Instantiate(icedrop, IceDropPos[i].position, Quaternion.identity);
+                iceDrops.Add(iceDropInstance);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            for (int i = 0; i < iceDrops.Count; i++)
+            {
+                Destroy(iceDrops[i]);
+            }
+        }else
         {
-            Destroy(razer);
-        }
+            for (int i = 0; i < IceDropPos2.Length; i++)
+            {
+                GameObject currentRazer = Instantiate(WarnigRazer, IceDropPos2[i].position, Quaternion.identity);
+                spawnedRazers.Add(currentRazer);
+                yield return new WaitForSeconds(0.1f);
+            }
 
-        List<GameObject> iceDrops = new List<GameObject>();
-        for (int i = 0; i < IceDropPos.Length; i++)
-        {
-            GameObject iceDropInstance = Instantiate(icedrop, IceDropPos[i].position, Quaternion.identity);
-            iceDrops.Add(iceDropInstance);
-            yield return new WaitForSeconds(0.1f);
-        }
+            yield return new WaitForSeconds(0.4f);
 
-        yield return new WaitForSeconds(0.5f);
+            foreach (GameObject razer in spawnedRazers)
+            {
+                Destroy(razer);
+            }
 
-        for (int i = 0; i < iceDrops.Count; i++)
-        {
-            Destroy(iceDrops[i]);
+            List<GameObject> iceDrops = new List<GameObject>();
+            for (int i = 0; i < IceDropPos2.Length; i++)
+            {
+                GameObject iceDropInstance = Instantiate(icedrop, IceDropPos2[i].position, Quaternion.identity);
+                iceDrops.Add(iceDropInstance);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            for (int i = 0; i < iceDrops.Count; i++)
+            {
+                Destroy(iceDrops[i]);
+            }
         }
+        
+
+        
     }
 
 
@@ -277,7 +355,7 @@ public class IceAttack : MonoBehaviour
 
     private IEnumerator ThirdAttackSequence()
     {
-        Vector3 Targetpos = new Vector3(-20f, Target.position.y, 0);
+        Vector3 Targetpos = new Vector3(-35f, Target.position.y, 0);
 
         GameObject WarningIceSpears = Instantiate(WarnigIceSpear, Targetpos, Quaternion.Euler(0, 0, 90));
         yield return new WaitForSeconds(0.7f);

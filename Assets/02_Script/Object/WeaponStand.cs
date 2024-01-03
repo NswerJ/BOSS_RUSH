@@ -28,6 +28,8 @@ public class WeaponStand : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
+            if (DataManager.Instance != null)
+                DataManager.Instance.SaveWeapon(data);
             var temp = player.Data;
             player.Data = data;
             data = temp;

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using FD.Dev;
+using System;
+using UnityEngine.AI;
 
 public class WeaponController : MonoBehaviour
 {
@@ -11,13 +13,20 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private WeaponDataSO data;
 
+    public event Action<Vector3> attackEvent;
+
     public WeaponDataSO Data
     {
         get { return data; }
         set
         {
             data = value;
+            if (spriteRenderer == null)
+            {
+                spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            }
             spriteRenderer.sprite = data.weaponImage;
+            perfab = data.attackPrefab;
         }
     }
 
@@ -27,6 +36,8 @@ public class WeaponController : MonoBehaviour
     private Transform flipPoint;
     private Transform point;
     private bool isCool;
+
+    private Vector3 dir;
 
     private void Start()
     {
@@ -57,7 +68,7 @@ public class WeaponController : MonoBehaviour
 
         var mpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        var dir = (mpos - transform.position).normalized;
+        dir = (mpos - transform.position).normalized;
         dir.z = 0;
 
         spriteRenderer.flipY = dir.x > 0;
@@ -84,7 +95,7 @@ public class WeaponController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !isCool)
         {
-
+            attackEvent?.Invoke(dir.normalized);
             isCool = true;
 
             point.transform.localScale = new Vector3(1, point.transform.localScale.y * -1, 1);
@@ -92,7 +103,7 @@ public class WeaponController : MonoBehaviour
             spriteRenderer.sortingOrder *= -1;
             point.transform.localPosition = point.transform.localPosition.y == 0 ? new Vector3(0f, -0.5f, 0) : new Vector3(0, 0, 0);
 
-            var hits = Physics2D.OverlapBoxAll(transform.position - point.right * 1.5f, Vector2.one * 2, point.transform.eulerAngles.z, enemyLayer);
+            var hits = Physics2D.OverlapBoxAll(transform.position - point.right * data.AttackRange, Vector2.one * data.AttackSize, point.transform.eulerAngles.z, enemyLayer);
 
             playerEventSystem.AttackEventExecute(data.AttackPower);
 

@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 100
+  SpearClip: {fileID: 8300000, guid: 1c3232e23ce7f43448ea562f791bb0d5, type: 3}
 --- !u!50 &1151947380198766305
 Rigidbody2D:
   serializedVersion: 4
