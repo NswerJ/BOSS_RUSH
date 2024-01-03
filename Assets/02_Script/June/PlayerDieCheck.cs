@@ -31,9 +31,9 @@ public class PlayerDieCheck : MonoBehaviour
 
     IEnumerator IsDie()
     {
-        yield return new WaitForSeconds(1.5f);
         if(DataManager.Instance != null)
             DataManager.Instance.PlayerDie();
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("Main");
     }
 }
