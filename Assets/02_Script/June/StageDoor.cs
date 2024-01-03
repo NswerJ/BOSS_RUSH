@@ -2,10 +2,8 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class StageDoor : MonoBehaviour
 {
@@ -49,6 +47,10 @@ public class StageDoor : MonoBehaviour
     {
         MainFadeImage.Instance.FadeIn();
         yield return new WaitForSeconds(2f);
+        if(PlayerPosSave.Instance != null )
+        {
+            PlayerPosSave.Instance.SavePos(transform.position.x,transform.position.y);
+        }
         SceneManager.LoadScene(transform.name);
     }
 }
