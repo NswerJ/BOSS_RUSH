@@ -16,7 +16,7 @@ public class BossDieCutScene : MonoBehaviour
     private void Awake()
     {
 
-        Play();
+        //Play();
 
     }
 
