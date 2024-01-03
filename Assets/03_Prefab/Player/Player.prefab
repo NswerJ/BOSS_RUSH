@@ -5200,6 +5200,7 @@ GameObject:
   - component: {fileID: 84397580}
   - component: {fileID: 84397581}
   - component: {fileID: 9123860951798800660}
+  - component: {fileID: 2947384580797842359}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -5523,6 +5524,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64cd12ed42b6e04c83a4a294600f7bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2947384580797842359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2947384582077937981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0c2b7a02b8c3b46bbe38bd7f798ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSound: {fileID: 8300000, guid: 829b9eff7a5454049924fb1abcd48b6f, type: 3}
+  landingSound: {fileID: 8300000, guid: 56b42d3332f6f8d4cbccc941dec760b4, type: 3}
+  dashSound: {fileID: 8300000, guid: 1dea6ca2d4bc27345a76acfbf20c1b22, type: 3}
 --- !u!1001 &712741663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5741,8 +5757,16 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8817062164953764891, guid: 863ea10f74060434dad84c5e73e647eb, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817062164953764891, guid: 863ea10f74060434dad84c5e73e647eb, type: 3}
       propertyPath: m_SortingOrder
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817062164953764891, guid: 863ea10f74060434dad84c5e73e647eb, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1684219965
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 863ea10f74060434dad84c5e73e647eb, type: 3}
