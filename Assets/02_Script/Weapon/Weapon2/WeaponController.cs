@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using FD.Dev;
+using System;
 
 public class WeaponController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private GameObject perfab;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private WeaponDataSO data;
+
+    public event Action<Vector3> attackEvent;
 
     public WeaponDataSO Data
     {
@@ -28,6 +31,8 @@ public class WeaponController : MonoBehaviour
     private Transform flipPoint;
     private Transform point;
     private bool isCool;
+
+    private Vector3 dir;
 
     private void Start()
     {
@@ -58,7 +63,7 @@ public class WeaponController : MonoBehaviour
 
         var mpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        var dir = (mpos - transform.position).normalized;
+        dir = (mpos - transform.position).normalized;
         dir.z = 0;
 
         spriteRenderer.flipY = dir.x > 0;
@@ -85,7 +90,7 @@ public class WeaponController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !isCool)
         {
-
+            attackEvent?.Invoke(dir.normalized);
             isCool = true;
 
             point.transform.localScale = new Vector3(1, point.transform.localScale.y * -1, 1);
