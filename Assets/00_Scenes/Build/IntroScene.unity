@@ -424,10 +424,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1480686340}
   m_HandleRect: {fileID: 1928350080}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -632,9 +632,9 @@ GameObject:
   m_Component:
   - component: {fileID: 105659317}
   - component: {fileID: 105659316}
-  - component: {fileID: 105659315}
   - component: {fileID: 105659318}
   - component: {fileID: 105659319}
+  - component: {fileID: 105659320}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -642,14 +642,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &105659315
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105659314}
-  m_Enabled: 1
 --- !u!20 &105659316
 Camera:
   m_ObjectHideFlags: 0
@@ -750,12 +742,12 @@ AudioSource:
   m_GameObject: {fileID: 105659314}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 367c14b19879c1648ac6683070d89558, type: 2}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: eab892e357d0f86458115bfec017d480, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -837,6 +829,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &105659320
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105659314}
+  m_Enabled: 1
 --- !u!1 &183618200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,10 +1574,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1785296323}
   m_HandleRect: {fileID: 183618201}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1985,10 +1985,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1088036553}
   m_HandleRect: {fileID: 214581188}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4620,8 +4620,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mixer: {fileID: 24100000, guid: 367c14b19879c1648ac6683070d89558, type: 2}
-  _bgSound: {fileID: 0}
-  _bgList: []
+  _bgSound: {fileID: 105659319}
+  _bgList:
+  - {fileID: 8300000, guid: eab892e357d0f86458115bfec017d480, type: 3}
 --- !u!4 &1907959105
 Transform:
   m_ObjectHideFlags: 0

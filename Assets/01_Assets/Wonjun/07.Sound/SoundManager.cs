@@ -46,6 +46,7 @@ public class SoundManager : MonoBehaviour
 
     public void MasterSoundVolume(float val)
     {
+        Debug.Log(Mathf.Log10(val) * 20);
         _mixer.SetFloat("Master", Mathf.Log10(val) * 20);
         PlayerPrefs.SetFloat("MasterSound",val);
     }
@@ -78,7 +79,6 @@ public class SoundManager : MonoBehaviour
         _bgSound.outputAudioMixerGroup = _mixer.FindMatchingGroups("BGSound")[0];
         _bgSound.clip = clip;
         _bgSound.loop = true;
-        _bgSound.volume = 0.1f;
         _bgSound.Play();
     }
 
