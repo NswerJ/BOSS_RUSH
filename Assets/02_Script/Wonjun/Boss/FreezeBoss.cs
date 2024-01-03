@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class FreezeBoss : MonoBehaviour
 {
+    public float moveSpeed = 2.0f;
+    public float movementRange = 2.0f; 
+
+    private bool movingUp = false; 
+    private Vector3 initialPosition; 
+
     public bool isAttack = true;
 
     public float BossHp = 10000;
@@ -41,6 +47,8 @@ public class FreezeBoss : MonoBehaviour
     public AudioClip PhaseChangeClip;
     bool HillSound = false;
 
+    private float per;
+
     private void Awake()
     {
         SaveFreezeTime = FreezeTime;
@@ -65,14 +73,15 @@ public class FreezeBoss : MonoBehaviour
 
     private void DieBossEffect()
     {
-        for(int i =0; i< iceAttack.list.Count; i++)
-        {
-            iceAttack.RemoveIce(iceAttack.list[i], 0.1f);
-        }
         SoundManager.Instance.SFXPlay("SFX", Dieclip);
         GameObject dieEffect = Instantiate(DieEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
         Destroy(dieEffect, 1f);
+    }
+
+    public void BossMove()
+    {
+        movingUp = true;
     }
 
     private void Update()
@@ -108,8 +117,20 @@ public class FreezeBoss : MonoBehaviour
             Debug.Log("페이즈 3");
             Phase3();
         }
-        
+        if (movingUp)
+        {
+            per += Time.deltaTime;
+            transform.position = initialPosition + new Vector3(0, Mathf.Sin(per * moveSpeed) / movementRange);
+
+        }
+
     }
+
+
+
+
+
+
     #region 페이즈
 
     #region 페이즈 1
@@ -140,6 +161,7 @@ public class FreezeBoss : MonoBehaviour
             BossCol.enabled = true;
             anim.SetBool("Hill", false);
             HillSound = true;
+            movingUp = true;
         }
         else
         {
@@ -148,6 +170,7 @@ public class FreezeBoss : MonoBehaviour
                 SoundManager.Instance.SFXPlay("SFX", Hillclip);
                 HillSound = false;
             }
+            movingUp = false;
             BossCol.enabled = false;
             FreezeTime = 0;
             if (!iceAttackTarget)
@@ -208,6 +231,7 @@ public class FreezeBoss : MonoBehaviour
             BossCol.enabled = true;
             anim.SetBool("Hill", false);
             HillSound = true;
+            movingUp = true;
         }
         else
         {
@@ -216,6 +240,7 @@ public class FreezeBoss : MonoBehaviour
                 SoundManager.Instance.SFXPlay("SFX", Hillclip);
                 HillSound = false;
             }
+            movingUp = false;
             FreezeTime = 0;
             BossCol.enabled = false;
             if (!iceAttackTarget)
