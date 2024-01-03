@@ -297,8 +297,8 @@ MonoBehaviour:
   FreezeTime: 10
   SaveFreezeTime: 0
   HillCool: 2
-  Phase2Hill: 100
-  Phase3Hill: 200
+  Phase2Hill: 200
+  Phase3Hill: 300
   HillEffect: {fileID: 5089912075557022076, guid: 25c0145fd9293fa4bab2507e71b0a86e, type: 3}
   DieEffect: {fileID: 229682870354262612, guid: 9283a1f3fcecb1c4cb45e2de9fcd6c7a, type: 3}
 --- !u!95 &87697786
