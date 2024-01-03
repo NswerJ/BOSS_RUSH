@@ -11,9 +11,29 @@ public class StageDoor : MonoBehaviour
 
     bool isCollision = false;
 
+    public bool isUseFire = false;
+    public int roomIdx;
+    [SerializeField] GameObject notclear;
+    [SerializeField] GameObject clear;
+
     private void Awake()
     {
         _doorTxt = transform.GetComponentInChildren<TextMeshPro>();
+    }
+
+    private void Start()
+    {
+        if(isUseFire)
+        {
+            if (PlayerPrefs.GetInt("File" + DataManager.Instance.DataIndex + "Boss" + roomIdx,0) == 1)
+            {
+                clear.SetActive(true);
+            }
+            else
+            {
+                notclear.SetActive(true);
+            }
+        }
     }
 
     private void Update()
@@ -29,7 +49,7 @@ public class StageDoor : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             isCollision = true;
-            _doorTxt.DOText("FÅ°¸¦ ´­·¯¼­ ÀÔÀå", 1f);
+            _doorTxt.DOText("Fí‚¤ë¥¼ ëˆŒëŸ¬ ìž…ìž¥", 1f);
         }
     }
 
