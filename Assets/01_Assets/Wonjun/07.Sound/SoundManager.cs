@@ -46,7 +46,6 @@ public class SoundManager : MonoBehaviour
 
     public void MasterSoundVolume(float val)
     {
-        Debug.Log(Mathf.Log10(val) * 20);
         _mixer.SetFloat("Master", Mathf.Log10(val) * 20);
         PlayerPrefs.SetFloat("MasterSound",val);
     }
