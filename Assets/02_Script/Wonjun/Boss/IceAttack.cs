@@ -257,7 +257,7 @@ public class IceAttack : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
             }
 
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.2f);
 
             foreach (GameObject razer in spawnedRazers)
             {
@@ -272,7 +272,7 @@ public class IceAttack : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
             }
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
 
             for (int i = 0; i < iceDrops.Count; i++)
             {
@@ -287,7 +287,7 @@ public class IceAttack : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
             }
 
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.2f);
 
             foreach (GameObject razer in spawnedRazers)
             {
@@ -302,7 +302,7 @@ public class IceAttack : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
             }
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
 
             for (int i = 0; i < iceDrops.Count; i++)
             {
