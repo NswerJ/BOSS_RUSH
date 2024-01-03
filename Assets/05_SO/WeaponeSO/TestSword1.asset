@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286501aa150fb23489fdc8fa1c8837c7, type: 3}
+  m_Name: TestSword1
+  m_EditorClassIdentifier: 
+  weaponImage: {fileID: -985064250, guid: 8f75ba058c031ec4696652aebb84bcd2, type: 3}
+  attackPrefab: {fileID: 3030261073359372769, guid: 8d43693ea375aff4db678d1d7b3a6197, type: 3}
+  AttackPower: 50
+  AttackCool: 0.1
+  isAttackCoolDown: 0
