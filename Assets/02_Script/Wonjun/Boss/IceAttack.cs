@@ -1,3 +1,4 @@
+using FD.Dev;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +8,6 @@ public class IceAttack : MonoBehaviour
 {
 
     public GameObject[] attacker;
-    public GameObject IceBlock;
     public float BulletSpeed = 10f;
     public Vector3 BulletPos;
     GameObject TargeticeBlock;
@@ -87,25 +87,7 @@ public class IceAttack : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             StartCoroutine(BulletPosSet(BulletPosCount));
-            list.Add(Instantiate(IceBlock, attacker[currentAttackerIndex].transform.position + BulletPos, Quaternion.identity));
-            yield return new WaitForSeconds(.2f);
-        }
-
-        Vector2 finalDirection = (Target.position - list[0].transform.position).normalized;
-        for (int i = 0; i < 4; i++)
-        {
-            Rigidbody2D iceRb = list[i].GetComponent<Rigidbody2D>();
-            if (iceRb != null)
-            {
-                SoundManager.Instance.SFXPlay("SFX", BulletClip);
-                list[i].transform.up = finalDirection;
-                iceRb.velocity = finalDirection * BulletSpeed;
-                StartCoroutine(RemoveIce(list[i], 2f));
-            }
-            else
-            {
-                Debug.Log("¾ø¾î");
-            }
+            FAED.TakePool<IceShard>("IceShard", attacker[currentAttackerIndex].transform.position + BulletPos).Spawn(Target, 0.3f);
             yield return new WaitForSeconds(.2f);
         }
 
@@ -138,7 +120,7 @@ public class IceAttack : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator RemoveIce(GameObject iceObject, float delay)
+    /*public IEnumerator RemoveIce(GameObject iceObject, float delay)
     {
         yield return new WaitForSeconds(delay);
 
@@ -151,7 +133,7 @@ public class IceAttack : MonoBehaviour
         {
             Debug.Log("³Î");
         }
-    }
+    }*/
 
     public void IceObjectTarget(bool v)
     {
@@ -206,8 +188,8 @@ public class IceAttack : MonoBehaviour
 
         if (line.startWidth <= 0.1f)
         {
-            Destroy(line.gameObject);
             HillLineShow = false;
+            Destroy(line.gameObject);
         }
     }
 

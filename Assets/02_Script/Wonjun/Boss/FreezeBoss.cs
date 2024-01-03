@@ -73,10 +73,6 @@ public class FreezeBoss : MonoBehaviour
 
     private void DieBossEffect()
     {
-        for(int i =0; i< iceAttack.list.Count; i++)
-        {
-            iceAttack.RemoveIce(iceAttack.list[i], 0.1f);
-        }
         SoundManager.Instance.SFXPlay("SFX", Dieclip);
         GameObject dieEffect = Instantiate(DieEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
