@@ -30,7 +30,7 @@ public class SwordBullet : MonoBehaviour
         if (collision.CompareTag("Player"))
             if (collision.TryGetComponent<HitObject>(out HitObject ho))
             {
-                ho.TakeDamage(10);
+                ho.TakeDamage(5);
                 Destroy(gameObject);
             }
     }
