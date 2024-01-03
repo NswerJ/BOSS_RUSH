@@ -71,6 +71,9 @@ public class SwordBossController : MonoBehaviour
 
             }
 
+            SetVisible(false);
+            yield return new WaitForSeconds(0.8f);
+
             Vector3 pos = new Vector3(Random.Range(-15f, 15f), Random.Range(-4f, 6f));
 
             warningImg.gameObject.transform.position = pos;
@@ -147,7 +150,7 @@ public class SwordBossController : MonoBehaviour
             SetVisible(false);
 
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
 
             Vector3 nextPos = new Vector3(Random.Range(-15f, 15f), Random.Range(-4f, 6f));
             warningImg.gameObject.transform.position = nextPos;
@@ -159,6 +162,7 @@ public class SwordBossController : MonoBehaviour
             transform.rotation = Quaternion.identity;
 
             SetVisible(true);
+            yield return new WaitForSeconds(1f);
 
         }
 
@@ -237,14 +241,14 @@ public class SwordBossController : MonoBehaviour
 
         if (value)
         {
-
-            visual.color = new Color(1, 1, 1, 1);
+            Debug.Log(1);
+            visual.DOFade(1, 0.5f);
 
         }
         else
         {
 
-            visual.color = new Color(1, 1, 1, 0);
+            visual.DOFade(0, 0.5f);
 
         }
 
