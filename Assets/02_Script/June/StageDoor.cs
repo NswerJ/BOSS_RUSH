@@ -11,7 +11,6 @@ public class StageDoor : MonoBehaviour
 
     bool isCollision = false;
 
-    [Header("?�불 관??")]
     public bool isUseFire = false;
     public int roomIdx;
     [SerializeField] GameObject notclear;
@@ -28,12 +27,10 @@ public class StageDoor : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("File" + DataManager.Instance.DataIndex + "Boss" + roomIdx,0) == 1)
             {
-                Debug.Log("1");
                 clear.SetActive(true);
             }
             else
             {
-                Debug.Log("2");
                 notclear.SetActive(true);
             }
         }
@@ -52,7 +49,7 @@ public class StageDoor : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             isCollision = true;
-            _doorTxt.DOText("F?��? ?�러 ?�장", 1f);
+            _doorTxt.DOText("F키를 눌러 입장", 1f);
         }
     }
 
