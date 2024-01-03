@@ -120,7 +120,8 @@ public class WeaponController : MonoBehaviour
                 foreach (var hit in hits)
                 {
 
-                    hit.GetComponent<HitObject>().TakeDamage(data.AttackPower);
+                    if (hit.TryGetComponent<HitObject>(out HitObject ho))
+                        ho.TakeDamage(data.AttackPower);
 
                 }
 
