@@ -9914,7 +9914,7 @@ MonoBehaviour:
   - {fileID: 2140183030}
   - {fileID: 2123319288}
   - {fileID: 1814073380}
-  _cardSettingClip: {fileID: 8300000, guid: 8e4cf330c28304a42a02b363ad70543a, type: 3}
+  _cardSettingClip: {fileID: 8300000, guid: 2890f7b0eadaf524d802677df3b609c0, type: 3}
   _cardChangeTimeList:
   - 0.5
   - 0.3

@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee24674e8f84f8b49b7a3a17b6ff3fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 0}
 --- !u!114 &4335862802024614647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee24674e8f84f8b49b7a3a17b6ff3fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 0}
 --- !u!114 &7053679535536462692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +410,7 @@ MonoBehaviour:
   _root: {fileID: 9199161511749082497}
   _mainObject: {fileID: 9199161510719830319}
   _backObject: {fileID: 9199161510780962272}
-  _flipClip: {fileID: 8300000, guid: 6bec16e9a506c6b4bada54f1fce918c2, type: 3}
+  _flipClip: {fileID: 8300000, guid: 8258e80648ef04f4da3d232b03487789, type: 3}
   _mainHit: {fileID: 4335862802024614647}
   _backHit: {fileID: 7053679535536462692}
 --- !u!114 &1772984160817515977
