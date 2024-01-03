@@ -18,28 +18,23 @@ public class PlayerIceSpearSkill : MonoBehaviour
 
     void Start()
     {
-        playerSpearCool = 0;
+        playerSpearCool = 5f;
         IceSpearCharge = false;
         evSys = FindObjectOfType<PlayerController>().playerEventSystem;
-        skillEnable = true;
+        if (DataManager.Instance != null)
+            skillEnable = PlayerPrefs.GetInt("File" +
+            DataManager.Instance.DataIndex + "Boss" + 3) == 1;
 
         if (skillEnable)
         {
-
-            evSys.AttackEvent += IceSpearAttack;
-
+            ConnectEvent();
         }
 
     }
 
-    public void EnableSkill()
+    public void ConnectEvent()
     {
-
-        if (skillEnable) return;
-
-        skillEnable = true;
         evSys.AttackEvent += IceSpearAttack;
-
     }
 
     private void IceSpearAttack(float obj)
@@ -53,11 +48,11 @@ public class PlayerIceSpearSkill : MonoBehaviour
 
             if (mousePos.x - Player.position.x >= 0)
             {
-                SpearCharge.transform.right = Vector2.right; 
+                SpearCharge.transform.right = Vector2.right;
             }
             else
             {
-                SpearCharge.transform.right = Vector2.left; 
+                SpearCharge.transform.right = Vector2.left;
             }
 
             SpearChargeRb.velocity = SpearCharge.transform.right * playerSpearSpeed;
@@ -66,18 +61,12 @@ public class PlayerIceSpearSkill : MonoBehaviour
         }
     }
 
-
-
-
-    // Update is called once per frame
     void Update()
     {
         playerSpearCool += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.E) && playerSpearCool >=5f)
+        if (Input.GetKeyDown(KeyCode.E) && playerSpearCool >= 5f)
         {
             IceSpearCharge = true;
         }
     }
-
-
 }
