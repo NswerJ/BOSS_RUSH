@@ -6,6 +6,7 @@ public class BookBossDie : BossDieCheck
 {
     public override void DieEvent()
     {
+        FindObjectOfType<BookPower>().SetAbility(true);
         Invoke("EndFun", 3f);
     }
 }

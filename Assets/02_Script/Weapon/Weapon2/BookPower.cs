@@ -15,7 +15,7 @@ public class BookPower : MonoBehaviour
     [SerializeField]
     private WeaponController _weaponController;
 
-    private void Awake()
+    private void Start()
     {
         LoadData(); // Get Save Data And Setting
 
@@ -48,8 +48,9 @@ public class BookPower : MonoBehaviour
         Destroy(spawnBullet.gameObject, 1f);
     }
 
-    private void LoadData()
+    public void LoadData()
     {
-        
+        _on = PlayerPrefs.GetInt("File" + 
+            DataManager.Instance.DataIndex + "Boss" + 2) == 1;
     }
 }
