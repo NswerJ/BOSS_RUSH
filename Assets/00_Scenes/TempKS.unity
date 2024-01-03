@@ -4507,7 +4507,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 15
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1831489808}
@@ -4736,7 +4736,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -16824,15 +16824,18 @@ PlayableDirector:
   - key: {fileID: -328471176649774682, guid: 3783e32b86680e5489ede2fb5ff875f3, type: 2}
     value: {fileID: 4696215155593473180}
   - key: {fileID: -8693092089308718780, guid: 4fb135166ec155f47a0640c99cd679b4, type: 2}
-    value: {fileID: 1055650275}
+    value: {fileID: 4696215155638663068}
   - key: {fileID: -8531004014153929529, guid: 4fb135166ec155f47a0640c99cd679b4, type: 2}
     value: {fileID: 4696215155787276099}
   - key: {fileID: -328471176649774682, guid: 4fb135166ec155f47a0640c99cd679b4, type: 2}
     value: {fileID: 4696215155593473180}
   - key: {fileID: 586234307249419869, guid: 4fb135166ec155f47a0640c99cd679b4, type: 2}
     value: {fileID: 470040636}
+  - key: {fileID: 8628111648824907011, guid: 4fb135166ec155f47a0640c99cd679b4, type: 2}
+    value: {fileID: 4696215155638663056}
   m_ExposedReferences:
     m_References:
+    - 93b464b7e884fe84d80c2b30c398b91a: {fileID: 532438725}
     - 7e83a0fd6e04649498c0d77db0dabc18: {fileID: 4696215155593473183}
 --- !u!1 &4696215155150088168
 GameObject:
@@ -17355,7 +17358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &4696215155638663057
 AudioListener:
   m_ObjectHideFlags: 0
@@ -17440,8 +17443,8 @@ Camera:
   m_GameObject: {fileID: 4696215155638663056}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.027450982, g: 0.25490198, b: 0.12941177, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -17458,7 +17461,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -17634,10 +17637,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
