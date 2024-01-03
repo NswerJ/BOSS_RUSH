@@ -3578,7 +3578,7 @@ GameObject:
   - component: {fileID: 582275981}
   m_Layer: 3
   m_Name: RDice
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8286,7 +8286,7 @@ GameObject:
   - component: {fileID: 1699341731}
   m_Layer: 3
   m_Name: LDice
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20739,7 +20739,7 @@ GameObject:
   - component: {fileID: 2073991737}
   m_Layer: 3
   m_Name: RUice
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20945,7 +20945,7 @@ GameObject:
   - component: {fileID: 2122475021}
   m_Layer: 3
   m_Name: LUice
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
