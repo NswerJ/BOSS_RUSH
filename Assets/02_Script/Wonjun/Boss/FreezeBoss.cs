@@ -60,6 +60,8 @@ public class FreezeBoss : MonoBehaviour
         Destroy(iceAttack.gameObject);
     }
 
+   
+
     private void DieBossEffect()
     {
         for(int i =0; i< iceAttack.list.Count; i++)
