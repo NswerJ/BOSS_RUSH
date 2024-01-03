@@ -308,8 +308,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 11400000, guid: be4592fb1b07ef944b0271480574a2fe, type: 2}
   - {fileID: 11400000, guid: 375535b5a209dc84391b6247b4b7a8c9, type: 2}
+  - {fileID: 11400000, guid: be4592fb1b07ef944b0271480574a2fe, type: 2}
   _settingPanel: {fileID: 510163532}
 --- !u!114 &61576775
 MonoBehaviour:
