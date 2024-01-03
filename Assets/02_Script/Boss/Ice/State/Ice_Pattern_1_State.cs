@@ -9,13 +9,13 @@ public class Ice_Pattern_1_State : IceAwakeState
 {
 
     protected Transform point;
-    protected ParticleSystem movePtc;
+   
 
     public Ice_Pattern_1_State(FSM_Controller<EnumIceAwakeState> controller) : base(controller)
     {
 
         point = bossPointsRoot.Find("Pattern_1");
-        movePtc = transform.Find("MoveParticle").GetComponent<ParticleSystem>();
+
 
     }
 
@@ -51,6 +51,10 @@ public class Ice_Pattern_1_State : IceAwakeState
             yield return new WaitForSeconds(0.05f);
 
         }
+
+        yield return new WaitForSeconds(1);
+
+        ChangeState(EnumIceAwakeState.Pattern_1);
 
     }
 

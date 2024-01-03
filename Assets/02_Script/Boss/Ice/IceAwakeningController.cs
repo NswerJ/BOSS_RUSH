@@ -7,7 +7,13 @@ public enum EnumIceAwakeState
 {
 
     Pattern_1, //상단부 이동후 일직선으로 샤드 날림
-    Pattern_2, //뫼비우스띠 모양으로 이동하며 일정 시간마다 플레이어 방향으로 샤드 날림 && 카메라 주도권이 보스에게 넘어감
+    Pattern_2, //뫼비우스띠 모양으로 이동하며 일정 시간마다 플레이어 방향으로 샤드 날림
+    Pattern_3, //보스가 중앙으로 이동 후 폭팔하는 코어를 소환
+    Pattern_4, //무수히 많은 샤드를 플레이어를 향해 발사 && 카메라 보스에게
+    Pattern_5, //패턴 1 && 4 혼합형
+    Pattern_6, //창 날아옴
+    Pattern_7, //패턴 3 && 2 혼합형
+    Pattern_8, //패턴 1의 창 버젼
 
 }
 
@@ -24,6 +30,24 @@ public class IceAwakeningController : FSM_Controller<EnumIceAwakeState>
 
         var p2 = new Ice_Pattern_2_State(this);
         AddState(p2 , EnumIceAwakeState.Pattern_2);
+
+        var p3 = new Ice_Pattern_3_State(this);
+        AddState(p3, EnumIceAwakeState.Pattern_3);
+
+        var p4 = new Ice_Pattern_4_State(this);
+        AddState(p4 , EnumIceAwakeState.Pattern_4);
+
+        var p5 = new Ice_Pattern_5_State(this);
+        AddState(p5 , EnumIceAwakeState.Pattern_5);
+
+        var p6 = new Ice_Pattern_6_State(this);
+        AddState(p6, EnumIceAwakeState.Pattern_6);
+
+        var p7 = new Ice_Pattern_7_State(this);
+        AddState(p7 , EnumIceAwakeState.Pattern_7);
+
+        var p8 = new Ice_Pattern_8_State(this);
+        AddState(p8 , EnumIceAwakeState.Pattern_8);
 
         ChangeState(startState);
 
