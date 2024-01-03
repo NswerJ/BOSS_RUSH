@@ -38,6 +38,7 @@ public class FreezeBoss : MonoBehaviour
 
     public AudioClip Hillclip;
     public AudioClip Dieclip;
+    public AudioClip PhaseChangeClip;
     bool HillSound = false;
 
     private void Awake()
@@ -124,6 +125,7 @@ public class FreezeBoss : MonoBehaviour
             DefenceOnOff = true;
             BossHit.defecnces.AddMod(10f);
             HillSound = true;
+            SoundManager.Instance.SFXPlay("SFX", PhaseChangeClip);
         }
     }
     #endregion
@@ -189,6 +191,7 @@ public class FreezeBoss : MonoBehaviour
             DefenceOnOff = true;
             BossHit.defecnces.AddMod(20f);
             HillSound = true;
+            SoundManager.Instance.SFXPlay("SFX", PhaseChangeClip);
         }
         iceAttack.Paze2Pattern();
     }

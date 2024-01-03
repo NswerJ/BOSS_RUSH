@@ -17,7 +17,7 @@ public class PlayerSpear : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Boss"))
         {
             HitObject pHit = collision.GetComponent<HitObject>();
             pHit.TakeDamage(Damage);
