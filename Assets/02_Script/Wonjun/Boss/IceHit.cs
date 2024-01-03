@@ -13,6 +13,10 @@ public class IceHit : MonoBehaviour
         boxCol.enabled = false;
         StartCoroutine(boxColShow());
     }
+    private void Start()
+    {
+        Destroy(gameObject, 4f);
+    }
 
     private IEnumerator boxColShow()
     {
