@@ -307,6 +307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349fdfb2b98ef1f438565ba90defd4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 11400000, guid: be4592fb1b07ef944b0271480574a2fe, type: 2}
+  - {fileID: 11400000, guid: 375535b5a209dc84391b6247b4b7a8c9, type: 2}
   _settingPanel: {fileID: 510163532}
 --- !u!114 &61576775
 MonoBehaviour:
@@ -44315,6 +44318,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8116765015594869609, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8116765015594869622, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_Name
       value: TempKS
@@ -47598,6 +47605,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8116765015594869609, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8116765015594869622, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_Name
       value: JaeHee
@@ -47849,6 +47860,10 @@ PrefabInstance:
     - target: {fileID: 8116765015594869608, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8116765015594869609, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8116765015594869622, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_Name
