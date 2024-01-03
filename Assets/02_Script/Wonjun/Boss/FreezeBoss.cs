@@ -21,7 +21,8 @@ public class FreezeBoss : MonoBehaviour
     public float HillCool = 2;
     public float Phase2Hill = 50;
     public float Phase3Hill = 200;
-   
+
+    public bool DefenceOnOff = false;
 
     bool iceAttackTarget = false;
     private float nextIncreaseTime = 0;
@@ -34,6 +35,10 @@ public class FreezeBoss : MonoBehaviour
     public GameObject DieEffect;
 
     Animator anim;
+
+    public AudioClip Hillclip;
+    public AudioClip Dieclip;
+    bool HillSound = false;
 
     private void Awake()
     {
@@ -57,6 +62,11 @@ public class FreezeBoss : MonoBehaviour
 
     private void DieBossEffect()
     {
+        for(int i =0; i< iceAttack.list.Count; i++)
+        {
+            iceAttack.RemoveIce(iceAttack.list[i], 0.1f);
+        }
+        SoundManager.Instance.SFXPlay("SFX", Dieclip);
         GameObject dieEffect = Instantiate(DieEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
         Destroy(dieEffect, 1f);
@@ -109,6 +119,9 @@ public class FreezeBoss : MonoBehaviour
             FreezeTime = 0;
             phase1 = false;
             phase2 = true;
+            DefenceOnOff = true;
+            BossHit.defecnces.AddMod(10f);
+            HillSound = true;
         }
     }
     #endregion
@@ -122,15 +135,24 @@ public class FreezeBoss : MonoBehaviour
             iceAttackTarget = false;
             BossCol.enabled = true;
             anim.SetBool("Hill", false);
+            HillSound = true;
         }
         else
         {
-            
+            if (HillSound)
+            {
+                SoundManager.Instance.SFXPlay("SFX", Hillclip);
+                HillSound = false;
+            }
             BossCol.enabled = false;
             FreezeTime = 0;
             if (!iceAttackTarget)
             {
-                BossHit.defecnces.AddMod(-50f);
+                if (DefenceOnOff)
+                {
+                    BossHit.defecnces.AddMod(-40f);
+                    DefenceOnOff = false;
+                }
                 GameObject hillEffect = Instantiate(HillEffect, transform.position, Quaternion.identity);
                 iceAttack.IceObjectTarget(true);
                 iceAttackTarget = true;
@@ -139,6 +161,7 @@ public class FreezeBoss : MonoBehaviour
             }
             if (BossHp <= 10000)
             {
+                
                 float increaseRate = Phase2Hill;
                 float increaseInterval = 2f;
                 anim.SetBool("Hill", true);
@@ -151,7 +174,7 @@ public class FreezeBoss : MonoBehaviour
                 if (iceAttack.IceBlockHp == 0)
                 {
                     FreezeTime = SaveFreezeTime;
-                    BossHit.defecnces.AddMod(20f);
+                    HillSound = true;
                 }
             }
         }
@@ -161,6 +184,9 @@ public class FreezeBoss : MonoBehaviour
             FreezeTime = 0;
             phase2 = false;
             phase3 = true;
+            DefenceOnOff = true;
+            BossHit.defecnces.AddMod(20f);
+            HillSound = true;
         }
         iceAttack.Paze2Pattern();
     }
@@ -176,15 +202,24 @@ public class FreezeBoss : MonoBehaviour
             iceAttackTarget = false;
             BossCol.enabled = true;
             anim.SetBool("Hill", false);
-
+            HillSound = true;
         }
         else
         {
+            if (HillSound)
+            {
+                SoundManager.Instance.SFXPlay("SFX", Hillclip);
+                HillSound = false;
+            }
             FreezeTime = 0;
             BossCol.enabled = false;
             if (!iceAttackTarget)
             {
-                BossHit.defecnces.AddMod(-100f);
+                if(DefenceOnOff)
+                {
+                    BossHit.defecnces.AddMod(-50f);
+                    DefenceOnOff = false;
+                }
                 GameObject hillEffect = Instantiate(HillEffect, transform.position, Quaternion.identity);
                 iceAttack.IceObjectTarget(true);
                 iceAttackTarget = true;
@@ -206,7 +241,6 @@ public class FreezeBoss : MonoBehaviour
                 if (iceAttack.IceBlockHp == 0)
                 {
                     FreezeTime = SaveFreezeTime /2;
-                    BossHit.defecnces.AddMod(50f);
                 }
             }
         }
