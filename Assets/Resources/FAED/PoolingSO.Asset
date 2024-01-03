@@ -22,4 +22,7 @@ MonoBehaviour:
   - poolingKey: HitEffect
     poolingObject: {fileID: 511481575815213148, guid: a0cd4c872f2255f4790304fbecac4e0b, type: 3}
     poolCount: 50
+  - poolingKey: IceShard
+    poolingObject: {fileID: 1913380593319001337, guid: 90eac5367ad2f7044b4fb6044c188304, type: 3}
+    poolCount: 50
   scenePoolingObjects: []

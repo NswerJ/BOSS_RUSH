@@ -1,4 +1,5 @@
 using DG.Tweening;
+using FD.Dev;
 using FSM_System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,21 +9,26 @@ public class Ice_Pattern_1_State : IceAwakeState
 {
 
     protected Transform point;
+    protected ParticleSystem movePtc;
 
     public Ice_Pattern_1_State(FSM_Controller<EnumIceAwakeState> controller) : base(controller)
     {
 
         point = bossPointsRoot.Find("Pattern_1");
+        movePtc = transform.Find("MoveParticle").GetComponent<ParticleSystem>();
 
     }
 
     protected override void EnterState()
     {
 
+        movePtc.Play();
+
         transform.DOMove(point.position, 1.5f).SetEase(Ease.InSine).OnComplete(() =>
         {
 
             ShardAttack();
+            movePtc.Stop();
 
         });
 
@@ -31,7 +37,20 @@ public class Ice_Pattern_1_State : IceAwakeState
     private void ShardAttack()
     {
 
-        Debug.Log("Asdf");
+        StartCoroutine(ShardSpawnCo());
+
+    }
+
+    private IEnumerator ShardSpawnCo()
+    {
+
+        for (int i = -5; i <= 5; i++)
+        {
+
+            FAED.TakePool<IceShard>("IceShard", transform.position + new Vector3(i, 0), Quaternion.identity).Spawn(target, 0.3f);
+            yield return new WaitForSeconds(0.05f);
+
+        }
 
     }
 
