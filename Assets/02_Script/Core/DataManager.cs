@@ -89,14 +89,14 @@ public class DataManager : DontDestroyOnLoad
             PlayerPrefs.SetInt("File" + _dataIndex + "Boss" + (i + 1), 0);
     }
 
-    bool GetClear(string key)
+    public bool GetClear(string key)
     {
         if (!clearDic.ContainsKey(key))
             Debug.LogError("Can not find Key");
         return clearDic[key] == 1;
     }
 
-    bool GetClear(int key)
+    public bool GetClear(int key)
     {
         string keyStr = "Boss" + key;
         if (!clearDic.ContainsKey(keyStr))
@@ -104,7 +104,7 @@ public class DataManager : DontDestroyOnLoad
         return clearDic[keyStr] == 1;
     }
 
-    void ClearMap(int key)
+    public void ClearMap(int key)
     {
         string keyStr = "Boss" + key;
         clearDic[keyStr] = 1;
