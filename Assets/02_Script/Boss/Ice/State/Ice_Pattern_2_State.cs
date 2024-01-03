@@ -25,6 +25,9 @@ public class Ice_Pattern_2_State : IceAwakeState
     protected override void EnterState()
     {
 
+
+        ChangeCamera(cameraPivot, 6.3f);
+
         movePtc.Play();
 
         transform.DOMove(point.position, 1.5f).SetEase(Ease.InSine).OnComplete(() =>

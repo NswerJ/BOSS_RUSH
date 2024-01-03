@@ -34,4 +34,13 @@ MonoBehaviour:
   - poolingKey: IceSpear_A
     poolingObject: {fileID: 4390815584215620256, guid: bbeefaac46a496d438e4cad506670be5, type: 3}
     poolCount: 50
+  - poolingKey: BoomDestroy
+    poolingObject: {fileID: 8395758911948518132, guid: 152de4d66acae40499e26ad44c82bfc3, type: 3}
+    poolCount: 50
+  - poolingKey: IceLayser
+    poolingObject: {fileID: 8365383186829768646, guid: 52351386a69351841a8823ea19911143, type: 3}
+    poolCount: 50
+  - poolingKey: IceLayserObject
+    poolingObject: {fileID: 6646204250308675626, guid: 88ceb1492201d4e4ab80dadc17653dad, type: 3}
+    poolCount: 50
   scenePoolingObjects: []
