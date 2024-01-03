@@ -1,13 +1,11 @@
 using DG.Tweening;
 using FD.Dev;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IceShard : MonoBehaviour
+public class IceSpear_Awake : MonoBehaviour
 {
-
     private readonly int HASH_FADE = Shader.PropertyToID("_DirectionalGlowFadeFade");
 
     private SpriteRenderer spriteRenderer;
@@ -15,9 +13,9 @@ public class IceShard : MonoBehaviour
 
     private void Awake()
     {
-        
+
         spriteRenderer = GetComponent<SpriteRenderer>();
-        rigid = GetComponent<Rigidbody2D>();    
+        rigid = GetComponent<Rigidbody2D>();
 
     }
 
@@ -63,7 +61,7 @@ public class IceShard : MonoBehaviour
 
         var co = StartCoroutine(ShardRotateCo(dir));
 
-        while(per < 1)
+        while (per < 1)
         {
 
             per += Time.deltaTime * 1.5f;
@@ -110,7 +108,7 @@ public class IceShard : MonoBehaviour
         float per = 0;
 
         var ang = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        ang -= 90;
+        ang -= 45;
         transform.eulerAngles = new Vector3(0, 0, -ang);
 
         yield return null;
@@ -130,7 +128,7 @@ public class IceShard : MonoBehaviour
     private void Shooting(Vector2 dir)
     {
 
-        rigid.velocity = dir * 15;
+        rigid.velocity = dir * 25;
 
     }
 

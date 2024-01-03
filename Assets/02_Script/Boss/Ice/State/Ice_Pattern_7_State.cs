@@ -2,25 +2,23 @@ using DG.Tweening;
 using FD.Dev;
 using FSM_System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Ice_Pattern_2_State : IceAwakeState
+public class Ice_Pattern_7_State : IceAwakeState
 {
 
     private Transform point;
+    private float mainRadius = 3f;
+    private float speed = 1.5f;
+    private bool isMoveStarted;
+    private float per = 1f;
 
-    public Ice_Pattern_2_State(FSM_Controller<EnumIceAwakeState> controller) : base(controller)
+    public Ice_Pattern_7_State(FSM_Controller<EnumIceAwakeState> controller) : base(controller)
     {
 
         point = bossPointsRoot.Find("Pattern_2");
 
     }
-
-    private float mainRadius = 3f;
-    private float speed = 1.5f;
-    private bool isMoveStarted;
-    private float per = 1f;
 
     protected override void EnterState()
     {
@@ -30,12 +28,29 @@ public class Ice_Pattern_2_State : IceAwakeState
         transform.DOMove(point.position, 1.5f).SetEase(Ease.InSine).OnComplete(() =>
         {
 
-            isMoveStarted = true;
-
+            StartCoroutine(BoomAttack());
             StartCoroutine(ShardAttack());
+
+            isMoveStarted = true;
 
         });
 
+
+    }
+
+    private IEnumerator BoomAttack()
+    {
+
+        int cnt = Random.Range(10, 15);
+
+        for (int i = 0; i < cnt; i++)
+        {
+
+            FAED.TakePool<IceBoom>("IceBoom").Spawn(transform.position + (Vector3)Random.insideUnitCircle * 4);
+
+            yield return new WaitForSeconds(Random.Range(0.7f, 1.2f));
+
+        }
 
     }
 
@@ -52,7 +67,7 @@ public class Ice_Pattern_2_State : IceAwakeState
 
         float time = Time.time;
 
-        while (Time.time - time < 20) 
+        while (Time.time - time < 20)
         {
 
             FAED.TakePool<IceShard>("IceShard", transform.position + (Vector3)Random.insideUnitCircle, Quaternion.identity).Spawn(target, 0.3f);
@@ -60,15 +75,14 @@ public class Ice_Pattern_2_State : IceAwakeState
 
         }
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
 
-        ChangeState(EnumIceAwakeState.Pattern_2);
+        ChangeState(EnumIceAwakeState.Pattern_7);
 
     }
 
     protected override void UpdateState()
     {
-
         if (!isMoveStarted) return;
 
         transform.position = point.position + MoveToInf(per * speed);
@@ -86,5 +100,6 @@ public class Ice_Pattern_2_State : IceAwakeState
         return new Vector2(x, y);
 
     }
+
 
 }

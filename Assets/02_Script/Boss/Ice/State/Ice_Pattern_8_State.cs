@@ -5,13 +5,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ice_Pattern_1_State : IceAwakeState
+public class Ice_Pattern_8_State : IceAwakeState
 {
 
     protected Transform point;
-   
 
-    public Ice_Pattern_1_State(FSM_Controller<EnumIceAwakeState> controller) : base(controller)
+
+    public Ice_Pattern_8_State(FSM_Controller<EnumIceAwakeState> controller) : base(controller)
     {
 
         point = bossPointsRoot.Find("Pattern_1");
@@ -47,14 +47,15 @@ public class Ice_Pattern_1_State : IceAwakeState
         for (int i = -5; i <= 5; i++)
         {
 
-            FAED.TakePool<IceShard>("IceShard", transform.position + new Vector3(i, 0), Quaternion.identity).Spawn(target, 0.3f);
+            FAED.TakePool<IceSpear_Awake>("IceSpear_A", transform.position + new Vector3(i, 0), Quaternion.identity).Spawn(target, 0.3f);
             yield return new WaitForSeconds(0.05f);
 
         }
 
+
         yield return new WaitForSeconds(1);
 
-        ChangeState(EnumIceAwakeState.Pattern_1);
+        ChangeState(EnumIceAwakeState.Pattern_8);
 
     }
 
