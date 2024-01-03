@@ -2277,6 +2277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee24674e8f84f8b49b7a3a17b6ff3fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 0}
 --- !u!114 &87697790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2784,6 +2785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee24674e8f84f8b49b7a3a17b6ff3fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 0}
 --- !u!50 &582275984
 Rigidbody2D:
   serializedVersion: 4
@@ -6223,7 +6225,9 @@ MonoBehaviour:
   WarnigIceSpear: {fileID: 7755369039012096015, guid: 8add2ef3eb35ca4448b3f19c8be6634f, type: 3}
   IceSpearCool: 3
   IceBlockHp: 1
+  BulletClip: {fileID: 8300000, guid: 3270313e169d4574ebde41f8adaec2cf, type: 3}
   list: []
+  BulletSpawn: 1
 --- !u!1 &1380712941
 GameObject:
   m_ObjectHideFlags: 0
@@ -7067,6 +7071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee24674e8f84f8b49b7a3a17b6ff3fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 0}
 --- !u!50 &1699341734
 Rigidbody2D:
   serializedVersion: 4
@@ -19366,6 +19371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee24674e8f84f8b49b7a3a17b6ff3fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 0}
 --- !u!50 &2073991740
 Rigidbody2D:
   serializedVersion: 4
@@ -19566,6 +19572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee24674e8f84f8b49b7a3a17b6ff3fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 0}
 --- !u!61 &2122475024
 BoxCollider2D:
   m_ObjectHideFlags: 0

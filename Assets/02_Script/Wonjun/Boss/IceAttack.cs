@@ -31,13 +31,16 @@ public class IceAttack : MonoBehaviour
 
     private int BulletPosCount = 1;
     public float IceBlockHp = 1;
+    public AudioClip BulletClip;
 
-    [SerializeField] private List<GameObject> list;
+    [SerializeField] public List<GameObject> list;
 
     private int currentAttackerIndex = 0;
     private bool isAttacking = false;
     private bool isSecondAttacking = false;
     private bool isThirdAttacking = false;
+
+    public bool BulletSpawn = true;
 
     private void Awake()
     {
@@ -72,6 +75,7 @@ public class IceAttack : MonoBehaviour
 
     IEnumerator AttackSequence()
     {
+        
         for (int i = 0; i < 4; i++)
         {
             StartCoroutine(BulletPosSet(BulletPosCount));
@@ -85,6 +89,7 @@ public class IceAttack : MonoBehaviour
             Rigidbody2D iceRb = list[i].GetComponent<Rigidbody2D>();
             if (iceRb != null)
             {
+                SoundManager.Instance.SFXPlay("SFX", BulletClip);
                 list[i].transform.up = finalDirection;
                 iceRb.velocity = finalDirection * BulletSpeed;
                 StartCoroutine(RemoveIce(list[i], 2f));
@@ -125,7 +130,7 @@ public class IceAttack : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator RemoveIce(GameObject iceObject, float delay)
+    public IEnumerator RemoveIce(GameObject iceObject, float delay)
     {
         yield return new WaitForSeconds(delay);
 
