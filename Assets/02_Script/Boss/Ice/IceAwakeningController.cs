@@ -51,6 +51,12 @@ public class IceAwakeningController : FSM_Controller<EnumIceAwakeState>
         var p8 = new Ice_Pattern_8_State(this);
         AddState(p8 , EnumIceAwakeState.Pattern_8);
 
+        var p9 = new Ice_Pattern_9_State(this);
+        AddState(p9 , EnumIceAwakeState.Pattern_9);
+
+        var p10 = new Ice_Pattern_10_State(this);
+        AddState(p10 , EnumIceAwakeState.Pattern_10);
+
         ChangeState(startState);
 
     }

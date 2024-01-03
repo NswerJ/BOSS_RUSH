@@ -18,15 +18,6 @@ public class IceLayser : MonoBehaviour
 
     }
 
-    public async void Start()
-    {
-
-        await Task.Delay(500);
-
-        Show(Vector2.zero, Vector2.left);
-
-    }
-
     public void Show(Vector2 position, Vector2 dir)
     {
 
@@ -49,7 +40,7 @@ public class IceLayser : MonoBehaviour
 
             per += Time.deltaTime * 1.15f;
 
-            lineRenderer.widthMultiplier = Mathf.Lerp(0, 0.8f, per);
+            lineRenderer.widthMultiplier = Mathf.Lerp(0, 0.4f, per);
 
             yield return null;
 
@@ -64,7 +55,7 @@ public class IceLayser : MonoBehaviour
 
             per += Time.deltaTime * 20;
 
-            lineRenderer.widthMultiplier = Mathf.Lerp(0.8f, 3f, FAED.Easing(FAED_Easing.InOutBounce, per));
+            lineRenderer.widthMultiplier = Mathf.Lerp(0.4f, 1.5f, FAED.Easing(FAED_Easing.InOutBounce, per));
 
             yield return null;
 
@@ -78,7 +69,7 @@ public class IceLayser : MonoBehaviour
 
             per += Time.deltaTime * 80;
 
-            lineRenderer.widthMultiplier = Mathf.Lerp(3f, 2f, FAED.Easing(FAED_Easing.InOutBounce, per));
+            lineRenderer.widthMultiplier = Mathf.Lerp(1.5f, 1f, FAED.Easing(FAED_Easing.InOutBounce, per));
 
             yield return null;
 
