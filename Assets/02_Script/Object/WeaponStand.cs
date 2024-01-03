@@ -26,7 +26,7 @@ public class WeaponStand : MonoBehaviour
 
         if (check == false) return;
 
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             var temp = player.Data;
             player.Data = data;

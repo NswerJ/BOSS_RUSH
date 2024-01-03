@@ -15,6 +15,12 @@ public class SwordBossController : MonoBehaviour
     [SerializeField] GameObject portal;
     [SerializeField] GameObject bullet;
 
+    [SerializeField] AudioClip move;
+    [SerializeField] AudioClip KKANG;
+    [SerializeField] AudioClip crash;
+    [SerializeField] AudioClip rot;
+
+
     private WarningImg warningImg;
     private GameObject player;
     private Rigidbody2D rigid;
@@ -97,6 +103,7 @@ public class SwordBossController : MonoBehaviour
 
         Destroy(obj);
 
+        SoundManager.Instance.SFXPlay("Move", move);
         rigid.AddForce(transform.up * 40, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(1f);
@@ -125,7 +132,7 @@ public class SwordBossController : MonoBehaviour
             GameObject obj = Instantiate(warningLine, transform.position, Quaternion.identity);
             transform.up = dir;
             obj.transform.up = dir;
-            
+
             var line = obj.GetComponent<WarningLine>();
             line.speed = 0;
             obj.transform.DOMove(pos, 0.6f);
@@ -135,6 +142,7 @@ public class SwordBossController : MonoBehaviour
             yield return new WaitForSeconds(0.6f);
             Destroy(obj);
             transform.DOMove(pos, delay).SetEase(Ease.Linear);
+            SoundManager.Instance.SFXPlay("Move", move);
 
             yield return new WaitForSeconds(delay);
             particle.Stop();
@@ -156,11 +164,11 @@ public class SwordBossController : MonoBehaviour
 
         }
 
-        
+
 
         for (int i = 0; i < 3; i++)
         {
-
+            SoundManager.Instance.SFXPlay("KKANG", KKANG);
             for (int j = 0; j < 10; j++)
             {
 
@@ -175,7 +183,7 @@ public class SwordBossController : MonoBehaviour
         Destroy(portals[2]);
         portals.Clear();
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
 
     }
 
@@ -187,6 +195,8 @@ public class SwordBossController : MonoBehaviour
 
         float originAngle = transform.rotation.eulerAngles.z;
         particle.Play();
+
+        SoundManager.Instance.SFXPlay("Rot", rot);
 
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DORotate(new Vector3(0, 0, originAngle + 90), 0.1f).SetEase(Ease.Linear)).
