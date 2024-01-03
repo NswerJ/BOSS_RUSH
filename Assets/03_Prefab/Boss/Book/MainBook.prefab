@@ -546,6 +546,7 @@ MonoBehaviour:
   _stop: 1
   hit: {fileID: 603266520}
   Back: {fileID: 3185596649254251707}
+  _dieCutScene: {fileID: 0}
   _backHitClip: {fileID: 8300000, guid: c25f201fc38d2ed4c9cb73e10e991767, type: 3}
   _hitClip: {fileID: 8300000, guid: fcd2fc127246d2a4f83c343c6e95cd60, type: 3}
   _bulletClip: {fileID: 8300000, guid: 3270313e169d4574ebde41f8adaec2cf, type: 3}

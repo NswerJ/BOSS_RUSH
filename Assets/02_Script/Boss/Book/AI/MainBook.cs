@@ -13,6 +13,8 @@ public class MainBook : MonoBehaviour
     public HitObject hit; // 죽었을 때 이벤트 추가용
     public BackHit Back;
 
+    [SerializeField] private BossDieCutScene _dieCutScene;
+
     [Header("Audio")]
     [SerializeField]
     private AudioClip _backHitClip;
@@ -87,6 +89,7 @@ public class MainBook : MonoBehaviour
 
     private void HandleDie()
     {
+        _dieCutScene.Play();
         gameObject.SetActive(false);
     }
 
