@@ -3189,7 +3189,7 @@ MonoBehaviour:
   m_Follow: {fileID: 899595703}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 6
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -7040,7 +7040,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7299,7 +7299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4696215155289365022, guid: 48c2c7299e7af2d4c81c8a316ea7c19a, type: 3}
       propertyPath: orthographic size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4696215155289365023, guid: 48c2c7299e7af2d4c81c8a316ea7c19a, type: 3}
       propertyPath: m_LocalPosition.x
