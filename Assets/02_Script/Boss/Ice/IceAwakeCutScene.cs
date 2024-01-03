@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,7 +14,20 @@ public class IceAwakeCutScene : MonoBehaviour
 
     private void Start()
     {
-        
+
+        fadeImage.DOFade(1, 0);
+        fadeImage.DOFade(0, 0.5f).OnComplete(() =>
+        {
+
+            FadeEnd();
+
+        });
+
+    }
+
+    private void FadeEnd()
+    {
+
 
 
     }
