@@ -11,7 +11,7 @@ public class StageDoor : MonoBehaviour
 
     bool isCollision = false;
 
-    [Header("등불 관련")]
+    [Header("?�불 관??")]
     public bool isUseFire = false;
     public int roomIdx;
     [SerializeField] GameObject notclear;
@@ -52,7 +52,7 @@ public class StageDoor : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             isCollision = true;
-            _doorTxt.DOText("F키를 눌러 입장", 1f);
+            _doorTxt.DOText("F?��? ?�러 ?�장", 1f);
         }
     }
 
