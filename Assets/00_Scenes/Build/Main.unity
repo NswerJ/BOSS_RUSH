@@ -44265,7 +44265,6 @@ GameObject:
   m_Component:
   - component: {fileID: 870518739}
   - component: {fileID: 870518742}
-  - component: {fileID: 870518741}
   - component: {fileID: 870518740}
   m_Layer: 0
   m_Name: MinimapCamera
@@ -44322,14 +44321,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &870518741
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870518738}
-  m_Enabled: 1
 --- !u!20 &870518742
 Camera:
   m_ObjectHideFlags: 0
@@ -44538,6 +44529,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1173920256}
     m_Modifications:
+    - target: {fileID: 4254539623966749543, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770456326698023049, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8116765013688900164, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_LocalScale.y
       value: 0
@@ -44600,6 +44599,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8116765015594869609, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8116765015594869610, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: roomIdx
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8116765015594869610, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: isUseFire
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8116765015594869622, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
@@ -52106,6 +52113,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1173920256}
     m_Modifications:
+    - target: {fileID: 4254539623966749543, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770456326698023049, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8116765013688900164, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_LocalScale.y
       value: 0
@@ -52168,6 +52183,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8116765015594869609, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8116765015594869610, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: roomIdx
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8116765015594869610, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: isUseFire
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8116765015594869622, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
@@ -52362,6 +52385,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1173920256}
     m_Modifications:
+    - target: {fileID: 4254539623966749543, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770456326698023049, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8116765013688900164, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_LocalScale.y
       value: 0
@@ -52424,6 +52455,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8116765015594869609, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8116765015594869610, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: roomIdx
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8116765015594869610, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
+      propertyPath: isUseFire
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8116765015594869622, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
