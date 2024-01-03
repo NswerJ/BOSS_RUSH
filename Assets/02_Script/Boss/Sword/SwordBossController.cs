@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class SwordBossController : MonoBehaviour
@@ -24,6 +25,7 @@ public class SwordBossController : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rigid;
     private Collider2D col;
+    private Collider2D dealingCol;
 
     List<GameObject> portals = new List<GameObject>();
 
@@ -32,7 +34,8 @@ public class SwordBossController : MonoBehaviour
         warningImg = warningObj.GetComponent<WarningImg>();
         rigid = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
-
+        dealingCol = transform.GetChild(0).GetComponent<Collider2D>();
+        dealingCol.enabled = false;
         player = GameObject.Find("Player");
     }
 
@@ -106,9 +109,10 @@ public class SwordBossController : MonoBehaviour
 
         SoundManager.Instance.SFXPlay("Move", move);
         rigid.AddForce(transform.up * 40, ForceMode2D.Impulse);
+        dealingCol.enabled = true;
 
         yield return new WaitForSeconds(1f);
-
+        dealingCol.enabled = false;
         rigid.velocity = Vector2.zero;
 
     }
@@ -142,11 +146,13 @@ public class SwordBossController : MonoBehaviour
 
             yield return new WaitForSeconds(0.6f);
             Destroy(obj);
+            dealingCol.enabled = true;
             transform.DOMove(pos, delay).SetEase(Ease.Linear);
             SoundManager.Instance.SFXPlay("Move", move);
 
             yield return new WaitForSeconds(delay);
             particle.Stop();
+            dealingCol.enabled = false;
             SetVisible(false);
 
 
@@ -199,6 +205,7 @@ public class SwordBossController : MonoBehaviour
         particle.Play();
 
         SoundManager.Instance.SFXPlay("Rot", rot);
+        dealingCol.enabled = true;
 
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DORotate(new Vector3(0, 0, originAngle + 90), 0.1f).SetEase(Ease.Linear)).
@@ -212,6 +219,8 @@ public class SwordBossController : MonoBehaviour
             Shoot(originAngle + 45 * i, transform.position);
             yield return new WaitForSeconds(0.05f);
         }
+
+        dealingCol.enabled = false;
 
         particle.Stop();
 
@@ -269,16 +278,6 @@ public class SwordBossController : MonoBehaviour
 
     //}
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            if (collision.TryGetComponent<HitObject>(out HitObject ho))
-            {
-                ho.TakeDamage(10);
-            }
-        }
-    }
 
     private void OnDestroy()
     {
