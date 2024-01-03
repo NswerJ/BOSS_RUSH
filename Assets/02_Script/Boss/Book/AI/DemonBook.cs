@@ -12,6 +12,17 @@ public class DemonBook : MonoBehaviour
     public HitObject hit;
     public BackHit Back;
 
+    [Header("Audio Clip")]
+    [SerializeField]
+    private AudioClip _backHitClip;
+    [SerializeField]
+    private AudioClip _hitClip;
+
+    [SerializeField]
+    private AudioClip _bulletClip;
+    [SerializeField]
+    private AudioClip _fireballClip;
+
     [Header("Attack Value")]
     [SerializeField]
     private Bullet _sharpBullet;
@@ -58,7 +69,13 @@ public class DemonBook : MonoBehaviour
         _point = GameObject.Find("BookPoint").transform;
 
         hit.DieEvent += HandleDie;
-        Back.HitEvent += HandleHit;
+        hit.HitEvent += HandleHitSound;
+        Back.BackHitEvent += HandleHit;
+    }
+
+    private void HandleHitSound()
+    {
+        SoundManager.Instance.SFXPlay("Hit", _hitClip);
     }
 
     void Update()
@@ -100,23 +117,23 @@ public class DemonBook : MonoBehaviour
 
         if (_rageCount == 0)
         {
-            hit.SetHP(hit.maxHP + 300);
+            hit.SetHP(hit.maxHP + 200);
             
             _mainSprite.material = _rageMat;
             _speed = 5f;
-            _maxCount = 5;
-            _count = 2;
+            _maxCount = 4;
+            _count = 1;
 
             _rageCount++;
         }
         else if (_rageCount == 1)
         {
-            hit.SetHP(hit.maxHP + 500);
+            hit.SetHP(hit.maxHP + 300);
             
             _mainSprite.material = _superRageMat;
             _speed = 8f;
             _maxCount = 5;
-            _count = 3;
+            _count = 2;
         }
 
 
@@ -131,6 +148,8 @@ public class DemonBook : MonoBehaviour
     {
         _stop = false;
         _timer = 0;
+
+        SoundManager.Instance.SFXPlay("failHit", _backHitClip);
     }
 
     private void RunAway()
@@ -177,9 +196,11 @@ public class DemonBook : MonoBehaviour
 
             Bullet fire = Instantiate(_fireballPrefab, pos, Quaternion.identity);
             fire.BulletRotate(angle, dir);
+
+            _fireball.Add(fire);
         }
 
-        
+        SoundManager.Instance.SFXPlay("Fireball", _fireballClip);
     }
 
     IEnumerator ShotBullet()
@@ -205,6 +226,8 @@ public class DemonBook : MonoBehaviour
         _dangerLine.enabled = false;
         for(int i = 0; i < _count * 3; ++i)
         {
+            SoundManager.Instance.SFXPlay("BookBullet", _bulletClip);
+
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             Bullet bullet = Instantiate(_sharpBullet, _shotPos.position, Quaternion.identity);
             bullet.BulletRotate(angle, dir);

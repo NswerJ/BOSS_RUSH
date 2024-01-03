@@ -9,7 +9,7 @@ public class BackHit : HitObject
 
     [SerializeField]
     private Book _root;
-    public event Action<Book> HitEvent;
+    public event Action<Book> BackHitEvent;
 
     public override void TakeDamage(float damage)
     {
@@ -17,6 +17,6 @@ public class BackHit : HitObject
         base.TakeDamage(damage);
         _root.Flip(false);
 
-        HitEvent?.Invoke(_root);
+        BackHitEvent?.Invoke(_root);
     }
 }
