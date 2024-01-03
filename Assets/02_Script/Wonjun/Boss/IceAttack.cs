@@ -15,7 +15,7 @@ public class IceAttack : MonoBehaviour
     public Transform Boss;
 
     public LineRenderer HillLine;
-    LineRenderer hillLine;
+    [HideInInspector] public LineRenderer hillLine;
 
     [SerializeField] private Transform[] IceDropPos;
     [SerializeField] private Transform[] IceDropPos2;
