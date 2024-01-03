@@ -41,11 +41,19 @@ public class IceAttack : MonoBehaviour
     private bool isThirdAttacking = false;
 
     public bool BulletSpawn = true;
+    public bool HillLineShow = false;
 
     private void Awake()
     {
         list = new List<GameObject>();
         Razer = new GameObject[IceDropPos.Length];
+    }
+    private void Update()
+    {
+        if (HillLineShow)
+        {
+            hillLine.SetPosition(1, Boss.position);
+        }
     }
 
     #region ∆‰¿Ã¡Ó 1
@@ -169,7 +177,7 @@ public class IceAttack : MonoBehaviour
             Targethit.iceHp = 1;
             hillLine = Instantiate(HillLine, TargeticeBlock.transform.position, Quaternion.identity).GetComponent<LineRenderer>();
             hillLine.SetPosition(0, TargeticeBlock.transform.position);
-            hillLine.SetPosition(1, Boss.position);
+            HillLineShow = true;
             StartCoroutine(ChangeLineSizeOverTime(hillLine, 0.0f, 0.25f, 2.0f)); 
             if (TargetAnim != null)
             {
@@ -199,14 +207,17 @@ public class IceAttack : MonoBehaviour
         if (line.startWidth <= 0.1f)
         {
             Destroy(line.gameObject);
+            HillLineShow = false;
         }
     }
 
     private IEnumerator ChangeLineSizeOverTime(LineRenderer line, float startSize, float endSize, float duration)
     {
+
         float elapsedTime = 0f;
         while (elapsedTime < duration)
         {
+            hillLine.SetPosition(1, Boss.position);
             float newSize = Mathf.Lerp(startSize, endSize, elapsedTime / duration);
             line.startWidth = newSize;
             line.endWidth = newSize;

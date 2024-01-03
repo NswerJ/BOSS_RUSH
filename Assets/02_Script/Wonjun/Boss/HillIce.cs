@@ -35,7 +35,7 @@ public class HillIce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0,0,Time.deltaTime * UnityEngine.Random.Range(10f, 25f));
+        transform.Rotate(0,0,Time.deltaTime * UnityEngine.Random.Range(20f, 40f));
         hitObject.hp = iceHp;
     }
 
