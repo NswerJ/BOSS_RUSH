@@ -52472,7 +52472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8116765015594869622, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
       propertyPath: m_Name
-      value: Wonjun
+      value: Icess
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc1feed3d2751fb4ebdb744b2e9834d3, type: 3}
