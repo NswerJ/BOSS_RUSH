@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class IntroEventManager : MonoBehaviour
 {
+    public static IntroEventManager Instance;
+
     [SerializeField] RectTransform _startPaenl;
     [SerializeField] RectTransform _uiPaenl;
     [SerializeField] RectTransform _settingPaenl;
@@ -15,6 +17,18 @@ public class IntroEventManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI _tmpro;
 
     [SerializeField] private float moveSpeed = 0.8f;
+    [SerializeField] private AudioClip _btnClip;
+
+    private void Awake()
+    {
+        if(Instance == null)
+            Instance = this;
+        else
+        {
+            Debug.LogError($"{transform} : IntroEventManager is Multiple running!");
+            Destroy(gameObject);
+        }
+    }
 
     public void Update()
     {
@@ -27,6 +41,7 @@ public class IntroEventManager : MonoBehaviour
 
     public void GameStart()
     {
+        PlaySound();
         _startPaenl.DOLocalMoveX(0, moveSpeed);
         _uiPaenl.DOLocalMoveX(1920, moveSpeed);
         _settingPaenl.DOLocalMoveX(3840, moveSpeed);
@@ -34,6 +49,7 @@ public class IntroEventManager : MonoBehaviour
 
     public void Setting()
     {
+        PlaySound();
         _startPaenl.DOLocalMoveX(-3840, moveSpeed);
         _uiPaenl.DOLocalMoveX(-1920, moveSpeed);
         _settingPaenl.DOLocalMoveX(0, moveSpeed);
@@ -41,6 +57,7 @@ public class IntroEventManager : MonoBehaviour
 
     public void Back()
     {
+        PlaySound();
         _startPaenl.DOLocalMoveX(-1920, moveSpeed);
         _uiPaenl.DOLocalMoveX(0, moveSpeed);
         _settingPaenl.DOLocalMoveX(1920, moveSpeed);
@@ -53,6 +70,7 @@ public class IntroEventManager : MonoBehaviour
 
     public void StartGame(int num)
     {
+        PlaySound();
         StartCoroutine(FadeOutAndStart());
         FindObjectOfType<Data>().name = num.ToString();
     }
@@ -71,5 +89,10 @@ public class IntroEventManager : MonoBehaviour
         {
             SceneManager.LoadScene("Main");
         }
+    }
+
+    public void PlaySound()
+    {
+        SoundManager.Instance.SFXPlay("ButtonClick", _btnClip);
     }
 }
