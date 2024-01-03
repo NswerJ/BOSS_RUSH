@@ -216,8 +216,18 @@ public class IceAttack : MonoBehaviour
 
     public void HillExit()
     {
+        
         GameObject StopEffect = Instantiate(HillStopEffect, Boss.position, Quaternion.identity);
         HitObject BoomAttack = freezeboss.GetComponent<HitObject>();
+        HitObject PlayerHit = Target.GetComponent<HitObject>();
+        if(PlayerHit.hp + 15 >= 100)
+        {
+            PlayerHit.hp = 100;
+        }
+        else
+        {
+            PlayerHit.hp += 15f;
+        }
         BoomAttack.TakeDamage(300f);
         IceBlockHp = 0;
         Destroy(StopEffect, 1f);
