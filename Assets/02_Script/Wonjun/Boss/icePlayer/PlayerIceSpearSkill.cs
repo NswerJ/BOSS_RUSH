@@ -24,6 +24,9 @@ public class PlayerIceSpearSkill : MonoBehaviour
         if (DataManager.Instance != null)
             skillEnable = PlayerPrefs.GetInt("File" +
             DataManager.Instance.DataIndex + "Boss" + 3) == 1;
+        else if(FindObjectOfType<Data>() != null)
+            skillEnable = PlayerPrefs.GetInt("File" +
+            FindObjectOfType<Data>() + "Boss" + 3) == 1;
 
         if (skillEnable)
         {
