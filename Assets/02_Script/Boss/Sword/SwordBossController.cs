@@ -9,9 +9,16 @@ public class SwordBossController : MonoBehaviour
     [SerializeField] SpriteRenderer visual;
     [SerializeField] ParticleSystem particle;
 
+    [SerializeField] GameObject warningLine;
     [SerializeField] GameObject warningObj;
     [SerializeField] GameObject portal;
     [SerializeField] GameObject bullet;
+
+    [SerializeField] AudioClip move;
+    [SerializeField] AudioClip KKANG;
+    [SerializeField] AudioClip crash;
+    [SerializeField] AudioClip rot;
+
 
     private WarningImg warningImg;
     private GameObject player;
@@ -66,11 +73,11 @@ public class SwordBossController : MonoBehaviour
             }
 
             Vector3 pos = new Vector3(Random.Range(-15f, 15f), Random.Range(-4f, 6f));
-            Debug.Log(warningImg);
+
             warningImg.gameObject.transform.position = pos;
             warningImg.ResetLifeTime();
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.8f);
 
             transform.rotation = Quaternion.identity;
             transform.position = pos;
@@ -88,8 +95,14 @@ public class SwordBossController : MonoBehaviour
 
         LookAt();
 
+        GameObject obj = Instantiate(warningLine, transform.position, Quaternion.identity);
+        obj.transform.up = transform.up;
+
         yield return new WaitForSeconds(0.5f);
 
+        Destroy(obj);
+
+        SoundManager.Instance.SFXPlay("Move", move);
         rigid.AddForce(transform.up * 40, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(1f);
@@ -114,12 +127,21 @@ public class SwordBossController : MonoBehaviour
             portals.Add(target);
 
             Vector3 dir = pos - transform.position;
+
+            GameObject obj = Instantiate(warningLine, transform.position, Quaternion.identity);
             transform.up = dir;
+            obj.transform.up = dir;
+
+            var line = obj.GetComponent<WarningLine>();
+            line.speed = 0;
+            obj.transform.DOMove(pos, 0.6f);
+
             float delay = Vector2.Distance(transform.position, pos) * 0.03f;
 
             yield return new WaitForSeconds(0.6f);
-
+            Destroy(obj);
             transform.DOMove(pos, delay).SetEase(Ease.Linear);
+            SoundManager.Instance.SFXPlay("Move", move);
 
             yield return new WaitForSeconds(delay);
             particle.Stop();
@@ -129,11 +151,10 @@ public class SwordBossController : MonoBehaviour
             yield return new WaitForSeconds(1f);
 
             Vector3 nextPos = new Vector3(Random.Range(-15f, 15f), Random.Range(-4f, 6f));
-            Debug.Log(warningImg);
             warningImg.gameObject.transform.position = nextPos;
             warningImg.ResetLifeTime();
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.8f);
 
             transform.position = nextPos;
             transform.rotation = Quaternion.identity;
@@ -143,9 +164,10 @@ public class SwordBossController : MonoBehaviour
         }
 
 
+
         for (int i = 0; i < 3; i++)
         {
-
+            SoundManager.Instance.SFXPlay("KKANG", KKANG);
             for (int j = 0; j < 10; j++)
             {
 
@@ -160,7 +182,7 @@ public class SwordBossController : MonoBehaviour
         Destroy(portals[2]);
         portals.Clear();
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
 
     }
 
@@ -172,6 +194,8 @@ public class SwordBossController : MonoBehaviour
 
         float originAngle = transform.rotation.eulerAngles.z;
         particle.Play();
+
+        SoundManager.Instance.SFXPlay("Rot", rot);
 
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DORotate(new Vector3(0, 0, originAngle + 90), 0.1f).SetEase(Ease.Linear)).

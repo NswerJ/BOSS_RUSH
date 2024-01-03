@@ -1127,8 +1127,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1587503253
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -46262,8 +46262,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1587503253
+  m_SortingLayer: 4
   m_SortingOrder: 10
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -47607,6 +47607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 993765335}
   - component: {fileID: 993765336}
+  - component: {fileID: 993765337}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -47654,6 +47655,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uD070\uC77C\uB0AC\uC5B4\uC694!"
       textBoxScale: 2.7
       talker: 1
@@ -47663,6 +47679,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uBB34\uC2A8\uC77C\uC774\uC57C?"
       textBoxScale: 2.7
       talker: 0
@@ -47672,6 +47703,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uC800\uD76C\uAC00 \uC9C0\uD0A4\uB358 \uB9C8\uBC95 \uC218\uC815\uC774..."
       textBoxScale: 6
       talker: 1
@@ -47681,24 +47727,93 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uBD80\uC234\uC838 \uBC84\uB838\uC5B4\uC694!!!!!"
       textBoxScale: 4.3
       talker: 1
       talkStartEvent:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 993765337}
+            m_TargetAssemblyTypeName: Cinemachine.CinemachineImpulseSource, Cinemachine
+            m_MethodName: GenerateImpulse
+            m_Mode: 4
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 1
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uBB50\uB77C\uACE0?!?!?"
       textBoxScale: 2.7
       talker: 0
       talkStartEvent:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 993765337}
+            m_TargetAssemblyTypeName: Cinemachine.CinemachineImpulseSource, Cinemachine
+            m_MethodName: GenerateImpulse
+            m_Mode: 4
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 1
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uC774\uB7EC\uACE0 \uC788\uC744 \uC2DC\uAC04\uC774 \uC5C6\uC5B4\uC694!!"
       textBoxScale: 6.4
       talker: 1
@@ -47708,6 +47823,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uBE68\uB9AC \uB9C8\uBC95 \uC218\uC815\uC744 \uCC3E\uC73C\uB7EC \uAC00\uC57C\uD574\uC694!"
       textBoxScale: 6.72
       talker: 1
@@ -47717,6 +47847,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "...... \uC65C \uAC00\uB9CC\uD788 \uACC4\uC138\uC694?"
       textBoxScale: 5
       talker: 1
@@ -47724,6 +47869,9 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
       talkEndEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      talkingEvent:
         m_PersistentCalls:
           m_Calls: []
     - text: "\uC6C0\uC9C1\uC774\uB294 \uBC95\uC744 \uC78A\uC5B4\uBC84\uB9AC\uC2E0
@@ -47736,6 +47884,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "A, D\uB85C \uC6C0\uC9C1\uC77C \uC218 \uC788\uC5B4\uC694!!"
       textBoxScale: 5
       talker: 1
@@ -47745,6 +47908,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uBE60\uB974\uAC8C \uC67C\uCABD\uC73C\uB85C \uC774\uB3D9\uD574 \uC8FC\uC138\uC694!"
       textBoxScale: 6.2
       talker: 1
@@ -47754,6 +47932,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     startEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -47818,6 +48011,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "SPACE\uB97C \uB20C\uB7EC \uC810\uD504\uD560 \uC218 \uC788\uC5B4\uC694!"
       textBoxScale: 6.5
       talker: 1
@@ -47827,15 +48035,57 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uBE68\uB9AC \uC67C\uCABD\uC73C\uB85C \uC774\uB3D9\uD574\uC57C\uD574\uC694!!!"
       textBoxScale: 6
       talker: 1
       talkStartEvent:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 993765337}
+            m_TargetAssemblyTypeName: Cinemachine.CinemachineImpulseSource, Cinemachine
+            m_MethodName: GenerateImpulse
+            m_Mode: 4
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0.1
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     startEvent:
       m_PersistentCalls:
         m_Calls:
@@ -47948,6 +48198,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "SPACE\uB97C \uD55C\uBC88 \uB354 \uB204\uB974\uBA74"
       textBoxScale: 6.5
       talker: 1
@@ -47957,6 +48222,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uB354\uBE14\uC810\uD504\uB97C \uD560 \uC218 \uC788\uC5B4\uC694!!"
       textBoxScale: 6
       talker: 1
@@ -47966,6 +48246,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     startEvent:
       m_PersistentCalls:
         m_Calls:
@@ -48066,16 +48361,58 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uC774\uB7EC\uB2E4\uAC00\uB294 \uB9C8\uBC95 \uC218\uC815\uC744 \uBABB
         \uCC3E\uC744 \uC218 \uB3C4 \uC788\uC5B4\uC694!!!"
       textBoxScale: 9
       talker: 1
       talkStartEvent:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 993765337}
+            m_TargetAssemblyTypeName: Cinemachine.CinemachineImpulseSource, Cinemachine
+            m_MethodName: GenerateImpulse
+            m_Mode: 4
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 1
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uB354 \uBE68\uB9AC \uAC00\uAE30 \uC704\uD574 \uB300\uC2DC\uB97C \uBC30\uC6CC\uBCF4\uC544\uC694!"
       textBoxScale: 8
       talker: 1
@@ -48085,6 +48422,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uB9C8\uC6B0\uC2A4 \uC6B0\uD074\uB9AD\uC73C\uB85C \uB300\uC2DC\uB97C
         \uD560 \uC218 \uC788\uC5B4\uC694!!"
       textBoxScale: 8
@@ -48095,6 +48447,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     startEvent:
       m_PersistentCalls:
         m_Calls:
@@ -48195,16 +48562,58 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uC774\uB7EC\uB2E4\uAC00\uB294 \uB9C8\uBC95 \uC218\uC815\uC744 \uBABB
         \uCC3E\uC744 \uC218 \uB3C4 \uC788\uC5B4\uC694!!!"
       textBoxScale: 9
       talker: 1
       talkStartEvent:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 993765337}
+            m_TargetAssemblyTypeName: Cinemachine.CinemachineImpulseSource, Cinemachine
+            m_MethodName: GenerateImpulse
+            m_Mode: 4
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 1
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uB9C8\uC6B0\uC2A4 \uC88C\uD074\uB9AD\uC73C\uB85C \uBC14\uC704\uB97C
         \uBD80\uC234\uC694!"
       textBoxScale: 6.5
@@ -48215,6 +48624,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     startEvent:
       m_PersistentCalls:
         m_Calls:
@@ -48316,6 +48740,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uD798\uB4E0 \uC5EC\uC815\uC774 \uB420\uAC70\uC608\uC694!"
       textBoxScale: 7
       talker: 1
@@ -48325,6 +48764,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uAC74\uD22C\uB97C \uBE4C\uC5B4\uC694!!"
       textBoxScale: 5.5
       talker: 1
@@ -48334,6 +48788,21 @@ MonoBehaviour:
       talkEndEvent:
         m_PersistentCalls:
           m_Calls: []
+      talkingEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     startEvent:
       m_PersistentCalls:
         m_Calls:
@@ -48389,6 +48858,59 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   fadingImage: {fileID: 318940617}
+--- !u!114 &993765337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993765334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 3
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: -1, z: 0}
 --- !u!1 &1000156781
 GameObject:
   m_ObjectHideFlags: 0
@@ -48460,7 +48982,7 @@ MonoBehaviour:
     follow: {fileID: 1348003934}
     res: 1
     scale: 1.25
-    reflectionLayerIdx: 8
+    reflectionLayerIdx: 10
     copyMainBackground: 0
     lastOrtographicSize: 7.8125
   _run: 0
@@ -48495,7 +49017,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1024
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 1561508440}
   m_TargetDisplay: 0
@@ -49015,6 +49537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1266339415}
   - component: {fileID: 1266339414}
+  - component: {fileID: 1266339416}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -49076,6 +49599,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1266339416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266339413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ApplyAfter: 2
+  m_ChannelMask: 1
+  m_Gain: 1
+  m_Use2DDistance: 0
+  m_UseCameraSpace: 1
+  m_ReactionSettings:
+    m_SecondaryNoise: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &1322489481 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4721441462942401906, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
@@ -49260,7 +49806,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2147481855
+    m_Bits: 2147479807
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -49652,6 +50198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee24674e8f84f8b49b7a3a17b6ff3fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 0}
 --- !u!212 &1473110322
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -50331,6 +50878,14 @@ PrefabInstance:
       propertyPath: ShapeModule.enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4721441462942401904, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721441462942401904, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1587503253
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
 --- !u!4 &1707853890 stripped
@@ -50767,7 +51322,7 @@ MonoBehaviour:
     follow: {fileID: 1348003934}
     res: 1
     scale: 1
-    reflectionLayerIdx: 9
+    reflectionLayerIdx: 11
     copyMainBackground: 0
     lastOrtographicSize: 5
   _reflectionsSettings:
@@ -50818,7 +51373,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 2048
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 176792189}
   m_TargetDisplay: 0
@@ -51294,10 +51849,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TextBox
       objectReference: {fileID: 0}
-    - target: {fileID: 4721441463303411296, guid: 66725c09af3c1df4884507ed424bbd78, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4721441463303411310, guid: 66725c09af3c1df4884507ed424bbd78, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -51344,3 +51895,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66725c09af3c1df4884507ed424bbd78, type: 3}
+--- !u!1001 &5102425562874940645
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5102425563494099341, guid: 5b30d0aa71d96c041bb94fcc1006bc2b, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102425563494099343, guid: 5b30d0aa71d96c041bb94fcc1006bc2b, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102425563494099343, guid: 5b30d0aa71d96c041bb94fcc1006bc2b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102425563494099343, guid: 5b30d0aa71d96c041bb94fcc1006bc2b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102425563494099343, guid: 5b30d0aa71d96c041bb94fcc1006bc2b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102425563494099343, guid: 5b30d0aa71d96c041bb94fcc1006bc2b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102425563494099343, guid: 5b30d0aa71d96c041bb94fcc1006bc2b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102425563494099343, guid: 5b30d0aa71d96c041bb94fcc1006bc2b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102425563494099343, guid: 5b30d0aa71d96c041bb94fcc1006bc2b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102425563494099343, guid: 5b30d0aa71d96c041bb94fcc1006bc2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102425563494099343, guid: 5b30d0aa71d96c041bb94fcc1006bc2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102425563494099343, guid: 5b30d0aa71d96c041bb94fcc1006bc2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5b30d0aa71d96c041bb94fcc1006bc2b, type: 3}
