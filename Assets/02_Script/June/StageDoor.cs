@@ -29,7 +29,7 @@ public class StageDoor : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             isCollision = true;
-            _doorTxt.DOText("Fí‚¤ë¥¼ ëˆŒëŸ¬ ìž…ìž¥", 1f);
+            _doorTxt.DOText("FÅ°¸¦ ´­·¯¼­ ÀÔÀå", 1f);
         }
     }
 

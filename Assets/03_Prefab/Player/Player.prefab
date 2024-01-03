@@ -5541,7 +5541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSound: {fileID: 8300000, guid: bea50e19c4a064347ba10790438b3f2d, type: 3}
   landingSound: {fileID: 8300000, guid: 56b42d3332f6f8d4cbccc941dec760b4, type: 3}
-  dashSound: {fileID: 8300000, guid: 1dea6ca2d4bc27345a76acfbf20c1b22, type: 3}
+  dashSound: {fileID: 8300000, guid: cc5d35c0a91d2b94e9e3df70a7cfbfe4, type: 3}
   attackSound: {fileID: 8300000, guid: f495b554c8bc00641bb5b8fa291b3840, type: 3}
 --- !u!1 &3054130922011058513
 GameObject:
