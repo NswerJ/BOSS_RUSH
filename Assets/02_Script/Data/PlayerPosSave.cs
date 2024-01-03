@@ -31,7 +31,7 @@ public class PlayerPosSave : MonoBehaviour
             PlayerPrefs.GetFloat(fileStr + "YPos", 0));
     }
 
-    private void Update()
+    public void SavePos()
     {
         SavePos(player.position.x, player.position.y);
     }
