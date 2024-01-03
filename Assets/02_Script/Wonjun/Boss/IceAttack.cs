@@ -28,6 +28,7 @@ public class IceAttack : MonoBehaviour
     [SerializeField] private GameObject WarnigIceSpear;
     public float IceSpearCool;
 
+    public GameObject HillStopEffect;
 
     private int BulletPosCount = 1;
     public float IceBlockHp = 1;
@@ -215,9 +216,11 @@ public class IceAttack : MonoBehaviour
 
     public void HillExit()
     {
+        GameObject StopEffect = Instantiate(HillStopEffect, Boss.position, Quaternion.identity);
         HitObject BoomAttack = freezeboss.GetComponent<HitObject>();
         BoomAttack.TakeDamage(300f);
         IceBlockHp = 0;
+        Destroy(StopEffect, 1f);
     }
     #endregion
 

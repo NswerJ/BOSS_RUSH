@@ -3006,7 +3006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2956a9b6e443ca0458507d2976d602ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHP>k__BackingField: 8000
+  <maxHP>k__BackingField: 6001
   defecnces:
     value: 0
 --- !u!114 &87697791
@@ -7695,6 +7695,7 @@ MonoBehaviour:
   IceSpear: {fileID: 3487456337288530055, guid: 2d3dfe43507e02a42870648e96c579a9, type: 3}
   WarnigIceSpear: {fileID: 7755369039012096015, guid: 8add2ef3eb35ca4448b3f19c8be6634f, type: 3}
   IceSpearCool: 3
+  HillStopEffect: {fileID: 2409225742175025510, guid: e8b325429866d614288fc88dd7804c29, type: 3}
   IceBlockHp: 1
   BulletClip: {fileID: 8300000, guid: 3270313e169d4574ebde41f8adaec2cf, type: 3}
   list: []
