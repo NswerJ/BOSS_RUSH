@@ -34,7 +34,6 @@ public class SwordBossController : MonoBehaviour
         col = GetComponent<Collider2D>();
 
         player = GameObject.Find("Player");
-
     }
 
     private void Start()
@@ -89,7 +88,7 @@ public class SwordBossController : MonoBehaviour
 
     }
 
-    //ÇÃ·¹ÀÌ¾î ¹æÇâÀ¸·Î ÀÌµ¿
+    //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
     private IEnumerator MoveTo()
     {
 
@@ -111,7 +110,7 @@ public class SwordBossController : MonoBehaviour
 
     }
 
-    // ±Õ¿­ »ý¼ºÈÄ ±Õ¿­·Î ÀÌµ¿
+    // ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ¿ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
     private IEnumerator Portal()
     {
 
@@ -186,7 +185,7 @@ public class SwordBossController : MonoBehaviour
 
     }
 
-    // È¸Àü
+    // È¸ï¿½ï¿½
     private IEnumerator RotateAttack()
     {
 
@@ -214,7 +213,7 @@ public class SwordBossController : MonoBehaviour
 
     }
 
-    // ÃÑ¾Ë ¹ß»ç
+    // ï¿½Ñ¾ï¿½ ï¿½ß»ï¿½
     private void Shoot(float angle, Vector3 pos)
     {
 
@@ -224,7 +223,7 @@ public class SwordBossController : MonoBehaviour
 
     }
 
-    // ÇÃ·¹ÀÌ¾î ¹Ù¶óº¸±â
+    // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ù¶óº¸±ï¿½
     private void LookAt()
     {
 
@@ -275,5 +274,14 @@ public class SwordBossController : MonoBehaviour
                 ho.TakeDamage(10);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var item in portals)
+        {
+            Destroy(item);
+        }
+        portals.Clear();
     }
 }
