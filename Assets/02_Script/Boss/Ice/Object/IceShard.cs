@@ -32,6 +32,26 @@ public class IceShard : MonoBehaviour
 
     }
 
+    public void Spawn(Vector2 dir, float shootDelay)
+    {
+
+        spriteRenderer.material.SetFloat(HASH_FADE, 0);
+        transform.localScale = Vector2.one / 2;
+
+        transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutSine);
+        StartCoroutine(SpawnCo(dir, shootDelay));
+
+    }
+
+    public void ImmediatelySpawn(Vector2 dir)
+    {
+
+        transform.up = dir;
+
+        Shooting(dir);
+
+    }
+
     private IEnumerator SpawnCo(Transform target, float shootDelay)
     {
 
@@ -44,6 +64,30 @@ public class IceShard : MonoBehaviour
         var co = StartCoroutine(ShardRotateCo(dir));
 
         while(per < 1)
+        {
+
+            per += Time.deltaTime * 1.5f;
+            spriteRenderer.material.SetFloat(HASH_FADE, Mathf.Lerp(0, 1.3f, FAED.Easing(FAED_Easing.OutSine, per)));
+            yield return null;
+
+        }
+
+        yield return co;
+
+        yield return new WaitForSeconds(shootDelay);
+
+        Shooting(dir);
+
+    }
+
+    private IEnumerator SpawnCo(Vector2 dir, float shootDelay)
+    {
+
+        float per = 0;
+
+        var co = StartCoroutine(ShardRotateCo(dir));
+
+        while (per < 1)
         {
 
             per += Time.deltaTime * 2;

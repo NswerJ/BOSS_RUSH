@@ -20,8 +20,9 @@ public class DataManager : DontDestroyOnLoad
 
     [SerializeField] private GameObject _settingPanel;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         if (Instance == null)
         {
             Instance = this;
