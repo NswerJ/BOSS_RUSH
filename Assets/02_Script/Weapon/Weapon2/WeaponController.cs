@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using FD.Dev;
 using System;
+using UnityEngine.AI;
 
 public class WeaponController : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class WeaponController : MonoBehaviour
         set
         {
             data = value;
+            if (spriteRenderer == null)
+            {
+                spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            }
             spriteRenderer.sprite = data.weaponImage;
             perfab = data.attackPrefab;
         }

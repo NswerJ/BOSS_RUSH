@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,9 @@ public class DataManager : DontDestroyOnLoad
     public int BossCount => bossCnt;
 
     Dictionary<string, int> clearDic = new Dictionary<string, int>();
+    public List<WeaponDataSO> weapons;
+
+    private int weaponIndex;
 
     [SerializeField] private GameObject _settingPanel;
 
@@ -45,6 +49,16 @@ public class DataManager : DontDestroyOnLoad
             string s1 = "File" + DataIndex;
             clearDic.Add(s, PlayerPrefs.GetInt(s1 + s, 0));
         }
+        weaponIndex = PlayerPrefs.GetInt("File" + _dataIndex + "Weapon", 0);
+        GameObject.Find("Player").GetComponentInChildren<WeaponController>()
+            .Data = weapons[weaponIndex];
+        SceneManager.sceneLoaded += ChangeWeapon;
+    }
+
+    private void ChangeWeapon(Scene arg0, LoadSceneMode arg1)
+    {
+        GameObject.Find("Player").GetComponentInChildren<WeaponController>()
+            .Data = weapons[weaponIndex];
     }
 
     private void Update()
@@ -68,7 +82,7 @@ public class DataManager : DontDestroyOnLoad
         Time.timeScale = 1f;
         SceneManager.LoadScene("IntroScene");
     }
-    
+
     public void InitAndMain()
     {
         InitData();
@@ -85,8 +99,9 @@ public class DataManager : DontDestroyOnLoad
         PlayerPrefs.SetInt("File" + _dataIndex, -1);
         PlayerPrefs.SetFloat("File" + _dataIndex + "XPos", -5);
         PlayerPrefs.SetFloat("File" + _dataIndex + "YPos", 0);
-        for(int i = 0; i < bossCnt; i++)
+        for (int i = 0; i < bossCnt; i++)
             PlayerPrefs.SetInt("File" + _dataIndex + "Boss" + (i + 1), 0);
+        PlayerPrefs.SetInt("File" + _dataIndex + "Weapon", 0);
     }
 
     public bool GetClear(string key)
@@ -109,5 +124,15 @@ public class DataManager : DontDestroyOnLoad
         string keyStr = "Boss" + key;
         clearDic[keyStr] = 1;
         PlayerPrefs.SetInt("File" + DataIndex + "Boss" + key, 1);
+    }
+
+    public void SaveWeapon(WeaponDataSO key)
+    {
+        for(int i = 0; i < weapons.Count; i++)
+        {
+            if (weapons[i] == key)
+                weaponIndex = i;
+        }
+        PlayerPrefs.SetInt("File" + _dataIndex + "Weapon", weaponIndex);
     }
 }
