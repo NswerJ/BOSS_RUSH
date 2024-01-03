@@ -43,6 +43,8 @@ public class IceAttack : MonoBehaviour
     public bool BulletSpawn = true;
     public bool HillLineShow = false;
 
+    public GameObject freezeboss;
+
     private void Awake()
     {
         list = new List<GameObject>();
@@ -213,6 +215,8 @@ public class IceAttack : MonoBehaviour
 
     public void HillExit()
     {
+        HitObject BoomAttack = freezeboss.GetComponent<HitObject>();
+        BoomAttack.TakeDamage(300f);
         IceBlockHp = 0;
     }
     #endregion

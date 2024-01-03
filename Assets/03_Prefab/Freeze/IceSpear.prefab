@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e53c4a8e125734cb9d24f9ebf80950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 100
+  Damage: 25
   SpearClip: {fileID: 8300000, guid: 1c3232e23ce7f43448ea562f791bb0d5, type: 3}
 --- !u!50 &1151947380198766305
 Rigidbody2D:
