@@ -9,18 +9,21 @@ public class Ice_Pattern_8_State : IceAwakeState
 {
 
     protected Transform point;
+    protected Transform camOrigin;
 
 
     public Ice_Pattern_8_State(FSM_Controller<EnumIceAwakeState> controller) : base(controller)
     {
 
         point = bossPointsRoot.Find("Pattern_1");
-
+        camOrigin = GameObject.Find("FirstCamPoint").transform;
 
     }
 
     protected override void EnterState()
     {
+
+        ChangeCamera(camOrigin, 8f);
 
         movePtc.Play();
 

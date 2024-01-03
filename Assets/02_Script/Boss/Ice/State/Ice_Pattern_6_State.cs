@@ -14,7 +14,7 @@ public class Ice_Pattern_6_State : IceAwakeState
     {
 
         movePtc.Stop();
-
+        ChangeCamera(transform, 7f);
         StartCoroutine(Shoot());
 
     }

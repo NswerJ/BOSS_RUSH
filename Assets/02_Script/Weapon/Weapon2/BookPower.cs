@@ -50,7 +50,9 @@ public class BookPower : MonoBehaviour
 
     public void LoadData()
     {
+
         _on = PlayerPrefs.GetInt("File" + 
             DataManager.Instance.DataIndex + "Boss" + 2) == 1;
+
     }
 }
