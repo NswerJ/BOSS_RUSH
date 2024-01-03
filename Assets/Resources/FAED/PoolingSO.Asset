@@ -26,7 +26,7 @@ MonoBehaviour:
     poolingObject: {fileID: 1913380593319001337, guid: 90eac5367ad2f7044b4fb6044c188304, type: 3}
     poolCount: 50
   - poolingKey: BoomPTC
-    poolingObject: {fileID: 2732430433494248594, guid: 82fcd7be3f362794fa7b3831978c9150, type: 3}
+    poolingObject: {fileID: 7773044628781710147, guid: 24612a124189aeb45980c8a64d2795ae, type: 3}
     poolCount: 50
   - poolingKey: IceBoom
     poolingObject: {fileID: 7773044628781710147, guid: 24612a124189aeb45980c8a64d2795ae, type: 3}
