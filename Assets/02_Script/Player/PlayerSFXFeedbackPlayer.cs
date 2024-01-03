@@ -9,6 +9,7 @@ public class PlayerSFXFeedbackPlayer : MonoBehaviour
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip landingSound;
     [SerializeField] private AudioClip dashSound;
+    [SerializeField] private AudioClip attackSound;
 
     private Rigidbody2D rigid;
     private PlayerEventSystem playerEventSystem;
@@ -23,7 +24,15 @@ public class PlayerSFXFeedbackPlayer : MonoBehaviour
 
         playerEventSystem.JumpEvent += HandleJumpSoundPlay;
         playerEventSystem.DashEvent += HandleDashSoundPlay;
+        playerEventSystem.AttackEvent += HandleAttackSoundPlay;
         groundSencer.OnTriggerd += HandleLandingSoundPlay;
+
+    }
+
+    private void HandleAttackSoundPlay(float obj)
+    {
+
+        SoundManager.Instance.SFXPlay("Player_Attack", attackSound);
 
     }
 

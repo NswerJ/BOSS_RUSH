@@ -1607,7 +1607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2956a9b6e443ca0458507d2976d602ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHP>k__BackingField: 0
+  <maxHP>k__BackingField: 100
   defecnces:
     value: 0
 --- !u!114 &1225597204
@@ -1622,6 +1622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee24674e8f84f8b49b7a3a17b6ff3fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: f9ba7f36f7311c745ae2758e6ef00cc7, type: 3}
 --- !u!212 &1225597205
 SpriteRenderer:
   m_ObjectHideFlags: 0

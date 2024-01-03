@@ -9,6 +9,8 @@ public class HitFeedbackPlayer : MonoBehaviour
     private readonly int HASH_BLINK = Shader.PropertyToID("_StrongTintFade");
     private readonly int HASH_SHAKE = Shader.PropertyToID("_VibrateFade");
 
+    [SerializeField] private AudioClip hitSound;
+
     private SpriteRenderer spriteRenderer;
 
     private bool isMaterialFeedbackPlaying;
@@ -41,6 +43,13 @@ public class HitFeedbackPlayer : MonoBehaviour
 
         FAED.TakePool<DamageText>("DamageText", transform.position + (Vector3)Random.insideUnitCircle).Set(damage);
         FAED.TakePool<EffectParticle>("HitEffect", transform.position + (Vector3)Random.insideUnitCircle).PlayParticle();
+
+        if(hitSound != null)
+        {
+
+            SoundManager.Instance.SFXPlay(name, hitSound);
+
+        }
 
         MaterialFeedback();
 

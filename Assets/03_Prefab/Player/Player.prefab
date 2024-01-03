@@ -5539,6 +5539,7 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: 829b9eff7a5454049924fb1abcd48b6f, type: 3}
   landingSound: {fileID: 8300000, guid: 56b42d3332f6f8d4cbccc941dec760b4, type: 3}
   dashSound: {fileID: 8300000, guid: 1dea6ca2d4bc27345a76acfbf20c1b22, type: 3}
+  attackSound: {fileID: 8300000, guid: f495b554c8bc00641bb5b8fa291b3840, type: 3}
 --- !u!1001 &712741663
 PrefabInstance:
   m_ObjectHideFlags: 0
