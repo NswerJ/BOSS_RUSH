@@ -78,7 +78,6 @@ public class SoundManager : MonoBehaviour
         _bgSound.outputAudioMixerGroup = _mixer.FindMatchingGroups("BGSound")[0];
         _bgSound.clip = clip;
         _bgSound.loop = true;
-        _bgSound.volume = 0.1f;
         _bgSound.Play();
     }
 
