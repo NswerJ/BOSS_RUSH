@@ -3007,7 +3007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2956a9b6e443ca0458507d2976d602ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHP>k__BackingField: 1
+  <maxHP>k__BackingField: 8000
   defecnces:
     value: 0
 --- !u!114 &87697791
@@ -3025,7 +3025,6 @@ MonoBehaviour:
   _door: {fileID: 1662158767}
   index: 3
   PowerUpDoor: {fileID: 1813376351}
-  HiddenTime: 0
 --- !u!1 &98055781
 GameObject:
   m_ObjectHideFlags: 0
@@ -21227,10 +21226,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2947384582077937981, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 2947384582077937983, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -21274,10 +21269,6 @@ PrefabInstance:
     - target: {fileID: 2947384582077937983, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5364009097482739441, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
-      propertyPath: <maxHP>k__BackingField
-      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
