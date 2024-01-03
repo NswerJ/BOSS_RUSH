@@ -26,7 +26,7 @@ MonoBehaviour:
     poolingObject: {fileID: 1913380593319001337, guid: 90eac5367ad2f7044b4fb6044c188304, type: 3}
     poolCount: 50
   - poolingKey: BoomPTC
-    poolingObject: {fileID: 7773044628781710147, guid: 24612a124189aeb45980c8a64d2795ae, type: 3}
+    poolingObject: {fileID: 1508046748161653359, guid: a64cd460216a20446aa6a6e6ddbb406c, type: 3}
     poolCount: 50
   - poolingKey: IceBoom
     poolingObject: {fileID: 7773044628781710147, guid: 24612a124189aeb45980c8a64d2795ae, type: 3}
@@ -42,5 +42,8 @@ MonoBehaviour:
     poolCount: 50
   - poolingKey: IceLayserObject
     poolingObject: {fileID: 6646204250308675626, guid: 88ceb1492201d4e4ab80dadc17653dad, type: 3}
+    poolCount: 50
+  - poolingKey: ExpEffect
+    poolingObject: {fileID: 3414692117185541703, guid: 4bc7b711649407944b1615aa0276fd9c, type: 3}
     poolCount: 50
   scenePoolingObjects: []

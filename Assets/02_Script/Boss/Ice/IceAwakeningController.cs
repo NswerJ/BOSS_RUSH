@@ -16,6 +16,9 @@ public enum EnumIceAwakeState
     Pattern_8,  //패턴 1의 창 버젼
     Pattern_9,  //자신의 주변에 레이저를 발사하는 오브젝트 생성
     Pattern_10, //차징후 강력한 공격
+    Pattern_11, //루시드 레이저
+    Pattern_12, //광범위공격 버티면 HP회복
+    Pattern_13, //얼어서 뛰어내리기
 
 }
 

@@ -54,6 +54,19 @@ public class IceAwakeState : FSM_State<EnumIceAwakeState>
     public void ChangeCamera(Transform trm, float camSize)
     {
 
+        if(trm == cameraPivot)
+        {
+
+            cvcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset.y = 3;
+
+        }
+        else
+        {
+
+            cvcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset.y = 0;
+
+        }
+
         cvcam.Follow = trm;
         StartCoroutine(ResizeCam(camSize));
 
@@ -74,6 +87,7 @@ public class IceAwakeState : FSM_State<EnumIceAwakeState>
             yield return null;
 
         }
+
     
     }
 
