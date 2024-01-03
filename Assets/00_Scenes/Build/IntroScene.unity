@@ -4526,10 +4526,11 @@ MonoBehaviour:
   _mixer: {fileID: 24100000, guid: 367c14b19879c1648ac6683070d89558, type: 2}
   _bgSound: {fileID: 1907959106}
   _bgList:
-  - {fileID: 8300000, guid: 8f630d4c5652ddb44a45b24993ddc396, type: 3}
+  - {fileID: 8300000, guid: e658f358f0b8f114fa1bb04f48bbf87d, type: 3}
   - {fileID: 8300000, guid: abfd150183e8be148a28f800a5b26265, type: 3}
   - {fileID: 8300000, guid: faf1f637f9b75d647a701e22ffa33399, type: 3}
   - {fileID: 8300000, guid: 2cf1de5869e5ab14c969b0ddaeed09ad, type: 3}
+  - {fileID: 8300000, guid: 780c686dc2d973646a106cd66fb0af0b, type: 3}
 --- !u!4 &1907959105
 Transform:
   m_ObjectHideFlags: 0

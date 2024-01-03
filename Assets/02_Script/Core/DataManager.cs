@@ -23,6 +23,10 @@ public class DataManager : DontDestroyOnLoad
     protected override void Awake()
     {
         base.Awake();
+        if(Instance != null)
+        {
+            Destroy(Instance);
+        }
         if (Instance == null)
         {
             Instance = this;
@@ -33,10 +37,6 @@ public class DataManager : DontDestroyOnLoad
                 if (PlayerPrefs.GetInt("File" + _dataIndex, -1) == -1)
                     PlayerPrefs.SetInt("File" + _dataIndex, 0);
             }
-        }
-        else
-        {
-            Destroy(gameObject);
         }
 
         bossCnt = FindObjectsOfType<StageDoor>().Length;
@@ -61,9 +61,6 @@ public class DataManager : DontDestroyOnLoad
         if(GameObject.Find("Player") != null)
             GameObject.Find("Player").GetComponentInChildren<WeaponController>()
                 .Data = weapons[weaponIndex];
-
-        if(SceneManager.GetActiveScene().name == "IntroScene")
-            Destroy(gameObject);
     }
 
     private void Update()
@@ -79,7 +76,7 @@ public class DataManager : DontDestroyOnLoad
             {
                 Time.timeScale = 0f;
                 PlayerPosSave.Instance.SavePos();
-                _settingPanel.SetActive(true);
+                _settingPanel.GetComponent<RectTransform>().localScale = new Vector2(1,1);
             }
         }
     }
@@ -87,7 +84,7 @@ public class DataManager : DontDestroyOnLoad
     public void Continue()
     {
         Time.timeScale = 1f;
-        _settingPanel.SetActive(false);
+                _settingPanel.GetComponent<RectTransform>().localScale = new Vector2(0,0);
     }
 
     public void Main()
