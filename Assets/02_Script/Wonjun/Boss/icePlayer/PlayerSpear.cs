@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerSpear : MonoBehaviour
 {
+    [Header("Hit Value")]
+    [SerializeField]
+    private List<string> _hitObjectTagNameList = new List<string>();
+    [SerializeField]
+    private bool _hitAndDelete = false;
+
     public float Damage = 150f;
 
 
@@ -16,30 +22,26 @@ public class PlayerSpear : MonoBehaviour
     {
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision.CompareTag("Boss"))
+        bool check = false;
+        for (int i = 0; i < _hitObjectTagNameList.Count; ++i)
         {
-            HitObject pHit = collision.GetComponent<HitObject>();
-            if(pHit != null)
+            if (col.CompareTag(_hitObjectTagNameList[i]))
             {
-               
-                if (pHit.hp <= 0)
-                {
-                    Destroy(gameObject);
-                }
-                else
-                {
-                    pHit.TakeDamage(Damage);
-                }
+                Debug.Log(_hitObjectTagNameList[i]);
+                check = true;
+                break;
             }
-            else
-            {
-                Debug.Log("³Î");
-                Destroy(gameObject, 2f);
-            }
-            
         }
-        
+
+        if (check == false)
+            return;
+
+        if (col.transform.TryGetComponent<HitObject>(out HitObject hitObject))
+            hitObject.TakeDamage(Damage);
+
+        if (_hitAndDelete)
+            Destroy(gameObject);
     }
 }

@@ -142,6 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ea9b6d3634a6245bd34ee1d1feab17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hitObjectTagNameList:
+  - Ground
+  - Boss
+  _hitAndDelete: 1
   Damage: 150
 --- !u!61 &221307990566713536
 BoxCollider2D:
