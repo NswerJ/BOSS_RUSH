@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class SwordBossController : MonoBehaviour
 {
@@ -92,6 +93,8 @@ public class SwordBossController : MonoBehaviour
 
             warningImg.gameObject.transform.position = pos;
             warningImg.ResetLifeTime();
+            warningImg.transform.localScale = Vector2.zero;
+            warningImg.transform.DOScale(Vector2.one, 0.8f);
 
             yield return new WaitForSeconds(0.8f);
 
@@ -209,7 +212,39 @@ public class SwordBossController : MonoBehaviour
     private IEnumerator RotateAttack()
     {
 
-        //Debug.Log("rot");
+        warningImg.gameObject.transform.position = transform.position;
+        warningImg.ResetLifeTime();
+        warningImg.transform.localScale = Vector2.zero;
+        warningImg.transform.DOScale(Vector2.one, 0.8f).SetEase(Ease.OutElastic);
+
+        yield return new WaitForSeconds(0.8f);
+
+        float originAngle = transform.rotation.eulerAngles.z;
+        particle.Play();
+
+        SoundManager.Instance.SFXPlay("Rot", rot);
+        onDash = true;
+        Sequence seq = DOTween.Sequence();
+        seq.Append(transform.DORotate(new Vector3(0, 0, originAngle + 90), 0.1f).SetEase(Ease.Linear)).
+            Append(transform.DORotate(new Vector3(0, 0, originAngle + 180), 0.1f).SetEase(Ease.Linear)).
+            Append(transform.DORotate(new Vector3(0, 0, originAngle + 270), 0.1f).SetEase(Ease.Linear)).
+            Append(transform.DORotate(new Vector3(0, 0, originAngle), 0.1f).SetEase(Ease.Linear));
+
+
+        for (int i = 0; i < 8; i++)
+        {
+            Shoot(originAngle + 45 * i, transform.position);
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        onDash = false;
+        particle.Stop();
+
+    }
+
+    private IEnumerator RotateAttackCombo()
+    {
+
 
         float originAngle = transform.rotation.eulerAngles.z;
         particle.Play();
@@ -312,7 +347,7 @@ public class SwordBossController : MonoBehaviour
 
             yield return new WaitForSeconds(delay);
 
-            StartCoroutine(RotateAttack());
+            StartCoroutine(RotateAttackCombo());
 
             yield return new WaitForSeconds(0.5f);
             SoundManager.Instance.SFXPlay("KKANG", KKANG);
