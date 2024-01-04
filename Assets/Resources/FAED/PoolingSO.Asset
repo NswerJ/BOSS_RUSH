@@ -49,4 +49,13 @@ MonoBehaviour:
   - poolingKey: Icicle
     poolingObject: {fileID: 3865905642996445587, guid: 9aa76d53939d6004d9633a8bfc94c4b0, type: 3}
     poolCount: 50
+  - poolingKey: IceSword
+    poolingObject: {fileID: 7489344172832663516, guid: 2de2d9534196f084d852f485e5b2c42f, type: 3}
+    poolCount: 50
+  - poolingKey: IceSword_A
+    poolingObject: {fileID: 6415842874120510705, guid: d3fcfebc26c5e624eaac47ab38c2e581, type: 3}
+    poolCount: 50
+  - poolingKey: IceClone
+    poolingObject: {fileID: 6762262379996524402, guid: ae05c4eb4e6a15a498cc0995db1f5a53, type: 3}
+    poolCount: 50
   scenePoolingObjects: []

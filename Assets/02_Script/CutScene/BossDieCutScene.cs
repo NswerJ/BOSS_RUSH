@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BossDieCutScene : MonoBehaviour
@@ -50,6 +51,13 @@ public class BossDieCutScene : MonoBehaviour
 
         }, 0.2f);
 
+
+    }
+
+    public void SceneChange(string sceneName)
+    {
+
+        SceneManager.LoadScene(sceneName);
 
     }
 

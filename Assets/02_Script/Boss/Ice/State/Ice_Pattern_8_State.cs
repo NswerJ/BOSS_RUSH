@@ -49,7 +49,7 @@ public class Ice_Pattern_8_State : IceAwakeState
     private IEnumerator ShardSpawnCo()
     {
 
-        for (int i = -5; i <= 5; i++)
+        for (int i = -8; i <= 8; i++)
         {
 
             FAED.TakePool<IceSpear_Awake>("IceSpear_A", transform.position + new Vector3(i, 0), Quaternion.identity).Spawn(target, 0.3f);
