@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerIceSpearSkill : MonoBehaviour
 {
     [SerializeField] private Image _cooldownImage;
+    [SerializeField] private Image _SpearImage;
 
     private PlayerEventSystem evSys;
 
@@ -21,7 +22,7 @@ public class PlayerIceSpearSkill : MonoBehaviour
 
     void Start()
     {
-        _cooldownImage.enabled = false;
+        
         Image cooldownImage = Image.FindAnyObjectByType<Image>();
         playerSpearCool = 5f;
         IceSpearCharge = false;
@@ -43,7 +44,7 @@ public class PlayerIceSpearSkill : MonoBehaviour
     public void ConnectEvent()
     {
         evSys.AttackEvent += IceSpearAttack;
-        _cooldownImage.enabled = true;
+        
     }
 
     
@@ -82,7 +83,7 @@ public class PlayerIceSpearSkill : MonoBehaviour
         if (isCoolingDown)
         {
             Debug.Log("sd");
-            float fillValue = Mathf.Clamp01(1 - (playerSpearCool / 5f)); 
+            float fillValue = Mathf.Clamp01(1 - (playerSpearCool / 5f));
             _cooldownImage.fillAmount = fillValue;
 
             if (playerSpearCool >= 5f)
@@ -91,6 +92,7 @@ public class PlayerIceSpearSkill : MonoBehaviour
                 _cooldownImage.fillAmount = 0f;
             }
         }
+        
     }
 
     private void StartCooldown()

@@ -21,13 +21,24 @@ public class PlayerSpear : MonoBehaviour
         if (collision.CompareTag("Boss"))
         {
             HitObject pHit = collision.GetComponent<HitObject>();
-            if(pHit.hp<= 0 && pHit ==null) { 
-                Destroy(gameObject);
+            if(pHit != null)
+            {
+                Debug.Log("³Î ¾Æ´Ô");
+                if (pHit.hp <= 0)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    pHit.TakeDamage(Damage);
+                }
             }
             else
             {
-                pHit.TakeDamage(Damage);
+                Debug.Log("³Î");
+                Destroy(gameObject);
             }
+            
         }
         
     }

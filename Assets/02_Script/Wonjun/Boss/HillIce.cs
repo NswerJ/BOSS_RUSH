@@ -10,11 +10,9 @@ public class HillIce : MonoBehaviour
     public float iceHp;
     HitObject hitObject;
     public bool Hill = false;
-    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();    
         hitObject = GetComponent<HitObject>();
         iceAttack = GetComponentInParent<IceAttack>();
         hitObject.DieEvent += HillStop;
