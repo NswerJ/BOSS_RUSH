@@ -1,3 +1,4 @@
+using FD.Dev;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -54,7 +55,7 @@ public class HitObject : MonoBehaviour
             if (DieEvent == null)
             {
 
-                Destroy(gameObject);
+                FAED.InsertPool(gameObject);
 
             }
             ///

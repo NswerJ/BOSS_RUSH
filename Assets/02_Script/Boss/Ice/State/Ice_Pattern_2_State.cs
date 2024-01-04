@@ -26,13 +26,16 @@ public class Ice_Pattern_2_State : IceAwakeState
     {
 
 
-        ChangeCamera(cameraPivot, 6.3f);
+        warning.SetText("¾ÆÀÌ¼¼½º°¡ ¹«ÇÑÇÑ ÈûÀ» ÀÌ²ø¾î ³À´Ï´Ù", 2);
+
+        ChangeCamera(transform, 5f);
 
         movePtc.Play();
 
         transform.DOMove(point.position, 1.5f).SetEase(Ease.InSine).OnComplete(() =>
         {
 
+            ChangeCamera(cameraPivot, 6.3f);
             isMoveStarted = true;
 
             StartCoroutine(ShardAttack());
@@ -55,7 +58,7 @@ public class Ice_Pattern_2_State : IceAwakeState
 
         float time = Time.time;
 
-        while (Time.time - time < 20) 
+        while (Time.time - time < 13) 
         {
 
             FAED.TakePool<IceShard>("IceShard", transform.position + (Vector3)Random.insideUnitCircle, Quaternion.identity).Spawn(target, 0.3f);
@@ -63,7 +66,7 @@ public class Ice_Pattern_2_State : IceAwakeState
 
         }
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
         ChangeState(EnumIceAwakeState.Pattern_2);
 

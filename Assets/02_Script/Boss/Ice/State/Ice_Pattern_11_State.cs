@@ -27,6 +27,7 @@ public class Ice_Pattern_11_State : IceAwakeState
         movePtc.Play();
         ChangeCamera(camOrigin, 10);
 
+
         transform.DOMove(point.position, 0.8f).SetEase(Ease.OutSine).OnComplete(() =>
         {
 

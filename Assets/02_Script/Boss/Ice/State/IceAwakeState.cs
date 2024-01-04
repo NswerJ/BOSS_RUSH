@@ -18,6 +18,7 @@ public class IceAwakeState : FSM_State<EnumIceAwakeState>
         movePtc = transform.Find("MoveParticle").GetComponent<ParticleSystem>();
         cvcam = UnityEngine.Object.FindObjectOfType<CinemachineVirtualCamera>();
         cameraPivot = target.Find("CameraPivot");
+        warning = UnityEngine.Object.FindObjectOfType<WarningText>();
 
     }
 
@@ -28,6 +29,7 @@ public class IceAwakeState : FSM_State<EnumIceAwakeState>
     protected Transform cameraPivot;
     protected ParticleSystem movePtc;
     protected CinemachineVirtualCamera cvcam;
+    protected WarningText warning;
 
     protected void ChangeState(EnumIceAwakeState thisState)
     {
