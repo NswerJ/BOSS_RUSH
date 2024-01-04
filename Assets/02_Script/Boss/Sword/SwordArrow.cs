@@ -15,7 +15,11 @@ public class SwordArrow : MonoBehaviour
 
     private void Update()
     {
-        if (sword == null) Destroy(gameObject);
+        if (sword == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         transform.position = player.transform.position;
 
         Vector2 dir = sword.transform.position - transform.position;

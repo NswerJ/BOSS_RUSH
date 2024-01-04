@@ -18,10 +18,12 @@ public class TimeLineAnimation : MonoBehaviour
         if (FindObjectOfType<Data>() != null)
         {
             isEnd = true;
-            for(int i = 0; i < DataManager.Instance.BossCount; i++)
+            for(int i = 0; i < 3; i++)
             {
                 if(PlayerPrefs.GetInt("File" + FindObjectOfType<Data>().name + "Boss" + (i + 1), 0) == 0)
+                {
                     isEnd = false;
+                }
             }
 
 
