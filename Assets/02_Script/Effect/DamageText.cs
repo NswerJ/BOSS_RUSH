@@ -22,18 +22,28 @@ public class DamageText : MonoBehaviour
 
         text.text = damage.ToString("0");
 
-        transform.localScale = new Vector3(7, 7, 1);
+        transform.localScale = new Vector3(3, 3, 1);
         text.color = Color.white;
 
         Sequence seq = DOTween.Sequence();
 
-        seq.Append(transform.DOScale(Vector2.one / 4, 0.5f).SetEase(Ease.OutExpo));
-        seq.Append(transform.DOScale(Vector2.one, 0.3f).SetEase(Ease.OutExpo));
-        seq.Join(text.DOColor(Color.red, 0.3f));
+        seq.Append(transform.DOPunchScale(Vector2.one * 5f, 0.05f).SetEase(Ease.OutExpo));
         seq.AppendInterval(0.1f);
-        seq.Append(text.DOFade(0, 0.3f));
+        seq.Append(transform.DOScale(Vector2.one, 0.3f).SetEase(Ease.OutExpo));
+        seq.Append(text.DOColor(Color.red, 0.1f));
+        seq.AppendInterval(0.1f);
+        seq.Append(text.DOFade(0, 0.5f));
         seq.AppendCallback(() => FAED.InsertPool(gameObject));
 
+        //seq.Append(transform.DOScale(Vector2.one * 5f, 0.1f).SetEase(Ease.OutExpo))
+        //    .Append(transform.DOShakeScale(0.1f, 10f));
+        //seq.AppendInterval(0.2f);
+        //seq.Append(transform.DOScale(Vector2.one, 0)).SetEase(Ease.OutExpo)
+        //    .Append(transform.DOShakeScale(0.1f, 5f));
+        //seq.Append(text.DOColor(Color.red, 0.1f));
+        //seq.AppendInterval(0.1f);
+        //seq.Append(text.DOFade(0, 0.5f));
+        //seq.AppendCallback(() => FAED.InsertPool(gameObject));
     }
 
 }

@@ -21,6 +21,8 @@ public class BookBossController : MonoBehaviour
 
     [SerializeField]
     private Shuffle _shuffle;
+    [SerializeField]
+    private AudioClip _impactClip;
 
     private void Awake()
     {
@@ -39,10 +41,23 @@ public class BookBossController : MonoBehaviour
     {
         if(hp <= _triggerHP[_index])
         {
-            StopBossAI();
+            SoundManager.Instance.SFXPlay("Impact", _impactClip);
+            _shuffle.DamageOff();
+            _shuffle.PowerMaterial();
+            _mainObject.PlayParticle();
             _index++;
-            _shuffle.ShuffleBook(_index - 1);
+            StopBossAI();
+
+            StartCoroutine(Shuffle());
+            
         }
+    }
+
+    IEnumerator Shuffle()
+    {
+        yield return new WaitForSeconds(1f);
+        
+        _shuffle.ShuffleBook(_index - 1);
     }
 
     private void StopBossAI()
