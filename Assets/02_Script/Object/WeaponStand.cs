@@ -35,4 +35,9 @@ public class WeaponStand : MonoBehaviour
             data = temp;
         }
     }
+
+    public void ChangeWeapon(WeaponDataSO weponSO)
+    {
+        data = weponSO;
+    }
 }
