@@ -18,7 +18,7 @@ public enum EnumIceAwakeState
     Pattern_10, //차징후 강력한 공격
     Pattern_11, //루시드 레이저
     Pattern_12, //광범위공격 버티면 HP회복
-    Pattern_13, //얼어서 뛰어내리기
+    Pattern_13, //광범위 레이저
 
 }
 
@@ -59,6 +59,9 @@ public class IceAwakeningController : FSM_Controller<EnumIceAwakeState>
 
         var p10 = new Ice_Pattern_10_State(this);
         AddState(p10 , EnumIceAwakeState.Pattern_10);
+
+        var p11 = new Ice_Pattern_11_State(this);
+        AddState(p11 , EnumIceAwakeState.Pattern_11);
 
         ChangeState(startState);
 
