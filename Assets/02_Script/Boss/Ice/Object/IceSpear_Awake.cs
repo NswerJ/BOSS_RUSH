@@ -8,6 +8,9 @@ public class IceSpear_Awake : MonoBehaviour
 {
     private readonly int HASH_FADE = Shader.PropertyToID("_DirectionalGlowFadeFade");
 
+    [SerializeField] private AudioClip showSound;
+    [SerializeField] private AudioClip destroySound;
+    [SerializeField] private AudioClip shootSound;
     [SerializeField] private ParticleSystem moveParticle;
 
     private SpriteRenderer spriteRenderer;

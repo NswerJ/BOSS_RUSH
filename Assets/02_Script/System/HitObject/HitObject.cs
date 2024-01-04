@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public delegate void HitFeedback(float hp, float maxHP);
 
@@ -12,6 +13,7 @@ public class HitObject : MonoBehaviour
 
     [field: SerializeField] public float maxHP { get; protected set; }
     [SerializeField] public Stats defecnces;
+    [SerializeField] private UnityEvent die;
 
     private HitFeedbackPlayer hitPlayer;
 
@@ -51,6 +53,7 @@ public class HitObject : MonoBehaviour
         {
 
             DieEvent?.Invoke();
+            die?.Invoke();
 
             if (DieEvent == null)
             {
