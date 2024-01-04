@@ -7681,11 +7681,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5313750704196086510, guid: bee00b944d0e9da48bdef1683335ac6e, type: 3}
       propertyPath: cutsceneEnd.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5313750704196086510, guid: bee00b944d0e9da48bdef1683335ac6e, type: 3}
       propertyPath: cutsceneEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5313750704196086510, guid: bee00b944d0e9da48bdef1683335ac6e, type: 3}
       propertyPath: cutsceneEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -7694,7 +7694,7 @@ PrefabInstance:
     - target: {fileID: 5313750704196086510, guid: bee00b944d0e9da48bdef1683335ac6e, type: 3}
       propertyPath: cutsceneEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 855293112}
+      objectReference: {fileID: 469694861}
     - target: {fileID: 5313750704196086510, guid: bee00b944d0e9da48bdef1683335ac6e, type: 3}
       propertyPath: cutsceneEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -7705,7 +7705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5313750704196086510, guid: bee00b944d0e9da48bdef1683335ac6e, type: 3}
       propertyPath: cutsceneEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Die
+      value: SceneChange
       objectReference: {fileID: 0}
     - target: {fileID: 5313750704196086510, guid: bee00b944d0e9da48bdef1683335ac6e, type: 3}
       propertyPath: cutsceneEnd.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -7713,7 +7713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5313750704196086510, guid: bee00b944d0e9da48bdef1683335ac6e, type: 3}
       propertyPath: cutsceneEnd.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: IceAwakeningController, Assembly-CSharp
+      value: BossDieCutScene, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5313750704196086510, guid: bee00b944d0e9da48bdef1683335ac6e, type: 3}
       propertyPath: cutsceneEnd.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -7725,7 +7725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5313750704196086510, guid: bee00b944d0e9da48bdef1683335ac6e, type: 3}
       propertyPath: cutsceneEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: 
+      value: CreditScene
       objectReference: {fileID: 0}
     - target: {fileID: 5313750704196086510, guid: bee00b944d0e9da48bdef1683335ac6e, type: 3}
       propertyPath: cutsceneEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
@@ -8490,6 +8490,18 @@ MonoBehaviour:
   die:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 855293112}
+        m_TargetAssemblyTypeName: IceAwakeningController, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 469694861}
         m_TargetAssemblyTypeName: BossDieCutScene, Assembly-CSharp
         m_MethodName: Play
@@ -8514,6 +8526,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  resetHPNo: 0
 --- !u!114 &855293107
 MonoBehaviour:
   m_ObjectHideFlags: 0
