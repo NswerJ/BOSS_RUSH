@@ -113,6 +113,7 @@ public class DataManager : DontDestroyOnLoad
         for (int i = 0; i < bossCnt; i++)
             PlayerPrefs.SetInt("File" + _dataIndex + "Boss" + (i + 1), 0);
         PlayerPrefs.SetInt("File" + _dataIndex + "Weapon", 0);
+        PlayerPrefs.SetInt("File" + _dataIndex + "Anim", 0);
     }
 
     public bool GetClear(string key)
