@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +10,7 @@ public class PlayerIceSpearSkill : MonoBehaviour
 {
     [SerializeField] private Image _cooldownImage;
     [SerializeField] private Image _SpearImage;
+    [SerializeField] private TextMeshProUGUI _coolText;
 
     private PlayerEventSystem evSys;
 
@@ -22,7 +25,7 @@ public class PlayerIceSpearSkill : MonoBehaviour
 
     void Start()
     {
-        
+
         Image cooldownImage = Image.FindAnyObjectByType<Image>();
         playerSpearCool = 5f;
         IceSpearCharge = false;
@@ -30,7 +33,7 @@ public class PlayerIceSpearSkill : MonoBehaviour
         if (DataManager.Instance != null)
             skillEnable = PlayerPrefs.GetInt("File" +
             DataManager.Instance.DataIndex + "Boss" + 3) == 1;
-        else if(FindObjectOfType<Data>() != null)
+        else if (FindObjectOfType<Data>() != null)
             skillEnable = PlayerPrefs.GetInt("File" +
             FindObjectOfType<Data>().name + "Boss" + 3) == 1;
 
@@ -44,10 +47,10 @@ public class PlayerIceSpearSkill : MonoBehaviour
     public void ConnectEvent()
     {
         evSys.AttackEvent += IceSpearAttack;
-        
+
     }
 
-    
+
 
     private void IceSpearAttack(float obj)
     {
@@ -85,14 +88,18 @@ public class PlayerIceSpearSkill : MonoBehaviour
             Debug.Log("sd");
             float fillValue = Mathf.Clamp01(1 - (playerSpearCool / 5f));
             _cooldownImage.fillAmount = fillValue;
-
+            string str = (fillValue * 5).ToString();
+            Debug.Log(str);
+            if (str.Length > 2)
+                _coolText.text = str.Substring(0, 2);
             if (playerSpearCool >= 5f)
             {
                 isCoolingDown = false;
                 _cooldownImage.fillAmount = 0f;
+                _coolText.text = string.Empty;
             }
         }
-        
+
     }
 
     private void StartCooldown()
