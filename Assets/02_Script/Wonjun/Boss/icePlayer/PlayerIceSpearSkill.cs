@@ -87,9 +87,11 @@ public class PlayerIceSpearSkill : MonoBehaviour
         {
             Debug.Log("sd");
             float fillValue = Mathf.Clamp01(1 - (playerSpearCool / 5f));
+
+            if(_cooldownImage == null) return;
             _cooldownImage.fillAmount = fillValue;
             string str = (fillValue * 5).ToString();
-            Debug.Log(str);
+            
             if (str.Length > 2)
                 _coolText.text = str.Substring(0, 2);
             if (playerSpearCool >= 5f)
@@ -98,6 +100,7 @@ public class PlayerIceSpearSkill : MonoBehaviour
                 _cooldownImage.fillAmount = 0f;
                 _coolText.text = string.Empty;
             }
+
         }
 
     }

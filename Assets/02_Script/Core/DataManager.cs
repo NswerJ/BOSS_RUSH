@@ -25,7 +25,7 @@ public class DataManager : DontDestroyOnLoad
         base.Awake();
         if (Instance != null)
         {
-            Destroy(Instance);
+            Destroy(gameObject);
         }
 
         Instance = this;
@@ -49,6 +49,7 @@ public class DataManager : DontDestroyOnLoad
             clearDic.Add(s, PlayerPrefs.GetInt(s1 + s, 0));
         }
         weaponIndex = PlayerPrefs.GetInt("File" + _dataIndex + "Weapon", 0);
+        if(GameObject.Find("Player") != null)
         GameObject.Find("Player").GetComponentInChildren<WeaponController>()
             .Data = weapons[weaponIndex];
         SceneManager.sceneLoaded += ChangeWeapon;
