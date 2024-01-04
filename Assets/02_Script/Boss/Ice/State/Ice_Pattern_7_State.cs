@@ -23,6 +23,8 @@ public class Ice_Pattern_7_State : IceAwakeState
     protected override void EnterState()
     {
 
+        warning.SetText("아이세스가 무한한 힘을 이끌어 냅니다", 2);
+
         ChangeCamera(cameraPivot, 6.3f);
 
         movePtc.Play();
@@ -69,7 +71,7 @@ public class Ice_Pattern_7_State : IceAwakeState
 
         float time = Time.time;
 
-        while (Time.time - time < 20)
+        while (Time.time - time < 18)
         {
 
             FAED.TakePool<IceShard>("IceShard", transform.position + (Vector3)Random.insideUnitCircle, Quaternion.identity).Spawn(target, 0.3f);

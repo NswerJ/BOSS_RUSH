@@ -20,6 +20,7 @@ public class Ice_Pattern_9_State : IceAwakeState
     protected override void EnterState()
     {
 
+
         ChangeCamera(transform, 5);
 
         movePtc.Play();

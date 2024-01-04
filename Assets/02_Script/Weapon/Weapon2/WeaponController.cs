@@ -72,6 +72,7 @@ public class WeaponController : MonoBehaviour
         dir.z = 0;
 
         spriteRenderer.flipY = dir.x > 0;
+        spriteRenderer.flipX = dir.x > 0;
 
         if (dir.x > 0)
         {

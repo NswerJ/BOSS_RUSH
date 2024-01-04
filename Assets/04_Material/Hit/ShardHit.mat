@@ -7,11 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ShardMat
+  m_Name: ShardHit
   m_Shader: {fileID: 4800000, guid: da8efd605fdd20949a21be6242000625, type: 3}
   m_ValidKeywords:
   - _ENABLEDIRECTIONALGLOWFADE_ON
   - _ENABLEFROZEN_ON
+  - _ENABLESTRONGTINT_ON
+  - _ENABLEVIBRATE_ON
   - _SHADERFADING_NONE
   - _SHADERSPACE_UV
   m_InvalidKeywords: []
@@ -168,17 +170,17 @@ Material:
     - _DirectionalAlphaFadeNoiseFactor: 0.2
     - _DirectionalAlphaFadeRotation: 0
     - _DirectionalAlphaFadeWidth: 0.2
-    - _DirectionalDistortionFade: -1.41
+    - _DirectionalDistortionFade: 0
     - _DirectionalDistortionInvert: 0
     - _DirectionalDistortionNoiseFactor: 0.2
     - _DirectionalDistortionRandomDirection: 0.1
     - _DirectionalDistortionRotation: 0
     - _DirectionalDistortionWidth: 0.5
-    - _DirectionalGlowFadeFade: 1.63
+    - _DirectionalGlowFadeFade: 1.3
     - _DirectionalGlowFadeInvert: 0
-    - _DirectionalGlowFadeNoiseFactor: -0.34
-    - _DirectionalGlowFadeRotation: 158
-    - _DirectionalGlowFadeWidth: 0.1
+    - _DirectionalGlowFadeNoiseFactor: 1
+    - _DirectionalGlowFadeRotation: 244
+    - _DirectionalGlowFadeWidth: 0.05
     - _EnableAddColor: 0
     - _EnableAddHue: 0
     - _EnableAlphaTint: 0
@@ -235,12 +237,12 @@ Material:
     - _EnableSplitToning: 0
     - _EnableSqueeze: 0
     - _EnableSquish: 0
-    - _EnableStrongTint: 0
+    - _EnableStrongTint: 1
     - _EnableUVDistort: 0
     - _EnableUVRotate: 0
     - _EnableUVScale: 0
     - _EnableUVScroll: 0
-    - _EnableVibrate: 0
+    - _EnableVibrate: 1
     - _EnableWiggle: 0
     - _EnableWind: 0
     - _EnableWorldTiling: 0
@@ -262,7 +264,7 @@ Material:
     - _FlameRadius: 0.2
     - _FlameSmooth: 2
     - _FrozenContrast: 2
-    - _FrozenFade: 0.11
+    - _FrozenFade: 0.27
     - _FrozenHighlightContrast: 2
     - _FrozenHighlightDensity: 1
     - _FrozenSnowContrast: 1
@@ -392,10 +394,10 @@ Material:
     - _SourceAlphaDissolveInvert: 0
     - _SourceAlphaDissolveNoiseFactor: 0.2
     - _SourceAlphaDissolveWidth: 0.2
-    - _SourceGlowDissolveFade: 0.31
+    - _SourceGlowDissolveFade: 1
     - _SourceGlowDissolveInvert: 0
     - _SourceGlowDissolveNoiseFactor: 0.2
-    - _SourceGlowDissolveWidth: 0.01
+    - _SourceGlowDissolveWidth: 0.1
     - _SplitToningBalance: 1
     - _SplitToningContrast: 1
     - _SplitToningFade: 1
@@ -409,7 +411,7 @@ Material:
     - _SquishStretch: 0.1
     - _StrongTintContrast: 0
     - _StrongTintContrastToggle: 0
-    - _StrongTintFade: 1
+    - _StrongTintFade: 0
     - _StrongTintMaskToggle: 0
     - _TilingFix: 0
     - _TimeFPS: 5
@@ -426,9 +428,9 @@ Material:
     - _UVDistortMaskToggle: 0
     - _UVRotateSpeed: 1
     - _VertexTintFirst: 0
-    - _VibrateFade: 1
-    - _VibrateFrequency: 100
-    - _VibrateOffset: 0.04
+    - _VibrateFade: 0
+    - _VibrateFrequency: 104.8
+    - _VibrateOffset: 0.1
     - _VibrateRotation: 4
     - _WiggleFade: 1
     - _WiggleFixedGroundToggle: 0
@@ -477,8 +479,8 @@ Material:
     - _DirectionalDistortionDistortion: {r: 0, g: 0.1, b: 0, a: 0}
     - _DirectionalDistortionDistortionScale: {r: 1, g: 1, b: 0, a: 0}
     - _DirectionalDistortionNoiseScale: {r: 0.4, g: 0.4, b: 0, a: 0}
-    - _DirectionalGlowFadeEdgeColor: {r: 0, g: 9.318628, b: 15.999997, a: 0}
-    - _DirectionalGlowFadeNoiseScale: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - _DirectionalGlowFadeEdgeColor: {r: 0, g: 6.965361, b: 15.999997, a: 0}
+    - _DirectionalGlowFadeNoiseScale: {r: 1, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EnchantedHighColor: {r: 0, g: 0.7098798, b: 4.237095, a: 0}
     - _EnchantedLowColor: {r: 2.996078, g: 0, b: 0, a: 0}
@@ -565,15 +567,15 @@ Material:
     - _SineScaleFactor: {r: 0.2, g: 0.2, b: 0, a: 0}
     - _SourceAlphaDissolveNoiseScale: {r: 0.3, g: 0.3, b: 0, a: 0}
     - _SourceAlphaDissolvePosition: {r: 0, g: 0, b: 0, a: 0}
-    - _SourceGlowDissolveEdgeColor: {r: 0, g: 7.175837, b: 15.999997, a: 0}
-    - _SourceGlowDissolveNoiseScale: {r: 1, g: 1, b: 0, a: 0}
+    - _SourceGlowDissolveEdgeColor: {r: 11.98431, g: 0.627451, b: 0.627451, a: 0}
+    - _SourceGlowDissolveNoiseScale: {r: 0.3, g: 0.3, b: 0, a: 0}
     - _SourceGlowDissolvePosition: {r: 0, g: 0, b: 0, a: 0}
     - _SplitToningHighlightsColor: {r: 1, g: 0.1, b: 0.1, a: 0}
     - _SplitToningShadowsColor: {r: 0.1, g: 0.4000002, b: 1, a: 0}
     - _SpriteSheetRect: {r: 0, g: 0, b: 1, a: 1}
     - _SqueezeCenter: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _SqueezeScale: {r: 2, g: 0, b: 0, a: 0}
-    - _StrongTintTint: {r: 1, g: 1, b: 1, a: 1}
+    - _StrongTintTint: {r: 1, g: 0, b: 0, a: 1}
     - _UVDistortFrom: {r: -0.02, g: -0.02, b: 0, a: 0}
     - _UVDistortNoiseScale: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _UVDistortSpeed: {r: 2, g: 2, b: 0, a: 0}
