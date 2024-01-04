@@ -14,6 +14,7 @@ public class HitObject : MonoBehaviour
     [field: SerializeField] public float maxHP { get; protected set; }
     [SerializeField] public Stats defecnces;
     [SerializeField] private UnityEvent die;
+    [SerializeField] private bool resetHPNo;
 
     private HitFeedbackPlayer hitPlayer;
 
@@ -34,6 +35,8 @@ public class HitObject : MonoBehaviour
 
     private void OnEnable()
     {
+
+        if (resetHPNo) return;
 
         hp = maxHP;
 
