@@ -225,7 +225,7 @@ public class IceAttack : MonoBehaviour
         HitObject BoomAttack = freezeboss.GetComponent<HitObject>();
         HitObject PlayerHit = Target.GetComponent<HitObject>();
         PlayerHit.HealingObject(20f);
-        BoomAttack.TakeDamage(300f);
+        BoomAttack.TakeDamage(350f);
         IceBlockHp = 0;
         Destroy(StopEffect, 1f);
         Destroy(hillEf, 0.3f);
