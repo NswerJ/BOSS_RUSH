@@ -106,7 +106,7 @@ public class IceAwakeningController : FSM_Controller<EnumIceAwakeState>
     {
 
         PlayerPrefs.SetInt("TotalClear", PlayerPrefs.GetInt("TotalClear", 0) + 1);
-        //PlayerPrefs.SetInt("TotalClear", PlayerPrefs.GetInt("TotalClear", 0) + 1);
+        PlayerPrefs.SetInt("TotalBossClear", PlayerPrefs.GetInt("TotalBossClear", 0) + 1);
 
     }
 
