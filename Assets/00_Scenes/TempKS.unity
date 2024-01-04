@@ -10412,7 +10412,7 @@ MonoBehaviour:
   _mainHitObject: {fileID: 603266520}
   _mainObject: {fileID: 603266525}
   _triggerHP:
-  - -1
+  - 5000
   - 4000
   - 3000
   - 1000
