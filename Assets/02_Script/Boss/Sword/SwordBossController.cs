@@ -2,7 +2,6 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class SwordBossController : MonoBehaviour
 {
@@ -30,6 +29,7 @@ public class SwordBossController : MonoBehaviour
     private bool prevHit = false;
 
     List<GameObject> portals = new List<GameObject>();
+    List<GameObject> lines = new List<GameObject>();
 
     private void Awake()
     {
@@ -115,9 +115,13 @@ public class SwordBossController : MonoBehaviour
         LookAt();
 
         GameObject obj = Instantiate(warningLine, transform.position, Quaternion.identity);
+        lines.Add(obj);
+
         obj.transform.up = transform.up;
 
         yield return new WaitForSeconds(0.5f);
+        lines.Remove(obj);
+        lines.Clear();
 
         Destroy(obj);
         onDash = true;
@@ -150,6 +154,7 @@ public class SwordBossController : MonoBehaviour
             GameObject obj = Instantiate(warningLine, transform.position, Quaternion.identity);
             transform.up = dir;
             obj.transform.up = dir;
+            lines.Add(obj);
 
             var line = obj.GetComponent<WarningLine>();
             line.speed = 0;
@@ -158,6 +163,9 @@ public class SwordBossController : MonoBehaviour
             float delay = Vector2.Distance(transform.position, pos) * 0.03f;
 
             yield return new WaitForSeconds(0.6f);
+            lines.Remove(obj);
+            lines.Clear();
+
             Destroy(obj);
             onDash = true;
             transform.DOMove(pos, delay).SetEase(Ease.Linear);
@@ -291,6 +299,7 @@ public class SwordBossController : MonoBehaviour
 
         GameObject obj1 = Instantiate(warningLine, transform.position, Quaternion.identity);
         obj1.transform.up = dir1;
+        lines.Add(obj1);
 
         WarningLine line1 = obj1.GetComponent<WarningLine>();
         line1.speed = 0;
@@ -306,6 +315,7 @@ public class SwordBossController : MonoBehaviour
 
         GameObject obj2 = Instantiate(warningLine, targetPos1, Quaternion.identity);
         obj2.transform.up = dir2;
+        lines.Add(obj2);
 
         WarningLine line2 = obj2.GetComponent<WarningLine>();
         line2.speed = 0;
@@ -321,6 +331,7 @@ public class SwordBossController : MonoBehaviour
 
         GameObject obj3 = Instantiate(warningLine, targetPos2, Quaternion.identity);
         obj3.transform.up = dir3;
+        lines.Add(obj3);
 
         WarningLine line3 = obj3.GetComponent<WarningLine>();
         line3.speed = 0;
@@ -330,9 +341,14 @@ public class SwordBossController : MonoBehaviour
         #endregion
 
         yield return new WaitForSeconds(0.2f);
+
+        lines.Remove(obj3);
+        lines.Remove(obj2);
+        lines.Remove(obj1);
         Destroy(obj3);
         Destroy(obj2);
         Destroy(obj1);
+        lines.Clear();
 
         particle.Play();
 
@@ -414,6 +430,14 @@ public class SwordBossController : MonoBehaviour
             Destroy(item);
         }
         portals.Clear();
+
+        foreach (var item in lines)
+        {
+            Destroy(item);
+        }
+        lines.Clear();
+
+        Destroy(warningObj);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
