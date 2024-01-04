@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Rendering.Universal;
 
 public class WarningImg : MonoBehaviour
 {
     float lifeTime;
     SpriteRenderer rend;
+    private Light2D warningLight;
 
     public void ResetLifeTime()
     {
@@ -16,12 +17,15 @@ public class WarningImg : MonoBehaviour
     private void Awake()
     {
         rend = GetComponent<SpriteRenderer>();
+        warningLight = transform.GetChild(0).GetComponent<Light2D>();
     }
 
     private void Update()
     {
         lifeTime -= Time.deltaTime;
 
-        rend.enabled = lifeTime > 0;
+        bool active = lifeTime > 0;
+        rend.enabled = active;
+        warningLight.intensity = Mathf.Clamp(lifeTime / 2, 0, 1);
     }
 }

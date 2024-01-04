@@ -23,7 +23,7 @@ public class Ice_Pattern_8_State : IceAwakeState
     protected override void EnterState()
     {
 
-        warning.SetText("¾ÆÀÌ¼¼½º°¡ ¾óÀ½Ã¢À» ¼ÒÈ¯ÇÕ´Ï´Ù!", 2);
+        warning.SetText("ì•„ì´ì„¸ìŠ¤ê°€ ì–¼ìŒì°½ì„ ì†Œí™˜í•©ë‹ˆë‹¤!", 2);
 
         ChangeCamera(camOrigin, 8f);
 
@@ -49,7 +49,7 @@ public class Ice_Pattern_8_State : IceAwakeState
     private IEnumerator ShardSpawnCo()
     {
 
-        for (int i = -5; i <= 5; i++)
+        for (int i = -8; i <= 8; i++)
         {
 
             FAED.TakePool<IceSpear_Awake>("IceSpear_A", transform.position + new Vector3(i, 0), Quaternion.identity).Spawn(target, 0.3f);

@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePtc: {fileID: 7773044629235887206}
+  audios: {fileID: 8300000, guid: ff61803ba577b1f48b24f4ee48c4835c, type: 3}
 --- !u!1 &7773044629235887201
 GameObject:
   m_ObjectHideFlags: 0
