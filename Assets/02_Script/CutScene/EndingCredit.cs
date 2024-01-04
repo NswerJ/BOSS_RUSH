@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndingCredit : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class EndingCredit : MonoBehaviour
     [SerializeField] private float _scrollY;
     [SerializeField] private bool _firstTextSkip;
 
+    private bool _accel = false;
+
     [Header("Sound")]
     [SerializeField]
     private AudioClip _textClip;
@@ -51,6 +54,11 @@ public class EndingCredit : MonoBehaviour
 
 
         StartCoroutine(CreditCo());
+    }
+
+    private void Update()
+    {
+        _accel = (Input.anyKey);
     }
 
 #if UNITY_EDITOR
@@ -75,7 +83,7 @@ public class EndingCredit : MonoBehaviour
                     SoundManager.Instance.SFXPlay("TextOut", _textClip);
                     _creditText.text += _textList[i][j];
 
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(_accel ? 0.05f : 0.1f);
                 }
 
                 yield return new WaitForSeconds(_textWaitTime[i]);
@@ -84,7 +92,7 @@ public class EndingCredit : MonoBehaviour
 
         while(_creditTrm.anchoredPosition.y <= _endY)
         {
-            _scrollY += _speed * Time.deltaTime;
+            _scrollY += _accel ? _speed * Time.deltaTime * 2 : _speed * Time.deltaTime;
             _creditTrm.anchoredPosition = (Vector2.up * _scrollY);
             if(_index < _textOutYValue.Count && _creditTrm.anchoredPosition.y >= _textOutYValue[_index])
             {
@@ -94,6 +102,9 @@ public class EndingCredit : MonoBehaviour
 
             yield return null;
         }
+
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(0);
     }
 
     IEnumerator DoText(int index)
@@ -106,7 +117,7 @@ public class EndingCredit : MonoBehaviour
 
             _textOutList[index].text += _textOutTextList[index][j];
 
-            yield return new WaitForSeconds(tipingSpeed);
+            yield return new WaitForSeconds(_accel ? tipingSpeed / 2 : tipingSpeed);
         }
     }
    
