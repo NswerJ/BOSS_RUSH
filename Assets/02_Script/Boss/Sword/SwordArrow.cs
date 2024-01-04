@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SwordArrow : MonoBehaviour
@@ -17,6 +15,7 @@ public class SwordArrow : MonoBehaviour
 
     private void Update()
     {
+        if (sword == null) Destroy(gameObject);
         transform.position = player.transform.position;
 
         Vector2 dir = sword.transform.position - transform.position;
