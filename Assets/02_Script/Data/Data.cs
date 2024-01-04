@@ -7,6 +7,7 @@ public class Data : DontDestroyOnLoad
     Data[] datas;
     protected override void Awake()
     {
+        base.Awake();
         datas = FindObjectsOfType<Data>();
         if (datas.Length > 1)
             Destroy(this);
