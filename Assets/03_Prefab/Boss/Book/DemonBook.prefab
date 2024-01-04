@@ -382,6 +382,10 @@ MonoBehaviour:
   <maxHP>k__BackingField: 500
   defecnces:
     value: 0
+  die:
+    m_PersistentCalls:
+      m_Calls: []
+  resetHPNo: 1
 --- !u!1 &9199161510780962272
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +502,10 @@ MonoBehaviour:
   <maxHP>k__BackingField: 99999
   defecnces:
     value: 99999
+  die:
+    m_PersistentCalls:
+      m_Calls: []
+  resetHPNo: 0
   _root: {fileID: 9199161511749082498}
 --- !u!61 &4107568826470266308
 BoxCollider2D:

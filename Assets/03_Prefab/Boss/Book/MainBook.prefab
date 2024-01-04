@@ -5667,6 +5667,10 @@ MonoBehaviour:
   <maxHP>k__BackingField: 5000
   defecnces:
     value: 0
+  die:
+    m_PersistentCalls:
+      m_Calls: []
+  resetHPNo: 1
 --- !u!61 &1193204968411395168
 BoxCollider2D:
   m_ObjectHideFlags: 0
