@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 6898573710864983617}
   - component: {fileID: 3657882503046085852}
   - component: {fileID: 2906559551240141560}
-  - component: {fileID: 3661000050070150771}
   m_Layer: 5
   m_Name: 'SpearSkill '
   m_TagString: Untagged
@@ -154,20 +153,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3661000050070150771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399478494464278595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21b73a161594204e987b79a2c49503a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _num: 0
-  _skillIcon: {fileID: 0}
 --- !u!1 &1281762135418480797
 GameObject:
   m_ObjectHideFlags: 0
