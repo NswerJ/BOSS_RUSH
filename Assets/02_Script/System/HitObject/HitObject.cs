@@ -64,8 +64,8 @@ public class HitObject : MonoBehaviour
 
     public void HealingObject(float value)
     {
-
         hp += value;
+        hp = Mathf.Clamp(hp, 0f, maxHP);
 
         HitEventHpChanged?.Invoke(hp, maxHP);
 
