@@ -16089,6 +16089,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1918658749
       objectReference: {fileID: 0}
+    - target: {fileID: 2947384582077937976, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
+      propertyPath: startState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2947384582077937980, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -16143,6 +16147,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
+--- !u!114 &2110533318 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2947384582077937976, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
+  m_PrefabInstance: {fileID: 2110533304}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7d61a1bd9713947b6defba627a75db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2123319286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17427,7 +17442,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 5.777244
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -17584,6 +17599,7 @@ GameObject:
   - component: {fileID: 4696215155787276111}
   - component: {fileID: 4696215155787276110}
   - component: {fileID: 4696215155787276097}
+  - component: {fileID: 4696215155787276112}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -17635,6 +17651,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &4696215155787276112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4696215155787276099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ceb7bacff436044bbf31b25d92be73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 2110533318}
 --- !u!4 &4865550716921321328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9199161511749082497, guid: 1cbd8a3a54467f84fba560ae73e078fe, type: 3}
