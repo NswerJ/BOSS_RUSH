@@ -81,6 +81,13 @@ public class SoundManager : MonoBehaviour
         _bgSound.Play();
     }
 
+    public void BgStop()
+    {
+
+        _bgSound.Stop();
+
+    }
+
     public void PlayExplosion(AudioClip explosionClip)
         => StartCoroutine(PlayExplosionCo(explosionClip));
 

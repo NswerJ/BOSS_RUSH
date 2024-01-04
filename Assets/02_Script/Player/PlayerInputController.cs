@@ -25,6 +25,7 @@ public class PlayerInputController : IDisposable
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
 
+            SoundManager.Instance.BgStop();
             SceneManager.LoadScene("IceEnd");
 
         }
