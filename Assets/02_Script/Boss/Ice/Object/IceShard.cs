@@ -27,10 +27,16 @@ public class IceShard : MonoBehaviour
 
     }
 
-    public void Spawn(Transform target, float shootDelay)
+    public void Spawn(Transform target, float shootDelay, bool showShowPlay = true)
     {
 
-        SoundManager.Instance.SFXPlay("IceShow", showSound);
+        if (showShowPlay)
+        {
+
+            SoundManager.Instance.SFXPlay("IceShow", showSound);
+
+        }
+
         createParticle.Play();
 
         spriteRenderer.material.SetFloat(HASH_FADE, 0);
@@ -41,9 +47,16 @@ public class IceShard : MonoBehaviour
 
     }
 
-    public void Spawn(Vector2 dir, float shootDelay)
+    public void Spawn(Vector2 dir, float shootDelay, bool showShowPlay = true)
     {
-        SoundManager.Instance.SFXPlay("IceShow", showSound);
+
+        if (showShowPlay)
+        {
+
+            SoundManager.Instance.SFXPlay("IceShow", showSound);
+
+        }
+
         spriteRenderer.material.SetFloat(HASH_FADE, 0);
         transform.localScale = Vector2.one / 2;
 
