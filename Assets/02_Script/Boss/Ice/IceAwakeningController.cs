@@ -26,9 +26,16 @@ public class IceAwakeningController : FSM_Controller<EnumIceAwakeState>
 {
 
     [SerializeField] private EnumIceAwakeState startState;
+    [SerializeField] private ParticleSystem movePtc;
+
+    private SpriteRenderer spriteRenderer;
+    private Transform target;
 
     protected override void Awake()
     {
+
+        target = FindObjectOfType<PlayerController>().transform;
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         var p1 = new Ice_Pattern_1_State(this);
         AddState(p1, EnumIceAwakeState.Pattern_1);
@@ -63,7 +70,25 @@ public class IceAwakeningController : FSM_Controller<EnumIceAwakeState>
         var p11 = new Ice_Pattern_11_State(this);
         AddState(p11 , EnumIceAwakeState.Pattern_11);
 
+        var p12 = new Ice_Pattern_12_State(this);
+        AddState(p12 , EnumIceAwakeState.Pattern_12);
+
+        var p13 = new Ice_Pattern_13_State(this);
+        AddState(p13 , EnumIceAwakeState.Pattern_13);
+
         ChangeState(startState);
+
+    }
+
+    protected override void Update()
+    {
+
+        base.Update();
+
+        bool b = target.position.x > transform.position.x;
+
+        spriteRenderer.flipX = b;
+        movePtc.transform.localScale = b ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
 
     }
 

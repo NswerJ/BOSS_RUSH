@@ -23,6 +23,8 @@ public class Ice_Pattern_10_State : IceAwakeState
     protected override void EnterState()
     {
 
+        warning.SetText("아이세스가 모든것을 얼리기 위하여 힘을 모읍니다!", 2);
+
         cbmcp.m_AmplitudeGain = 0.8f;
         cbmcp.m_FrequencyGain = 0.8f;
 

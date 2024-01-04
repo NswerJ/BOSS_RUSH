@@ -19,6 +19,14 @@ public class AddGravity : MonoBehaviour
     private void Update()
     {
 
+        if(groundSencer == null)
+        {
+
+            rigid.velocity -= new Vector2(0, 9.81f * 2f) * Time.deltaTime;
+            return;
+
+        }
+
         if (!groundSencer.isGround)
         {
 

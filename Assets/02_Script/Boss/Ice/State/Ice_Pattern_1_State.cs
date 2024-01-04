@@ -54,7 +54,7 @@ public class Ice_Pattern_1_State : IceAwakeState
 
         }
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
         ChangeState(EnumIceAwakeState.Pattern_1);
 

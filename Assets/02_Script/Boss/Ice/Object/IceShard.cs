@@ -10,6 +10,9 @@ public class IceShard : MonoBehaviour
 
     private readonly int HASH_FADE = Shader.PropertyToID("_DirectionalGlowFadeFade");
 
+    [SerializeField] private AudioClip showSound;
+    [SerializeField] private AudioClip destroySound;
+    [SerializeField] private AudioClip shootSound;
     [SerializeField] private ParticleSystem createParticle;
     [SerializeField] private ParticleSystem moveParicle;
 
@@ -27,6 +30,7 @@ public class IceShard : MonoBehaviour
     public void Spawn(Transform target, float shootDelay)
     {
 
+        SoundManager.Instance.SFXPlay("IceShow", showSound);
         createParticle.Play();
 
         spriteRenderer.material.SetFloat(HASH_FADE, 0);
@@ -39,7 +43,7 @@ public class IceShard : MonoBehaviour
 
     public void Spawn(Vector2 dir, float shootDelay)
     {
-
+        SoundManager.Instance.SFXPlay("IceShow", showSound);
         spriteRenderer.material.SetFloat(HASH_FADE, 0);
         transform.localScale = Vector2.one / 2;
 
@@ -137,6 +141,7 @@ public class IceShard : MonoBehaviour
     private void Shooting(Vector2 dir)
     {
 
+        SoundManager.Instance.SFXPlay("Shot", shootSound);
         moveParicle.Play();
 
         rigid.velocity = dir * 15;
@@ -152,7 +157,7 @@ public class IceShard : MonoBehaviour
             if (collision.TryGetComponent<HitObject>(out var hit))
             {
 
-                hit.TakeDamage(7.2f);
+                hit.TakeDamage(5f);
 
             }
 
@@ -161,6 +166,7 @@ public class IceShard : MonoBehaviour
 
 
             FAED.TakePool("BoomDestroy", transform.position);
+            SoundManager.Instance.SFXPlay("Dest", destroySound);
 
             FAED.InsertPool(gameObject);
 

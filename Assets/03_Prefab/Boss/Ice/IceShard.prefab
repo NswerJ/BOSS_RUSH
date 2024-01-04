@@ -9641,7 +9641,9 @@ GameObject:
   - component: {fileID: 2064012266}
   - component: {fileID: 2064012268}
   - component: {fileID: 2064012267}
-  m_Layer: 0
+  - component: {fileID: 804713768}
+  - component: {fileID: 804713767}
+  m_Layer: 3
   m_Name: IceShard
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -9685,7 +9687,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 17e9ded18a6567945ac0c4640967f765, type: 2}
+  - {fileID: 2100000, guid: a98dd5079ab98864aba934792b2359f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9729,6 +9731,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0220ca48f8f4146aada36b8179e82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showSound: {fileID: 8300000, guid: a16970554dfa2c54aacfa47e99da581b, type: 3}
+  destroySound: {fileID: 8300000, guid: 38ef346a0cbe9fe439dae4372e9f20bd, type: 3}
+  shootSound: {fileID: 8300000, guid: 38ef346a0cbe9fe439dae4372e9f20bd, type: 3}
   createParticle: {fileID: 1775782232}
   moveParicle: {fileID: 1913633898}
 --- !u!50 &2064012268
@@ -9778,3 +9783,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.43290573, y: 0.8467312}
   m_EdgeRadius: 0
+--- !u!114 &804713768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913380593319001337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee24674e8f84f8b49b7a3a17b6ff3fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: f9ba7f36f7311c745ae2758e6ef00cc7, type: 3}
+--- !u!114 &804713767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913380593319001337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2956a9b6e443ca0458507d2976d602ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <maxHP>k__BackingField: 30
+  defecnces:
+    value: 0

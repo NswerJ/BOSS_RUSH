@@ -46,4 +46,7 @@ MonoBehaviour:
   - poolingKey: ExpEffect
     poolingObject: {fileID: 3414692117185541703, guid: 4bc7b711649407944b1615aa0276fd9c, type: 3}
     poolCount: 50
+  - poolingKey: Icicle
+    poolingObject: {fileID: 3865905642996445587, guid: 9aa76d53939d6004d9633a8bfc94c4b0, type: 3}
+    poolCount: 50
   scenePoolingObjects: []

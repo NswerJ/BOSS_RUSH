@@ -8,7 +8,8 @@ using UnityEngine;
 
 public class IceLayser : MonoBehaviour
 {
-    
+
+    [SerializeField] private AudioClip laySound;
     private LineRenderer lineRenderer;
     private CinemachineImpulseSource source;
 
@@ -93,7 +94,8 @@ public class IceLayser : MonoBehaviour
 
         }
 
-        source.GenerateImpulse(0.1f);
+        SoundManager.Instance.SFXPlay("Ray", laySound);
+        source.GenerateImpulse(0.13f);
 
         yield return null;
 
