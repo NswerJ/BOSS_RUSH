@@ -8,7 +8,7 @@ public abstract class BossDieCheck : MonoBehaviour
     bool isFirst = true;
     [SerializeField] private GameObject _door;
     [SerializeField] int index = 0;
-    private HitObject _hitObject;
+    protected HitObject _hitObject;
 
     private void Awake()
     {

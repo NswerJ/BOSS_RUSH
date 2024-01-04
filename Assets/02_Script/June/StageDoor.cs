@@ -67,7 +67,11 @@ public class StageDoor : MonoBehaviour
     {
         MainFadeImage.Instance.FadeIn();
         yield return new WaitForSeconds(2f);
-        if(PlayerPosSave.Instance != null )
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance._bgSound.volume = 0.5f;
+        }
+        if (PlayerPosSave.Instance != null )
         {
             PlayerPosSave.Instance.SavePos(transform.position.x,transform.position.y);
         }

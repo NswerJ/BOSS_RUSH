@@ -81,5 +81,30 @@ public class SoundManager : MonoBehaviour
         _bgSound.Play();
     }
 
-}
+    public void PlayExplosion(AudioClip explosionClip)
+        => StartCoroutine(PlayExplosionCo(explosionClip));
 
+    public void FadeSound() => StartCoroutine(FadeSoundCo());
+
+    IEnumerator FadeSoundCo()
+    {
+        while (_bgSound.volume > 0.0f)
+        {
+            _bgSound.volume -= 0.01f;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator PlayExplosionCo(AudioClip explosionClip)
+    {
+        float startTime = Time.time;
+        float endTime = startTime;
+
+        while(endTime - startTime < 2.4f)
+        {
+            endTime = Time.time;
+            SFXPlay("Explosion",explosionClip);
+            yield return new WaitForSeconds(0.15f);
+        }
+    }
+}

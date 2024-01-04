@@ -10412,7 +10412,7 @@ MonoBehaviour:
   _mainHitObject: {fileID: 603266520}
   _mainObject: {fileID: 603266525}
   _triggerHP:
-  - 5000
+  - -1
   - 4000
   - 3000
   - 1000
@@ -17315,7 +17315,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4696215155638663071}
   - component: {fileID: 4696215155638663070}
-  - component: {fileID: 4696215155638663057}
   - component: {fileID: 4696215155638663069}
   - component: {fileID: 4696215155638663068}
   m_Layer: 0
@@ -17325,14 +17324,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!81 &4696215155638663057
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4696215155638663056}
-  m_Enabled: 1
 --- !u!114 &4696215155638663068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17750,6 +17741,10 @@ PrefabInstance:
       propertyPath: _door
       value: 
       objectReference: {fileID: 1111968127}
+    - target: {fileID: 603266532, guid: 85ab2fbbf3b29244cab54b89ca2df18d, type: 3}
+      propertyPath: explosionClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d15b04fb3e8778941b7aeddbe4fdee19, type: 3}
     - target: {fileID: 7418793852758295760, guid: 85ab2fbbf3b29244cab54b89ca2df18d, type: 3}
       propertyPath: m_Name
       value: MainBook
