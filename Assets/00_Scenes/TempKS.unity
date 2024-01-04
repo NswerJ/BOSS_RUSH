@@ -17325,7 +17325,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3993999561148158468, guid: a21591aa11a410d478c6c0e79fadf0d0, type: 3}
       propertyPath: m_text
-      value: "\uB9C8\uBC95\uC758 \uCC45"
+      value: "\uC9C0\uC2DD\uC758 \uC218\uD638\uC790"
       objectReference: {fileID: 0}
     - target: {fileID: 3993999561190199468, guid: a21591aa11a410d478c6c0e79fadf0d0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -17506,7 +17506,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC0DD\uBA85\uC744 \uC5BB\uC740"
+  m_text: "\uD0C0\uB77D\uD55C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 81184d1c33be58d4b911904332cc731e, type: 2}
   m_sharedMaterial: {fileID: 5580046827002373056, guid: 81184d1c33be58d4b911904332cc731e, type: 2}
@@ -17533,8 +17533,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 96
-  m_fontSizeBase: 96
+  m_fontSize: 128
+  m_fontSizeBase: 128
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -18058,7 +18058,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB9C8\uBC95\uC758 \uCC45"
+  m_text: "\uC9C0\uC2DD\uC758 \uC218\uD638\uC790"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 81184d1c33be58d4b911904332cc731e, type: 2}
   m_sharedMaterial: {fileID: 5580046827002373056, guid: 81184d1c33be58d4b911904332cc731e, type: 2}
@@ -18085,8 +18085,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 128
-  m_fontSizeBase: 128
+  m_fontSize: 96
+  m_fontSizeBase: 96
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
