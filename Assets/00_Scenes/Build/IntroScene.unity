@@ -3740,7 +3740,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAC1C\uBC1C\uC790\uD0A4"
+  m_text: "\uCE58\uD2B8\uD0A4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2fde8b54bee0e71408279a10ad2d7de9, type: 2}
   m_sharedMaterial: {fileID: 8972196913534773604, guid: 2fde8b54bee0e71408279a10ad2d7de9, type: 2}
@@ -3867,7 +3867,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5402903332658763931, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
       propertyPath: m_text
-      value: "\uAC1C\uBC1C\uC790 \uD0A4 "
+      value: "\uCE58\uD2B8\uD0A4 "
       objectReference: {fileID: 0}
     - target: {fileID: 5402903332658763931, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
       propertyPath: m_fontSize
@@ -3947,7 +3947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5402903332778104458, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -740
+      value: -780
       objectReference: {fileID: 0}
     - target: {fileID: 5402903332778104458, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4012,41 +4012,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5402903332778104458, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
   m_PrefabInstance: {fileID: 1210016694}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1210016696 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5402903332658763931, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
-  m_PrefabInstance: {fileID: 1210016694}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1210016697 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5402903332778104457, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
-  m_PrefabInstance: {fileID: 1210016694}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1210016698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210016697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bff39c60d6cb96409344aab8f66dece, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _textMeshProUGUI: {fileID: 1210016696}
 --- !u!114 &1210016700 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5402903332778104459, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
   m_PrefabInstance: {fileID: 1210016694}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210016697}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
