@@ -48,8 +48,8 @@ public class SwordBossController : MonoBehaviour
     private void StartBoss()
     {
 
-        StartCoroutine(PortalCombo());
-        //StartCoroutine(Pattern());
+        //StartCoroutine(PortalCombo());
+        StartCoroutine(Pattern());
 
     }
 
