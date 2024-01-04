@@ -15,12 +15,4 @@ public class BookBossDie : BossDieCheck
         FindObjectOfType<BookPower>().SetAbility(true);
         Invoke("EndFun", 3f);
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            _hitObject.hp = 1;
-        }
-    }
 }
