@@ -23,7 +23,7 @@ public class Ice_Pattern_12_State : IceAwakeState
     protected override void EnterState()
     {
 
-        warning.SetText("¾ÆÀÌ¼¼½º°¡ ¸ğµç°ÍÀ» ¾ó¸®±â À§ÇÏ¿© ÈûÀ» ¸ğÀ¾´Ï´Ù!", 2);
+        warning.SetText("ì•„ì´ì„¸ìŠ¤ê°€ ëª¨ë“  ê²ƒì„ ì–¼ë¦¬ê¸° ìœ„í•˜ì—¬ í˜ì„ ëª¨ìë‹ˆë‹¤!", 2);
 
         Sequence seq = DOTween.Sequence();
 

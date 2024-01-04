@@ -57,10 +57,10 @@ public class IceAwakeCutScene : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        TextShow("³ª¸¦ ¿©±â±îÁö ¹Ğ¾î ºÙÀÌ´Ù´Ï");
+        TextShow("ë‚˜ë¥¼ ì—¬ê¸°ê¹Œì§€ ë°€ì–´ ë¶™ì´ë‹¤ë‹ˆ");
         SoundManager.Instance.SFXPlay("ding", ding);
         yield return new WaitForSeconds(2.7f);
-        TextShow("Áö±İºÎÅÍ Áø½ÉÀ¸·Î »ó´ëÇØÁÖÁö");
+        TextShow("ì§€ê¸ˆë¶€í„° ì§„ì‹¬ìœ¼ë¡œ ìƒëŒ€í•´ì£¼ì§€");
         SoundManager.Instance.SFXPlay("ding", ding);
         yield return new WaitForSeconds(2.7f);
 

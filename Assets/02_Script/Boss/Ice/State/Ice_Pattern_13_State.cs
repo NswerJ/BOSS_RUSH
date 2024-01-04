@@ -23,7 +23,7 @@ public class Ice_Pattern_13_State : IceAwakeState
     protected override void EnterState()
     {
 
-        warning.SetText("¾ÆÀÌ¼¼½º°¡ ¸ğµç°÷À» °ø°İÇÕ´Ï´Ù!", 2);
+        warning.SetText("ì•„ì´ì„¸ìŠ¤ê°€ ëª¨ë“  ê³³ì„ ê³µê²©í•©ë‹ˆë‹¤!", 2);
 
         movePtc.Play();
 

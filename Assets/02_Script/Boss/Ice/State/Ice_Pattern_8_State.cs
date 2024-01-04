@@ -23,7 +23,7 @@ public class Ice_Pattern_8_State : IceAwakeState
     protected override void EnterState()
     {
 
-        warning.SetText("¾ÆÀÌ¼¼½º°¡ ¾óÀ½Ã¢À» ¼ÒÈ¯ÇÕ´Ï´Ù!", 2);
+        warning.SetText("ì•„ì´ì„¸ìŠ¤ê°€ ì–¼ìŒì°½ì„ ì†Œí™˜í•©ë‹ˆë‹¤!", 2);
 
         ChangeCamera(camOrigin, 8f);
 

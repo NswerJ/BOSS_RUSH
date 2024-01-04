@@ -28,7 +28,7 @@ public class Ice_Pattern_15_State : IceAwakeState
 
         per = 0;
 
-        warning.SetText("¾ÆÀÌ¼¼½º°¡ Á×Àº Ã¥ÀÇ ÈûÀ» ºô·Á ºĞ½ÅÀ» ¼ÒÈ¯ÇÕ´Ï´Ù", 2);
+        warning.SetText("ì•„ì´ì„¸ìŠ¤ê°€ ì£½ì€ ì±…ì˜ í˜ì„ ë¹Œë ¤ ë¶„ì‹ ì„ ì†Œí™˜í•©ë‹ˆë‹¤", 2);
 
         ChangeCamera(camOrigin, 10);
 
