@@ -106,7 +106,7 @@ public class DataManager : DontDestroyOnLoad
         PlayerPrefs.SetInt("File" + _dataIndex, PlayerPrefs.GetInt("File" + _dataIndex) + 1);
     }
 
-    private void InitData()
+    public void InitData()
     {
         PlayerPrefs.SetInt("File" + _dataIndex, -1);
         PlayerPrefs.SetFloat("File" + _dataIndex + "XPos", -5);
