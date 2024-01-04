@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -45,10 +46,14 @@ public class FreezeBoss : MonoBehaviour
     public AudioClip PhaseChangeClip;
     bool HillSound = false;
 
+    CinemachineImpulseSource CinemachineShake;
+
     private float per;
 
     private void Awake()
     {
+
+        CinemachineShake = GetComponent<CinemachineImpulseSource>();
         SaveFreezeTime = FreezeTime;
         BossCol = GetComponent<CapsuleCollider2D>();    
         BossHit = GetComponent<HitObject>();
@@ -155,6 +160,7 @@ public class FreezeBoss : MonoBehaviour
             phase2 = true;
             HillSound = true;
             SoundManager.Instance.SFXPlay("SFX", PhaseChangeClip);
+            CinemachineShake.GenerateImpulse();
         }
     }
     #endregion
@@ -216,6 +222,7 @@ public class FreezeBoss : MonoBehaviour
             phase3 = true;
             HillSound = true;
             SoundManager.Instance.SFXPlay("SFX", PhaseChangeClip);
+            CinemachineShake.GenerateImpulse();
         }
         iceAttack.Paze2Pattern();
     }

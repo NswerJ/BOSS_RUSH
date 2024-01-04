@@ -58,6 +58,10 @@ public class Ice_Pattern_14_State : IceAwakeState
 
         }
 
+        yield return new WaitForSeconds(3f);
+
+        ChangeState(EnumIceAwakeState.Pattern_14);
+
     }
 
 }
