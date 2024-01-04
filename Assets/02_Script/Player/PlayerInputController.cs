@@ -40,7 +40,7 @@ public class PlayerInputController : IDisposable
                 if (item.name == "Player") continue;
 
 
-                item.defecnces.AddMod(-1000);
+                item.defecnces.AddMod(-100);
             }
 
         }
