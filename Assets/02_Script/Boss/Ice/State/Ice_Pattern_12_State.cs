@@ -69,9 +69,10 @@ public class Ice_Pattern_12_State : IceAwakeState
             {
 
                 float angle = 360 / 36;
+
                 var shard = FAED.TakePool<IceShard>("IceShard", transform.position, Quaternion.Euler(0, 0, j * angle));
                 shard.transform.position += shard.transform.up;
-                shard.Spawn(shard.transform.up, 0f);
+                shard.Spawn(shard.transform.up, 0f, j > 16);
 
             }
 
