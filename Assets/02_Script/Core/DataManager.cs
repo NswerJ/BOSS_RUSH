@@ -25,7 +25,7 @@ public class DataManager : DontDestroyOnLoad
         base.Awake();
         if (Instance != null)
         {
-            Destroy(gameObject);
+            Destroy(Instance.gameObject);
         }
 
         Instance = this;

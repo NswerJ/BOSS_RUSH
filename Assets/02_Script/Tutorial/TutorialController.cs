@@ -52,7 +52,7 @@ public class TutorialController : MonoBehaviour
 
     private void Awake()
     {
-        
+
         cvcam = FindObjectOfType<CinemachineVirtualCamera>();
 
     }
@@ -108,7 +108,7 @@ public class TutorialController : MonoBehaviour
         cuts[currentTalk].startEvent?.Invoke();
 
 
-        foreach(var talk in cuts[currentTalk].talks)
+        foreach (var talk in cuts[currentTalk].talks)
         {
 
             var box = GetTextBox(talk.talker);
@@ -169,16 +169,8 @@ public class TutorialController : MonoBehaviour
 
         fadingImage.DOFade(1, 1.5f).OnComplete(() =>
         {
-            if(PlayerPrefs.GetInt("Tuto", 0) == 0)
-            {
-                PlayerPrefs.SetInt("Tuto", 1);
-                SceneManager.LoadScene(sceneName);
-            }
-            else
-            {
-                SceneManager.LoadScene("IntroScene");
-            }
-
+            PlayerPrefs.SetInt("Tuto", 1);
+            SceneManager.LoadScene("IntroScene");
         });
 
 
@@ -190,7 +182,7 @@ public class TutorialController : MonoBehaviour
 
         string curText = "";
 
-        foreach(var ch in text)
+        foreach (var ch in text)
         {
 
             curText += ch;
