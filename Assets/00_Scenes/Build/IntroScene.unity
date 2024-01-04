@@ -4404,7 +4404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c88b4305a2d5764d88ecf53922f1bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorImage: {fileID: 2800000, guid: 848dde1b785271047a23adfae477cf05, type: 3}
+  cursorImage: {fileID: 2800000, guid: 3661c9413d501bd4a9f0e4a7837614cc, type: 3}
 --- !u!1001 &1303866670
 PrefabInstance:
   m_ObjectHideFlags: 0
