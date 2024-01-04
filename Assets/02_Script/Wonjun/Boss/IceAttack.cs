@@ -59,7 +59,6 @@ public class IceAttack : MonoBehaviour
         {
             hillLine.SetPosition(1, Boss.position);
         }
-        hillEf.transform.position = Target.position;
     }
 
     #region ∆‰¿Ã¡Ó 1
