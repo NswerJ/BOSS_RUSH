@@ -3881,6 +3881,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DevelopButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5402903332778104457, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5402903332778104458, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

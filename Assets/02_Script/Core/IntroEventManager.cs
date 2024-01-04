@@ -24,6 +24,9 @@ public class IntroEventManager : MonoBehaviour
 
     private void Awake()
     {
+        if (PlayerPrefs.GetInt("Tuto", 0) == 0)
+            SceneManager.LoadScene("TutorialScene");
+
         if (Instance == null)
             Instance = this;
         else
