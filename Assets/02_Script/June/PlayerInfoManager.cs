@@ -25,7 +25,6 @@ public class PlayerInfoManager : MonoBehaviour
         string s = "";
         s += "플레이 시간 : ";
         int totalPlay = (int)PlayerPrefs.GetFloat("PlayTime", 0);
-        Debug.Log(totalPlay);
         if (totalPlay / 360 > 0)
         {
             s += $"{totalPlay / 360}시간 ";
