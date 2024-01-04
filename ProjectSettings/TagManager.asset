@@ -39,7 +39,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - GlobalLight
   m_SortingLayers:
   - name: Default
     uniqueID: 0
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: Top
     uniqueID: 1587503253
+    locked: 0
+  - name: Minimap
+    uniqueID: 1708599537
     locked: 0
