@@ -23,7 +23,7 @@ public class PlayerSpear : MonoBehaviour
             HitObject pHit = collision.GetComponent<HitObject>();
             if(pHit != null)
             {
-                Debug.Log("³Î ¾Æ´Ô");
+               
                 if (pHit.hp <= 0)
                 {
                     Destroy(gameObject);
@@ -36,7 +36,7 @@ public class PlayerSpear : MonoBehaviour
             else
             {
                 Debug.Log("³Î");
-                Destroy(gameObject);
+                Destroy(gameObject, 2f);
             }
             
         }
