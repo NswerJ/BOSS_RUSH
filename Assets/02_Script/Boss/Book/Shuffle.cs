@@ -62,9 +62,22 @@ public class Shuffle : MonoBehaviour
         StartCoroutine(ShuffleCo(3, idx));
     }
 
-    IEnumerator ShuffleCo(int repeat, int index)
+    public void DamageOff()
+    {
+        for (int i = 0; i < _bookList.Count; ++i)
+        {
+            _bookList[i].DamageOff();
+        }
+    }
+
+    public void PowerMaterial()
     {
         _mainBookSprite.material = _answerMat;
+    }
+
+    IEnumerator ShuffleCo(int repeat, int index)
+    {
+        PowerMaterial();
         yield return new WaitForSeconds(1f);
 
         _shuffleList.Clear();
@@ -118,7 +131,6 @@ public class Shuffle : MonoBehaviour
 
             _bookList[i].Fold();
         }
-
         book.Open();
 
     }
