@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 180}
+  m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5251487555851879442
 CanvasRenderer:
@@ -71,9 +71,9 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillAmount: 0
+  m_FillClockwise: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &399478494464278595
@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 6898573710864983617}
   - component: {fileID: 3657882503046085852}
   - component: {fileID: 2906559551240141560}
+  - component: {fileID: 3661000050070150771}
   m_Layer: 5
   m_Name: 'SpearSkill '
   m_TagString: Untagged
@@ -112,8 +113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 434, y: 69}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 400, y: 50}
+  m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3657882503046085852
 CanvasRenderer:
@@ -153,6 +154,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3661000050070150771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399478494464278595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21b73a161594204e987b79a2c49503a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _num: 0
+  _skillIcon: {fileID: 0}
 --- !u!1 &1281762135418480797
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1281762135721063806}
   - component: {fileID: 1281762135721063793}
+  - component: {fileID: 3815972154891499119}
   m_Layer: 5
   m_Name: PlayerHPBarUI
   m_TagString: Untagged
@@ -297,6 +313,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBarSlider: {fileID: 1281762135418480799}
+--- !u!114 &3815972154891499119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281762135721063807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21b73a161594204e987b79a2c49503a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _num: 3
+  _skillIcon: {fileID: 399478494464278595}
 --- !u!1 &1281762135792465927
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,6 +23,9 @@ public class Ice_Pattern_6_State : IceAwakeState
     private IEnumerator Shoot()
     {
 
+
+        yield return new WaitForSeconds(1f);
+
         ChangeCamera(cameraPivot, 6.3f);
 
         yield return new WaitForSeconds(1f);
