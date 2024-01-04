@@ -25,10 +25,10 @@ public class PlayerInfoManager : MonoBehaviour
         string s = "";
         s += "플레이 시간 : ";
         int totalPlay = (int)PlayerPrefs.GetFloat("PlayTime", 0);
-        if (totalPlay / 360 > 0)
+        if (totalPlay / 3600 > 0)
         {
-            s += $"{totalPlay / 360}시간 ";
-            totalPlay %= 360;
+            s += $"{totalPlay / 3600}시간 ";
+            totalPlay %= 3600;
         }
 
         if (totalPlay / 60 > 0)
