@@ -62,6 +62,24 @@ public class PlayerInputController : IDisposable
 
 
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+
+            var obj = UnityEngine.Object.FindObjectsOfType<HitObject>();
+
+            foreach (var item in obj)
+            {
+
+                if (item.name == "Player")
+                {
+
+                    item.defecnces.AddMod(30);
+
+                }
+
+            }
+
+        }
 
         #endregion
 
