@@ -56,6 +56,9 @@ public class DataManager : DontDestroyOnLoad
 
     private void ChangeWeapon(Scene arg0, LoadSceneMode arg1)
     {
+        if (arg0.name == "IntroScene")
+            Destroy(this);
+
         if (GameObject.Find("Player") != null)
             GameObject.Find("Player").GetComponentInChildren<WeaponController>()
                 .Data = weapons[weaponIndex];
