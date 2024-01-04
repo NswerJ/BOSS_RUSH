@@ -83,20 +83,26 @@ public class IceSpear_Awake : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.CompareTag("Boss")) return;
-
-        moveParticle.Stop();
-
-        if (collision.TryGetComponent<HitObject>(out var hit))
+        if (collision.CompareTag("HitAble") || collision.CompareTag("Player"))
         {
 
-            hit.TakeDamage(15f);
+            if (collision.TryGetComponent<HitObject>(out var hit))
+            {
+
+                hit.TakeDamage(15f);
+
+            }
+
+
+            moveParticle.Stop();
+
+
+            FAED.TakePool("BoomDestroy", transform.position);
+
+            FAED.InsertPool(gameObject);
 
         }
 
-        FAED.TakePool("BoomDestroy", transform.position);
-
-        FAED.InsertPool(gameObject);
 
     }
 

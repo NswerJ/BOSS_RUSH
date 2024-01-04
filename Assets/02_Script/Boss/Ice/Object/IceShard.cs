@@ -146,20 +146,26 @@ public class IceShard : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.CompareTag("Boss")) return;
-
-        moveParicle.Stop();
-
-        if (collision.TryGetComponent<HitObject>(out var hit))
+        if (collision.CompareTag("HitAble") || collision.CompareTag("Player"))
         {
 
-            hit.TakeDamage(7.2f);
+            if (collision.TryGetComponent<HitObject>(out var hit))
+            {
+
+                hit.TakeDamage(7.2f);
+
+            }
+
+
+            moveParicle.Stop();
+
+
+            FAED.TakePool("BoomDestroy", transform.position);
+
+            FAED.InsertPool(gameObject);
 
         }
 
-        FAED.TakePool("BoomDestroy", transform.position);
-
-        FAED.InsertPool(gameObject);
 
     }
 

@@ -10,11 +10,13 @@ public class IceLayser : MonoBehaviour
 {
     
     private LineRenderer lineRenderer;
+    private CinemachineImpulseSource source;
 
     private void Awake()
     {
         
         lineRenderer = GetComponent<LineRenderer>();
+        source = GetComponent<CinemachineImpulseSource>();
 
     }
 
@@ -90,6 +92,8 @@ public class IceLayser : MonoBehaviour
             }
 
         }
+
+        source.GenerateImpulse(0.1f);
 
         yield return null;
 
