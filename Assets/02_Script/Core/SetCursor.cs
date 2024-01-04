@@ -8,6 +8,6 @@ public class SetCursor : MonoBehaviour
 
     private void Start()
     {
-        Cursor.SetCursor(cursorImage, new Vector2(16, 16), CursorMode.Auto);
+        Cursor.SetCursor(cursorImage, new Vector2(32, 32), CursorMode.Auto);
     }
 }
