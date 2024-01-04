@@ -6854,6 +6854,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2947384582077937976, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
+      propertyPath: startState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2947384582077937981, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -6912,6 +6916,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
+--- !u!114 &919246912 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2947384582077937976, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
+  m_PrefabInstance: {fileID: 919246911}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7d61a1bd9713947b6defba627a75db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &954750322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2947384581141145030, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
@@ -7342,7 +7357,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7366,7 +7381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238907969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.19, y: -0.43000007, z: -10}
+  m_LocalPosition: {x: -12.09, y: -1.48, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15687,6 +15702,7 @@ GameObject:
   - component: {fileID: 4696215154067789239}
   - component: {fileID: 4696215154067789238}
   - component: {fileID: 4696215154067789241}
+  - component: {fileID: 4696215154067789244}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -15694,6 +15710,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &4696215154067789244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4696215154067789243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ceb7bacff436044bbf31b25d92be73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 919246912}
 --- !u!114 &4696215154088535761
 MonoBehaviour:
   m_ObjectHideFlags: 3
