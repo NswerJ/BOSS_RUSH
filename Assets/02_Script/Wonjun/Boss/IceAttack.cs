@@ -1,3 +1,4 @@
+using Cinemachine;
 using FD.Dev;
 using System;
 using System.Collections;
@@ -35,6 +36,8 @@ public class IceAttack : MonoBehaviour
     private int BulletPosCount = 1;
     public float IceBlockHp = 1;
     public AudioClip BulletClip;
+    public AudioClip IceBombClip;
+
 
     [SerializeField] public List<GameObject> list;
 
@@ -46,10 +49,13 @@ public class IceAttack : MonoBehaviour
     public bool BulletSpawn = true;
     public bool HillLineShow = false;
 
+    CinemachineImpulseSource CinemachineShake;
+
     public GameObject freezeboss;
 
     private void Awake()
     {
+        CinemachineShake = GetComponent<CinemachineImpulseSource>(); 
         list = new List<GameObject>();
         Razer = new GameObject[IceDropPos.Length];
     }
@@ -218,6 +224,8 @@ public class IceAttack : MonoBehaviour
 
     public void HillExit()
     {
+        CinemachineShake.GenerateImpulse();
+        SoundManager.Instance.SFXPlay("SFX", IceBombClip);
         hillEf = Instantiate(HillEffect, Target.position, Quaternion.identity);
         hillEf.Play();
         GameObject StopEffect = Instantiate(HillStopEffect, Boss.position, Quaternion.identity);
