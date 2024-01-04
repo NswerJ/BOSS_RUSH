@@ -29,6 +29,8 @@ public class IceAttack : MonoBehaviour
     public float IceSpearCool;
 
     public GameObject HillStopEffect;
+    public ParticleSystem HillEffect;
+    ParticleSystem hillEf;
 
     private int BulletPosCount = 1;
     public float IceBlockHp = 1;
@@ -57,6 +59,7 @@ public class IceAttack : MonoBehaviour
         {
             hillLine.SetPosition(1, Boss.position);
         }
+        hillEf.transform.position = Target.position;
     }
 
     #region ∆‰¿Ã¡Ó 1
@@ -86,7 +89,7 @@ public class IceAttack : MonoBehaviour
 
     IEnumerator AttackSequence()
     {
-        
+
         for (int i = 0; i < 4; i++)
         {
             StartCoroutine(BulletPosSet(BulletPosCount));
@@ -144,7 +147,7 @@ public class IceAttack : MonoBehaviour
         {
             if (hillLine != null)
             {
-                StartCoroutine(DecreaseLineSizeOverTime(hillLine, 0.25f, 0.0f, 2.5f)); 
+                StartCoroutine(DecreaseLineSizeOverTime(hillLine, 0.25f, 0.0f, 2.5f));
             }
             for (int i = 0; i < 4; i++)
             {
@@ -163,7 +166,7 @@ public class IceAttack : MonoBehaviour
             hillLine = Instantiate(HillLine, TargeticeBlock.transform.position, Quaternion.identity).GetComponent<LineRenderer>();
             hillLine.SetPosition(0, TargeticeBlock.transform.position);
             HillLineShow = true;
-            StartCoroutine(ChangeLineSizeOverTime(hillLine, 0.0f, 0.25f, 2.0f)); 
+            StartCoroutine(ChangeLineSizeOverTime(hillLine, 0.0f, 0.25f, 2.0f));
             if (TargetAnim != null)
             {
                 TargetAnim.SetBool("Target", v);
@@ -191,14 +194,14 @@ public class IceAttack : MonoBehaviour
 
         if (line.startWidth <= 0.1f)
         {
-            HillLineShow = false;
             Destroy(line.gameObject);
+            HillLineShow = false;
         }
     }
 
     private IEnumerator ChangeLineSizeOverTime(LineRenderer line, float startSize, float endSize, float duration)
     {
-
+        HillLineShow = true;
         float elapsedTime = 0f;
         while (elapsedTime < duration)
         {
@@ -216,7 +219,8 @@ public class IceAttack : MonoBehaviour
 
     public void HillExit()
     {
-        
+        hillEf = Instantiate(HillEffect, Target.position, Quaternion.identity);
+        hillEf.Play();
         GameObject StopEffect = Instantiate(HillStopEffect, Boss.position, Quaternion.identity);
         HitObject BoomAttack = freezeboss.GetComponent<HitObject>();
         HitObject PlayerHit = Target.GetComponent<HitObject>();
@@ -224,6 +228,7 @@ public class IceAttack : MonoBehaviour
         BoomAttack.TakeDamage(300f);
         IceBlockHp = 0;
         Destroy(StopEffect, 1f);
+        Destroy(hillEf, 0.3f);
     }
     #endregion
 
@@ -288,7 +293,8 @@ public class IceAttack : MonoBehaviour
             {
                 Destroy(iceDrops[i]);
             }
-        }else
+        }
+        else
         {
             for (int i = 0; i < IceDropPos2.Length; i++)
             {
@@ -319,9 +325,9 @@ public class IceAttack : MonoBehaviour
                 Destroy(iceDrops[i]);
             }
         }
-        
 
-        
+
+
     }
 
 
