@@ -62,15 +62,18 @@ public class Ice_Pattern_15_State : IceAwakeState
 
                 var obj = FAED.TakePool<IceLayser>("IceLayser", transform.position, Quaternion.Euler(0, 0, (angle * i) + randomAngle));
                 obj.Show(transform.position, obj.transform.right);
+                FAED.TakePool("ExpEffect", transform.position);
 
             }
 
-            yield return new WaitForSeconds(Random.Range(0.5f, 0.7f));
+            yield return new WaitForSeconds(Random.Range(1.5f, 1.7f));
 
         }
 
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
+
+        ChangeState(EnumIceAwakeState.Pattern_15);
 
 
     }

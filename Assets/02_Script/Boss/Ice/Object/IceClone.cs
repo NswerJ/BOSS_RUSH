@@ -20,6 +20,7 @@ public class IceClone : MonoBehaviour
     public void Spawn(Transform target)
     {
 
+        FAED.TakePool("ExpEffect", transform.position);
         per = 0;
         isMove = true;
         pos = transform.position;
@@ -37,12 +38,13 @@ public class IceClone : MonoBehaviour
             if(target == null) yield break;
 
             FAED.TakePool<IceShard>("IceShard", transform.position + (Vector3)Random.insideUnitCircle, Quaternion.identity).Spawn(target, 0.3f);
-            yield return new WaitForSeconds(Random.Range(0.2f, 0.7f));
+            yield return new WaitForSeconds(Random.Range(0.7f, 1.7f));
 
         }
 
         yield return new WaitForSeconds(2);
 
+        FAED.TakePool("ExpEffect", transform.position);
         FAED.InsertPool(gameObject);
 
     }
