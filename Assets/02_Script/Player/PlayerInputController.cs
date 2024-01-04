@@ -54,7 +54,7 @@ public class PlayerInputController : IDisposable
                 if (item.name == "Player")
                 {
 
-                    item.HealingObject(1000);
+                    item.HealingObject(100);
 
                 }
 
