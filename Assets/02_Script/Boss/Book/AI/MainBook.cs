@@ -409,6 +409,7 @@ public class MainBook : MonoBehaviour
         _stop = true;
         _dangerLine.enabled = false;
         _laserLine.enabled = false;
+        _laser.SetActive(false);
         _danger.SetActive(false);
         StopAllCoroutines();
     }
