@@ -9,4 +9,11 @@ public class Ice_Pattern_11_State : IceAwakeState
     {
     }
 
+    protected override void EnterState()
+    {
+
+
+
+    }
+
 }
