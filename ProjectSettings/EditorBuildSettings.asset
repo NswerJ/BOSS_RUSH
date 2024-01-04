@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00_Scenes/Icess.unity
     guid: d4f01918a6209f94991d5b256b459f00
+  - enabled: 1
+    path: Assets/00_Scenes/Boss/Ice/IceEnd.unity
+    guid: cfa4abf2a119f7a47ad928e49d771d42
   m_configObjects: {}
