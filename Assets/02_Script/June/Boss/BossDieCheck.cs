@@ -24,6 +24,8 @@ public abstract class BossDieCheck : MonoBehaviour
     {
         if (hp <= 0 && isFirst)
         {
+            PlayerPrefs.SetInt("TotalBossClear",
+                PlayerPrefs.GetInt("TotalBossClear", 0) + 1);
             isFirst = false;
             DieEvent();
         }

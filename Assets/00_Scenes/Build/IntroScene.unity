@@ -1961,15 +1961,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5402903332778104501, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
       propertyPath: hoverColor.b
-      value: 0.35400495
+      value: 0.24313726
       objectReference: {fileID: 0}
     - target: {fileID: 5402903332778104501, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
       propertyPath: hoverColor.g
-      value: 0.41509432
+      value: 0.7921569
       objectReference: {fileID: 0}
     - target: {fileID: 5402903332778104501, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
       propertyPath: hoverColor.r
-      value: 0.4076763
+      value: 0.7254902
       objectReference: {fileID: 0}
     - target: {fileID: 5402903332778104501, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
       propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.size
@@ -2228,6 +2228,50 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5402903332778104458, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
   m_PrefabInstance: {fileID: 12419361}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &609326783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 609326784}
+  - component: {fileID: 609326785}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &609326784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609326783}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &609326785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609326783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa4ba4511cafba4aa1cf43412e29723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &708891136
 GameObject:
   m_ObjectHideFlags: 0
@@ -2620,6 +2664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 839528920}
+  - component: {fileID: 839528921}
   m_Layer: 5
   m_Name: InfoPanel
   m_TagString: Untagged
@@ -2653,6 +2698,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1080}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &839528921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839528919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ddbee259be6dd45a1cd353dc5351e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playTimeTxt: {fileID: 1825358637}
+  clearCntTxt: {fileID: 112499549}
+  killCntTxt: {fileID: 1792515275}
+  deathTxt: {fileID: 1233824056}
 --- !u!1 &856306862
 GameObject:
   m_ObjectHideFlags: 0
@@ -5239,6 +5300,10 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 150141c24d827394bb589bd1436277f9, type: 3}
     - target: {fileID: 5402903332778104459, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
       propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402903332778104501, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
+      propertyPath: useImage
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5402903332778104501, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}

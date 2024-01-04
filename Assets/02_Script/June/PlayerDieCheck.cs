@@ -19,6 +19,8 @@ public class PlayerDieCheck : MonoBehaviour
     {
         if(hitObject.hp <= 0 && !isdie)
         {
+            PlayerPrefs.SetInt("TotalDeath", 
+                PlayerPrefs.GetInt("TotalDeath", 0) + 1);
             StartCoroutine(IsDie());
             isdie = true;
         }

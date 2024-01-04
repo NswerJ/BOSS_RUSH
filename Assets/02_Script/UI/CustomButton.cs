@@ -20,11 +20,14 @@ public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
     private bool isHover;
     public bool IsHover => isHover;
 
+    public bool useImage = false;
+    private Image image;
+
     private void Awake()
     {
 
         text = GetComponentInChildren<TMP_Text>();
-
+        image = GetComponentInChildren<Image>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -53,7 +56,8 @@ public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
         per = Mathf.Clamp01(per);
 
         text.color = Color.Lerp(originColor, hoverColor, per);
-
+        if(useImage)
+            image.color = Color.Lerp(originColor, hoverColor, per);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
