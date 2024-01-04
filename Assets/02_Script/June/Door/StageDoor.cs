@@ -7,21 +7,21 @@ using UnityEngine.SceneManagement;
 
 public class StageDoor : MonoBehaviour
 {
-    TextMeshPro _doorTxt;
+    protected TextMeshPro _doorTxt;
 
-    bool isCollision = false;
+    protected bool isCollision = false;
 
     public bool isUseFire = false;
     public int roomIdx;
     [SerializeField] GameObject notclear;
     [SerializeField] GameObject clear;
 
-    private void Awake()
+    protected void Awake()
     {
         _doorTxt = transform.GetComponentInChildren<TextMeshPro>();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         if(isUseFire)
         {
@@ -36,7 +36,7 @@ public class StageDoor : MonoBehaviour
         }
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if(isCollision && Input.GetKeyDown(KeyCode.F))
         {
@@ -44,7 +44,7 @@ public class StageDoor : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
@@ -53,7 +53,7 @@ public class StageDoor : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
@@ -63,7 +63,7 @@ public class StageDoor : MonoBehaviour
         }
     }
 
-    IEnumerator DoFadeAndChangeScene()
+    protected IEnumerator DoFadeAndChangeScene()
     {
         MainFadeImage.Instance.FadeIn();
         yield return new WaitForSeconds(2f);
