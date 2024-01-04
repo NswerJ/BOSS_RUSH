@@ -6,6 +6,7 @@ public class SkillCool : MonoBehaviour
 {
     [SerializeField] int _num;
     [SerializeField] GameObject _skillIcon;
+
     private void Update()
     {
         if (FindObjectOfType<Data>() != null)
