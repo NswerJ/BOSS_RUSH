@@ -4864,6 +4864,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44da4dc030c221b48885db6e48b17734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showSound: {fileID: 8300000, guid: a16970554dfa2c54aacfa47e99da581b, type: 3}
+  destroySound: {fileID: 8300000, guid: 38ef346a0cbe9fe439dae4372e9f20bd, type: 3}
+  shootSound: {fileID: 8300000, guid: 38ef346a0cbe9fe439dae4372e9f20bd, type: 3}
   moveParticle: {fileID: 890067298}
 --- !u!212 &4390815584215620261
 SpriteRenderer:

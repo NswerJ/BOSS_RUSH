@@ -10,7 +10,8 @@ public class WarningText : MonoBehaviour
 
     private void Awake()
     {
-        
+
+        Debug.Log(gameObject.name);
         text = GetComponent<TMP_Text>();
         text.text = "";
 

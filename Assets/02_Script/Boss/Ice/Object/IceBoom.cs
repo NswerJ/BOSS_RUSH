@@ -9,6 +9,7 @@ public class IceBoom : MonoBehaviour
 {
 
     [SerializeField] private ParticleSystem movePtc;
+    [SerializeField] private AudioClip audios;
 
     public void Spawn(Vector3 position)
     {
@@ -46,6 +47,8 @@ public class IceBoom : MonoBehaviour
             shard.ImmediatelySpawn(shard.transform.up);
 
         }
+
+        SoundManager.Instance.SFXPlay("EXPPPP", audios);
 
         FAED.InsertPool(gameObject);
 

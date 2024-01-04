@@ -27,6 +27,8 @@ public class IceSpear_Awake : MonoBehaviour
     public void Spawn(Transform target, float shootDelay)
     {
 
+        SoundManager.Instance.SFXPlay("SSSSSSS", showSound);
+
         spriteRenderer.material.SetFloat(HASH_FADE, 0);
         transform.localScale = Vector2.one / 2;
 
@@ -37,6 +39,8 @@ public class IceSpear_Awake : MonoBehaviour
 
     public void Spawn(Vector2 dir, float shootDelay)
     {
+
+        SoundManager.Instance.SFXPlay("SSSSSSS", showSound);
 
         spriteRenderer.material.SetFloat(HASH_FADE, 0);
         transform.localScale = Vector2.one / 2;
@@ -70,7 +74,7 @@ public class IceSpear_Awake : MonoBehaviour
         {
 
             per += Time.deltaTime * 1.5f;
-            spriteRenderer.material.SetFloat(HASH_FADE, Mathf.Lerp(0, 1.3f, FAED.Easing(FAED_Easing.OutSine, per)));
+            spriteRenderer.material.SetFloat(HASH_FADE, Mathf.Lerp(0, 2.3f, FAED.Easing(FAED_Easing.OutSine, per)));
             yield return null;
 
         }
@@ -88,6 +92,8 @@ public class IceSpear_Awake : MonoBehaviour
 
         if (collision.CompareTag("HitAble") || collision.CompareTag("Player"))
         {
+
+            SoundManager.Instance.SFXPlay("SasdasdasdasdSSSSSS", destroySound);
 
             if (collision.TryGetComponent<HitObject>(out var hit))
             {
@@ -121,7 +127,7 @@ public class IceSpear_Awake : MonoBehaviour
         {
 
             per += Time.deltaTime * 2;
-            spriteRenderer.material.SetFloat(HASH_FADE, Mathf.Lerp(0, 1.3f, FAED.Easing(FAED_Easing.OutSine, per)));
+            spriteRenderer.material.SetFloat(HASH_FADE, Mathf.Lerp(0, 2.3f, FAED.Easing(FAED_Easing.OutSine, per)));
             yield return null;
 
         }
@@ -159,6 +165,8 @@ public class IceSpear_Awake : MonoBehaviour
 
     private void Shooting(Vector2 dir)
     {
+
+        SoundManager.Instance.SFXPlay("asdf", shootSound);
         moveParticle.Play();
         rigid.velocity = dir * 25;
 

@@ -32,6 +32,13 @@ public class HitObject : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+
+        hp = maxHP;
+
+    }
+
     public virtual void TakeDamage(float damage)
     {
         if (_isActivated == false) return;
