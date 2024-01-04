@@ -36,6 +36,8 @@ public class IceAwakeningController : FSM_Controller<EnumIceAwakeState>
     protected override void Awake()
     {
 
+        SoundManager.Instance.BgStop();
+
         target = FindObjectOfType<PlayerController>().transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -103,7 +105,8 @@ public class IceAwakeningController : FSM_Controller<EnumIceAwakeState>
     public void Die()
     {
 
-        PlayerPrefs.SetInt("TotalClear", PlayerPrefs.GetInt("TotalClear", 0));
+        PlayerPrefs.SetInt("TotalClear", PlayerPrefs.GetInt("TotalClear", 0) + 1);
+        //PlayerPrefs.SetInt("TotalClear", PlayerPrefs.GetInt("TotalClear", 0) + 1);
 
     }
 
