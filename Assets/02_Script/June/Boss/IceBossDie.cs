@@ -19,15 +19,6 @@ public class IceBossDie : BossDieCheck
         Invoke("EndFun", 1.65f);
     }
 
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            _hitObject.hp = 1;
-        }
-    }
-
     private void LateUpdate()
     {
         HiddenTime += Time.deltaTime;
