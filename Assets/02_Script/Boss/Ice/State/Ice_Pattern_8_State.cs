@@ -23,6 +23,8 @@ public class Ice_Pattern_8_State : IceAwakeState
     protected override void EnterState()
     {
 
+        warning.SetText("아이세스가 얼음창을 소환합니다!", 2);
+
         ChangeCamera(camOrigin, 8f);
 
         movePtc.Play();

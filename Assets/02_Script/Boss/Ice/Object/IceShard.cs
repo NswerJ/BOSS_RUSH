@@ -157,7 +157,7 @@ public class IceShard : MonoBehaviour
             if (collision.TryGetComponent<HitObject>(out var hit))
             {
 
-                hit.TakeDamage(7.2f);
+                hit.TakeDamage(5f);
 
             }
 
