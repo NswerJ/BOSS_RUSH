@@ -169,8 +169,15 @@ public class TutorialController : MonoBehaviour
 
         fadingImage.DOFade(1, 1.5f).OnComplete(() =>
         {
-            PlayerPrefs.SetInt("Tuto", 1);
-            SceneManager.LoadScene(sceneName);
+            if(PlayerPrefs.GetInt("Tuto", 0) == 0)
+            {
+                PlayerPrefs.SetInt("Tuto", 1);
+                SceneManager.LoadScene(sceneName);
+            }
+            else
+            {
+                SceneManager.LoadScene("IntroScene");
+            }
 
         });
 
