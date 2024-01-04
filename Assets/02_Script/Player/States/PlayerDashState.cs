@@ -32,8 +32,6 @@ public class PlayerDashState : PlayerState
         var dir = mpos - transform.position;
         dir.z = 0;
 
-        Debug.Log(dir.normalized);
-
         rigid.velocity = dir.normalized * 40;
 
         dashParticle.transform.localScale = spriteRenderer.flipX ? new Vector2(-1, 1) : new Vector2(1, 1);

@@ -22,9 +22,16 @@ public class Shuffle : MonoBehaviour
     [SerializeField]
     private List<Vector2> _5cardShufflePos = new List<Vector2>();
 
+    [SerializeField]
+    private SpriteRenderer _mainBookSprite;
+    private Material _defaultMat;
+    [SerializeField]
+    private Material _answerMat;
 
     private void Awake()
     {
+        _defaultMat = _mainBookSprite.material;
+
         seq = DOTween.Sequence();
         for(int i = 0; i < _bookList.Count; i++)
         {
@@ -48,6 +55,7 @@ public class Shuffle : MonoBehaviour
 
     IEnumerator ShuffleCo(int repeat, int index)
     {
+        _mainBookSprite.material = _answerMat;
         yield return new WaitForSeconds(1f);
 
         _shuffleList.Clear();
@@ -59,6 +67,7 @@ public class Shuffle : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitForSeconds(0.2f);
+        _mainBookSprite.material = _defaultMat;
 
         seq = DOTween.Sequence();
         float cardMoveTime = _cardChangeTimeList[index];
@@ -89,6 +98,7 @@ public class Shuffle : MonoBehaviour
         {
             _bookList[i].DamageOn();
         }
+
     }
 
     private void OpenBook(Book book)
