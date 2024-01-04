@@ -21,7 +21,7 @@ public class IntroEventManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
             Instance = this;
         else
         {
@@ -35,7 +35,7 @@ public class IntroEventManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Q) && Input.GetKey(KeyCode.W) ||
             Input.GetKey(KeyCode.E))
         {
-            PlayerPrefs.SetInt("Tuto",0);
+            PlayerPrefs.SetInt("Tuto", 0);
         }
     }
 
@@ -68,11 +68,29 @@ public class IntroEventManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void TutoBtn()
+    {
+        PlaySound();
+        StartCoroutine(FadeOutAndTuto());
+        SceneManager.LoadScene("TutorialScene");
+    }
+
     public void StartGame(int num)
     {
         PlaySound();
         StartCoroutine(FadeOutAndStart());
         FindObjectOfType<Data>().name = num.ToString();
+    }
+
+    IEnumerator FadeOutAndTuto()
+    {
+        blackImage.gameObject.SetActive(true);
+        blackImage.DOFade(1, 1f);
+
+        yield return new WaitForSeconds(1.5f);
+        
+            SceneManager.LoadScene("TutorialScene");
+        
     }
 
     IEnumerator FadeOutAndStart()
