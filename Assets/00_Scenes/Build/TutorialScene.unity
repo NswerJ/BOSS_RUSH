@@ -51475,7 +51475,19 @@ MonoBehaviour:
           m_Calls: []
       talkingEvent:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 993765336}
+            m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+            m_MethodName: PlaySFX
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: 9f0093b6992071949bed8be4949b8a4a, type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - text: "\uC6C0\uC9C1\uC774\uB294 \uBC95\uC744 \uC78A\uC5B4\uBC84\uB9AC\uC2E0
         \uAC70\uC608\uC694?"
       textBoxScale: 6.72
