@@ -21,6 +21,7 @@ public class PlayerIceSpearSkill : MonoBehaviour
 
     void Start()
     {
+        _cooldownImage.enabled = false;
         Image cooldownImage = Image.FindAnyObjectByType<Image>();
         playerSpearCool = 5f;
         IceSpearCharge = false;
@@ -42,6 +43,7 @@ public class PlayerIceSpearSkill : MonoBehaviour
     public void ConnectEvent()
     {
         evSys.AttackEvent += IceSpearAttack;
+        _cooldownImage.enabled = true;
     }
 
     
