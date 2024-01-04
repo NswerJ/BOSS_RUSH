@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DropSpeed: 50
-  Damage: 20
+  Damage: 10
   DropClip: {fileID: 8300000, guid: 12291e481848ce9489690ba94fa5096a, type: 3}
 --- !u!50 &7290656812613731604
 Rigidbody2D:

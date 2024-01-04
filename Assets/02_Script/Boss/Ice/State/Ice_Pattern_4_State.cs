@@ -18,6 +18,7 @@ public class Ice_Pattern_4_State : IceAwakeState
         movePtc.Stop();
 
         StartCoroutine(Shoot());
+        StartCoroutine(CameraSetting());
 
     }
 
@@ -38,6 +39,17 @@ public class Ice_Pattern_4_State : IceAwakeState
         yield return new WaitForSeconds(1);
 
         ChangeState(EnumIceAwakeState.Pattern_4);
+
+    }
+
+    private IEnumerator CameraSetting()
+    {
+
+        ChangeCamera(transform, 7);
+
+        yield return new WaitForSeconds(2f);
+
+        ChangeCamera(cameraPivot, 6.3f);
 
     }
 

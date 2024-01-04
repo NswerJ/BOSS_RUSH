@@ -69,8 +69,6 @@ public class IceAwakeCutScene : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         endEvent?.Invoke();
 
-        //Blink
-
     }
 
 }

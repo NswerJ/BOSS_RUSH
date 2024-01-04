@@ -2915,10 +2915,9 @@ MonoBehaviour:
   phase3: 0
   FreezeTime: 10
   SaveFreezeTime: 0
-  HillCool: 0.8
-  Phase2Hill: 200
-  Phase3Hill: 400
-  DefenceOnOff: 0
+  HillCool: 1
+  Phase2Hill: 50
+  Phase3Hill: 100
   HillEffect: {fileID: 5089912075557022076, guid: 25c0145fd9293fa4bab2507e71b0a86e, type: 3}
   DieEffect: {fileID: 229682870354262612, guid: 9283a1f3fcecb1c4cb45e2de9fcd6c7a, type: 3}
   Hillclip: {fileID: 8300000, guid: 82e4b12698dbdca4bb29e2611bdf87f1, type: 3}
@@ -3007,7 +3006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2956a9b6e443ca0458507d2976d602ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHP>k__BackingField: 8000
+  <maxHP>k__BackingField: 1
   defecnces:
     value: 0
 --- !u!114 &87697791
@@ -3576,7 +3575,7 @@ GameObject:
   - component: {fileID: 344794322}
   m_Layer: 0
   m_Name: Col
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7158,7 +7157,7 @@ GameObject:
   - component: {fileID: 794254464}
   m_Layer: 0
   m_Name: Col
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7696,11 +7695,13 @@ MonoBehaviour:
   IceSpear: {fileID: 3487456337288530055, guid: 2d3dfe43507e02a42870648e96c579a9, type: 3}
   WarnigIceSpear: {fileID: 7755369039012096015, guid: 8add2ef3eb35ca4448b3f19c8be6634f, type: 3}
   IceSpearCool: 3
+  HillStopEffect: {fileID: 2409225742175025510, guid: e8b325429866d614288fc88dd7804c29, type: 3}
   IceBlockHp: 1
   BulletClip: {fileID: 8300000, guid: 3270313e169d4574ebde41f8adaec2cf, type: 3}
   list: []
   BulletSpawn: 1
   HillLineShow: 0
+  freezeboss: {fileID: 87697782}
 --- !u!1001 &1331098693
 PrefabInstance:
   m_ObjectHideFlags: 0

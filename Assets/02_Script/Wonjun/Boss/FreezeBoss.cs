@@ -30,8 +30,6 @@ public class FreezeBoss : MonoBehaviour
     public float Phase2Hill = 50;
     public float Phase3Hill = 200;
 
-    public bool DefenceOnOff = false;
-
     bool iceAttackTarget = false;
     private float nextIncreaseTime = 0;
 
@@ -86,6 +84,17 @@ public class FreezeBoss : MonoBehaviour
         GameObject dieEffect = Instantiate(DieEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
         Destroy(dieEffect, 1f);
+    }
+
+    public void HillBossDie()
+    {
+        if(BossHit.hp <= 0)
+        {
+            Destroy(iceAttack.hillLine);
+            anim.SetBool("Die", true);
+            isAttack = false;
+            Destroy(iceAttack.gameObject);
+        }
     }
 
     public void BossMove()
@@ -152,8 +161,6 @@ public class FreezeBoss : MonoBehaviour
             FreezeTime = 0;
             phase1 = false;
             phase2 = true;
-            DefenceOnOff = true;
-            BossHit.defecnces.AddMod(10f);
             HillSound = true;
             SoundManager.Instance.SFXPlay("SFX", PhaseChangeClip);
         }
@@ -184,11 +191,6 @@ public class FreezeBoss : MonoBehaviour
             FreezeTime = 0;
             if (!iceAttackTarget)
             {
-                if (DefenceOnOff)
-                {
-                    BossHit.defecnces.AddMod(-40f);
-                    DefenceOnOff = false;
-                }
                 GameObject hillEffect = Instantiate(HillEffect, transform.position, Quaternion.identity);
                 iceAttack.IceObjectTarget(true);
                 iceAttackTarget = true;
@@ -220,8 +222,6 @@ public class FreezeBoss : MonoBehaviour
             FreezeTime = 0;
             phase2 = false;
             phase3 = true;
-            DefenceOnOff = true;
-            BossHit.defecnces.AddMod(20f);
             HillSound = true;
             SoundManager.Instance.SFXPlay("SFX", PhaseChangeClip);
         }
@@ -254,11 +254,7 @@ public class FreezeBoss : MonoBehaviour
             BossCol.enabled = false;
             if (!iceAttackTarget)
             {
-                if(DefenceOnOff)
-                {
-                    BossHit.defecnces.AddMod(-50f);
-                    DefenceOnOff = false;
-                }
+                
                 GameObject hillEffect = Instantiate(HillEffect, transform.position, Quaternion.identity);
                 iceAttack.IceObjectTarget(true);
                 iceAttackTarget = true;

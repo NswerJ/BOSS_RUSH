@@ -10,6 +10,9 @@ public class IceShard : MonoBehaviour
 
     private readonly int HASH_FADE = Shader.PropertyToID("_DirectionalGlowFadeFade");
 
+    [SerializeField] private ParticleSystem createParticle;
+    [SerializeField] private ParticleSystem moveParicle;
+
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rigid;
 
@@ -23,6 +26,8 @@ public class IceShard : MonoBehaviour
 
     public void Spawn(Transform target, float shootDelay)
     {
+
+        createParticle.Play();
 
         spriteRenderer.material.SetFloat(HASH_FADE, 0);
         transform.localScale = Vector2.one / 2;
@@ -73,6 +78,8 @@ public class IceShard : MonoBehaviour
         }
 
         yield return co;
+
+        createParticle.Stop();
 
         yield return new WaitForSeconds(shootDelay);
 
@@ -130,7 +137,29 @@ public class IceShard : MonoBehaviour
     private void Shooting(Vector2 dir)
     {
 
+        moveParicle.Play();
+
         rigid.velocity = dir * 15;
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.CompareTag("Boss")) return;
+
+        moveParicle.Stop();
+
+        if (collision.TryGetComponent<HitObject>(out var hit))
+        {
+
+            hit.TakeDamage(7.2f);
+
+        }
+
+        FAED.TakePool("BoomDestroy", transform.position);
+
+        FAED.InsertPool(gameObject);
 
     }
 

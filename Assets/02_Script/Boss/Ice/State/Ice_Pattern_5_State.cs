@@ -10,12 +10,13 @@ public class Ice_Pattern_5_State : IceAwakeState
 {
 
     protected Transform point;
+    protected Transform camOrigin;
 
     public Ice_Pattern_5_State(FSM_Controller<EnumIceAwakeState> controller) : base(controller)
     {
 
         point = bossPointsRoot.Find("Pattern_1");
-
+        camOrigin = GameObject.Find("FirstCamPoint").transform;
 
     }
 
@@ -43,6 +44,8 @@ public class Ice_Pattern_5_State : IceAwakeState
     {
 
         movePtc.Play();
+
+        ChangeCamera(camOrigin, 10);
 
         transform.DOMove(point.position, 1.5f).SetEase(Ease.InSine).OnComplete(() =>
         {

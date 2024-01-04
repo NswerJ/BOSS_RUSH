@@ -13,9 +13,9 @@ public class IceBossDie : BossDieCheck
     {
         FindObjectOfType<PlayerIceSpearSkill>().ConnectEvent();
 
-        if(HiddenTime <= 150)
+        /*if(HiddenTime <= 150)
         PowerDoor();
-        else
+        else*/
         Invoke("EndFun", 1.65f);
     }
 

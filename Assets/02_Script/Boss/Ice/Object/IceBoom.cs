@@ -47,7 +47,7 @@ public class IceBoom : MonoBehaviour
 
         }
 
-        Destroy(gameObject);
+        FAED.InsertPool(gameObject);
 
     }
 

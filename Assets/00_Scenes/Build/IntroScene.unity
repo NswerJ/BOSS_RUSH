@@ -350,6 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 39728034}
   - component: {fileID: 39728035}
+  - component: {fileID: 39728036}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -431,6 +432,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &39728036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39728033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14624c8c72112944a866dcde56ad7c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &50129337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,6 +1416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 395421866}
   - component: {fileID: 395421867}
+  - component: {fileID: 395421868}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1484,6 +1498,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &395421868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395421865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14624c8c72112944a866dcde56ad7c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &404590733 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5402903332778104457, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
@@ -1814,6 +1840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 554602477}
   - component: {fileID: 554602478}
+  - component: {fileID: 554602479}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1895,6 +1922,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &554602479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554602476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14624c8c72112944a866dcde56ad7c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &570940922 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5402903332778104458, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
@@ -2026,6 +2065,7 @@ MonoBehaviour:
   blackImage: {fileID: 1739731064}
   _tmpro: {fileID: 1318397535}
   moveSpeed: 0.8
+  _btnClip: {fileID: 8300000, guid: 6e527347e46525943a1383129f084dfa, type: 3}
 --- !u!1 &774320364
 GameObject:
   m_ObjectHideFlags: 0
