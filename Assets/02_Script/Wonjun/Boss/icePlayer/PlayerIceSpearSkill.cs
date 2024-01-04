@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerIceSpearSkill : MonoBehaviour
 {
+    [SerializeField] private Image _cooldownImage;
 
     private PlayerEventSystem evSys;
 
@@ -14,10 +16,13 @@ public class PlayerIceSpearSkill : MonoBehaviour
     public bool IceSpearCharge = false;
     public float playerSpearSpeed = 40f;
     public float playerSpearCool = 5f;
+    private bool isCoolingDown = false;
 
 
     void Start()
     {
+        _cooldownImage.enabled = false;
+        Image cooldownImage = Image.FindAnyObjectByType<Image>();
         playerSpearCool = 5f;
         IceSpearCharge = false;
         evSys = FindObjectOfType<PlayerController>().playerEventSystem;
@@ -38,13 +43,16 @@ public class PlayerIceSpearSkill : MonoBehaviour
     public void ConnectEvent()
     {
         evSys.AttackEvent += IceSpearAttack;
+        _cooldownImage.enabled = true;
     }
+
+    
 
     private void IceSpearAttack(float obj)
     {
-        Debug.Log("sd");
         if (IceSpearCharge)
         {
+            StartCooldown();
             GameObject SpearCharge = Instantiate(iceSpear, Player.position, Quaternion.identity);
             Rigidbody2D SpearChargeRb = SpearCharge.GetComponent<Rigidbody2D>();
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -60,7 +68,6 @@ public class PlayerIceSpearSkill : MonoBehaviour
 
             SpearChargeRb.velocity = SpearCharge.transform.right * playerSpearSpeed;
             IceSpearCharge = false;
-            playerSpearCool = 0;
         }
     }
 
@@ -71,5 +78,24 @@ public class PlayerIceSpearSkill : MonoBehaviour
         {
             IceSpearCharge = true;
         }
+
+        if (isCoolingDown)
+        {
+            Debug.Log("sd");
+            float fillValue = Mathf.Clamp01(1 - (playerSpearCool / 5f)); 
+            _cooldownImage.fillAmount = fillValue;
+
+            if (playerSpearCool >= 5f)
+            {
+                isCoolingDown = false;
+                _cooldownImage.fillAmount = 0f;
+            }
+        }
+    }
+
+    private void StartCooldown()
+    {
+        playerSpearCool = 0;
+        isCoolingDown = true;
     }
 }

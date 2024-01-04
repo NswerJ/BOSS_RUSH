@@ -9,6 +9,7 @@ public class PlayerSpear : MonoBehaviour
 
     private void Start()
     {
+        Destroy(gameObject, 2f);
     }
 
     private void Update()
@@ -20,7 +21,14 @@ public class PlayerSpear : MonoBehaviour
         if (collision.CompareTag("Boss"))
         {
             HitObject pHit = collision.GetComponent<HitObject>();
-            pHit.TakeDamage(Damage);
+            if(pHit.hp<= 0 && pHit ==null) { 
+                Destroy(gameObject);
+            }
+            else
+            {
+                pHit.TakeDamage(Damage);
+            }
         }
+        
     }
 }
