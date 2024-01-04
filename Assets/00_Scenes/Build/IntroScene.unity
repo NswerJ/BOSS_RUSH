@@ -2006,23 +2006,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5402903332778104458, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
   m_PrefabInstance: {fileID: 470449342}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &470449344 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5402903332778104457, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
-  m_PrefabInstance: {fileID: 470449342}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &470449345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470449344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d6d3148fcff7e4dbb12b2d8cbfc6d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &512758028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,7 +2397,7 @@ MonoBehaviour:
   _settingPaenl: {fileID: 94902638}
   _userPanel: {fileID: 839528920}
   _developPanel: {fileID: 1705676210}
-  blackImage: {fileID: 1210016700}
+  blackImage: {fileID: 1739731064}
   _tmpro: {fileID: 1318397535}
   moveSpeed: 0.8
   _btnClip: {fileID: 8300000, guid: 6e527347e46525943a1383129f084dfa, type: 3}
@@ -4016,17 +3999,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5402903332778104458, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
   m_PrefabInstance: {fileID: 1210016694}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1210016700 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5402903332778104459, guid: d5f4db0e86cf0e747a2672fbb6665898, type: 3}
-  m_PrefabInstance: {fileID: 1210016694}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1233824054
 GameObject:
   m_ObjectHideFlags: 0
@@ -5799,7 +5771,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3000, y: 2000}
+  m_SizeDelta: {x: 10000, y: 20000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1739731064
 MonoBehaviour:
