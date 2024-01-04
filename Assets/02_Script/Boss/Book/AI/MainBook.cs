@@ -15,6 +15,7 @@ public class MainBook : MonoBehaviour
     public BackHit Back;
 
     [SerializeField] private BossDieCutScene _dieCutScene;
+    [SerializeField] private ParticleSystem _explosionParticle;
 
     [Header("Audio")]
     [SerializeField]
@@ -177,10 +178,17 @@ public class MainBook : MonoBehaviour
 
     private void HandleHit(Book book)
     {
+        PlayParticle();
         _stop = false;
         _patternStart = true;
         _index++;
         _speed += 1f;
+    }
+
+    public void PlayParticle()
+    {
+        _explosionParticle.transform.position = _mainTransform.position;
+        _explosionParticle.Play();
     }
 
     IEnumerator Pattern1()
