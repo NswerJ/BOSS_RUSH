@@ -13,6 +13,7 @@ public class IntroEventManager : MonoBehaviour
     [SerializeField] RectTransform _startPaenl;
     [SerializeField] RectTransform _uiPaenl;
     [SerializeField] RectTransform _settingPaenl;
+    [SerializeField] RectTransform _userPanel;
     [SerializeField] Image blackImage;
     [SerializeField] TextMeshProUGUI _tmpro;
 
@@ -60,7 +61,16 @@ public class IntroEventManager : MonoBehaviour
         PlaySound();
         _startPaenl.DOLocalMoveX(-1920, moveSpeed);
         _uiPaenl.DOLocalMoveX(0, moveSpeed);
+        _uiPaenl.DOLocalMoveY(0, moveSpeed);
+        _userPanel.DOLocalMoveY(1080, moveSpeed);
         _settingPaenl.DOLocalMoveX(1920, moveSpeed);
+    }
+
+    public void Info()
+    {
+        PlaySound();
+        _userPanel.DOLocalMoveY(0, moveSpeed);
+        _uiPaenl.DOLocalMoveY(-1080, moveSpeed);
     }
 
     public void Quit()
