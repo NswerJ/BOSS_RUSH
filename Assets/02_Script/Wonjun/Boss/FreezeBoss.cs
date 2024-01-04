@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class FreezeBoss : MonoBehaviour
 {
-    public GameObject StartWall;
-
     public float moveSpeed = 2.0f;
     public float movementRange = 2.0f; 
 
@@ -60,7 +58,6 @@ public class FreezeBoss : MonoBehaviour
         BossHp = BossHit.maxHP;
         anim.SetBool("Die", false);
         BossHit.DieEvent += DieBoss;
-        StartWall.SetActive(true);
     }
 
     private void DieBoss()
@@ -69,11 +66,6 @@ public class FreezeBoss : MonoBehaviour
         anim.SetBool("Die", true);
         isAttack = false;
         Destroy(iceAttack.gameObject);
-    }
-
-    public void WallDis()
-    {
-        StartWall.SetActive(false);
     }
 
    
