@@ -95,4 +95,9 @@ public class Book : MonoBehaviour
         _mainHit.SetActivate(true);
         _backHit.SetActivate(true);
     }
+
+    public void BackHitOff()
+    {
+        _backHit.SetActivate(false);
+    }
 }

@@ -36,6 +36,15 @@ public class Shuffle : MonoBehaviour
         for(int i = 0; i < _bookList.Count; i++)
         {
             _bookList[i].Back.BackHitEvent += OpenBook;
+            _bookList[i].Back.BackHitEvent += OffBackHit;
+        }
+    }
+
+    private void OffBackHit(Book book)
+    {
+        for (int i = 0; i < _bookList.Count; i++)
+        {
+            _bookList[i].BackHitOff();
         }
     }
 
