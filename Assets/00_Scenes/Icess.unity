@@ -19837,6 +19837,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1006405727 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4163638250580261619, guid: 8198837f481ce104192e0a921c6eb093, type: 3}
+  m_PrefabInstance: {fileID: 1613838288}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1046922711
 GameObject:
   m_ObjectHideFlags: 0
@@ -34295,6 +34306,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 488670351801422131, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
+      propertyPath: _coolText
+      value: 
+      objectReference: {fileID: 1006405727}
     - target: {fileID: 488670351801422131, guid: 37a65b0f0a4ac1b4e8301eb4f2f0d47f, type: 3}
       propertyPath: _SpearImage
       value: 
