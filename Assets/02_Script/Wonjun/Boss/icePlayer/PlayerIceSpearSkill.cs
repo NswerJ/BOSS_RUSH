@@ -37,24 +37,13 @@ public class PlayerIceSpearSkill : MonoBehaviour
             skillEnable = PlayerPrefs.GetInt("File" +
             FindObjectOfType<Data>().name + "Boss" + 3) == 1;
 
-        if (skillEnable)
-        {
-            ConnectEvent();
-        }
+        
 
     }
 
     public void ConnectEvent()
     {
-        evSys.AttackEvent += IceSpearAttack;
-
-    }
-
-
-
-    private void IceSpearAttack(float obj)
-    {
-        if (IceSpearCharge)
+       if (IceSpearCharge)
         {
             StartCooldown();
             GameObject SpearCharge = Instantiate(iceSpear, Player.position, Quaternion.identity);
@@ -73,7 +62,10 @@ public class PlayerIceSpearSkill : MonoBehaviour
             SpearChargeRb.velocity = SpearCharge.transform.right * playerSpearSpeed;
             IceSpearCharge = false;
         }
+
     }
+
+
 
     void Update()
     {
@@ -101,6 +93,11 @@ public class PlayerIceSpearSkill : MonoBehaviour
                 _coolText.text = string.Empty;
             }
 
+        }
+
+        if (skillEnable)
+        {
+            ConnectEvent();
         }
 
     }
