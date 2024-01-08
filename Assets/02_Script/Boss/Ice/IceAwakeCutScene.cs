@@ -57,10 +57,10 @@ public class IceAwakeCutScene : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        TextShow("나를 여기까지 밀어 붙이다니");
+        TextShow("?��? ?�기까�? 밀??붙이?�니");
         SoundManager.Instance.SFXPlay("ding", ding);
         yield return new WaitForSeconds(2.7f);
-        TextShow("지금부터 진심으로 상대해주지");
+        TextShow("지금�???진심?�로 ?��??�주지");
         SoundManager.Instance.SFXPlay("ding", ding);
         yield return new WaitForSeconds(2.7f);
 
