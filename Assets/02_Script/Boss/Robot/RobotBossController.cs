@@ -17,12 +17,14 @@ public enum EnumRobotBossState
 public class RobotBossController : FSM_Controller<EnumRobotBossState>
 {
 
+    [SerializeField] private EnumRobotBossState startState;
+
     protected override void Awake()
     {
 
         base.Awake();
 
-        ChangeState(EnumRobotBossState.Pattern_1);
+        ChangeState(startState);
 
     }
 

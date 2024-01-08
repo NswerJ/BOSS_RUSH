@@ -58,4 +58,10 @@ MonoBehaviour:
   - poolingKey: IceClone
     poolingObject: {fileID: 6762262379996524402, guid: ae05c4eb4e6a15a498cc0995db1f5a53, type: 3}
     poolCount: 50
+  - poolingKey: MissileBoom
+    poolingObject: {fileID: 2027152043839375176, guid: 596d647da9830bb40ac59260a06c5fc6, type: 3}
+    poolCount: 50
+  - poolingKey: MissileDown
+    poolingObject: {fileID: 7612696832444689462, guid: 7c9179efa4dee044bb94cb025707266f, type: 3}
+    poolCount: 50
   scenePoolingObjects: []
