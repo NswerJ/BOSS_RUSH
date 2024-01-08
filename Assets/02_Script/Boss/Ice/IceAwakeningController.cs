@@ -19,8 +19,8 @@ public enum EnumIceAwakeState
     Pattern_11, //루시드 레이저
     Pattern_12, //광범위공격 버티면 HP회복
     Pattern_13, //광범위 레이저
-    //Pattern_14, //심판패턴 검
-    //Pattern_15, //심판패턴 책
+    Pattern_14, //심판패턴 검
+    Pattern_15, //심판패턴 책
 
 }
 
@@ -80,11 +80,11 @@ public class IceAwakeningController : FSM_Controller<EnumIceAwakeState>
         var p13 = new Ice_Pattern_13_State(this);
         AddState(p13 , EnumIceAwakeState.Pattern_13);
 
-        //var p14 = new Ice_Pattern_14_State(this);
-        //AddState(p14 , EnumIceAwakeState.Pattern_14);
-        //
-        //var p15 = new Ice_Pattern_15_State(this);
-        //AddState(p15 , EnumIceAwakeState.Pattern_15);
+        var p14 = new Ice_Pattern_14_State(this);
+        AddState(p14 , EnumIceAwakeState.Pattern_14);
+        
+        var p15 = new Ice_Pattern_15_State(this);
+        AddState(p15 , EnumIceAwakeState.Pattern_15);
 
         ChangeState(startState);
 

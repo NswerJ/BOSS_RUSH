@@ -1141,7 +1141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1756}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1625753756
@@ -1346,7 +1346,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Music provided by \uC140\uBC14\uC774\uBBA4\uC9C1\r\nTitle : \uBC30\uB2EC\uC740
-    \uC790\uC2E0\uC788\uC5B4 by \uBC30\uB2EC\uC758\uBBFC\uC871\r\nhttps://sellbuymusic.com/md/mqcwcfw-eckbhcn\n\nhttps://pixabay.com/ko/"
+    \uC790\uC2E0\uC788\uC5B4 by \uBC30\uB2EC\uC758\uBBFC\uC871\r\nhttps://sellbuymusic.com/md/mqcwcfw-eckbhcn\n\nTitle
+    : \uC774 \uCD08\uB300\uC7A5\uC740 2010\uB144 \uCD5C\uCD08\uB85C \uC2DC\uC791\uB418\uC5B4\u2026by
+    \uBC30\uB2EC\uC758 \uBBFC\uC871\nhttps://www.sellbuymusic.com/musicDetail/25241\n\nhttps://pixabay.com/ko/"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b209485338217a547bfa75c7598a8d07, type: 2}
   m_sharedMaterial: {fileID: -5588426119527702597, guid: b209485338217a547bfa75c7598a8d07, type: 2}

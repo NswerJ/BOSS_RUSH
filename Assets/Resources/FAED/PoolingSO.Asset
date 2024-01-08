@@ -64,4 +64,10 @@ MonoBehaviour:
   - poolingKey: MissileDown
     poolingObject: {fileID: 7612696832444689462, guid: 7c9179efa4dee044bb94cb025707266f, type: 3}
     poolCount: 50
+  - poolingKey: EagleBoom
+    poolingObject: {fileID: 9179767731853416178, guid: ea8ca32679851cd49a67d72f8fbeccb2, type: 3}
+    poolCount: 50
+  - poolingKey: Eagle
+    poolingObject: {fileID: 779669600870593555, guid: d6ce58400767e4f4a963250a4cc22a88, type: 3}
+    poolCount: 50
   scenePoolingObjects: []

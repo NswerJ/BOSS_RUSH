@@ -9,7 +9,7 @@ public enum EnumRobotBossState
     Pattern_1, //하늘에서 미사일 떨어짐
     Pattern_2, //독수리 날아다님
     Pattern_3, //유도 미사일 발사
-    Pattern_4, //직선 미사일 발사
+    Pattern_4, //거대 직선 미사일 발사
     Pattern_5, //미사일 난사
 
 }
@@ -23,6 +23,9 @@ public class RobotBossController : FSM_Controller<EnumRobotBossState>
     {
 
         base.Awake();
+
+        var p1 = new Robot_Pattern_1_State(this);
+        AddState(p1, EnumRobotBossState.Pattern_1);
 
         ChangeState(startState);
 
