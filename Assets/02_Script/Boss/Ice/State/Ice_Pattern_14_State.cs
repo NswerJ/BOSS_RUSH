@@ -33,7 +33,7 @@ public class Ice_Pattern_14_State : IceAwakeState
     protected override void EnterState()
     {
 
-        warning.SetText("아이세스가 죽은 검의 힘을 빌려 플레이어를 심판합니다", 2);
+        warning.SetText("?�이?�스가 죽�? 검???�을 빌려 ?�레?�어�??�판?�니??", 2);
 
         ChangeCamera(camOrigin, 10);
 

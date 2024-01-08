@@ -26,7 +26,7 @@ public class Ice_Pattern_2_State : IceAwakeState
     {
 
 
-        warning.SetText("아이세스가 무한한 힘을 이끌어 냅니다", 2);
+        warning.SetText("?�이?�스가 무한???�을 ?�끌???�니??", 2);
 
         ChangeCamera(transform, 5f);
 
